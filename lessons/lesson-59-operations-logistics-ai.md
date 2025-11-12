@@ -71,20 +71,231 @@ SAVINGS: $470K (43%) + 20% faster delivery
 
 ### Foundation Level
 
-#### Exercise 1: Route Optimization
-**Objective**: Save delivery time and fuel costs with AI routing
+#### Exercise 1: Master Operations Optimization Templates
+**Objective**: Choose the right AI optimization strategy for your operation type
 
-**Scenario:** You're running a delivery service with 15-20 stops per day. Your drivers take random routes, wasting hours and fuel. Some days good routes happen by luck; other days drivers spend 2 extra hours on the road. You know optimization could save money, but manual route planning for 15 stops is complex and time-consuming.
+**Scenario:** You manage operations for different companies—a delivery service, a manufacturing plant, a supply chain. Each has different optimization challenges. A delivery route is optimized differently than inventory forecasting or maintenance scheduling. How do you quickly identify what's broken and what AI tool can fix it?
 
-**Your Mission:** Use AI to find the optimal delivery route that minimizes distance and time, then measure savings vs your current approach.
+**Your Mission:** Learn 3 operations optimization templates covering most common scenarios (Delivery & Logistics, Inventory & Forecasting, Maintenance & Equipment).
 
-- List 10-15 delivery locations with addresses
-- Use: Google Maps route optimization or ask Claude
-- Optimize: Best route (time/distance)
-- Measure: Savings vs current route (hours saved × fuel savings)
-- Learn: Impact of optimization per day/month
+---
 
-**What you're learning:** Route optimization is one of the most direct ROI applications of AI in operations. The "traveling salesman problem" that seems complex to humans is mechanical for AI. Smart routing saves 10-20% of delivery costs instantly—and that's pure margin improvement. For a delivery business doing 100 stops/day, this could be $10K-50K/month in fuel and driver time saved.
+### OPERATIONS OPTIMIZATION TEMPLATE SYSTEM
+
+Choose your template based on your operational challenge.
+
+---
+
+**TEMPLATE 1: Delivery & Logistics Optimization**
+
+For optimizing routes, schedules, and dispatch (saves 10-20% costs)
+
+**Route Optimization Prompt:**
+```
+Optimize delivery routes for my operation.
+
+CURRENT STATE:
+- Delivery locations: [# of stops per day]
+- Service area: [Geographic region]
+- Vehicles: [# of trucks, capacity]
+- Constraints: [Max hours per driver, time windows, etc.]
+
+DELIVERY DATA:
+[Paste: Address | Delivery window | Package weight | Delivery time]
+
+OPTIMIZATION GOALS:
+1. Minimize distance/fuel cost
+2. Meet delivery windows
+3. Balance workload across drivers
+4. Reduce driver hours
+
+Please provide:
+1. Optimized routes (which stops in order for each driver)
+2. Distance/time for each route
+3. Total savings vs current routing
+4. Driver utilization (% of capacity used)
+5. Missed opportunities if any
+
+Format: Driver 1: Stop 1 → Stop 2 → ... → Depot | Distance: X | Time: Y | Cost savings: $Z
+```
+
+**Sourcing & Dispatch Prompt:**
+```
+I need to optimize dispatch and sourcing.
+
+Current challenges:
+- Last-minute changes (orders arrive all day)
+- Driver wait time (inefficient)
+- Failed deliveries (missed windows)
+
+Generate:
+1. Optimal dispatch strategy (how often to route?)
+2. Real-time updates (how to handle new orders)
+3. Driver assignment logic (who handles which zone?)
+4. Contingency plans (if route breaks down)
+5. Metrics to track (efficiency, on-time %, cost per delivery)
+```
+
+**Success Metrics:**
+- [ ] Routes reduce distance by 15-25%
+- [ ] Fuel/driver costs cut by 10-20%
+- [ ] Delivery windows met 95%+ of time
+- [ ] Driver utilization increases 20%+
+- [ ] Implementation time: 2-4 weeks
+
+---
+
+**TEMPLATE 2: Inventory & Demand Forecasting**
+
+For predicting demand, optimizing stock levels, reducing waste (saves 15-30%)
+
+**Forecasting Prompt:**
+```
+Forecast demand and optimize inventory levels.
+
+HISTORICAL DATA:
+[Paste: Date | Sales | Inventory level | Stockouts | Overstock]
+
+BUSINESS CONTEXT:
+- Product: [What do you sell?]
+- Seasonality: [Summer peaks? Holiday spikes?]
+- Lead time: [How long to reorder?]
+- Carrying cost: [How much to hold stock?]
+- Stockout cost: [Cost of being out of stock?]
+
+Please provide:
+1. Demand forecast (next 3/6/12 months)
+2. Recommended inventory levels (safety stock)
+3. Reorder points (when to reorder)
+4. Expected stockouts (frequency/cost)
+5. Expected overstock (slow-moving items)
+6. Cost comparison (current vs optimized)
+
+Format: Month | Forecasted Demand | Recommended Stock | Reorder Point | Expected Cost
+```
+
+**Waste Reduction Prompt:**
+```
+My company wastes inventory. How do I reduce it?
+
+WASTE DATA:
+- Spoilage/expiration: [X% of inventory]
+- Slow-moving items: [Which SKUs?]
+- Obsolescence: [Products no longer selling]
+- Returns/defects: [% of sales]
+
+Generate:
+1. Root causes of waste (seasonal? Quality? Demand?)
+2. Waste reduction targets (reduce by 20%? 50%?)
+3. Action plan (what to stop ordering, what to clear)
+4. Pricing strategy (clearance, bulk discounts)
+5. Surplus inventory process (donations, liquidation)
+6. New ordering rules to prevent future waste
+```
+
+**Success Metrics:**
+- [ ] Forecast accuracy: 90%+ (vs 70% manual)
+- [ ] Stockouts reduced: 50%+ decrease
+- [ ] Excess inventory reduced: 20-30%
+- [ ] Carrying costs cut: $X savings annually
+- [ ] Implementation: 2-3 weeks
+
+---
+
+**TEMPLATE 3: Maintenance & Equipment Optimization**
+
+For predictive maintenance, reducing downtime, extending equipment life (saves 20-40%)
+
+**Predictive Maintenance Prompt:**
+```
+Set up predictive maintenance for equipment.
+
+EQUIPMENT:
+[Paste: Equipment | Age | Maintenance history | Failure history | Replacement cost]
+
+CURRENT STATE:
+- Maintenance type: [Reactive? Preventive schedule?]
+- Downtime when fails: [X hours/month]
+- Maintenance cost: $[X/year]
+- Replacement cost: $[X per unit]
+
+GOAL:
+Move from [reactive/scheduled] to predictive maintenance
+
+Please provide:
+1. Failure patterns (what causes equipment to fail?)
+2. Leading indicators (warning signs before failure)
+3. Predicted maintenance schedule (when to service)
+4. Expected downtime reduction: [X%]
+5. Cost savings: [X%]
+6. Implementation: [Sensors needed? Monitoring?]
+
+Format: Equipment | Current Maintenance | Predicted Failure Pattern | Recommended Action
+```
+
+**Sensor & Monitoring Prompt:**
+```
+I want to track equipment health with IoT sensors.
+
+EQUIPMENT TO MONITOR:
+- [Equipment type, quantity, location]
+- Current tracking: [Manual logs? Nothing?]
+- Budget: $[X]
+
+Generate:
+1. Which metrics to track (temperature, vibration, pressure, etc.)
+2. Sensor recommendations (cost, accuracy, reliability)
+3. Monitoring tools (dashboards, alerts)
+4. Maintenance action triggers (when to alert technician)
+5. Expected ROI (downtime reduction, lifespan extension)
+6. Implementation roadmap (which equipment first?)
+```
+
+**Success Metrics:**
+- [ ] Equipment failure prediction accuracy: 85%+
+- [ ] Downtime reduced: 30-50%
+- [ ] Equipment lifespan extended: 10-20%
+- [ ] Maintenance costs cut: 20-30%
+- [ ] Emergency repairs eliminated: 80%+
+
+---
+
+### PRACTICE: Choose Template for Each Scenario
+
+**Scenario A:** Delivery service with 20 stops/day wasting fuel
+→ Use **Template 1** (Route optimization, saves 15-20%)
+
+**Scenario B:** Retail store with high spoilage/overstock
+→ Use **Template 2** (Demand forecasting + inventory optimization, saves 20-30%)
+
+**Scenario C:** Manufacturing plant with unplanned equipment failures
+→ Use **Template 3** (Predictive maintenance, saves 25-40% downtime)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Different operations need different optimization:** Logistics ≠ Inventory ≠ Maintenance
+- ✅ **AI finds patterns humans miss:** Route efficiency, demand cycles, failure patterns
+- ✅ **Predictive beats reactive:** Knowing when failure will happen prevents crisis
+- ✅ **Small improvements compound:** 10% efficiency gain daily = 40%+ annually
+- ✅ **Data is essential:** Optimization needs historical data to work
+
+---
+
+**Try It Now:**
+
+1. Identify: Which operational challenge costs you the most? (Routes, inventory, downtime?)
+2. Choose: Template 1, 2, or 3
+3. Gather: Historical data (locations, sales, failures, etc.)
+4. Analyze: Use AI to identify patterns and opportunities
+5. Optimize: Implement recommended changes
+6. Measure: Track savings weekly
+
+**Success Metric:**
+- You identify 1-2 quick wins (implement within 2 weeks)
+- You see measurable improvement within 30 days (cost savings, time saved, or prevented problems)
+- You know which operational area to optimize next
 
 #### Exercise 2: Inventory Forecasting (5 min)**
 - Export: Sales history (12+ months)

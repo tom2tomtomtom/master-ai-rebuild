@@ -164,50 +164,152 @@ Chief AI Officer (CAIO)
 
 ### Foundation Level
 
-#### Exercise 1: Assess Your Current AI Capability
-**Objective**: Understand exactly where your organization is today
+#### Exercise 1: Master AI Team Structure Templates
+**Objective**: Build the right AI team for your company size
 
-**Scenario:** You're a CTO or VP of Engineering tasked with "making AI happen" across your organization. You've got 200+ people spread across Sales, Marketing, Support, Product, Development, and Finance. Some departments are probably using AI already (informally). Others are scared of it. You need to know where you actually stand before you can build a team and strategy.
+**Scenario:** You need to hire people to drive AI adoption. But what structure works? A startup of 30 people needs different AI leadership than a 500-person mid-market company, which needs different structure than a 5K+ person enterprise. You don't want to hire too many people (wastes money) or too few (fails to drive adoption).
 
-**Your Mission:** Conduct a quick AI adoption audit to understand what's working, what's blocked, and where to focus your team's efforts first.
+**Your Mission:** Learn 3 AI team structure templates for different company sizes (Startup, Mid-Market, Enterprise).
 
-**Step-by-Step:**
-1. Create simple spreadsheet with columns: Function | # of staff | Current AI use (Y/N) | Tools used | Challenges | Opportunity
-2. Interview: 2-3 people per function (Sales, Marketing, Support, Product, Dev, Finance, HR, Ops)
-3. Ask specifically:
-   - "What tasks are most repetitive/painful in your role?" (30 sec per person)
-   - "Have you used ChatGPT, Claude, or Gemini? For what?" (yes/no, name)
-   - "What would you do with AI if it was easy and approved?" (1 minute)
-4. Compile: Spreadsheet shows current state
-5. Analysis: Prompt Claude with your data:
-   ```
-   "Here's our current AI adoption: [paste spreadsheet]
-   What are our strengths? Where should we focus first?
-   What team structure would unblock adoption?"
-   ```
-6. Result: Clear picture of where you are, what's working, what's blocked
-7. Learn: Most organizations are further ahead than they realize (40% already using AI) AND further behind than they think (scattered, not integrated)
+---
 
-**Exact Prompt to Use:**
+**TEMPLATE 1: Startup AI Structure (10-50 people)**
+
+**Team:** 1 AI Champion + 3-5 power users per function
+
+**Role Breakdown:**
+- AI Champion (0.5-1 FTE): Lead adoption, set best practices, own tooling decisions
+- Department Power Users (5-10% time): Champions in Sales, Marketing, Dev, Support
+- CEO/Leadership: Clear AI policy, budget approval
+
+**Hiring Prompt:**
 ```
-My organization has [X] staff. Here's our AI adoption assessment:
+I'm a [startup size] hiring for AI leadership. What should I look for?
 
-[Paste your spreadsheet]
-
-Questions:
-1. How mature are we compared to peers?
-2. What functions should be first focus?
-3. What are the quick wins (1-2 weeks)?
-4. What's blocking adoption besides skills?
-5. What organizational structure would help most?
+Generate:
+1. AI Champion job description (what skills matter?)
+2. Internal champion selection criteria (who to identify in each department)
+3. Training plan (onboard champions in 2 weeks)
+4. Budget (tools, time, training)
+5. Success metrics (adoption %, time saved, revenue impact)
 ```
 
-**What Good Looks Like:**
-- 20-30% of staff already using AI informally (you're not starting from zero)
-- 2-3 functions ahead of others (Sales, Marketing typically lead)
-- Clear blockers: unclear policy, fear of job loss, tool access
+**Success Metrics:**
+- [ ] 40%+ of staff using AI within 3 months
+- [ ] 5+ high-impact use cases documented
+- [ ] $X in time/cost savings identified
+- [ ] Team ready for next phase (more structure)
 
-**What you're learning:** Most organizations think they're starting from zero with AI, but they're not. Teams are already experimenting quietly. Your job as a leader is to make that informal adoption explicit, remove blockers, and scale what's working. The assessment isn't about passing judgment; it's about understanding the current state so you can build a structure that unblocks rapid adoption. Best-in-class organizations do this before hiring their first AI specialist.
+---
+
+**TEMPLATE 2: Mid-Market AI Structure (50-500 people)**
+
+**Team:** AI Lead + 2-3 specialists + 10-20 department champions
+
+**Role Breakdown:**
+- AI Lead (1 FTE): Strategy, team management, governance
+- AI Specialist - Implementation (1 FTE): Custom solutions, integrations
+- AI Specialist - Training (0.5 FTE): Education, documentation
+- Department Champions (10-20 people, 10% time): In each major function
+- Executive Sponsor: VP/C-level owner of AI strategy
+
+**Hiring Prompt:**
+```
+I'm building an AI team for [mid-market company]. Who do I hire?
+
+Company: [Size, industry, maturity]
+Budget: $[X] for first year AI team
+
+Generate:
+1. Full organization chart (who reports to whom?)
+2. Job descriptions (AI Lead, Implementation specialist, etc.)
+3. Candidate profiles (what background/skills?)
+4. Training plan (ramp up new hires quickly)
+5. Success metrics (adoption, revenue impact, cost savings)
+6. First 90-day plan (what team accomplishes)
+```
+
+**Success Metrics:**
+- [ ] 60%+ of staff using AI in their role
+- [ ] Team running 2-3 large pilots (revenue/cost impact)
+- [ ] Governance framework established
+- [ ] AI integrated into hiring/promotion criteria
+
+---
+
+**TEMPLATE 3: Enterprise AI Structure (500+ people)**
+
+**Team:** Chief AI Officer + Director + 8-12 specialists + 50+ champions
+
+**Role Breakdown:**
+- Chief AI Officer (1 FTE): Board reporting, strategy, executive alignment
+- CoE (Center of Excellence) Director (1 FTE): Team management, architecture
+- Specialists (8-12 FTE): Prompt engineers, implementation leads, data scientists, change managers
+- Department Champions (50+ people, 5-10% time): In each business unit
+- Board/Executive Committee: Quarterly reviews, strategy alignment
+
+**Building Prompt:**
+```
+I'm building an enterprise AI program. Structure?
+
+Organization: [Size, maturity, industry]
+Goal: [Transform company? Add value? Risk mitigation?]
+Timeline: [6 months to impact? 12 months for transformation?]
+Budget: $[X] annually
+
+Generate:
+1. Full governance model (who decides what?)
+2. CoE organizational chart
+3. Champion network (how to scale coordination?)
+4. Governance framework (policies, risk, compliance)
+5. Success metrics (adoption, revenue, cost, risk reduction)
+6. 12-month roadmap (phasing, milestones)
+7. Executive communication plan
+```
+
+**Success Metrics:**
+- [ ] 80%+ of staff AI-augmented in their role
+- [ ] 15-20 launched AI projects (revenue impact $XXM)
+- [ ] Reduced compliance/risk with AI governance
+- [ ] Talent retention improved (AI development opportunities)
+
+---
+
+**PRACTICE: Choose Structure for Your Company**
+
+**Scenario A:** 30-person SaaS startup
+→ Use **Template 1** (1 AI Champion + internal power users)
+
+**Scenario B:** 200-person marketing/services company
+→ Use **Template 2** (AI Lead + 2 specialists + champions)
+
+**Scenario C:** 2,000-person enterprise bank
+→ Use **Template 3** (Chief AI Officer + CoE director + specialists)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Right structure enables adoption:** Wrong structure kills initiatives
+- ✅ **Start small, scale gradually:** Hire based on maturity, not vision
+- ✅ **Champions > consultants:** Internal advocates > external experts
+- ✅ **Governance matters early:** Prevents problems at scale
+- ✅ **Timeline varies by size:** Startup: 3 months to impact; Enterprise: 12 months
+
+---
+
+**Try It Now:**
+
+1. Identify: Your company size and AI maturity
+2. Choose: Template 1, 2, or 3
+3. Assess: Do you have current structure? Gaps?
+4. Hire/Develop: Build the team for your size
+5. Measure: Adoption rate, business impact, time to value
+
+**Success Metric:**
+- You hire/promote right people for the role
+- Team drives 5+ meaningful AI projects in year 1
+- Adoption grows 30-50% every quarter
 
 #### Exercise 2: Define Your Ideal AI Team Structure (5 min)**
 

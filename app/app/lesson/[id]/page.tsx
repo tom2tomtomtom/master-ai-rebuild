@@ -51,13 +51,13 @@ export default async function LessonPage({ params }: LessonPageProps) {
       {/* Lesson Content */}
       <main className="container mx-auto px-6 py-12">
         <div className="max-w-4xl mx-auto">
-          {/* Back to Dashboard Link */}
+          {/* Back to AI Assistant Link */}
           <Link
-            href="/dashboard"
+            href="/chatbot"
             className="inline-flex items-center gap-2 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Dashboard
+            Back to AI Assistant
           </Link>
 
           {/* AI Learning Path Navigator */}

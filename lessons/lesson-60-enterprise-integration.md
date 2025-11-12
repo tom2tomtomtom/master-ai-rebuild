@@ -69,20 +69,169 @@ SAVINGS: $900K (75%) + 10× faster integrations
 
 ### Foundation Level
 
-#### Exercise 1: Simple Integration
-**Objective**: Connect two systems with no code
+#### Exercise 1: Master Enterprise Integration Templates
+**Objective**: Connect systems efficiently based on integration complexity
 
-**Scenario:** You're managing Salesforce and your marketing automation tool separately. When a sales rep adds a new lead to Salesforce, someone has to manually enter it in the email tool. This manual hand-off happens 10 times daily and takes 2+ hours of administrative work per day. It's error-prone and delays follow-up by 24 hours.
+**Scenario:** Your company uses 20+ tools (Salesforce, HubSpot, Slack, Google Workspace, accounting software, etc.). Data sits in silos. Every system has the same customer info but in different formats. When a customer updates their info, it only changes in one system. You're spending money on redundant tools and losing sales because information is stale or inconsistent.
 
-**Your Mission:** Build a no-code integration so that new Salesforce leads automatically create contacts in your email tool within minutes.
+**Your Mission:** Learn 3 integration templates for different complexity levels (Simple Data Sync, Real-time API Integration, Enterprise Data Warehouse).
 
-- Task: When new lead added to Salesforce → Create contact in email tool
-- Tool: Zapier or Integromat (no-code integration)
-- Setup: 3-step workflow (trigger, action, test)
-- Test: Create lead in Salesforce, verify it appears in email tool
-- Learn: Power of no-code integration (no developer needed)
+---
 
-**What you're learning:** Enterprise integration no longer requires custom development or IT involvement. No-code platforms like Zapier handle the plumbing automatically. What used to take 2 weeks and $10K (custom code) now takes 30 minutes with Zapier ($50/month). This shift—from developer-dependent integrations to business-user-accessible automation—means you can eliminate hundreds of manual handoffs throughout your organization quickly and cheaply.
+**TEMPLATE 1: Simple No-Code Integrations (2-4 hours)**
+
+For connecting 2-3 common SaaS tools (Zapier, Make, Integromat)
+
+**Setup Prompt:**
+```
+I need to integrate [System A] with [System B].
+
+PROBLEM:
+- Data in [System A] needs to appear in [System B]
+- Currently: [Manual copy/paste? Nothing?]
+- Frequency: [How often does data change?]
+- Volume: [How many records?]
+
+TRIGGER EXAMPLE:
+When: [Event in System A] (e.g., "new lead in Salesforce")
+Then: [Action in System B] (e.g., "create contact in email tool")
+
+FIELD MAPPING:
+System A fields → System B fields:
+- [A field] → [B field]
+- [A field] → [B field]
+- (list all)
+
+Generate:
+1. Step-by-step Zapier/Make workflow
+2. Field mapping rules (transformations needed?)
+3. Error handling (what if integration fails?)
+4. Testing checklist
+5. Monitoring (how to verify it's working)
+```
+
+**Success Metrics:**
+- [ ] Integration set up in <4 hours
+- [ ] 100% data accuracy (test 50 records)
+- [ ] Zero manual workarounds needed
+- [ ] Cost: $50-500/month (Zapier)
+
+---
+
+**TEMPLATE 2: Real-Time API Integration (1-2 weeks)**
+
+For deeper system connection needing custom development
+
+**API Integration Prompt:**
+```
+I need custom API integration between [System A] and [System B].
+
+REQUIREMENTS:
+- Sync frequency: Real-time / Hourly / Daily
+- Data volume: [# records/transactions per day]
+- Systems: [Both have APIs?]
+- Current: [Partially integrated? Completely separate?]
+
+TECHNICAL SPECS:
+- Authentication: [API keys? OAuth?]
+- Data format: [JSON/XML?]
+- Rate limits: [Calls per second?]
+- Error scenarios: [What if System B is down?]
+
+Generate:
+1. Architecture diagram (how data flows)
+2. API endpoints needed (from both systems)
+3. Webhook setup (for real-time events)
+4. Data validation (ensuring accuracy)
+5. Error handling & retry logic
+6. Monitoring & alerting
+7. Documentation
+```
+
+**Success Metrics:**
+- [ ] Real-time data sync (<1 min latency)
+- [ ] 99.9% uptime
+- [ ] Automatic error recovery
+- [ ] Cost: $500-5K/month (custom development)
+
+---
+
+**TEMPLATE 3: Enterprise Data Warehouse (2-4 months)**
+
+For company-wide data unification (Snowflake, BigQuery, Redshift)
+
+**Data Warehouse Prompt:**
+```
+I need a data warehouse to centralize all company data.
+
+CURRENT STATE:
+- Systems: [List all 20+ tools]
+- Teams: [Who needs access to what data?]
+- Data type: [Sales, customer, operational, financial]
+- Scale: [GBs/TBs? Growth rate?]
+- Budget: $[X]
+
+GOALS:
+1. Single customer view
+2. Accurate reporting
+3. Self-service analytics
+4. Real-time dashboards
+
+Generate:
+1. Data warehouse architecture
+2. ETL pipeline (extract/transform/load from each system)
+3. Data modeling (customer, transaction, event tables)
+4. Security & access control
+5. BI tool recommendation (Looker, Tableau, etc.)
+6. Implementation roadmap (which systems first?)
+7. Cost estimate (storage, computing, tools)
+```
+
+**Success Metrics:**
+- [ ] All systems connected (100% data coverage)
+- [ ] Data freshness: <1 hour old
+- [ ] Accuracy: 99.9%+
+- [ ] Self-service dashboards available
+- [ ] Cost: $2K-10K/month (managed warehouse)
+
+---
+
+**PRACTICE: Choose Template for Each Scenario**
+
+**Scenario A:** Connect Salesforce → email tool (manual hand-offs happening)
+→ Use **Template 1** (No-code, 2-4 hours, $50-500/mo)
+
+**Scenario B:** Real-time inventory sync across warehouses
+→ Use **Template 2** (Custom API, 1-2 weeks, $500-5K/mo)
+
+**Scenario C:** Unified customer view across 25 systems + analytics dashboards
+→ Use **Template 3** (Data warehouse, 2-4 months, $2K-10K/mo)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Integration complexity varies:** Simple sync ≠ real-time API ≠ enterprise warehouse
+- ✅ **No-code solves most problems:** 80% of integrations don't need custom code
+- ✅ **Data warehouse is strategic:** Central source of truth enables analytics
+- ✅ **Real-time = faster decisions:** Analytics matters only if data is fresh
+- ✅ **Proper architecture prevents chaos:** Good design prevents future rework
+
+---
+
+**Try It Now:**
+
+1. Identify: Your worst data silo (systems not talking)
+2. Choose: Template 1, 2, or 3 based on scope
+3. Map: Which fields need to sync
+4. Implement: Following template workflow
+5. Verify: Data accuracy and frequency
+6. Measure: Time saved by eliminating manual work
+
+**Success Metric:**
+- Eliminate one manual data hand-off (saves 5+ hours/week)
+- Data accuracy improves from 85% → 99%+
+- Plan next integration using what you learned
 
 #### Exercise 2: Data Mapping (5 min)**
 - Export: 100 records from System A

@@ -30,8 +30,8 @@ export async function middleware(request: NextRequest) {
   // Refresh session if expired
   const { data: { user } } = await supabase.auth.getUser()
 
-  // Protected routes (onboarding is NOT protected as it's part of the auth flow)
-  const protectedPaths = ['/dashboard', '/lesson']
+  // Protected routes - chatbot is now the main interface
+  const protectedPaths = ['/chatbot', '/lesson', '/browse']
   const isProtectedPath = protectedPaths.some(path =>
     request.nextUrl.pathname.startsWith(path)
   )
@@ -41,21 +41,6 @@ export async function middleware(request: NextRequest) {
     const url = request.nextUrl.clone()
     url.pathname = '/'
     return NextResponse.redirect(url)
-  }
-
-  // Redirect to onboarding if no path selected
-  if (user && request.nextUrl.pathname.startsWith('/dashboard')) {
-    const { data: userData } = await supabase
-      .from('users')
-      .select('selected_path')
-      .eq('id', user.id)
-      .single()
-
-    if (!userData?.selected_path) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/onboarding'
-      return NextResponse.redirect(url)
-    }
   }
 
   return supabaseResponse
