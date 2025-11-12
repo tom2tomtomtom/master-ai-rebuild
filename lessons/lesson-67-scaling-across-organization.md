@@ -70,41 +70,622 @@ ROI: 300-1000% on scaling investment
 
 ### Foundation Level
 
-#### Exercise 1: Assess Pilot Readiness for Scaling
-**Objective**: Know if your pilot was successful enough to expand company-wide
+#### Exercise 1: Master Scaling Wave Templates
+**Objective**: Choose the right scaling approach for your organization's timeline + resources
 
-**Scenario:** You've just completed a 3-month pilot of AI tools with 30 power users in Sales. It went well—they've saved time, quality looks good, and they want to keep using it. Now the question: is it ready to expand to the rest of the company (200+ people)? Or are there problems that will emerge when you scale? You need to know what success actually looks like before you invest in organization-wide rollout.
+**Scenario:** Your pilot succeeded—70%+ of users are actively using AI, seeing measurable benefits. Now you need to scale to the whole organization (100-500+ people). But how fast should you scale? A fast 3-month rollout maximizes early value but requires heavy investment and carries more risk. A phased 6-9 month approach balances speed and stability. A slow 12-18 month organic approach minimizes cost but risks losing momentum. The right choice depends on your organization's risk tolerance, budget, and urgency.
 
-**Your Mission:** Assess whether your pilot achieved the outcomes needed to confidently scale to the whole organization.
+**Your Mission:** Learn 3 scaling wave templates covering different timelines (Rapid 3-4mo, Phased 6-9mo, Sustainable 12-18mo). Choose the one matching your organization, then execute the scaling roadmap.
 
-**Pilot Checklist:**
+---
+
+**TEMPLATE 1: Rapid Scaling Wave (3-4 months, Aggressive)**
+
+For organizations that want fast adoption, have executive commitment, and can invest aggressively
+
+**When to use:**
+- Urgent competitive need (market moving fast)
+- Strong executive sponsorship + funding
+- Pilot was extremely successful (>80% adoption)
+- Lower risk tolerance for being behind
+- Budget: $300K-500K
+- Risk: Higher (aggressive timeline)
+
+**Setup Prompt:**
 ```
-✓ ADOPTION:
-  □ 70%+ of pilot users using AI regularly
-  □ Usage increasing (not declining)
-  □ Voluntary adoption (people chose to use)
+Design rapid 3-4 month scaling plan.
 
-✓ RESULTS:
-  □ 50%+ time savings measured
-  □ Quality equal or better
-  □ ROI positive (value > cost)
-  □ Users want to continue
+PILOT SUCCESS:
+- Current adoption: [X]% of pilot group
+- ROI achieved: $[X]K
+- Leadership commitment: [Strong/Wavering]
+- Budget available: $[X]K
 
-✓ PROCESS:
-  □ Support system working (questions answered)
-  □ Training effective (people learned)
-  □ Governance/policy working (no violations)
+ORGANIZATION:
+- Total size: [# employees]
+- Target adoption: 80%+ within 4 months
+- Current tool/platform: [ChatGPT/Claude/Gemini/Other]
+- High-impact functions: [Sales/Marketing/Dev/Support/Other]
 
-✓ ORGANIZATIONAL:
-  □ Leadership satisfied (will fund expansion)
-  □ No major incidents (security/quality/compliance)
-  □ Success stories documented
+AGGRESSIVE TIMELINE:
+Goal: From 10% (pilot) → 80% (organization-wide) in 3-4 months
 
-If 70%+ checkmarks: Ready to scale
-If <50%: Fix pilot first before scaling
+Generate:
+1. Wave breakdown (which functions, when)
+2. All-hands training plan (frequency, format)
+3. Support infrastructure (champions needed, setup)
+4. Marketing/communication campaign (weekly messages)
+5. Adoption tracking (daily metrics, targets)
+6. Risk mitigation (what could go wrong?)
+
+Format:
+Month 1: Preparation + Wave 1 launch
+Month 2: Wave 2 expansion
+Month 3-4: Wave 3 consolidation + optimization
+
+Expected: 30% adoption Month 1, 60% Month 2, 80%+ Month 3
 ```
 
-**What you're learning:** Scaling is where most AI initiatives fail. Pilots succeed because they have dedicated support, clear success criteria, and high motivation. Scaling requires different strategies: self-service support, automated training, policy enforcement, and culture change across diverse groups. This checklist separates pilots that are actually ready to scale from those that only *feel* successful because they had extra attention. The organizations that scale successfully treat scaling as a distinct phase with its own risks and requirements, not just "doing more of what worked in the pilot."
+**Practice Scenario:**
+```
+RAPID SCALING: 150-PERSON TECH STARTUP
+
+Pilot success (Month 1-3):
+- Sales team (15 people): 80% adoption, saving 3 hours/week each
+- ROI: $20K/month value vs. $2K/month AI cost
+- Leadership: "Expand immediately to all departments"
+
+Scaling plan:
+
+MONTH 1 (WEEKS 1-4): PREPARATION + WAVE 1
+Week 1:
+- All-hands announcement (CEO): "AI is strategic, full rollout starting"
+- Commit: 2-hour training during work
+- Champions identified + trained in high-impact functions
+
+Week 2:
+- Sales team: Already trained (pilot), begin using broadly
+- Marketing (10 people): 2-hour training + Champions support
+- Support (12 people): 2-hour training + Champions support
+- Adoption target: 25% of org (37 people)
+
+Week 3:
+- Dev team (20 people): 2-hour training + technical deep-dive
+- Finance (8 people): 2-hour training + specific use cases
+- Monitor: Adoption rate (should be 25-30%)
+
+Week 4:
+- Review: Month 1 results
+- Announce: Wave 2 starting, celebrate Wave 1 wins
+- Support increase: More office hours added
+- Adoption: 30% target (45 people)
+
+MONTH 2 (WEEKS 5-8): WAVE 2 EXPANSION
+Week 5-6:
+- HR (8 people): Training + use cases
+- Operations (12 people): Training + workflow automation
+- Customer Success (10 people): Training + customer interactions
+- Adoption target: 50-60% (75-90 people)
+
+Week 7-8:
+- All remaining: Training offered multiple times
+- Advanced sessions: For power users
+- Celebrate: Month 2 wins, share metrics
+- Adoption target: 60% (90 people)
+
+MONTH 3-4 (WEEKS 9-16): CONSOLIDATION + OPTIMIZATION
+Week 9-12:
+- Holdouts: Light pressure (team leads mention in 1:1s)
+- Advanced training: For interested users
+- New use cases: Feature + emerging ideas
+- Adoption target: 75% (112 people)
+
+Week 13-16:
+- Laggards: Special attention (1:1 training if needed)
+- Optimization: What's working, what to improve
+- Preparation: Ongoing support structure
+- Final target: 80%+ (120 people)
+
+SUPPORT STRUCTURE (AGGRESSIVE):
+Month 1: 3 dedicated Champions + 1 AI Lead (20 hrs/week each)
+Month 2: 5 Champions + 1 Lead (growing to full-time)
+Month 3-4: 8 Champions rotating support + 1 full-time Lead
+
+Channels:
+- Slack #ai-help (monitored 8am-6pm)
+- Office hours: 3 times/week (1 hour each)
+- 1:1 training: Available on-demand
+- FAQ: Updated daily based on questions
+
+MARKETING/COMMUNICATION (WEEKLY):
+- Week 1: "This is strategic" (CEO message)
+- Week 2: "See how Sales is using it" (case study)
+- Week 3: "Training signup now open" (all-hands invite)
+- Week 4: "Month 1 wins: 30% adopted" (celebration)
+- Week 5: "Wave 2 starting" (new functions)
+- Week 6: "Customer Success using AI" (new department)
+- Week 7: "You're not alone—60% doing this now" (peer pressure)
+- Week 8: "Advanced features" (power user training)
+- Week 9-16: "Holdouts welcome" (still available, no judgment)
+
+RISK MITIGATION:
+Risk 1: Support system overwhelmed
+- Mitigation: Over-staff on Month 1-2 (easy to reduce later)
+- Contingency: Bring in external consultant if needed
+
+Risk 2: Quality issues emerge at scale
+- Mitigation: Weekly QA review (check outputs)
+- Contingency: Pause rollout if quality drops below baseline
+
+Risk 3: Security/compliance issues
+- Mitigation: Security audit before Month 1
+- Contingency: Compliance policy in place before launch
+
+METRICS (TRACKING DAILY):
+- Active users (% of org)
+- Usage frequency (avg uses per person per day)
+- Support tickets (should decrease as people learn)
+- Sentiment (monthly survey)
+- ROI (value vs. cost)
+
+Month 1 targets:
+- Adoption: 25-30%
+- Daily active: 70% of adopted
+- ROI positive: $20K value > $8K cost
+- Satisfaction: 4+/5 stars (survey)
+
+Month 2 targets:
+- Adoption: 50-60%
+- Daily active: 65% of adopted
+- ROI: $35K value > $12K cost
+
+Month 3-4 targets:
+- Adoption: 80%+
+- Daily active: 60% of adopted
+- ROI: $50K+ value monthly
+
+BUDGET ($300K total):
+- Champions salary increases: $40K (4 people, 3 months)
+- AI consultant/trainer: $60K (part-time, 3 months)
+- Tools/licenses: $50K (scale up from pilot)
+- Marketing/communications: $20K (print, digital, events)
+- Training materials: $30K (videos, docs, templates)
+- Contingency: $100K (for unexpected needs)
+- Total: $300K
+
+Result: From 10% (pilot) to 80%+ (organization) in 3-4 months
+```
+
+**Success Metrics:**
+- [ ] Month 1: 25-30% adoption (50+ people)
+- [ ] Month 2: 50-60% adoption (100+ people)
+- [ ] Month 3-4: 80%+ adoption (150+ people)
+- [ ] Support system handling load
+- [ ] ROI positive (value > cost)
+- [ ] Quality maintained (no incidents)
+- [ ] Momentum sustained (usage not declining)
+
+---
+
+**TEMPLATE 2: Phased Scaling Wave (6-9 months, Balanced)**
+
+For organizations that want steady progress, manageable risk, and proven success at each step
+
+**When to use:**
+- Moderate urgency (not rushing, but moving)
+- Executive support is solid but not unlimited
+- Pilot successful but some concerns
+- Want to prove value at each wave before expanding
+- Budget: $150K-300K
+- Risk: Medium (balanced approach)
+
+**Setup Prompt:**
+```
+Design phased 6-9 month scaling plan.
+
+PILOT RESULTS:
+- Current adoption: [X]%
+- ROI: $[X]K
+- Concerns: [List any issues to address before scaling]
+- Functions ready to expand to: [List]
+
+ORGANIZATION:
+- Total size: [# employees]
+- Target: 80% adoption by month 9
+- Timeline: 6-9 months preferred
+- Risk tolerance: Medium
+- Budget: $[X]K available
+
+PHASED APPROACH:
+Goal: Wave-based rollout with validation at each step
+
+Generate:
+1. Three-wave breakdown (which functions, timeline, targets)
+2. Success criteria per wave (before expanding)
+3. Training plan (content + delivery for each wave)
+4. Support structure (champions by function)
+5. Communication strategy (building momentum)
+6. Metrics dashboard (weekly tracking)
+7. Go/no-go criteria (when to advance to next wave)
+
+Format:
+Wave 1 (Months 1-2): High-ROI functions
+Wave 2 (Months 3-5): Early majority functions
+Wave 3 (Months 6-9): Late majority + holdouts
+
+Expected: 20% Month 1, 40% Month 3, 60% Month 6, 80% Month 9
+```
+
+**Practice Scenario:**
+```
+PHASED SCALING: 250-PERSON MID-MARKET COMPANY
+
+Pilot (Month 1-3): Sales team (25 people, 90% adoption)
+
+Wave 1 (Months 4-5): Early expansion (40-50 people, 30% of org)
+- Marketing (20 people): 2-hour training, 2 champions
+- Support (15 people): 2-hour training, 2 champions
+- Success target: 30% adoption across org (75 people active)
+- Go/no-go: If 70%+ of Wave 1 active (yes → proceed to Wave 2)
+
+Wave 2 (Months 6-7): Broader adoption (60-70 people, 50-60% of org)
+- Finance (20 people): 2-hour training + specific use cases
+- Operations (25 people): 2-hour training + workflow automation
+- Product (15 people): Technical training + code generation
+- Success target: 50-60% adoption (125-150 people active)
+- Go/no-go: If 60%+ of Wave 2 active (yes → proceed to Wave 3)
+
+Wave 3 (Months 8-9): Consolidation (40-50 people, 80%+ org)
+- HR (12 people): Training + recruiting/onboarding
+- Legal (8 people): Training + contract review
+- Remaining (20+ people): Training open to all
+- Success target: 80%+ adoption (200+ people active)
+
+SUPPORT STRUCTURE (PHASED):
+- Wave 1: 4 champions + 0.5 FTE AI Lead
+- Wave 2: 6 champions + 0.75 FTE AI Lead
+- Wave 3: 8-10 champions + 1.0 FTE AI Lead
+
+Office hours: Monthly expansion (1 → 2 → 3 times/week)
+Slack support: Available, monitored 8am-6pm
+1:1 available: On-demand
+
+TRAINING (WAVE-SPECIFIC):
+All waves: 2-hour base training (same content)
+Wave 1: + 1-hour function-specific (sales already has this)
+Wave 2: + 1-hour function-specific (finance, ops, product nuances)
+Wave 3: + 1-hour advanced (optional, for interested users)
+
+COMMUNICATION (MONTHLY):
+- Month 4: "Wave 1 launching with Marketing + Support"
+- Month 5: "Wave 1 results: 30% adoption, [time saved]"
+- Month 6: "Wave 2 expanding to Finance, Ops, Product"
+- Month 7: "Wave 2 results: 60% adoption, momentum building"
+- Month 8: "Wave 3 final push—join the 80%"
+- Month 9: "Success: 80%+ adoption, AI is now our standard"
+
+SUCCESS CRITERIA PER WAVE:
+Wave 1:
+- [ ] 70%+ of Wave 1 people trained
+- [ ] 50%+ of Wave 1 using regularly (daily)
+- [ ] Quality equal to pilot
+- [ ] ROI breakeven (value = cost)
+- [ ] No major incidents
+→ Go decision: Proceed to Wave 2? YES (75% meet criteria)
+
+Wave 2:
+- [ ] 80%+ of Wave 2 trained
+- [ ] 60%+ using regularly
+- [ ] ROI improving (value > cost)
+- [ ] Support load manageable
+- [ ] Pilot + Wave 1 sustained (not declining)
+→ Go decision: Proceed to Wave 3? YES (80% meet criteria)
+
+Wave 3:
+- [ ] 70%+ trained (some may decline training)
+- [ ] 50%+ using regularly
+- [ ] 80%+ total org adoption (including inactive)
+- [ ] ROI positive organization-wide
+- [ ] Sustainable support structure in place
+→ Final: Achieved 80%+ adoption organization-wide ✓
+
+TIMELINE + BUDGET:
+
+Wave 1 ($60K):
+- Champions time: $20K
+- Training materials: $15K
+- AI Lead: $15K
+- Support platform: $10K
+
+Wave 2 ($90K):
+- Additional champions: $30K
+- Training (3 functions): $25K
+- AI Lead expansion: $20K
+- Support scaling: $15K
+
+Wave 3 ($75K):
+- Final champions: $20K
+- Training + communications: $20K
+- AI Lead full-time: $25K
+- Contingency: $10K
+
+TOTAL: $225K (9 months)
+
+RISK MITIGATION:
+Risk 1: Wave doesn't perform well
+- Mitigation: Go/no-go criteria before expanding
+- Contingency: Slow down, fix before proceeding
+
+Risk 2: Adoption plateaus between waves
+- Mitigation: Champions + engagement to maintain
+- Contingency: Bring in external trainer for boost
+
+Risk 3: Different functions have different needs
+- Mitigation: Function-specific training in each wave
+- Contingency: Customize support per function
+
+Result: Steady progression from 10% (pilot) to 80%+ (organization) over 9 months
+```
+
+**Success Metrics:**
+- [ ] Wave 1: 20-30% adoption (month 2)
+- [ ] Wave 2: 50-60% adoption (month 6)
+- [ ] Wave 3: 80%+ adoption (month 9)
+- [ ] Go/no-go criteria met at each wave
+- [ ] Support structure scaling with adoption
+- [ ] ROI positive by month 4, improving thereafter
+- [ ] Quality sustained throughout waves
+
+---
+
+**TEMPLATE 3: Sustainable Scaling (12-18 months, Organic)**
+
+For organizations that prioritize cost-effectiveness, want strong cultural adoption, and have time to scale gradually
+
+**When to use:**
+- Limited budget ($50K-100K)
+- Sustainable approach preferred over speed
+- Want deep cultural adoption (not just compliance)
+- Champions network can drive adoption
+- Risk tolerance: Low (prefer slower, proven)
+- Timeline: 12-18 months acceptable
+
+**Setup Prompt:**
+```
+Design sustainable 12-18 month scaling plan.
+
+PILOT SUCCESS:
+- Current adoption: [X]%
+- Champions identified: [# people]
+- Champion capability: [Strong/Moderate/Needs training]
+- Organic interest: [High/Moderate/Low]
+
+ORGANIZATION:
+- Total size: [# employees]
+- Champions interested in helping: [#]
+- Budget available: $[X]K (limited)
+- Timeline: 12-18 months OK
+- Culture: [Change-friendly/Resistant/Mixed]
+
+ORGANIC SCALING:
+Goal: Sustainable growth through champions + peer influence
+
+Generate:
+1. Champion network plan (who, how to recruit, train, support)
+2. Peer-to-peer learning strategy (champions teaching peers)
+3. Organic growth targets (month-by-month adoption)
+4. Minimal central support (focus on empowering champions)
+5. Cost-effective training (peer-led, not instructor-led)
+6. Monthly celebrations (momentum + recognition)
+7. 18-month roadmap (sustainable pace)
+
+Format:
+Month 1-3: Champions trained + early peer adoption (15%)
+Month 4-6: Peer training spreads (30%)
+Month 7-9: Network effect kicks in (50%)
+Month 10-12: Laggards join peer influence (70%)
+Month 13-18: Final adoption + sustainability (80%+)
+```
+
+**Practice Scenario:**
+```
+SUSTAINABLE SCALING: 300-PERSON ORGANIZATION, LIMITED BUDGET
+
+Pilot (Month 1-3): Sales team (25 people, 80% adoption, 3 champions identified)
+
+Champions Network Strategy:
+- Recruit: 15-20 champions (5-7% of org)
+- From all departments (representative)
+- Incentive: $500/quarter each (total $30K/year)
+- Training: 20 hours intensive (month 1-2)
+- Ongoing support: Monthly champion meetups
+
+SCALING BY PHASE:
+
+PHASE 1 (MONTH 1-3): BUILD FOUNDATION
+Month 1:
+- Champion training: 20 hours (tech + teaching skills)
+- Champion meetup: Weekly sync (share learnings)
+- Early adopters: Marketing + Support (20 people)
+- Adoption: 10-15% (30-45 people)
+
+Month 2:
+- Champions start peer training (1-2 sessions each)
+- Peer group training: Small groups (5-10 people)
+- New adopters: Natural interest (20-30 people)
+- Adoption: 15-20% (45-60 people)
+
+Month 3:
+- Review: Month 1-3 results
+- Celebrate: "25% adoption! You're doing great"
+- Champion recognition: Feature in newsletter
+- Momentum: Growing (people hearing from peers)
+- Adoption: 20-25% (60-75 people)
+
+PHASE 2 (MONTH 4-6): NETWORK SPREADS
+Month 4-5:
+- Champions lead peer training (ongoing)
+- Word-of-mouth: "This actually works"
+- New adopters: Driven by peer interest, not mandate
+- Finance + Operations: First non-core functions adopting
+- Adoption: 30-35% (90-105 people)
+
+Month 6:
+- Celebrate: "30% adoption, spreading naturally"
+- Champion expansion: 2-3 new champions recruited
+- Peer momentum: Growing significantly
+- Adoption: 35-40% (105-120 people)
+
+PHASE 3 (MONTH 7-9): NETWORK EFFECT
+Month 7-8:
+- Peer influence accelerates: "Everyone is using it"
+- Champions train champions (scaling the network)
+- New adopters: Joining because team is using
+- All functions now represented with some adoption
+- Adoption: 50-60% (150-180 people)
+
+Month 9:
+- Celebrate: "50% adoption! Past the tipping point"
+- Champion network now 20-25 people
+- Self-sustaining (peer pressure doing work)
+- Adoption: 55-65% (165-195 people)
+
+PHASE 4 (MONTH 10-12): LAGGARDS JOIN
+Month 10-11:
+- Peer pressure strong: "We're now the majority"
+- Laggards joining (late majority responding to social proof)
+- Champions still supporting (but less intensive)
+- All functions at 50%+ adoption
+- Adoption: 70-75% (210-225 people)
+
+Month 12:
+- Celebrate: "70% adoption—we've done it!"
+- Champion network stable (20-25 people)
+- Support needs declining (self-service growing)
+- Culture shift: AI is now "how we work"
+- Adoption: 75% (225 people)
+
+PHASE 5 (MONTH 13-18): SUSTAINABILITY
+Month 13-18:
+- Remaining holdouts: Optional (no pressure)
+- Champions: Still available but less intensive
+- Culture: AI is standard practice
+- New hires: Trained as part of onboarding
+- Adoption target: 80%+ (240+ people)
+
+SUPPORT STRUCTURE (MINIMAL, CHAMPION-DRIVEN):
+Month 1-3:
+- Champion training (intensive, 20 hours each)
+- Weekly champion meetups (1 hour)
+- Central support: 0.25 FTE (light)
+
+Month 4-9:
+- Monthly champion meetups (1 hour)
+- Peer training by champions (self-organized)
+- Central support: 0.1 FTE (very light)
+
+Month 10-18:
+- Quarterly champion meetups (0.5 hour)
+- Maintenance mode (infrequent training)
+- Central support: 0.05 FTE (minimal)
+
+TRAINING (CHAMPION-LED):
+- Champion training: 20 hours (month 1-2)
+- Peer training: 2 hours (led by champions)
+- Ongoing: Office hours (champions available, not structured)
+- Materials: Self-serve (champions point people to resources)
+
+COMMUNICATION (MONTHLY):
+- Month 1: "Meet our champions" (profile them)
+- Month 2: "Champions are available" (office hours)
+- Month 3: "20% adoption—join champions"
+- Month 4: "30% adoption, growing naturally"
+- Month 5: "Peer training starting—ask your champion"
+- Month 6: "40% adoption" + feature peer story
+- Month 7: "50%+ adoption—we're past the tipping point"
+- Month 9: "70%—join the majority"
+- Month 12: "75% adoption—our new normal"
+- Month 18: "80%+ sustainable adoption"
+
+BUDGET ($80K TOTAL):
+- Champion incentive: $20K (15 champs × $500/quarter × 1.5 years)
+- Champion training: $15K (external trainer 1-2 days)
+- Central support: $20K (0.25 FTE for 9 months, then minimal)
+- Materials/platform: $15K (tools, templates)
+- Celebrations/recognition: $10K (monthly events, gifts)
+- Total: $80K (18 months)
+
+Cost per person at 80% adoption: $80K / 240 = $333/person
+Compare: Phased approach $225K / 250 = $900/person
+Rapid approach $300K / 150 = $2,000/person
+
+RISK MITIGATION:
+Risk 1: Growth stalls, stuck at 30%
+- Mitigation: Peer training keeps momentum
+- Contingency: Executive champion announcement if needed
+
+Risk 2: Champions burn out
+- Mitigation: Rotate champions, keep load light
+- Contingency: Recruit new champions from adopters
+
+Risk 3: Takes too long
+- Mitigation: Peer pressure accelerates in months 7-12
+- Contingency: Shift to phased approach if CEO says urgent
+
+Result: Sustainable growth to 80%+ adoption over 18 months, $80K cost
+```
+
+**Success Metrics:**
+- [ ] Month 3: 20-25% adoption (champions trained + early adopters)
+- [ ] Month 6: 35-40% adoption (peer training spreading)
+- [ ] Month 9: 50-60% adoption (network effect visible)
+- [ ] Month 12: 70-75% adoption (laggards joining)
+- [ ] Month 18: 80%+ adoption (sustainable)
+- [ ] Support load declining over time (not increasing)
+- [ ] ROI positive by month 6, improving thereafter
+- [ ] Culture shift: AI seen as "normal" not "special"
+
+---
+
+### PRACTICE: Choose Template for Your Organization
+
+**Scenario A:** Startup, strong urgency, lots of funding, proven pilot
+→ Use **Template 1** (Rapid 3-4mo, $300K, 80%+ by month 4)
+
+**Scenario B:** Mid-market, moderate urgency, solid budget, balanced approach
+→ Use **Template 2** (Phased 6-9mo, $225K, 80%+ by month 9)
+
+**Scenario C:** Organization with limited budget, sustainable preferred, cultural focus
+→ Use **Template 3** (Organic 12-18mo, $80K, 80%+ by month 18)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Scaling speed requires different investments:** Rapid = expensive + risky, Phased = balanced, Organic = cheap but slow
+- ✅ **Champions are key to scalability:** Every approach relies on champions, just with different intensity
+- ✅ **Network effects accelerate at 50%:** Up to 50% is hard, past 50% gets exponentially easier
+- ✅ **Timeline affects strategy:** 4-month goal requires aggressive timeline, 18-month allows organic growth
+- ✅ **Culture shift is the real scaling:** Adoption metrics matter, but "this is how we work now" is the real win
+
+---
+
+**Try It Now:**
+
+1. Review: Did your pilot succeed? (70%+ checks in readiness)
+2. Choose: Which template matches your timeline + budget?
+3. Identify: Champions for each department (1-2 per 50 people)
+4. Plan: Which functions scale first (highest ROI first)
+5. Schedule: All-hands announcement (kick off scaling)
+6. Execute: Wave 1 launch (first 4-6 weeks)
+7. Measure: Weekly adoption tracking
+
+**Success Metric:**
+- You choose the right template for your urgency/budget
+- You have champions identified + recruited
+- You launch Wave 1 on schedule
+- You see adoption growing monthly (not plateauing)
+- You reach 80%+ adoption on your target timeline
 
 #### Exercise 2: Design Scaling Roadmap (5 min)**
 

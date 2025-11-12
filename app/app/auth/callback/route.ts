@@ -11,8 +11,11 @@ export async function GET(request: Request) {
     const { error } = await supabase.auth.exchangeCodeForSession(code)
 
     if (!error) {
+      // Forwardheaders ensure cookies are set
+      const response = NextResponse.redirect(`${origin}/chatbot`)
+      
       // Redirect directly to chatbot - the main interface
-      return NextResponse.redirect(`${origin}/chatbot`)
+      return response
     }
   }
 
