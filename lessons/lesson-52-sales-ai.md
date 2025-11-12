@@ -79,20 +79,329 @@ AI-Enhanced: $8K-10K per closed deal (60% reduction)
 
 ### Foundation Level
 
-**Exercise 1: AI Lead Scoring System (5 min)**
+**Exercise 1: Master Lead Scoring & Pipeline Management Templates**
 
-**Scenario:** You're a sales rep at a fast-growing SaaS company with 500 inbound leads per week. You're spending hours manually reviewing each lead to figure out which ones to prioritize, and you're constantly worried you're missing the hottest prospects who are ready to buy.
+**Objective**: Build AI-powered systems for lead qualification, prioritization, and pipeline optimization
 
-**Your Mission:** Build an AI-powered lead scoring system that automatically evaluates and prioritizes incoming leads based on fit and intent.
+**Scenario:** You're managing sales at different stages—a startup with 500 inbound leads/week needs to filter signal from noise, a mid-market company with 100-person sales team needs consistent forecasting, an enterprise needs predictive intelligence on complex multi-stakeholder deals. Each requires different AI approaches. How do you know which system to build?
 
-- Take 20 leads from your pipeline
-- Create scoring criteria: Company size, industry, engagement, budget
-- Ask Claude: "Create scoring algorithm for these criteria"
-- Claude generates: JavaScript formula for scoring
-- Apply to leads, sort by score
-- Note: Manually-scored deals vs AI-scored deals
+**Your Mission:** Learn 3 lead scoring templates covering different sales maturity levels (Startup Volume, Mid-Market Pipeline, Enterprise Predictive). Choose the template matching your situation, then implement the scoring system.
 
-**What you're learning:** AI lead scoring transforms guesswork into data-driven prioritization. By systematically evaluating every lead against consistent criteria, you ensure the highest-potential prospects always get attention first, while low-fit leads are automatically deprioritized—turning a time-consuming manual process into an instant, reliable scoring system that scales with your pipeline.
+---
+
+**TEMPLATE 1: Startup Inbound Lead Scoring (High Volume, Basic Criteria)**
+
+For startups/small companies with many inbound leads, need to filter quickly (fit/intent only)
+
+**When to use:**
+- Startup (1-5 sales reps)
+- 300+ inbound leads/month
+- Simple ICP (ideal customer profile)
+- Scoring needs to be fast, not perfect
+- Cost: Free (Claude) to $30/month
+
+**Setup Prompt:**
+```
+Create a lead scoring system for my SaaS product.
+
+COMPANY INFO:
+- Product: [What you sell]
+- Target market: [Who buys this]
+- Typical deal: $[X] ACV
+
+SCORING CRITERIA (each 0-100):
+1. Company Fit: [List industry, size, location preferences]
+2. Engagement Signal: [Website time, email opens, demo signup]
+3. Intent Signal: [Keywords in company description, job title, pain points]
+4. Budget Indication: [Company funding stage, size correlates to budget?]
+
+Scoring Rules:
+- Generate score (0-100) based on criteria
+- Separate leads into: Hot (80+), Warm (50-79), Cold (<50)
+- For each lead type, suggest: Follow-up action + timeline
+
+Generate:
+1. Scoring formula (how to calculate)
+2. Sample scoring of 10 leads (show calculation)
+3. CRM automation rules (IF hot, THEN assign to rep TODAY)
+4. Weekly cadence (re-score weekly? monthly?)
+5. Metrics to track (conversion rate by score band)
+
+MY LEADS (paste below):
+[Lead name | Company | Industry | Engagement | Keywords]
+```
+
+**Practice Scenario:**
+```
+STARTUP: Selling project management software ($99/month)
+
+Lead examples:
+1. John, TechCorp (100 people, software) - Signed up, spent 15 min on pricing = LIKELY
+2. Sarah, OldSchool Inc (500 people, manufacturing) - Came via ad, left immediately = UNLIKELY
+3. Mike, StartupX (10 people, SaaS) - Spent 1 hour, viewed 8 pages, started free trial = VERY LIKELY
+
+Expected scoring:
+1. John: 72 (right industry, engaged)
+2. Sarah: 25 (wrong industry, low engagement)
+3. Mike: 95 (right industry, high engagement, trial signup)
+
+Action:
+1. Hot leads (80+): Call same day if morning, next business day if afternoon
+2. Warm (50-79): Email within 24 hours
+3. Cold (<50): Add to nurture sequence, re-score in 1 month
+
+Result: Instead of spending 2 hours reviewing 50 leads manually, AI scores them in 5 minutes and identifies 8 hot leads to call today
+```
+
+**Success Metrics:**
+- [ ] Scoring criteria defined (4-5 factors)
+- [ ] Sample leads scored with formula shown
+- [ ] Hot/Warm/Cold cutoffs established
+- [ ] CRM automation rules documented
+- [ ] Conversion rate tracked by score band
+- [ ] Hot lead call rate: 80%+ of hot leads contacted within 24 hours
+- [ ] Close rate: 10-15% of hot leads close (vs 2-3% random selection)
+
+---
+
+**TEMPLATE 2: Mid-Market Pipeline Intelligence (Qualification + Forecasting)**
+
+For growing companies with established sales process, need consistent forecasting and qualification
+
+**When to use:**
+- Mid-market (5-20 sales reps)
+- Established sales process (Discovery → Demo → Proposal → Close)
+- 50-150 deals in pipeline
+- Need to forecast accurately for board/investors
+- Cost: $50-200/month (AI tools)
+
+**Setup Prompt:**
+```
+Build comprehensive pipeline scoring system.
+
+SALES PROCESS:
+- Stage 1: [Description + typical duration]
+- Stage 2: [Description + typical duration]
+- Stage 3: [Description + typical duration]
+- (List all stages)
+
+FOR EACH STAGE, I need:
+1. Stage-appropriate scoring (what matters at each stage?)
+   - Discovery: Company fit, engagement, ICP match
+   - Demo: Interest level, fit assessment, budget timing
+   - Proposal: Final objection assessment, decision-maker alignment
+   - Negotiation: Deal size, margin, contract terms
+
+2. Qualification gates (what must be true to move forward?)
+   - If [condition], move to next stage
+   - If [problem], stay in current stage until resolved
+
+3. Probability weighting (not all factors matter equally)
+   - Critical factors (decision-maker, budget): 40%
+   - Important factors (timeline, fit): 35%
+   - Nice-to-have factors (company size, industry): 25%
+
+4. Forecasting algorithm
+   - Probability of close: Based on stage + factors above
+   - Weighted pipeline value: Deal size × Probability
+
+Export my current pipeline:
+[Deal | Company | Amount | Stage | Decision-maker | Timeline | Objections]
+
+ANALYZE:
+1. For each deal, calculate probability of close
+2. Identify deals at risk (probability declining)
+3. Identify deals to accelerate (high probability, early stage)
+4. Total weighted pipeline (expected revenue)
+
+Generate:
+1. Scoring formula per stage
+2. Probability estimates per deal
+3. Weighted pipeline forecast (next 3 months)
+4. Risk assessment (which deals likely to slip)
+5. Recommended actions (accelerate high-probability, focus on at-risk)
+```
+
+**Practice Scenario:**
+```
+MID-MARKET: 10-PERSON SALES TEAM, $5M ANNUAL REVENUE TARGET
+
+Pipeline (simplified):
+Deal 1: Acme Corp, $50K, Discovery, CEO interested, 6-month timeline = Probability?
+Deal 2: BrightTech, $80K, Proposal, CFO pushing back on price, 1-month decision = Probability?
+Deal 3: StartupY, $30K, Demo, CTO enthusiastic, budget approved, 2-week timeline = Probability?
+
+Expected analysis:
+Deal 1: 30% (early stage, long timeline, single stakeholder) = $15K weighted
+Deal 2: 45% (late stage but price objection) = $36K weighted
+Deal 3: 85% (late stage, budget confirmed, short timeline, stakeholder enthusiastic) = $25.5K weighted
+
+Total weighted pipeline: $76.5K (vs. stated $160K unweighted)
+Forecast: $76.5K likely to close next month (realistic)
+Action: Focus on Deal 3 (accelerate), help Deal 2 with pricing (objection handling), nurture Deal 1
+
+CRM Setup:
+- Score each deal automatically on update
+- Alert if deal probability drops 20%+ (risk)
+- Show weighted forecast in CRM dashboard
+- Monthly forecast review
+
+Result: Instead of hoping deals close, you know which ones will (probability-based forecasting)
+```
+
+**Success Metrics:**
+- [ ] Scoring criteria defined per stage
+- [ ] Probability weighting established (critical/important/nice-to-have)
+- [ ] All deals in pipeline scored
+- [ ] Weighted vs unweighted pipeline calculated
+- [ ] Forecast accuracy tracked (predicted vs actual close % monthly)
+- [ ] At-risk deals identified early (probability dropping)
+- [ ] Forecast confidence: 80%+ of deals in 80%+ probability band close
+- [ ] Pipeline visibility: Sales team knows current weighted forecast daily
+
+---
+
+**TEMPLATE 3: Enterprise Deal Intelligence (Multi-Stakeholder, Predictive)**
+
+For larger organizations with complex deals, need stakeholder intelligence, win/loss prediction
+
+**When to use:**
+- Enterprise (20+ sales reps)
+- Complex sales (multiple stakeholders, 6-12 month cycles)
+- High deal values ($100K+)
+- Need to predict close probability AND optimal strategy
+- Cost: $200-500/month (enterprise AI tools)
+
+**Setup Prompt:**
+```
+Build predictive deal intelligence system for complex enterprise sales.
+
+CURRENT SALES CHALLENGES:
+- Sales cycles: [Typical duration, how variable?]
+- Decision team size: [Average number of stakeholders]
+- Success factors: [What determines if deal closes?]
+- Failure factors: [What kills deals?]
+- Deal values: [Range and typical size]
+
+HISTORICAL DATA:
+[Export last 20 closed deals (winners) and 10 lost deals (losers)]
+Include per deal: Deal size, industry, company size, decision-maker titles, timeline, stakeholders, objections raised, final outcome
+
+ANALYSIS NEEDED:
+1. Pattern recognition: What distinguishes winners from losers?
+   - Company characteristics (size, industry, maturity)?
+   - Deal characteristics (size, timeline, decision team)?
+   - Stakeholder characteristics (title, function, enthusiasm)?
+   - Objection patterns (which objections are killers vs negotiable)?
+
+2. Predictive model:
+   - Given: New deal with [characteristics], predict probability of close
+   - Include: Confidence in prediction (high/medium/low certainty)
+
+3. Strategic recommendations:
+   - For each deal, what's the optimal strategy to improve probability?
+   - Which stakeholders are key influencers? (not just decision-maker)
+   - What objections need addressing? (and in what order)
+
+4. Risk assessment:
+   - Identify deals at risk of slipping (timeline extension)
+   - Identify deals at risk of loss (internal competition, objections)
+   - Recommend intervention (what to do immediately)
+
+Generate:
+1. Winning pattern summary (what successful deals look like)
+2. Losing pattern summary (what killed deals)
+3. Current pipeline analysis (probability + strategy per deal)
+4. Risk assessments (which deals to focus on)
+5. Recommended playbooks (how to handle each risk pattern)
+```
+
+**Practice Scenario:**
+```
+ENTERPRISE: 50-PERSON SALES TEAM, $100M REVENUE TARGET
+
+Deal Analysis (simplified):
+WINNERS (closed successfully):
+- Avg deal size: $150K
+- Avg timeline: 8 months
+- Avg decision team: 4-5 people (CEO, CFO, CTO, COO)
+- Key pattern: CTO enthusiasm crucial (all winners had enthusiastic CTO)
+- Avg objections: 3 (price, integration, timeline) but all resolved
+- Success factor: Executive champion (CEO or COO) drove adoption
+
+LOSERS (lost deals):
+- Avg deal size: $120K (slightly smaller)
+- Avg timeline: 10-12 months (longer, more painful)
+- Avg decision team: 3-4 people (missing CTO or COO usually)
+- Key pattern: CFO resistance without CEO support (all losers had this)
+- Avg objections: 5-6 (more objections, less resolution)
+- Failure factor: No executive champion or weak champion
+
+Current Pipeline Application:
+Deal X: CompanyA, $180K, CFO on board, CTO lukewarm, CEO not engaged yet
+- Prediction: 35% close (matches "loser" pattern: weak CTO, no CEO champion)
+- Strategy: Schedule CTO deep-dive + CEO discovery before next proposal
+- Risk: High (missing key success factors)
+
+Deal Y: CompanyB, $150K, CTO very enthusiastic, CEO committed, CFO has concerns
+- Prediction: 80% close (matches "winner" pattern: strong CTO, CEO champion, resolvable objection)
+- Strategy: Leverage CTO enthusiasm with CFO, CEO owns negotiation
+- Risk: Low (has key success factors)
+
+Result: Instead of generic "deal is progressing," you know specific actions to increase close probability for each deal
+```
+
+**Success Metrics:**
+- [ ] Historical deal data analyzed (20+ won, 10+ lost minimum)
+- [ ] Winning vs losing patterns identified
+- [ ] Predictive model built (can estimate close probability per deal)
+- [ ] All current deals scored with strategy
+- [ ] At-risk deals identified with specific recommendations
+- [ ] Stakeholder intelligence documented (who's key? who's resistant?)
+- [ ] Close rate prediction: 80%+ accuracy vs actual
+- [ ] Deal probability improvement: Average deal probability increases as recommended actions implemented
+
+---
+
+### PRACTICE: Choose Template for Your Organization
+
+**Scenario A:** Startup with 500 inbound leads/week, 2 sales reps
+→ Use **Template 1** (Startup Volume Scoring, free-$30, implement in 1 day)
+
+**Scenario B:** Mid-market with 10 reps, $5M ARR, need forecasting accuracy
+→ Use **Template 2** (Pipeline Intelligence, $50-200/month, 1-2 week implementation)
+
+**Scenario C:** Enterprise with 50 reps, complex $100K+ deals, multi-stakeholder sales
+→ Use **Template 3** (Enterprise Intelligence, $200-500/month, 4-6 week implementation)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Lead scoring is about data + strategy:** Volume-stage companies need speed, mature companies need accuracy
+- ✅ **Probability matters more than pipeline size:** Weighted pipeline > total pipeline; focus on what will actually close
+- ✅ **Stakeholder patterns predict close:** Deal winners have specific characteristics (champion, CTO enthusiasm, etc.)
+- ✅ **AI finds patterns humans miss:** Analysis of 30 deals reveals patterns you wouldn't see manually
+- ✅ **Forecasting accuracy improves execution:** When reps know deal probability, they work smarter (focus on winnable deals, address risks early)
+
+---
+
+**Try It Now:**
+
+1. Choose: Which template matches your sales stage?
+2. Gather: 10-20 past deals (won and lost)
+3. List: Scoring criteria (company, engagement, intent)
+4. Analyze: Ask Claude to score current pipeline
+5. Compare: AI scores vs your gut feel
+6. Act: Focus on hot/high-probability deals first
+7. Measure: Close rate by score band (validate the scoring)
+
+**Success Metric:**
+- You have a repeatable lead scoring system
+- Hot leads convert 3-5× better than random selection
+- Sales team uses scores to prioritize daily activities
+- Forecast accuracy improves (predicted vs actual closer)
+- Time spent on low-probability deals decreases
 
 **Exercise 2: Automated Follow-up Emails (5 min)**
 - Copy 5 prospect responses (positive, interested, not interested)

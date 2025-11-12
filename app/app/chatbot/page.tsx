@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, BookOpen, Clock, BarChart3, Trash2, List, LogOut } from 'lucide-react';
+import { Send, Bot, User, Sparkles, BookOpen, Clock, BarChart3, Trash2, List, LogOut, Copy, Check } from 'lucide-react';
 import Link from 'next/link';
 
 interface Message {
@@ -29,6 +29,7 @@ export default function ChatbotPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [recommendedLessons, setRecommendedLessons] = useState<RecommendedLesson[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
+  const [copiedPrompt, setCopiedPrompt] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Load persisted conversation on mount
@@ -156,6 +157,12 @@ export default function ChatbotPage() {
     form.action = '/auth/signout';
     document.body.appendChild(form);
     form.submit();
+  };
+
+  const handleCopyPrompt = async (prompt: string, index: number) => {
+    await navigator.clipboard.writeText(prompt);
+    setCopiedPrompt(index);
+    setTimeout(() => setCopiedPrompt(null), 2000);
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -378,13 +385,25 @@ export default function ChatbotPage() {
               'Help me with software development',
               'I want to build AI teams',
             ].map((prompt, index) => (
-              <button
-                key={index}
-                onClick={() => setInput(prompt)}
-                className="text-left px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-600 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all text-sm text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
-              >
-                &quot;{prompt}&quot;
-              </button>
+              <div key={index} className="relative group">
+                <button
+                  onClick={() => setInput(prompt)}
+                  className="w-full text-left px-4 py-3 pr-12 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-600 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all text-sm text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
+                >
+                  &quot;{prompt}&quot;
+                </button>
+                <button
+                  onClick={() => handleCopyPrompt(prompt, index)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all"
+                  aria-label="Copy prompt"
+                >
+                  {copiedPrompt === index ? (
+                    <Check className="w-4 h-4 text-green-600 dark:text-green-400" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
             ))}
           </div>
         </div>

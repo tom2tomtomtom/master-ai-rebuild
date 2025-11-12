@@ -1,12 +1,39 @@
 'use client'
 
+import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/github.css'
+import { Copy, Check } from 'lucide-react'
 
 interface LessonContentProps {
   content: string
+}
+
+function CodeBlock({ children, className }: { children: string; className?: string }) {
+  const [copied, setCopied] = useState(false)
+  
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(children)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <div className="relative group">
+      <pre className={className}>
+        <code>{children}</code>
+      </pre>
+      <button
+        onClick={handleCopy}
+        className="absolute top-2 right-2 p-2 bg-gray-700 dark:bg-gray-600 hover:bg-gray-600 dark:hover:bg-gray-500 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity"
+        aria-label="Copy code"
+      >
+        {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+      </button>
+    </div>
+  )
 }
 
 export default function LessonContent({ content }: LessonContentProps) {
@@ -28,6 +55,13 @@ export default function LessonContent({ content }: LessonContentProps) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
+        components={{
+          pre: ({ children, ...props }) => {
+            const codeContent = (children as any)?.props?.children || ''
+            const className = (children as any)?.props?.className || ''
+            return <CodeBlock className={className}>{codeContent}</CodeBlock>
+          }
+        }}
       >
         {content}
       </ReactMarkdown>
