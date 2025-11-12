@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { getLessonsForPath, getPathInfo, type PathId } from '@/lib/learning-paths'
-import { Brain, BookOpen, CheckCircle, Circle, LogOut } from 'lucide-react'
+import { Brain, BookOpen, CheckCircle, Circle, LogOut, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 export default async function DashboardPage() {
@@ -71,15 +71,24 @@ export default async function DashboardPage() {
               <Brain className="w-8 h-8 text-blue-600" />
               <h1 className="text-2xl font-bold text-gray-900">Master AI</h1>
             </div>
-            <form action="/auth/signout" method="post">
-              <button
-                type="submit"
-                className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+            <div className="flex items-center gap-3">
+              <Link
+                href="/chatbot"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-sm hover:shadow-md font-medium"
               >
-                <LogOut className="w-4 h-4" />
-                Sign Out
-              </button>
-            </form>
+                <Sparkles className="w-4 h-4" />
+                AI Assistant
+              </Link>
+              <form action="/auth/signout" method="post">
+                <button
+                  type="submit"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </header>
