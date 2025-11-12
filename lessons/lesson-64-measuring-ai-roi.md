@@ -89,9 +89,12 @@ ROI: 2500-5000% return on measurement investment
 
 ### Foundation Level
 
-**Exercise 1: Define ROI Metrics for Your Organization (5 min)**
+#### Exercise 1: Define ROI Metrics for Your Organization
+**Objective**: Know exactly what you're measuring and how
 
-*Objective*: Know what you're measuring and how
+**Scenario:** You've just deployed AI tools across your Sales, Marketing, and Support teams. Your CFO is asking: "Is this actually working? What's the ROI?" You don't have clear numbers. You think AI is helping, but you can't prove it to the finance team or justify the spend to the board. You need to measure ROI, but you're not sure what metrics matter.
+
+**Your Mission:** Define the 2-3 most important ROI metrics for each function, so you can measure the real business impact of AI.
 
 **Step-by-Step:**
 1. For each function, identify key metrics:
@@ -142,7 +145,9 @@ ROI: 2500-5000% return on measurement investment
 2. Select: Most important 2-3 metrics per function
 3. Create: Tracking plan for each
 
-**Exercise 2: Establish Baseline (Before AI) (5 min)**
+**What you're learning:** ROI measurement is the bridge between tech implementation and business value. Without metrics, AI feels like a black hole—money in, unclear value out. With the right metrics, you can see exactly how much time AI saves, what revenue it drives, and how quickly it pays for itself. Most AI implementations pay back within 2-6 months when measured properly. This visibility turns AI from "a nice thing we're doing" to "a critical operational capability"—and it's what justifies continued investment and expansion.
+
+#### Exercise 2: Establish Baseline (Before AI) (5 min)**
 
 *Objective*: Have clear "before" to compare against
 

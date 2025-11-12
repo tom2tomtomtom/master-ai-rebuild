@@ -77,9 +77,12 @@ ROI: 5000-10000% return on security/privacy/compliance investment
 
 ### Foundation Level
 
-**Exercise 1: Identify Regulatory Requirements (5 min)**
+#### Exercise 1: Identify Regulatory Requirements
+**Objective**: Know what regulations apply to your use of AI
 
-*Objective*: Know what regulations apply to you
+**Scenario:** You're rolling out AI tools across your organization, but you're not sure what regulations you need to comply with. Do you need to worry about GDPR? HIPAA? Data privacy laws? Your compliance team is cautious, but you're also impatient to move forward. You need clarity: what are the actual requirements, and how does AI change them?
+
+**Your Mission:** Identify all applicable regulations for your business, understand how AI impacts compliance, and document any gaps.
 
 **Step-by-Step:**
 1. Industry: What sector are you in?
@@ -106,7 +109,9 @@ ROI: 5000-10000% return on security/privacy/compliance investment
    - How AI impacts it
    - Current gaps
 
-**Exercise 2: Classify Data by Sensitivity (5 min)**
+**What you're learning:** Regulatory compliance isn't about preventing AI adoption—it's about adopting AI *safely*. Most regulations (GDPR, HIPAA, CCPA) don't forbid AI; they require transparency, control, and responsible data handling. The companies winning with AI are the ones who build compliance in *from the start* rather than retrofitting it later. This exercise clarifies what you actually need to do versus what's hype-driven fear.
+
+#### Exercise 2: Classify Data by Sensitivity (5 min)**
 
 *Objective*: Know what data needs protecting
 

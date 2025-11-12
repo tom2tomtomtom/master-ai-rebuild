@@ -82,12 +82,19 @@ AI-Enhanced: $5-8 per ticket (90% reduction)
 ### Foundation Level
 
 **Exercise 1: Build Custom Support Bot (5 min)**
+
+**Scenario:** You're leading a support team drowning in 200+ daily tickets, and 60% of them are the same repetitive questions about password resets, billing, and basic features. Your agents are burning out answering the same questions over and over while urgent issues sit in the queue waiting for attention.
+
+**Your Mission:** Build an AI-powered support bot that automatically handles the most common customer questions, freeing your team to focus on complex issues.
+
 - Gather: 10 most common questions + answers
 - Create: Simple knowledge base
 - Upload: To ChatGPT or Zendesk
 - Test: Ask bot your 10 questions
 - Measure: Success rate (should be 100%)
 - Learn: AI needs structured knowledge to help
+
+**What you're learning:** AI ticket classification is the foundation of scalable support. By automatically categorizing and routing tickets based on content, you ensure every question reaches the right expert immediately—eliminating manual triage, reducing response times, and preventing simple questions from consuming senior agents' time on issues that AI can resolve instantly.
 
 **Exercise 2: Measure Current Support Metrics (5 min)**
 - Export: Last 30 days of support tickets

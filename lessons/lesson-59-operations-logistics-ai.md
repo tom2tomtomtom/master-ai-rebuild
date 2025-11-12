@@ -71,14 +71,22 @@ SAVINGS: $470K (43%) + 20% faster delivery
 
 ### Foundation Level
 
-**Exercise 1: Route Optimization (5 min)**
-- List 10 delivery locations
-- Use: Google Maps or Claude
-- Optimize: Best route (time/distance)
-- Measure: Savings vs current route
-- Learn: Impact of optimization
+#### Exercise 1: Route Optimization
+**Objective**: Save delivery time and fuel costs with AI routing
 
-**Exercise 2: Inventory Forecasting (5 min)**
+**Scenario:** You're running a delivery service with 15-20 stops per day. Your drivers take random routes, wasting hours and fuel. Some days good routes happen by luck; other days drivers spend 2 extra hours on the road. You know optimization could save money, but manual route planning for 15 stops is complex and time-consuming.
+
+**Your Mission:** Use AI to find the optimal delivery route that minimizes distance and time, then measure savings vs your current approach.
+
+- List 10-15 delivery locations with addresses
+- Use: Google Maps route optimization or ask Claude
+- Optimize: Best route (time/distance)
+- Measure: Savings vs current route (hours saved × fuel savings)
+- Learn: Impact of optimization per day/month
+
+**What you're learning:** Route optimization is one of the most direct ROI applications of AI in operations. The "traveling salesman problem" that seems complex to humans is mechanical for AI. Smart routing saves 10-20% of delivery costs instantly—and that's pure margin improvement. For a delivery business doing 100 stops/day, this could be $10K-50K/month in fuel and driver time saved.
+
+#### Exercise 2: Inventory Forecasting (5 min)**
 - Export: Sales history (12+ months)
 - Prompt Claude: "Forecast demand next 3 months"
 - Compare: Forecast vs actual

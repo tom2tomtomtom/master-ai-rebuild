@@ -69,14 +69,22 @@ SAVINGS: $900K (75%) + 10× faster integrations
 
 ### Foundation Level
 
-**Exercise 1: Simple Integration (5 min)**
-- Task: New Salesforce lead → Create contact in email tool
-- Tool: Zapier or similar
-- Setup: 3-step workflow
-- Test: Create lead, verify email tool updated
-- Learn: Power of no-code integration
+#### Exercise 1: Simple Integration
+**Objective**: Connect two systems with no code
 
-**Exercise 2: Data Mapping (5 min)**
+**Scenario:** You're managing Salesforce and your marketing automation tool separately. When a sales rep adds a new lead to Salesforce, someone has to manually enter it in the email tool. This manual hand-off happens 10 times daily and takes 2+ hours of administrative work per day. It's error-prone and delays follow-up by 24 hours.
+
+**Your Mission:** Build a no-code integration so that new Salesforce leads automatically create contacts in your email tool within minutes.
+
+- Task: When new lead added to Salesforce → Create contact in email tool
+- Tool: Zapier or Integromat (no-code integration)
+- Setup: 3-step workflow (trigger, action, test)
+- Test: Create lead in Salesforce, verify it appears in email tool
+- Learn: Power of no-code integration (no developer needed)
+
+**What you're learning:** Enterprise integration no longer requires custom development or IT involvement. No-code platforms like Zapier handle the plumbing automatically. What used to take 2 weeks and $10K (custom code) now takes 30 minutes with Zapier ($50/month). This shift—from developer-dependent integrations to business-user-accessible automation—means you can eliminate hundreds of manual handoffs throughout your organization quickly and cheaply.
+
+#### Exercise 2: Data Mapping (5 min)**
 - Export: 100 records from System A
 - Map: Fields to System B structure
 - Load: Into System B

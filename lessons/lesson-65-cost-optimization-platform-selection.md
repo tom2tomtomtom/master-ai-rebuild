@@ -109,9 +109,12 @@ SAVINGS: $80K annually
 
 ### Foundation Level
 
-**Exercise 1: Audit Current Spending (5 min)**
+#### Exercise 1: Audit Current Spending
+**Objective**: Know exactly how much you're spending and on what
 
-*Objective*: Know exactly how much you're spending and on what
+**Scenario:** You're paying for ChatGPT, Claude, Gemini, and maybe a couple specialized tools—but nobody knows the total. Some departments are on paid tiers, others on free, and it's all scattered across different credit cards and approval workflows. You suspect you're overspending but don't have visibility. Are you using all these tools efficiently? Could you consolidate and save money?
+
+**Your Mission:** Do a complete audit of all AI tools your organization is paying for, calculate cost per user, and benchmark against industry average.
 
 **Step-by-Step:**
 1. List: All AI tools you pay for
@@ -142,7 +145,9 @@ SAVINGS: $80K annually
 
 5. Identify: Are you above or below benchmark?
 
-**Exercise 2: Map Tasks to Platforms (5 min)**
+**What you're learning:** Most organizations are surprised when they first audit AI spending. Abandoned seats, unused licenses, and duplicate tools are common. But here's the insight: cost isn't the enemy—*inefficient spending* is. You want to spend more on AI that drives value and less on tools that don't. This audit creates the baseline for strategic decisions. The companies winning with AI aren't the ones spending least; they're the ones getting the most value per dollar by matching the right platform to the right task.
+
+#### Exercise 2: Map Tasks to Platforms (5 min)**
 
 *Objective*: Know which platform is best (and cheapest) for each task
 

@@ -76,12 +76,19 @@ SAVINGS: $330K (60%) + 5× conversion lift + 10× content volume
 ### Foundation Level
 
 **Exercise 1: AI-Generated Email Copy (5 min)**
+
+**Scenario:** You're a marketing manager at a SaaS startup struggling to keep up with content demands. Your team needs to send targeted email campaigns to three different audience segments, but manually writing personalized copy for each is taking days and you're falling behind on your campaign calendar.
+
+**Your Mission:** Use AI to generate targeted email campaigns for multiple audience segments in minutes instead of days.
+
 - Pick 3 audiences: New users, inactive users, premium prospects
 - For each: Write brief description
 - Prompt: "Generate 5 subject lines + email body for each"
 - Claude generates: Complete, varied copy
 - Measure: Apply to 100 users, compare open rates vs previous
 - Learn: Personalization drives engagement (5× improvement possible)
+
+**What you're learning:** AI-powered campaign generation transforms content creation from a bottleneck into a competitive advantage. By instantly producing multiple variations of targeted copy, you can test more ideas, personalize more deeply, and move faster than competitors who manually craft every email—turning weeks of writing into minutes of prompting while maintaining quality and relevance.
 
 **Exercise 2: Landing Page Optimization (5 min)**
 - Describe landing page: "Sign up for 14-day trial"

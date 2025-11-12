@@ -70,13 +70,335 @@ SAVINGS: $520K (58%) + better risk management
 
 ### Foundation Level
 
-**Exercise 1: Contract Risk Analysis (5 min)**
-- Collect: 5 similar contracts from your deals
-- Prompt: "What are common risks in these contracts?"
-- Claude identifies: Patterns + problem areas
-- Learn: What to watch for in contracts
+#### Exercise 1: Master Legal Risk Assessment Templates
+**Objective**: Use AI to identify legal risks across different contract types
 
-**Exercise 2: Regulatory Compliance Check (5 min)**
+**Scenario:** You're a startup founder dealing with different contracts—customer contracts, vendor agreements, employment agreements, investor documents. Each has different risks. You can't hire a lawyer for every contract (too expensive, too slow). How can you use AI to quickly identify risks in different contract types so you know which need lawyer review and which are safe?
+
+**Your Mission:** Learn 3 contract analysis templates for different contract types (Customer/Vendor Agreements, Employment Contracts, Investor Documents).
+
+---
+
+### LEGAL RISK ASSESSMENT TEMPLATE SYSTEM
+
+Choose your template based on contract type.
+
+---
+
+**TEMPLATE 1: Customer & Vendor Contracts**
+
+For commercial agreements (fast turnaround, high volume)
+
+**Risk Analysis Prompt:**
+```
+Analyze this customer contract for legal risks.
+
+CONTRACT TYPE: [SaaS/Service/Software License/Vendor Agreement]
+CONTRACT VALUE: $[X]
+TERM LENGTH: [12 months/multi-year]
+CRITICAL TO BUSINESS: [Yes/No - can you afford to lose this customer?]
+
+CONTRACT TEXT:
+[Paste entire contract]
+
+ANALYZE:
+1. **Payment Terms** - Is the payment timing reasonable?
+   - Standard: Net 30-45 for customers, Net 60 for vendors
+   - Red flag: Net 90+ or prepayment requirements
+
+2. **Liability & Indemnification** - Are you over-exposed?
+   - Liability cap: Should be 12 months of fees (not unlimited)
+   - Indemnification: Should be mutual and reasonable
+   - Red flag: You indemnify them for everything, they indemnify you for nothing
+
+3. **Warranty & SLA** - Are promises realistic?
+   - Warranty: Should match what you actually deliver
+   - SLA: Should be achievable (99% uptime, not 99.99%)
+   - Red flag: Impossible SLAs, liability for SLA breaches, no credits for failures
+
+4. **Termination & Exit** - Can you get out if needed?
+   - Notice: 30-90 days reasonable
+   - Termination fee: Should be reasonable ($5K max for $50K contract)
+   - Data return: Clear process
+   - Red flag: No termination clause, impossible exit fees
+
+5. **Intellectual Property** - Who owns what?
+   - Your IP: You keep ownership of your platform
+   - Their IP: They keep ownership of their data
+   - Red flag: They claim ownership of your code/algorithms
+
+6. **Confidentiality & Data** - Is your data protected?
+   - Confidentiality period: 2-5 years reasonable
+   - Data security: What level is required?
+   - Red flag: No data protection, lifetime confidentiality, no security standards
+
+For each risk, provide:
+- Risk name and location (which clause)
+- Current problematic language
+- Why it's risky
+- Suggested better language
+- Negotiation priority (must-fix / nice-to-fix / acceptable)
+
+Format as table: Risk | Why | Better Language | Priority
+```
+
+**Negotiation Prompt:**
+```
+I need to negotiate this contract with [Company Name].
+
+THE PROBLEM:
+[Describe 1-3 risky terms that are problems]
+Why it matters: [Business impact if things go wrong]
+
+THEIR POSITION:
+They want: [What clause currently says]
+
+MY POSITION:
+I want: [What I think is reasonable]
+
+NEGOTIATION STRATEGY:
+Given that this is a $[X] deal and it's [important/nice-to-have] for us:
+
+1. What should I prioritize (must-win vs willing to concede)?
+2. What's fair middle ground?
+3. If they won't budge on [term], what can I ask for instead?
+4. What's my walkaway point?
+```
+
+**Success Metrics:**
+- [ ] Identified all major risks (liability, IP, payment, termination)
+- [ ] Got lawyer to review only the 2-3 truly problematic clauses (saved $500-1K)
+- [ ] Negotiated 2+ risky terms in your favor
+- [ ] Contract has clear exit clause
+- [ ] Both parties know liability limits upfront
+
+---
+
+**TEMPLATE 2: Employment Contracts**
+
+For hiring/contractor agreements (high legal risk if wrong)
+
+**Analysis Prompt:**
+```
+Analyze this employment contract for legal risks.
+
+EMPLOYEE: [Name, role, seniority]
+SALARY: $[X]
+TYPE: [Full-time/Contractor]
+COMPANY SIZE: [Size, age, state/country]
+
+CONTRACT TEXT:
+[Paste entire contract]
+
+ANALYZE FOR COMPLIANCE & FAIRNESS:
+
+1. **At-Will Employment** - Is it clearly stated?
+   - Must state: "Employment at-will in [State]"
+   - Missing: Add it immediately
+   - Risk level: High if missing (wrongful termination claims)
+
+2. **Compensation & Benefits**
+   - Salary clear?
+   - Benefits specified (health, 401k, PTO)?
+   - Bonus/equity clearly defined?
+   - Red flag: Vague performance bonuses, promised equity but no vesting schedule
+
+3. **Intellectual Property (IP)**
+   - Who owns code written by employee?
+   - Should be: Company owns work-for-hire
+   - Red flag: Employee keeps personal projects (risky)
+   - Contractor: Must be work-for-hire (not employee gains IP)
+
+4. **Non-Compete & Non-Solicitation**
+   - Non-compete: Should be reasonable (6 months max, specific industry)
+   - Non-solicitation: 1-2 years for employees reasonable
+   - Geographic scope: Should match where you operate
+   - Red flag: Lifetime non-competes (often unenforceable)
+
+5. **Confidentiality & Trade Secrets**
+   - Clear definition of confidential info
+   - Survival period: 3-5 years reasonable
+   - Remedies if breached
+   - Red flag: No confidentiality clause (dangerous)
+
+6. **Termination Clause**
+   - Notice required: 2 weeks typical
+   - Severance: Optional but fair if included
+   - Bonus forfeiture: Specify what happens
+   - Red flag: No termination terms (unclear what happens)
+
+7. **At-Will Statement (if employee)**
+   - MUST include: "Nothing in this agreement...creates an implied or express employment contract"
+   - Location: Should be at END of contract
+   - Risk: Without this, can't fire for cause (major exposure)
+
+For each issue, provide:
+- Current language (if present)
+- What's missing (if absent)
+- Legal risk assessment
+- Recommended language
+- Priority (critical / important / nice-to-have)
+
+Format: Issue | Current | Risk | Recommended | Priority
+```
+
+**Contractor vs Employee Decision:**
+```
+Should I hire this person as contractor or employee?
+
+PERSON: [Name, role]
+SITUATION: [Why you're hiring them]
+
+Analyze:
+1. Will they be supervised by us? (Employee indicator)
+2. Will they work remotely/own hours? (Contractor indicator)
+3. Will they use company equipment/tools? (Employee indicator)
+4. Is this long-term permanent role? (Employee indicator)
+5. Will they work exclusively for us? (Employee indicator)
+
+Recommendation:
+If more employee indicators: Hire as employee (not contractor—avoid misclassification)
+If more contractor indicators: Can be contractor
+
+Red flag: If employee indicators present but hiring as contractor = wage and hour violation risk ($$$)
+```
+
+**Success Metrics:**
+- [ ] At-will employment clearly stated
+- [ ] IP ownership is clear (company owns work-for-hire)
+- [ ] Non-compete is reasonable (6 months max)
+- [ ] No salary/benefits ambiguity
+- [ ] Employee classification is correct (employee vs contractor)
+
+---
+
+**TEMPLATE 3: Investor Documents (SAFE, Equity Agreements)**
+
+For fundraising (high stakes, legal complexity)
+
+**Analysis Prompt:**
+```
+Analyze this investor document for founder risk.
+
+DOCUMENT TYPE: [SAFE / Convertible Note / Series A]
+AMOUNT RAISED: $[X]
+INVESTOR: [Name, stage typically]
+YOUR SITUATION: [First fundraise / Series A / later]
+
+DOCUMENT TEXT:
+[Paste entire SAFE or note]
+
+ANALYZE FOR FOUNDER RISKS:
+
+1. **Valuation & Dilution**
+   - Current discount: [8% typical for SAFE]
+   - MFN clause (Most Favored Nation): Do later investors get better terms?
+   - Pro-rata rights: Can you maintain ownership % in future rounds?
+   - Red flag: Huge discount (>25%), no pro-rata rights, not MFN
+
+2. **Conversion Terms (if convertible note/SAFE)**
+   - When does it convert? [Equity event, Series A, deadline]
+   - Conversion cap: [Price cap if present]
+   - Discount: [What % discount on future valuation]
+   - Red flag: Converts to preferred stock (dilutes you), no cap (risky)
+
+3. **Control & Governance**
+   - Board seat: Does investor get one? [Usually: no for SAFE, yes for Series A]
+   - Anti-dilution: Is it weighted-average (fair) or full-ratchet (brutal)?
+   - Liquidation preference: Is it 1x (fair) or 2x/3x (investor protected, founders hurt)?
+   - Red flag: Full-ratchet anti-dilution (if next round is down, you're crushed)
+
+4. **Investor Rights**
+   - Information rights: Can they request financial statements? [Usually yes]
+   - Participation rights: Can they invest in future rounds to maintain %? [Yes often]
+   - Redemption: Can they force you to buy back their stake? [Usually no for SAFE]
+   - Red flag: Redemption clause (forces buyback), harsh reporting requirements
+
+5. **Governance & Voting**
+   - Board structure: [Founder + Investor + Independent?]
+   - Major decisions: Which need investor approval? [Hiring, budget, new debt]
+   - Protective provisions: Can investor veto? [Typically yes for Series A]
+   - Red flag: Investor can veto everything, no founder control
+
+6. **Dilution & Future Rounds**
+   - How many more rounds before you own 0%? (waterfall analysis)
+   - What happens if Series B happens at lower valuation?
+   - What happens if you need to raise again quickly?
+   - Red flag: Cumulative dilution makes founder ownership < 5% by Series C (wrong)
+
+For each term, provide:
+- What investor is asking for
+- Is it standard/fair?
+- Risk to founder
+- Suggested alternative
+- Negotiation priority
+
+Format: Term | Investor Proposal | Market Standard | Founder Risk | Better Alternative
+```
+
+**Fundraising Timeline & Milestones:**
+```
+I'm raising a Series [A/B/C] round. What should I expect?
+
+Generate:
+1. Timeline from first meeting to money in bank (typical 3-6 months)
+2. Key documents I'll need to prepare
+3. Due diligence items investor will ask for
+4. Red flags (terms I should never accept)
+5. Win conditions (terms that work for me)
+6. Walkaway scenarios (when to not take the deal)
+```
+
+**Success Metrics:**
+- [ ] You understand what each term means (not blindly signing)
+- [ ] You negotiated at least one term in your favor
+- [ ] You know your dilution path (% ownership after each round)
+- [ ] Board structure doesn't give investor total control
+- [ ] You have pro-rata rights (can invest in future rounds)
+
+---
+
+### PRACTICE: Choose Template for Each Scenario
+
+**Scenario A:** Reviewing a $100K customer contract for your SaaS
+→ Use **Template 1** (Customer contract quick review + negotiation)
+
+**Scenario B:** Creating offer letter for new VP of Sales
+→ Use **Template 2** (Employment contract, IP ownership, non-compete)
+
+**Scenario C:** Reviewing SAFE documents from your Series A investors
+→ Use **Template 3** (Investor documents, dilution analysis, control terms)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Different contracts need different risk analysis:** Commercial vs employment vs investor terms are all different
+- ✅ **AI identifies patterns:** AI recognizes standard risky terms you might miss
+- ✅ **Negotiation is easier with data:** AI helps you understand what's fair and what's unreasonable
+- ✅ **Some risks are non-negotiable:** Know which terms matter most (liability, IP, exit)
+- ✅ **Lawyer review is still valuable:** Use AI for first pass, lawyer for final validation
+
+---
+
+**Try It Now:**
+
+1. Identify: What contract do you need reviewed? (Customer, employment, investor?)
+2. Choose: Template 1, 2, or 3
+3. Paste: Full contract text + your context
+4. Analyze: Let AI identify risks
+5. Prioritize: Which risks are must-fix vs nice-to-fix
+6. Negotiate: Use AI suggestions for better language
+7. Send to lawyer: For final review of contested terms (saves $ on legal)
+
+**Success Metric:**
+- You understand what each risky term means
+- You're prepared for negotiations
+- You know your walkaway points
+- Lawyer review time is cut in half (AI did the first pass)
+- You don't accidentally agree to terms that hurt you
+
+#### Exercise 2: Regulatory Compliance Check (5 min)**
 - Business type (e.g., "SaaS in healthcare")
 - Prompt: "What regulations apply to us?"
 - Claude lists: All relevant regulations + requirements

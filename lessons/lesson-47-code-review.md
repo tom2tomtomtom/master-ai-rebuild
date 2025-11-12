@@ -163,38 +163,245 @@ npm run sonar
 
 ### Foundation Level (5 minutes each)
 
-#### Exercise 1: Set Up Automated Code Analysis
-**Objective**: Enable AI-powered code review
+#### Exercise 1: Master AI Code Review Templates
+**Objective**: Use AI to review code systematically across different quality dimensions
 
-**Setup** (2 min):
-```bash
-# Install linters and formatters
-npm install --save-dev eslint prettier husky
+**Scenario:** You're a senior developer at TechVision, a 100-person SaaS company shipping daily. Code reviews have become a bottleneck—you're reviewing 40-50 PRs by hand each day, but you keep missing security issues, performance problems, and architectural flaws. Your team needs better code reviews, but you don't have time to review everything deeply. How can you use AI to review code systematically without burning out?
 
-# Create .eslintrc.json
-cat > .eslintrc.json << 'EOF'
-{
-  "extends": ["eslint:recommended"],
-  "rules": {
-    "no-console": "error",
-    "no-unused-vars": "error",
-    "no-eval": "error",
-    "no-implicit-globals": "error"
-  }
-}
-EOF
+**Your Mission:** Learn 4 AI-powered code review templates that cover the most critical review dimensions (Performance, Security, Architecture, Quality).
+
+---
+
+### CODE REVIEW TEMPLATE SYSTEM
+
+Copy and save these 4 templates. Use the right one for each code review situation.
+
+---
+
+**TEMPLATE 1: Performance Code Review**
+```
+Please review this code for PERFORMANCE issues ONLY.
+
+CODE:
+[Paste code here]
+
+Look for:
+- N+1 database queries (where loop makes repeated queries)
+- Inefficient loops (nested loops, unnecessary iterations)
+- Missing indexes or caching opportunities
+- Memory leaks or unnecessary object creation
+- Blocking operations that could be async
+
+For each issue found:
+1. Location: [line number or function name]
+2. Problem: [specific inefficiency]
+3. Impact: [how much this slows things down]
+4. Fix: [specific optimization suggestion with code]
+5. Estimated improvement: [2x faster? 10x? 50%?]
+
+Format your response as a checklist I can work through one by one.
 ```
 
-**Action** (2 min):
-1. Enable ESLint in IDE
-2. Run: `npm run lint`
-3. Fix all issues
-4. Set up pre-commit hook
+**When to use:** Reviewing database queries, data processing, API endpoints, loops/iterations
 
-**Verification** (1 min):
-- Do linting errors appear immediately in IDE?
-- Can you fix all issues?
-- Does lint pass before commit?
+---
+
+**TEMPLATE 2: Security Code Review**
+```
+Please review this code for SECURITY vulnerabilities ONLY.
+
+CODE:
+[Paste code here]
+
+Look for:
+- Input validation gaps (user input used without checking)
+- SQL injection risks (raw SQL strings)
+- XSS vulnerabilities (user data rendered in HTML)
+- Hardcoded secrets (API keys, passwords, tokens)
+- Missing authentication/authorization checks
+- Insecure defaults (open permissions, weak encryption)
+- OWASP Top 10 issues
+
+For each vulnerability found:
+1. Severity: Critical / High / Medium / Low
+2. Location: [line number or function]
+3. Vulnerability: [specific security issue]
+4. Attack scenario: [how an attacker could exploit this]
+5. Fix: [secure code replacement with example]
+
+Format as severity list (Critical first, then High, etc.)
+```
+
+**When to use:** Reviewing authentication, API endpoints, user input handling, data processing
+
+---
+
+**TEMPLATE 3: Architecture & Design Code Review**
+```
+Please review this code for ARCHITECTURE and DESIGN issues ONLY.
+
+CODE:
+[Paste code here]
+
+Context: [Brief description of what this code does and why it exists]
+
+Look for:
+- Separation of concerns violations (mixed responsibilities)
+- DRY principle violations (repeated code patterns)
+- Design pattern misapplications
+- Tight coupling (hard dependencies, difficult to test)
+- Complexity that could be simplified
+- Missing abstractions
+- Code that violates our style guide: [link or description]
+
+For each issue found:
+1. Type: [SoC violation / DRY violation / Pattern issue / Coupling / Complexity / etc.]
+2. Location: [specific functions/classes]
+3. Current design: [explain what it does now]
+4. Problem: [why this is a design issue]
+5. Better approach: [refactored code example]
+6. Benefits: [why this is better - testability, readability, maintainability]
+
+Format as categories (SoC violations, then DRY, then Patterns, etc.)
+```
+
+**When to use:** Reviewing new modules, refactoring, large features, system design
+
+---
+
+**TEMPLATE 4: Code Quality & Readability Review**
+```
+Please review this code for CODE QUALITY and READABILITY.
+
+CODE:
+[Paste code here]
+
+Look for:
+- Naming issues (unclear variable/function names)
+- Comments that are outdated or unnecessary
+- Complex logic that could be broken into functions
+- Dead code (unreachable or unused)
+- Type safety issues (missing types, weak typing)
+- Test coverage gaps (untested functions/branches)
+- Error handling gaps (uncaught exceptions, missing edge cases)
+
+For each issue found:
+1. Category: [Naming / Comments / Complexity / Dead Code / Types / Tests / Error Handling]
+2. Location: [line number or function]
+3. Current state: [show problematic code]
+4. Issue: [why this reduces quality]
+5. Improvement: [refactored version with explanation]
+
+Format as categories, with smallest/easiest issues first so reviewer can make quick wins.
+```
+
+**When to use:** Reviewing any code before merging, especially from junior developers
+
+---
+
+### PRACTICE: Apply Templates to Sample Code
+
+**Sample Code A: Performance Issue**
+```javascript
+// User dashboard - get all user data
+async function getUserDashboard(userId) {
+  const user = await db.users.findById(userId);
+  const posts = await db.posts.find({ userId: userId }); // N+1 risk
+
+  // For each post, get likes
+  for (let post of posts) {
+    const likes = await db.likes.find({ postId: post.id });
+    post.likeCount = likes.length;
+  }
+
+  // For each post, get comments
+  for (let post of posts) {
+    const comments = await db.comments.find({ postId: post.id });
+    post.commentCount = comments.length;
+  }
+
+  return { user, posts };
+}
+```
+
+**Exercise:** Use Template 1 (Performance) on this code. Find at least 3 performance issues.
+
+---
+
+**Sample Code B: Security Issue**
+```javascript
+// Get user by email
+function findUser(email) {
+  const query = `SELECT * FROM users WHERE email = '${email}'`;
+  return db.execute(query);
+}
+
+// Save auth token
+function saveToken(userId, token) {
+  fs.writeFileSync('tokens.txt', `${userId}:${token}`, 'utf8');
+}
+
+// API endpoint
+app.get('/user/:id', (req, res) => {
+  const user = db.users.find(req.params.id);
+  res.json(user); // Returns password hash!
+});
+```
+
+**Exercise:** Use Template 2 (Security) on this code. Identify severity level for each issue.
+
+---
+
+**Sample Code C: Architecture Issue**
+```javascript
+class UserManager {
+  // User CRUD
+  createUser(data) { ... }
+  updateUser(id, data) { ... }
+  deleteUser(id) { ... }
+
+  // Email sending
+  sendWelcomeEmail(user) { ... }
+  sendPasswordResetEmail(user) { ... }
+
+  // Payment processing
+  processPayment(userId, amount) { ... }
+  issueRefund(userId, amount) { ... }
+
+  // Reporting
+  generateUserReport() { ... }
+  exportUserData() { ... }
+}
+```
+
+**Exercise:** Use Template 3 (Architecture) on this code. Identify SoC violations.
+
+---
+
+**What You're Learning:**
+
+- ✅ **Different code dimensions:** Performance, Security, Architecture, Quality each require different review focus
+- ✅ **AI excels at systematic review:** These templates make review consistent and comprehensive
+- ✅ **Template-based reviews catch more:** Systematic checklists find 40% more issues than freestyle reviews
+- ✅ **Reviewers focus on judgment:** AI finds the issues; humans decide if they matter for this codebase
+- ✅ **Reusable frameworks:** These 4 templates apply to almost all code review situations
+
+---
+
+**Try It Now:**
+
+1. Pick the template that matches your most urgent code review need
+2. Paste your actual code into that template
+3. Run it through Claude/ChatGPT
+4. Review the findings (should take 10-15 minutes)
+5. Fix 2-3 of the top issues
+6. Compare before/after quality
+7. Document how much time this saved vs manual review
+
+**Success Metric:**
+- You should find 3-5 issues you would have missed in manual review
+- The review should take 10-15 minutes (vs 1-2 hours manually)
+- Issues should be actionable with clear fixes provided
 
 #### Exercise 2: Create Code Review Checklist
 **Objective**: Standardize review criteria

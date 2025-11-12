@@ -75,12 +75,19 @@ SAVINGS: $570K (76%) + faster close + better controls
 ### Foundation Level
 
 **Exercise 1: AI Bank Reconciliation (5 min)**
+
+**Scenario:** You're a finance manager at a growing company manually processing 500+ monthly invoices. Your team spends 40 hours each month on data entry, categorization, and reconciliation—tedious work that delays month-end close and prevents them from focusing on strategic financial analysis.
+
+**Your Mission:** Automate invoice processing with AI to extract data, categorize expenses, and reconcile accounts automatically.
+
 - Export: Last month bank statement
 - Export: Your GL account ledger
 - Prompt Claude: "Reconcile these accounts"
 - Compare: AI result vs. manual reconciliation
 - Save: Time for next month (automate)
 - Learn: AI is faster and more accurate than manual
+
+**What you're learning:** AI invoice processing transforms finance from data entry to strategic analysis. By automatically extracting information, validating amounts, and categorizing transactions, you eliminate manual processing errors and compress month-end close from days to hours—freeing your team to focus on insights and decisions rather than mechanical reconciliation work.
 
 **Exercise 2: Expense Classification (5 min)**
 - Export: 100 recent expenses (from credit card)

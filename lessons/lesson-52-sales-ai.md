@@ -80,12 +80,19 @@ AI-Enhanced: $8K-10K per closed deal (60% reduction)
 ### Foundation Level
 
 **Exercise 1: AI Lead Scoring System (5 min)**
+
+**Scenario:** You're a sales rep at a fast-growing SaaS company with 500 inbound leads per week. You're spending hours manually reviewing each lead to figure out which ones to prioritize, and you're constantly worried you're missing the hottest prospects who are ready to buy.
+
+**Your Mission:** Build an AI-powered lead scoring system that automatically evaluates and prioritizes incoming leads based on fit and intent.
+
 - Take 20 leads from your pipeline
 - Create scoring criteria: Company size, industry, engagement, budget
 - Ask Claude: "Create scoring algorithm for these criteria"
 - Claude generates: JavaScript formula for scoring
 - Apply to leads, sort by score
 - Note: Manually-scored deals vs AI-scored deals
+
+**What you're learning:** AI lead scoring transforms guesswork into data-driven prioritization. By systematically evaluating every lead against consistent criteria, you ensure the highest-potential prospects always get attention first, while low-fit leads are automatically deprioritized—turning a time-consuming manual process into an instant, reliable scoring system that scales with your pipeline.
 
 **Exercise 2: Automated Follow-up Emails (5 min)**
 - Copy 5 prospect responses (positive, interested, not interested)

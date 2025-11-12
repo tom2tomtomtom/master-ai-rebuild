@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, BookOpen, Clock, BarChart3 } from 'lucide-react';
+import { Send, Bot, User, Sparkles, BookOpen, Clock, BarChart3, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 
 interface Message {
@@ -19,16 +19,57 @@ interface RecommendedLesson {
 }
 
 export default function ChatbotPage() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: 'assistant',
-      content: "👋 Hi! I'm your AI learning assistant. Tell me what you'd like to learn or what topics interest you, and I'll recommend the perfect lessons for you. For example, you could say 'I want to learn about research' or 'I'm interested in marketing with AI'.",
-    },
-  ]);
+  const initialMessage = {
+    role: 'assistant' as const,
+    content: "👋 Hi! I'm your AI learning assistant. Tell me what you'd like to learn or what topics interest you, and I'll recommend the perfect lessons for you. For example, you could say 'I want to learn about research' or 'I'm interested in marketing with AI'.",
+  };
+
+  const [messages, setMessages] = useState<Message[]>([initialMessage]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [recommendedLessons, setRecommendedLessons] = useState<RecommendedLesson[]>([]);
+  const [isHydrated, setIsHydrated] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Load persisted conversation on mount
+  useEffect(() => {
+    const storedMessages = localStorage.getItem('chatbotMessages');
+    const storedLessons = localStorage.getItem('chatbotRecommendations');
+
+    if (storedMessages) {
+      try {
+        const parsed = JSON.parse(storedMessages);
+        setMessages(parsed.length > 0 ? parsed : [initialMessage]);
+      } catch (error) {
+        console.error('Error loading messages:', error);
+      }
+    }
+
+    if (storedLessons) {
+      try {
+        const parsed = JSON.parse(storedLessons);
+        setRecommendedLessons(parsed);
+      } catch (error) {
+        console.error('Error loading lessons:', error);
+      }
+    }
+
+    setIsHydrated(true);
+  }, []);
+
+  // Persist messages whenever they change
+  useEffect(() => {
+    if (isHydrated) {
+      localStorage.setItem('chatbotMessages', JSON.stringify(messages));
+    }
+  }, [messages, isHydrated]);
+
+  // Persist recommended lessons whenever they change
+  useEffect(() => {
+    if (isHydrated) {
+      localStorage.setItem('chatbotRecommendations', JSON.stringify(recommendedLessons));
+    }
+  }, [recommendedLessons, isHydrated]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -73,9 +114,17 @@ export default function ChatbotPage() {
       // Add assistant message to chat
       setMessages([...newMessages, { role: 'assistant', content: data.message }]);
 
-      // Update recommended lessons
+      // Update recommended lessons and save as AI learning path
       if (data.recommendedLessons && data.recommendedLessons.length > 0) {
         setRecommendedLessons(data.recommendedLessons);
+        
+        // Save to localStorage as an AI-recommended learning path
+        const learningPath = {
+          lessons: data.recommendedLessons,
+          createdAt: new Date().toISOString(),
+          prompt: userMessage,
+        };
+        localStorage.setItem('aiLearningPath', JSON.stringify(learningPath));
       }
     } catch (error) {
       console.error('Error sending message:', error);
@@ -88,6 +137,16 @@ export default function ChatbotPage() {
       ]);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleClearConversation = () => {
+    if (confirm('Are you sure you want to clear your conversation and start fresh?')) {
+      setMessages([initialMessage]);
+      setRecommendedLessons([]);
+      localStorage.removeItem('chatbotMessages');
+      localStorage.removeItem('chatbotRecommendations');
+      localStorage.removeItem('aiLearningPath');
     }
   };
 
@@ -115,16 +174,25 @@ export default function ChatbotPage() {
           >
             ← Back to Dashboard
           </Link>
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
-              <Sparkles className="h-8 w-8 text-white" />
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
+                <Sparkles className="h-8 w-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">AI Learning Assistant</h1>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                  Discover the perfect lessons for your learning goals
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">AI Learning Assistant</h1>
-              <p className="text-gray-600 dark:text-gray-400 mt-1">
-                Discover the perfect lessons for your learning goals
-              </p>
-            </div>
+            <button
+              onClick={handleClearConversation}
+              className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors border border-gray-200 dark:border-gray-800 hover:border-red-300 dark:hover:border-red-800"
+            >
+              <Trash2 className="h-4 w-4" />
+              <span>Clear</span>
+            </button>
           </div>
         </div>
 
@@ -234,10 +302,10 @@ export default function ChatbotPage() {
                 </div>
               ) : (
                 <div className="space-y-3 max-h-[520px] overflow-y-auto">
-                  {recommendedLessons.map((lesson) => (
+                  {recommendedLessons.map((lesson, index) => (
                     <Link
                       key={lesson.id}
-                      href={`/lesson/${lesson.id}`}
+                      href={`/lesson/${lesson.id}?fromAI=true&pathIndex=${index}`}
                       className="block p-4 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-600 dark:hover:border-blue-500 hover:shadow-md transition-all group bg-white dark:bg-slate-800"
                     >
                       <div className="flex items-start justify-between mb-2">

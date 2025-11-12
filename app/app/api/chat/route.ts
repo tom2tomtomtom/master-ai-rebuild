@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -8,6 +8,9 @@ const anthropic = new Anthropic({
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('🔵 Chat API called');
+    console.log('🔑 ANTHROPIC_API_KEY exists:', !!process.env.ANTHROPIC_API_KEY);
+    
     const { message, conversationHistory } = await request.json();
 
     if (!message) {
@@ -16,21 +19,27 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    
+    console.log('💬 User message:', message);
 
-    // Fetch all lessons from the database
-    const supabase = await createClient();
+    // Fetch all lessons from the database (using admin client to bypass RLS)
+    const supabase = createAdminClient();
+    console.log('📚 Fetching lessons from database...');
+    
     const { data: lessons, error: lessonsError } = await supabase
       .from('lessons')
-      .select('lesson_number, title, content, category, difficulty, duration_minutes')
+      .select('id, lesson_number, title, content, duration_minutes, description')
       .order('lesson_number');
 
     if (lessonsError) {
-      console.error('Error fetching lessons:', lessonsError);
+      console.error('❌ Error fetching lessons:', lessonsError);
       return NextResponse.json(
         { error: 'Failed to fetch lessons' },
         { status: 500 }
       );
     }
+    
+    console.log('✅ Fetched', lessons?.length || 0, 'lessons');
 
     // Create a comprehensive lesson catalog for the system prompt
     const lessonCatalog = lessons
@@ -43,9 +52,8 @@ export async function POST(request: NextRequest) {
           .substring(0, 500);
 
         return `Lesson ${lesson.lesson_number}: ${lesson.title}
-Category: ${lesson.category || 'General'}
-Difficulty: ${lesson.difficulty || 'Intermediate'}
 Duration: ${lesson.duration_minutes || 45} minutes
+Description: ${lesson.description || 'No description'}
 Preview: ${contentPreview}...
 ---`;
       })
@@ -109,12 +117,18 @@ IMPORTANT: Always include specific lesson numbers in your recommendations so use
     });
 
     // Call Claude API
+    // Using Claude 3 Haiku (fastest, most available model)
+    console.log('🤖 Calling Claude API...');
+    console.log('🔑 API Key present:', !!process.env.ANTHROPIC_API_KEY);
+    console.log('🔑 API Key starts with:', process.env.ANTHROPIC_API_KEY?.substring(0, 14));
+    
     const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-haiku-20240307',
       max_tokens: 2000,
       system: systemPrompt,
       messages: messages,
     });
+    console.log('✅ Claude response received');
 
     // Extract the text response
     const assistantMessage = response.content[0].type === 'text'
@@ -127,19 +141,28 @@ IMPORTANT: Always include specific lesson numbers in your recommendations so use
       .map((match) => parseInt(match.match(/\d+/)?.[0] || '0'))
       .filter((num) => num > 0);
 
-    // Get full details of recommended lessons
+    // Get full details of recommended lessons with default values for UI
     const recommendedLessons = lessons?.filter((lesson) =>
       recommendedLessonNumbers.includes(lesson.lesson_number)
-    );
+    ).map((lesson) => ({
+      ...lesson,
+      category: 'General', // Default for UI
+      difficulty: 'Intermediate', // Default for UI
+    }));
 
     return NextResponse.json({
       message: assistantMessage,
       recommendedLessons: recommendedLessons || [],
     });
   } catch (error) {
-    console.error('Error in chat API:', error);
+    console.error('❌ Error in chat API:', error);
+    // Log more details about the error
+    if (error instanceof Error) {
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
     return NextResponse.json(
-      { error: 'Failed to process chat request' },
+      { error: 'Failed to process chat request', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

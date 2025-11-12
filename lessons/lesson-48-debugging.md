@@ -61,12 +61,293 @@ Auto-detects anomalies, suggests root cause and fixes.
 
 ### Foundation Level
 
-**Exercise 1: Error Tracking Setup**
-- Install Sentry
-- Trigger errors in staging
-- Review in dashboard with context
+#### Exercise 1: Master AI Debugging Templates
+**Objective**: Use AI to debug systematically across different error types
 
-**Exercise 2: Distributed Tracing**
+**Scenario:** You're a developer at CloudFlow, a 50-person startup. Production errors happen multiple times daily—but they're different types: sometimes it's frontend JavaScript crashes, sometimes it's backend API errors, sometimes it's database timeouts, sometimes it's performance degradation. You're spending hours debugging each one. You don't have time to become an expert in every type of error. How can AI help you debug faster across different error categories?
+
+**Your Mission:** Learn 4 AI-powered debugging templates that cover the most common error types (Frontend, Backend, Database, Performance).
+
+---
+
+### DEBUGGING TEMPLATE SYSTEM
+
+Copy and save these 4 templates. Use the right one for each type of error you encounter.
+
+---
+
+**TEMPLATE 1: Frontend JavaScript Debugging**
+```
+Please help me debug this JavaScript error ONLY.
+
+ERROR MESSAGE:
+[Paste full error message and stack trace here]
+
+CONTEXT:
+- Browser: [Chrome/Firefox/Safari/etc]
+- Environment: [staging/production]
+- User action: [What was the user doing when it broke?]
+- When did it start: [Always? Intermittently? After deployment?]
+- How often: [Every time? Sometimes? Rare?]
+
+CODE CONTEXT (if available):
+[Paste the relevant function/component that's erroring]
+
+Please provide:
+1. **What went wrong:** [Explain the error in plain English]
+2. **Why it happened:** [Root cause analysis]
+3. **Where it's breaking:** [Specific line/function]
+4. **Reproduction steps:** [How to reliably trigger it]
+5. **Fix code:** [Exact code change to resolve it]
+6. **How to prevent:** [Defensive coding to catch this early]
+7. **Testing:** [How to test the fix]
+
+Format as numbered steps I can implement one by one.
+```
+
+**When to use:** JavaScript errors, React component issues, async/await problems, null reference errors, network errors
+
+---
+
+**TEMPLATE 2: Backend API Debugging**
+```
+Please help me debug this API error ONLY.
+
+ERROR MESSAGE:
+[Paste full error message, HTTP status, response body]
+
+ENDPOINT:
+- Method: [GET/POST/PUT/DELETE]
+- URL: [/api/users/123]
+- Expected behavior: [What should happen]
+
+REQUEST:
+[Show the request - headers, body, parameters]
+
+RESPONSE:
+[Show the actual response - status code, body, headers]
+
+LOGS:
+[Paste any relevant server logs]
+
+CODE CONTEXT:
+[Paste the endpoint handler function]
+
+Please provide:
+1. **HTTP Status analysis:** [Why this status code?]
+2. **Response analysis:** [What does the response tell us?]
+3. **Root cause:** [What's broken in the code?]
+4. **Reproduction:** [How to reliably trigger it]
+5. **Fix code:** [Exact code change]
+6. **Validation:** [How to verify the fix works]
+7. **Prevention:** [Input validation, error handling to add]
+
+Format as numbered steps.
+```
+
+**When to use:** API errors, HTTP status code problems, request/response mismatches, authentication failures, validation errors
+
+---
+
+**TEMPLATE 3: Database Debugging**
+```
+Please help me debug this database error ONLY.
+
+ERROR MESSAGE:
+[Paste full error message from database]
+
+QUERY:
+[Paste the SQL query or ORM query that's failing]
+
+ERROR DETAILS:
+- Error code: [e.g., 1045, 23505, 08006]
+- Timestamp: [When did it happen?]
+- Frequency: [Always? Intermittently?]
+- Affected data: [Which records?]
+
+CONTEXT:
+- Database: [PostgreSQL/MySQL/MongoDB/etc]
+- ORM/driver: [Prisma/Knex/pg/etc]
+- Table/collection involved: [users/orders/etc]
+- Recent changes: [Schema changes? Query changes?]
+
+DATABASE STATE:
+[Show: table schema, indexes, current row counts]
+
+Please provide:
+1. **Error meaning:** [What does this error code mean?]
+2. **Why it's happening:** [Root cause analysis]
+3. **Affected queries:** [Which queries are affected]
+4. **Fix query:** [Corrected SQL/ORM code]
+5. **Migration if needed:** [Schema changes required]
+6. **Validation:** [How to test the fix]
+7. **Prevention:** [Constraints, indexes, backups to add]
+
+Format as numbered steps.
+```
+
+**When to use:** Database errors, query timeouts, connection pool issues, constraint violations, transaction deadlocks
+
+---
+
+**TEMPLATE 4: Performance Debugging**
+```
+Please help me debug this performance issue ONLY.
+
+SYMPTOMS:
+- Endpoint/function: [which part is slow?]
+- Current performance: [5 seconds load time]
+- Expected performance: [1 second]
+- User impact: [Users giving up? Timeouts?]
+- How often: [Always slow? Only sometimes?]
+
+METRICS:
+- When did it start: [Always slow? Started recently?]
+- Traffic level: [Low traffic? High?]
+- Memory usage: [Normal? Growing?]
+- Database queries: [How many? How slow?]
+
+CODE/INFRASTRUCTURE:
+[Paste the slow function/endpoint]
+[Show server logs, APM metrics, database query logs]
+
+TOOLS/ACCESS:
+- APM tool: [DataDog/New Relic/CloudWatch/etc]
+- Database slowlog: [Yes/No - if yes, paste relevant entries]
+- Profiling: [Do you have flame graphs?]
+
+Please provide:
+1. **Bottleneck identification:** [Where is it slow?]
+2. **Root cause:** [Why is it slow?]
+3. **Reproduction:** [How to reliably trigger it]
+4. **Quick fix:** [Fastest way to improve it now]
+5. **Optimized code:** [Better implementation]
+6. **Indexes/caching:** [Database/caching improvements]
+7. **Monitoring:** [Alerts to catch regression]
+8. **Long-term:** [Architectural improvements]
+
+Format as steps from quickest to most comprehensive.
+```
+
+**When to use:** Slow APIs, slow page loads, high CPU/memory, long database queries, timeout errors
+
+---
+
+### PRACTICE: Apply Templates to Sample Errors
+
+**Sample Error A: Frontend JavaScript**
+```
+Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+    at UserList.render (UserList.jsx:45:12)
+    at renderWithHooks (react-dom.development.js:10154)
+    at updateFunctionComponent (react-dom.development.js:9488)
+
+Code context (line 45):
+const UserList = ({ users }) => {
+  return (
+    <div>
+      {users.map(user => <UserItem key={user.id} user={user} />)}
+    </div>
+  );
+};
+
+When it happens:
+- Always on first load
+- Works after refresh
+- Only in production
+```
+
+**Exercise:** Use Template 1 (Frontend). What's causing this? How would you fix it?
+
+---
+
+**Sample Error B: API Error**
+```
+POST /api/users
+Status: 500 Internal Server Error
+
+Response:
+{
+  "error": "Cannot execute query: Unexpected field in INSERT"
+}
+
+Code:
+app.post('/api/users', async (req, res) => {
+  const user = await db.users.create(req.body);
+  res.json(user);
+});
+
+Happens: Every time someone tries to register
+```
+
+**Exercise:** Use Template 2 (Backend). What's wrong? How would you diagnose this further?
+
+---
+
+**Sample Error C: Database Error**
+```
+Error: Connection timeout after 30000ms
+
+Query:
+SELECT users.*, posts.id, posts.title
+FROM users
+LEFT JOIN posts ON users.id = posts.user_id
+WHERE users.id = 123
+
+Database: PostgreSQL
+ORM: Prisma
+No indexes on posts.user_id
+Table posts has 50M rows
+```
+
+**Exercise:** Use Template 3 (Database). What's the bottleneck? What would you do first?
+
+---
+
+**Sample Error D: Performance**
+```
+Endpoint: GET /api/dashboard
+Current: 8 seconds
+Expected: 1 second
+Started happening: This week (after new feature launch)
+
+Logs show:
+- Database query time: 6 seconds
+- API response building: 1.5 seconds
+- Network: 0.5 seconds
+```
+
+**Exercise:** Use Template 4 (Performance). Where should you focus first?
+
+---
+
+**What You're Learning:**
+
+- ✅ **Error types need different approaches:** Frontend vs Backend vs Database vs Performance each have different diagnosis paths
+- ✅ **AI excels at error analysis:** These templates structure the information AI needs to help
+- ✅ **Systematic debugging finds root cause faster:** Templates prevent missing context
+- ✅ **Error context is critical:** Same error message with different context has different solutions
+- ✅ **Reusable frameworks:** These 4 templates apply to ~95% of debugging situations
+
+---
+
+**Try It Now:**
+
+1. Pick the template that matches your most urgent bug/error
+2. Fill in all the sections completely
+3. Paste the template into Claude or ChatGPT
+4. Review the analysis (should take 10-15 minutes)
+5. Implement the suggested fix
+6. Test to verify it's resolved
+7. Document what you learned
+
+**Success Metric:**
+- You should have a clear root cause (not just "it's broken")
+- The fix should be actionable (not vague)
+- Time to resolution should be <1 hour (vs 2-4 hours manual debugging)
+- You should understand why it happened so you can prevent it
+
+#### Exercise 2: Distributed Tracing
 - Implement OpenTelemetry
 - Trace requests across services
 - Identify bottleneck services

@@ -164,9 +164,12 @@ Chief AI Officer (CAIO)
 
 ### Foundation Level
 
-**Exercise 1: Assess Your Current AI Capability (5 min)**
+#### Exercise 1: Assess Your Current AI Capability
+**Objective**: Understand exactly where your organization is today
 
-*Objective*: Understand exactly where your organization is today - critical for building from reality
+**Scenario:** You're a CTO or VP of Engineering tasked with "making AI happen" across your organization. You've got 200+ people spread across Sales, Marketing, Support, Product, Development, and Finance. Some departments are probably using AI already (informally). Others are scared of it. You need to know where you actually stand before you can build a team and strategy.
+
+**Your Mission:** Conduct a quick AI adoption audit to understand what's working, what's blocked, and where to focus your team's efforts first.
 
 **Step-by-Step:**
 1. Create simple spreadsheet with columns: Function | # of staff | Current AI use (Y/N) | Tools used | Challenges | Opportunity
@@ -204,8 +207,9 @@ Questions:
 - 2-3 functions ahead of others (Sales, Marketing typically lead)
 - Clear blockers: unclear policy, fear of job loss, tool access
 
+**What you're learning:** Most organizations think they're starting from zero with AI, but they're not. Teams are already experimenting quietly. Your job as a leader is to make that informal adoption explicit, remove blockers, and scale what's working. The assessment isn't about passing judgment; it's about understanding the current state so you can build a structure that unblocks rapid adoption. Best-in-class organizations do this before hiring their first AI specialist.
 
-**Exercise 2: Define Your Ideal AI Team Structure (5 min)**
+#### Exercise 2: Define Your Ideal AI Team Structure (5 min)**
 
 *Objective*: Know exactly what team you need to build
 

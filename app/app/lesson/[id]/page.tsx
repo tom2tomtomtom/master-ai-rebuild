@@ -5,6 +5,7 @@ import Link from 'next/link'
 import LessonContent from '@/components/lesson-content'
 import CompleteButton from '@/components/complete-button'
 import { DashboardHeader } from '@/app/components/dashboard-header'
+import { AIPathNavigator } from '@/app/components/ai-path-navigator'
 
 interface LessonPageProps {
   params: Promise<{ id: string }>
@@ -58,6 +59,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </Link>
+
+          {/* AI Learning Path Navigator */}
+          <AIPathNavigator currentLessonId={id} />
 
           {/* Lesson Header */}
           <div className="mb-10">

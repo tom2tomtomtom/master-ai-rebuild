@@ -106,9 +106,12 @@ NET BENEFIT: $1.8M-4M gained + culture improved
 
 ### Foundation Level
 
-**Exercise 1: Assess Current Culture & Readiness (5 min)**
+#### Exercise 1: Assess Current Culture & Readiness
+**Objective**: Understand your organization's readiness for AI adoption
 
-*Objective*: Understand what you're working with—your starting point
+**Scenario:** You're rolling out AI across your organization—but you don't know if your team is ready. Some departments embrace new tools; others are resistant. Some people are already using AI informally; others are scared of losing their jobs. You need to understand this cultural landscape before you can design an effective adoption strategy.
+
+**Your Mission:** Survey your organization to understand their comfort level with change, concerns about AI, and which people will naturally drive adoption.
 
 **Step-by-Step:**
 1. Survey: 20-30 staff across all functions
@@ -137,7 +140,9 @@ NET BENEFIT: $1.8M-4M gained + culture improved
 
 5. Learn: Different organizations need different strategies
 
-**Exercise 2: Create Resistance Playbook (5 min)**
+**What you're learning:** Change management isn't about forcing adoption—it's about understanding resistance and designing the right strategy for your culture. Some organizations need executive sponsorship and clear "top-down" messaging. Others need grassroots adoption led by champions. Assessing upfront tells you which approach will work, preventing wasted effort and unnecessary friction. The best AI implementations are never technology-first; they're always change management-first.
+
+#### Exercise 2: Create Resistance Playbook (5 min)**
 
 *Objective*: Know exactly how to handle each objection
 

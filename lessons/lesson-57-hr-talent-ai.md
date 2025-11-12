@@ -72,15 +72,279 @@ SAVINGS: $340K (71%) + better team, faster hiring
 
 ### Foundation Level
 
-**Exercise 1: AI Resume Screening (5 min)**
-- Collect: 50 resumes for open role
-- Use tool: Lever, Workable, or ZipRecruiter
-- AI screens: Matches against job description
-- Review: Top 10 candidates AI ranked
-- Measure: How many become interviews vs passes through
-- Learn: AI removes bias, improves screening
+#### Exercise 1: Master AI Recruiting Scenarios
+**Objective**: Choose right recruiting approach based on company size and urgency
 
-**Exercise 2: Diversity & Bias Analysis (5 min)**
+**Scenario:** You're HR lead at FastGrow, a startup scaling rapidly. You need to hire in different ways depending on the situation: sometimes it's one specialist role (hard to find), sometimes it's 5 similar roles (volume recruiting), sometimes it's a leadership position (reference checks matter). Each situation requires a different AI recruiting strategy. How do you customize AI recruiting for each scenario?
+
+**Your Mission:** Learn 3 AI recruiting templates covering the most common hiring scenarios (High-Volume Standard Roles, Hard-to-Fill Specialist Roles, Leadership/Executive Hiring).
+
+---
+
+### AI RECRUITING TEMPLATE SYSTEM
+
+Choose your template based on what you're hiring for.
+
+---
+
+**TEMPLATE 1: High-Volume Standard Roles (Engineers, Support, Sales)**
+
+For hiring multiple people in similar roles quickly (1-2 weeks per hire)
+
+**Scenario Example:** Need 5 junior frontend engineers, receiving 300+ resumes
+
+**AI Resume Screening Prompt:**
+```
+I need to screen engineering resumes for 5 junior frontend positions.
+
+JOB REQUIREMENTS:
+- 1-3 years React experience
+- TypeScript knowledge
+- Portfolio with GitHub projects
+- Must know CSS/HTML fundamentals
+
+CANDIDATE DATA:
+[Paste 50 resumes or resume database]
+
+Please:
+1. Score each candidate 1-10 on job fit
+2. Flag specific skills match (React? TypeScript? Portfolio?)
+3. Identify red flags (employment gaps, unrelated background)
+4. Rank top 15 for me to interview
+5. Explain your ranking logic briefly
+
+Format as table: Name | Score | Match | Red Flags | Recommendation
+```
+
+**Sourcing Prompt (to find more candidates):**
+```
+Where should I recruit for junior frontend engineers?
+
+My company: [Size, location, industry]
+Unique benefits: [What makes your company attractive]
+Role: Junior Frontend Engineer
+Budget: $[salary range]
+
+Recommend:
+1. Top 5 job boards to post on
+2. Communities/groups to reach out to
+3. Keywords for LinkedIn search
+4. Passive recruiting channels
+5. Referral incentive strategy
+```
+
+**Automation:**
+- Tool: Lever, Workable, or Greenhouse (built-in AI screening)
+- Set up: Automatic screening rules (must-haves, nice-to-haves)
+- Result: Auto-ranked candidates, you interview top 15
+
+**Success Metrics:**
+- [ ] Screening takes < 2 hours (vs 20+ hours manual)
+- [ ] Top 15 AI picks have 70%+ interview-to-offer rate
+- [ ] Diverse candidate pool (by background, school, experience)
+- [ ] Time-to-hire: < 10 days per hire
+
+---
+
+**TEMPLATE 2: Hard-to-Fill Specialist Roles (ML Engineer, DevOps, Data Science)**
+
+For niche roles where candidates are rare (3-4 weeks, often lower volume)
+
+**Scenario Example:** Need 1 senior ML engineer, receiving 50 resumes (most unqualified)
+
+**Screening Prompt (much more detailed):**
+```
+Screening for: Senior ML Engineer (very rare role)
+
+MUST HAVE (disqualify if missing):
+- 5+ years machine learning in production
+- TensorFlow or PyTorch experience
+- Experience with distributed systems
+- Published papers OR shipped ML product
+
+NICE TO HAVE:
+- Large language model (LLM) experience
+- Real-time prediction systems
+- A/B testing and experimentation
+- Team leadership
+
+RED FLAGS (be cautious):
+- Only academic/research experience (no shipping)
+- Claims expertise they don't show evidence of
+- Job hopping (< 1.5 years average tenure)
+
+CANDIDATE DATA:
+[Paste resumes]
+
+For each candidate, please:
+1. Assess depth of ML expertise (beginner/intermediate/advanced/expert)
+2. Verify specific claims (ask for evidence: projects, papers, talks)
+3. Assess culture/team fit based on CV clues
+4. Provide confidence score (0-100%) that they're actually qualified
+5. Ask: What clarifying questions do I need to ask in interviews?
+
+Format for each candidate:
+- Name
+- ML Expertise Level
+- Evidence of Claims
+- Red Flags
+- Confidence %
+- Interview Questions I should ask
+```
+
+**Outreach Prompt (actively recruit):**
+```
+I need to actively recruit senior ML engineers (very small talent pool).
+
+My role: [Specific ML problem you're solving]
+Why it's interesting: [What makes this ML problem unique/valuable]
+Team: [Who they'd be working with]
+Impact: [Real-world users affected]
+
+Generate:
+1. 10 targeted outreach emails (personalized, technical)
+2. LinkedIn search strings to find passive candidates
+3. ML communities/conferences where experts gather
+4. Talking points for recruiter conversations
+5. Referral strategy (who might know good ML engineers)
+```
+
+**Interviews (deeper technical validation):**
+- Ask about specific projects (not just buzzwords)
+- Request: Walk through a past ML system you built
+- Discuss: Trade-offs in model selection for a specific problem
+- Validate: Can they actually ship ML (not just research)
+
+**Success Metrics:**
+- [ ] You find 3-5 genuinely qualified candidates (not just filtered resumes)
+- [ ] Interviews validate technical depth
+- [ ] Time-to-hire: 3-4 weeks (slower, but quality hire)
+- [ ] Hire rate: When you find right candidate, offer accepted quickly
+
+---
+
+**TEMPLATE 3: Leadership & Executive Hiring (VP, Director, Manager)**
+
+For senior leadership where culture fit and references matter most (4-6 weeks)
+
+**Scenario Example:** Need new VP of Engineering, receiving 80 candidates
+
+**Screening Prompt (focus on culture + experience):**
+```
+Screening VP of Engineering candidates.
+
+ROLE CONTEXT:
+- Company stage: [Seed/Series A/B/C/Mature]
+- Team size they'd lead: [5/15/50/100 people]
+- Key challenges: [What does this person need to solve]
+- Company culture: [How do you describe it]
+- Success looks like: [What would success be in 6/12 months]
+
+MUST HAVE:
+- Led engineering teams of [X size] before
+- Built or scaled products in [your industry]
+- Experience with [specific tech stack/challenges]
+- Track record of shipping (revenue-generating products)
+
+CULTURE FIT (Assess from CV/LinkedIn):
+- Do they value [your company's values: e.g., "shipping over perfection"?]
+- Leadership philosophy from their background/roles
+- How they talk about teams and people (from LinkedIn posts, articles)
+- Evidence of mentoring/developing engineers
+
+CANDIDATE DATA:
+[Paste resumes]
+
+For each candidate, provide:
+1. **Leadership Track Record**: Teams led, outcomes, growth
+2. **Technical Credibility**: Do engineers respect them? Evidence?
+3. **Culture Alignment**: Will they fit our environment? Why/why not?
+4. **Red Flags**: Any concerns (company hopping? Fired? Toxic patterns?)
+5. **Reference Questions**: What should I specifically ask their references?
+
+Format:
+- Name
+- Leadership Strength (weak/moderate/strong/exceptional)
+- Technical Credibility (low/medium/high)
+- Culture Fit Score (1-10)
+- Red Flags & Concerns
+- Reference Check Questions
+```
+
+**Reference Checking Prompt:**
+```
+I'm about to hire [Candidate Name] as VP of Engineering.
+
+What they claim:
+- Led team of [size] for [duration] at [company]
+- Outcome: [revenue growth / team grown / product launched]
+- Leadership style: [what they say about themselves]
+
+Generate reference check questions:
+1. How would you describe [candidate's] leadership style?
+2. What was [candidate's] biggest achievement on your team?
+3. How did [candidate] handle conflict/disagreement?
+4. What's one area [candidate] should improve?
+5. Would you hire them again? Why/why not?
+6. What surprised you about working with them?
+7. How do they treat junior engineers vs senior?
+```
+
+**Interview Deep Dive (after initial screening):**
+- Ask about worst situation they managed (conflict, failure, pivot)
+- Discuss their philosophy on engineering culture
+- Present real problem they'd face at your company, ask how they'd approach
+- Talk to 3-4 people who've worked with them
+
+**Success Metrics:**
+- [ ] Candidate has shipped products in your industry
+- [ ] Led teams of similar/larger size before
+- [ ] References all positive (strong indicators)
+- [ ] Culture fit validated by multiple interactions
+- [ ] Hire-to-success rate: 90%+ (they succeed in first 12 months)
+
+---
+
+### PRACTICE: Choose Template for Each Scenario
+
+**Scenario A:** Need 8 customer support reps (same role)
+→ Use **Template 1** (High-Volume, AI screening + job boards)
+
+**Scenario B:** Need 1 senior Kubernetes/DevOps specialist
+→ Use **Template 2** (Hard-to-Fill, active recruiting + technical validation)
+
+**Scenario C:** Need new VP of Product
+→ Use **Template 3** (Leadership, reference checks + culture fit)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Volume vs specialty hiring need different strategies:** High-volume = automation, specialist = hunting, leadership = culture fit validation
+- ✅ **AI excels at pattern matching:** Use for standard roles, use prompts for specialist/leadership assessment
+- ✅ **References matter for leadership:** 40% of hiring mistakes are leadership hires with bad references
+- ✅ **Culture fit isn't luck:** Ask specific questions to assess, don't guess
+- ✅ **Active recruiting finds talent:** Good candidates aren't on job boards, you have to hunt them
+
+---
+
+**Try It Now:**
+
+1. Identify: Your current open role (volume, specialty, or leadership?)
+2. Choose: Template 1, 2, or 3 that matches
+3. Adapt: Customize job requirements, culture values, specific challenges
+4. Execute:
+   - Post job + set up AI screening (Template 1)
+   - Actively recruit + validate technical depth (Template 2)
+   - Deep interviews + reference checks (Template 3)
+5. Measure: Time-to-hire, offer acceptance rate, 6-month success
+
+**Success Metric:**
+- You hire the right person for the role (not just "the best available")
+- Time-to-hire is predictable and efficient
+- 6-month survival rate is 90%+ (they still have the job and are productive)
+
+#### Exercise 2: Diversity & Bias Analysis (5 min)**
 - Analyze: Last 20 hires demographics
 - Prompt Claude: "Is our hiring biased? By what?"
 - Claude identifies: Patterns + recommendations

@@ -74,20 +74,314 @@ SAVINGS: $485K (71%) + 10× delivery speed + better code quality
 
 ### Foundation Level
 
-**Exercise 1: AI-Generated Todo App (5 min)**
-```
-Prompt: Create a full-stack todo app with:
-- React frontend with add/delete/mark complete
-- Node backend with Express
-- MongoDB for storage
-- API endpoints: GET /todos, POST /todos, DELETE /todos/:id
+#### Exercise 1: Master Full-Stack Architecture Templates
+**Objective**: Generate working full-stack apps for different architectures
 
-Include TypeScript types and error handling.
+**Scenario:** You're a contractor at StartupXYZ. They need a simple app (task manager), but then realize they need user authentication, then team collaboration features. Each requires a different architecture. Normally each upgrade would take 2+ weeks. How can you quickly scaffold different full-stack architectures so you can focus on custom business logic?
+
+**Your Mission:** Learn 4 full-stack architecture templates covering the most common app types (Simple CRUD, Multi-user with Auth, Real-time Collaboration, Mobile-friendly).
+
+---
+
+### FULL-STACK ARCHITECTURE TEMPLATE SYSTEM
+
+Choose your template based on app requirements.
+
+---
+
+**TEMPLATE 1: Simple CRUD App (Todo, Notes, Blog)**
+
+For single-user or simple multi-user apps (4-8 hours to scaffold)
+
+**Architecture:**
+- Frontend: React with Hooks
+- Backend: Node + Express
+- Database: PostgreSQL with Prisma ORM
+- Auth: Optional (if single user, skip)
+- Deployment: Vercel (frontend) + Railway (backend)
+
+**Prompt to Claude:**
 ```
-- Paste into Claude
-- Get 200 lines of complete, working code
-- Deploy to local environment
-- Verify all features work
+Create a full-stack [app name] app with:
+
+Frontend (React):
+- [Feature list: list items, create, edit, delete]
+- UI library: Tailwind CSS
+- State management: useState only (no Redux)
+- API calls: fetch with error handling
+
+Backend (Node + Express):
+- RESTful API: GET /items, POST /items, PUT /items/:id, DELETE /items/:id
+- Validation: Zod schema
+- Error handling: Try-catch with 400/500 responses
+- Logging: console.log (upgrade to Winston later)
+
+Database (PostgreSQL + Prisma):
+- Schema: [Describe your main entity]
+- Relationships: [Any connections?]
+- Indexes: [On frequently queried fields]
+
+Include:
+- TypeScript types
+- Sample data migration
+- Deployment instructions
+- Environment variables list
+```
+
+**Success Indicators:**
+- [ ] Frontend and backend communicate
+- [ ] Create/Read/Update/Delete all work
+- [ ] Validation catches bad inputs
+- [ ] Deployment works without errors
+- [ ] Page loads < 2 seconds
+- [ ] All endpoints have error handling
+
+**Typical Timeline:** 4-8 hours (scaffold + testing)
+
+---
+
+**TEMPLATE 2: Multi-User SaaS App (Auth + Teams)**
+
+For apps where multiple users can have teams/accounts (12-20 hours to scaffold)
+
+**Architecture:**
+- Frontend: Next.js (SSR + API routes)
+- Backend: Node + Express (or separate)
+- Database: PostgreSQL + Prisma
+- Auth: NextAuth.js or Auth0
+- Teams: Role-based access (RBAC)
+- Deployment: Vercel + Railway
+
+**Prompt to Claude:**
+```
+Create a multi-user SaaS [app name] with:
+
+Users & Auth (NextAuth.js):
+- Sign up with email/password
+- Email verification
+- Password reset
+- Session management
+- JWT tokens
+
+Teams & Permissions:
+- Users can create teams
+- Invite other users to team
+- Roles: Owner/Admin/Member
+- Permissions: [Define what each role can do]
+- Team settings: [editable fields]
+
+Frontend (Next.js):
+- Dashboard: [Overview of user's data]
+- Settings: [Account, team, billing]
+- Invite UI: [Email list input]
+- Permission-based UI: [Show/hide based on role]
+
+Backend API:
+- POST /auth/signup
+- POST /auth/login
+- POST /teams
+- POST /teams/:id/members
+- PUT /teams/:id/settings
+- DELETE /teams/:id/members/:userId
+- Role checking middleware
+
+Database Schema:
+- Users table (with auth fields)
+- Teams table
+- TeamMembers table (join with roles)
+- Timestamps on all
+
+Include:
+- TypeScript types for User, Team, Permissions
+- Middleware for auth + permission checking
+- Migration scripts
+- Test scenarios for each role
+```
+
+**Success Indicators:**
+- [ ] Sign up / login works
+- [ ] Can create team
+- [ ] Can invite users
+- [ ] Roles prevent unauthorized access
+- [ ] UI hides features user can't access
+- [ ] Logout clears session
+- [ ] Permissions checked on backend (not just frontend)
+
+**Typical Timeline:** 12-20 hours (scaffold + auth setup + testing)
+
+---
+
+**TEMPLATE 3: Real-Time Collaboration (Figma-like, Google Docs-like)**
+
+For apps requiring live updates across users (20-30 hours to scaffold)
+
+**Architecture:**
+- Frontend: React + Socket.io client
+- Backend: Node + Express + Socket.io
+- Database: PostgreSQL (for persistence) + Redis (for real-time)
+- Real-time: Socket.io with conflict-free replicated data (CRDT)
+- Deployment: Vercel (frontend) + Railway (backend + Redis)
+
+**Prompt to Claude:**
+```
+Create a real-time collaboration app [app name] with:
+
+Real-Time Sync (Socket.io):
+- Multiple users edit simultaneously
+- Changes broadcast to all connected users
+- Conflict resolution: [Last-write-wins / CRDT / Operational Transform]
+- Offline support: Queue changes locally, sync when reconnected
+
+Frontend (React):
+- Live cursor tracking (show other users' cursors)
+- Live text updates (see changes as they type)
+- Presence awareness (show who's online)
+- Undo/redo (local + collaborative)
+- Save indicator (synced / syncing / unsaved)
+
+Backend (Express + Socket.io):
+- Socket events: user-connected, user-disconnected, change-made, cursor-moved
+- Conflict resolution: merge concurrent changes
+- Persistence: save to database after each change
+- Broadcasting: all connected clients get updates
+
+Database:
+- Documents table (main content)
+- DocumentChanges table (audit trail of all edits)
+- UserPresence table (who's online, their cursor position)
+- Timestamps on everything
+
+Include:
+- CRDT or OT algorithm for conflict resolution
+- Connection error handling + reconnection
+- Broadcast optimizations (batch updates)
+- Testing concurrent edits
+- MongoDB or Postgres (CRDTs work better with append-only design)
+```
+
+**Success Indicators:**
+- [ ] Two browsers can edit simultaneously
+- [ ] Both see changes in real-time (< 100ms latency)
+- [ ] Conflicting edits merge correctly
+- [ ] Offline changes queue and sync when reconnected
+- [ ] Presence shown (who's online, cursor position)
+- [ ] Database persists all changes
+- [ ] No data loss on connection drop
+
+**Typical Timeline:** 20-30 hours (scaffold + real-time sync + testing)
+
+---
+
+**TEMPLATE 4: Mobile-Friendly + Backend**
+
+For apps serving both web and mobile (18-28 hours to scaffold)
+
+**Architecture:**
+- Frontend: Next.js (web) + React Native / Flutter (mobile)
+- Backend: Node + Express (REST API)
+- Database: PostgreSQL + Prisma
+- Mobile backend: Firebase or custom Node.js
+- Authentication: Unified (works for web + mobile)
+- Deployment: Vercel (web) + Expo (mobile) + Railway (backend)
+
+**Prompt to Claude:**
+```
+Create a mobile-friendly [app name] with:
+
+REST API (Backend):
+- All features accessible via API (web and mobile use same API)
+- Pagination: [Items per page]
+- Filtering: [By date, status, category]
+- Sorting: [Available sort options]
+- Rate limiting: [Prevent abuse]
+- API versioning: /api/v1/...
+
+Authentication (Works for web + mobile):
+- Token-based: JWT (mobile stores in AsyncStorage)
+- Refresh tokens: Access token expires in 1 hour, refresh token in 30 days
+- Logout: Clear tokens on both platforms
+
+Frontend Web (Next.js):
+- Responsive design: Mobile-first CSS
+- Touch-friendly: Larger buttons, spacing for touch
+- Offline support: Cache API responses with Service Worker
+- Sync: Queue actions when offline, replay when online
+
+Frontend Mobile (React Native):
+- Native feel: Use platform-specific navigation
+- Offline-first: AsyncStorage for cache
+- Push notifications: Firebase Cloud Messaging
+- Camera / media: Access device camera, photos, microphone
+- Location: GPS tracking if needed
+
+Database:
+- Same schema for web + mobile users
+- Timestamps: created_at, updated_at on all tables
+- Soft deletes: deleted_at field (for undo)
+- User device tracking: Store device tokens for push notifications
+
+Include:
+- API authentication middleware
+- Error codes that work for web + mobile
+- Offline queue logic (React + React Native)
+- Sync conflict handling
+- Rate limiting
+```
+
+**Success Indicators:**
+- [ ] Web app works fully responsive
+- [ ] Mobile app works offline
+- [ ] Offline changes sync when reconnected
+- [ ] Push notifications work (on mobile)
+- [ ] Same business logic on web + mobile
+- [ ] API prevents race conditions
+- [ ] Authentication works on both platforms
+
+**Typical Timeline:** 18-28 hours (scaffold + cross-platform setup + testing)
+
+---
+
+### PRACTICE: Choose Architecture for Each Scenario
+
+**Scenario A:** Task manager for yourself
+→ Use **Template 1** (Simple CRUD, 4-8 hours)
+
+**Scenario B:** Project management tool for team of 20
+→ Use **Template 2** (Multi-user SaaS + Auth, 12-20 hours)
+
+**Scenario C:** Design collaboration tool (like Figma)
+→ Use **Template 3** (Real-time Collaboration, 20-30 hours)
+
+**Scenario D:** Fitness tracking app (web + iOS app)
+→ Use **Template 4** (Mobile-friendly, 18-28 hours)
+
+---
+
+**What You're Learning:**
+
+- ✅ **Architecture depends on requirements:** Single-user vs multi-user vs real-time vs mobile each need different tech
+- ✅ **Scaffolding is fast:** AI can generate full boilerplate in hours, not weeks
+- ✅ **Templates are time-savers:** Reusable architecture templates apply to 90% of apps
+- ✅ **Custom logic is the value:** Once you have scaffold, you focus on business logic
+- ✅ **Testing architecture matters:** Different architectures have different testing strategies
+
+---
+
+**Try It Now:**
+
+1. Define: Your app requirements (single/multi-user, real-time?, mobile?)
+2. Choose: Template 1, 2, 3, or 4 based on requirements
+3. Generate: Paste full template prompt into Claude
+4. Review: Code quality, architecture decisions, API design
+5. Deploy: Get working version running locally
+6. Customize: Add your business logic
+7. Test: Verify all features work
+
+**Success Metric:**
+- You should have working full-stack scaffold in 4-30 hours (vs 2-8 weeks building manually)
+- Code should be production-ready (TypeScript types, error handling, validation)
+- You should understand architecture choices (why PostgreSQL vs MongoDB, Socket.io vs REST, etc.)
+- You should be able to customize without rebuilding entire stack
 
 **Exercise 2: Quality Assessment (5 min)**
 - Review generated code for: security, performance, testing

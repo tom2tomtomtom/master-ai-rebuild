@@ -70,9 +70,12 @@ ROI: 300-1000% on scaling investment
 
 ### Foundation Level
 
-**Exercise 1: Assess Pilot Readiness for Scaling (5 min)**
+#### Exercise 1: Assess Pilot Readiness for Scaling
+**Objective**: Know if your pilot was successful enough to expand company-wide
 
-*Objective*: Know if pilot was successful enough to scale
+**Scenario:** You've just completed a 3-month pilot of AI tools with 30 power users in Sales. It went well—they've saved time, quality looks good, and they want to keep using it. Now the question: is it ready to expand to the rest of the company (200+ people)? Or are there problems that will emerge when you scale? You need to know what success actually looks like before you invest in organization-wide rollout.
+
+**Your Mission:** Assess whether your pilot achieved the outcomes needed to confidently scale to the whole organization.
 
 **Pilot Checklist:**
 ```
@@ -101,7 +104,9 @@ If 70%+ checkmarks: Ready to scale
 If <50%: Fix pilot first before scaling
 ```
 
-**Exercise 2: Design Scaling Roadmap (5 min)**
+**What you're learning:** Scaling is where most AI initiatives fail. Pilots succeed because they have dedicated support, clear success criteria, and high motivation. Scaling requires different strategies: self-service support, automated training, policy enforcement, and culture change across diverse groups. This checklist separates pilots that are actually ready to scale from those that only *feel* successful because they had extra attention. The organizations that scale successfully treat scaling as a distinct phase with its own risks and requirements, not just "doing more of what worked in the pilot."
+
+#### Exercise 2: Design Scaling Roadmap (5 min)**
 
 *Objective*: Create detailed plan from 10% to 80% adoption
 
