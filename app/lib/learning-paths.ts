@@ -1,7 +1,7 @@
 export const LEARNING_PATHS = {
   business: {
     name: 'Business Functions',
-    icon: '💼',
+    icon: 'briefcase',
     description: 'Sales, Marketing, Support, Finance',
     lessons: [
       'lesson-51', 'lesson-52', 'lesson-53', 'lesson-54', 'lesson-55',
@@ -10,7 +10,7 @@ export const LEARNING_PATHS = {
   },
   creative: {
     name: 'Creative & Design',
-    icon: '🎨',
+    icon: 'palette',
     description: 'Image, Video, Audio, Design',
     lessons: [
       'lesson-29', 'lesson-30', 'lesson-31', 'lesson-32', 'lesson-33',
@@ -20,7 +20,7 @@ export const LEARNING_PATHS = {
   },
   technical: {
     name: 'Development & Technical',
-    icon: '⚙️',
+    icon: 'code',
     description: 'Coding, APIs, DevOps',
     lessons: [
       'lesson-41', 'lesson-42', 'lesson-43', 'lesson-44', 'lesson-45',
@@ -29,7 +29,7 @@ export const LEARNING_PATHS = {
   },
   leadership: {
     name: 'Leadership & Strategy',
-    icon: '👔',
+    icon: 'users',
     description: 'Teams, Governance, Strategy',
     lessons: [
       'lesson-61', 'lesson-62', 'lesson-63', 'lesson-64', 'lesson-65',
@@ -39,7 +39,7 @@ export const LEARNING_PATHS = {
   },
   complete: {
     name: 'Complete Curriculum',
-    icon: '🚀',
+    icon: 'layers',
     description: 'All 73 lessons',
     lessons: Array.from({ length: 73 }, (_, i) =>
       `lesson-${i.toString().padStart(2, '0')}`

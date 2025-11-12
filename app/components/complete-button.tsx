@@ -31,6 +31,7 @@ export default function CompleteButton({ lessonId, userId, initialCompleted }: C
 
         if (error) throw error
         setCompleted(false)
+        router.refresh()
       } else {
         // Mark as complete (upsert in case record doesn't exist)
         const { error } = await supabase
@@ -46,10 +47,10 @@ export default function CompleteButton({ lessonId, userId, initialCompleted }: C
 
         if (error) throw error
         setCompleted(true)
+        
+        // Redirect back to dashboard to pick another lesson
+        router.push('/dashboard')
       }
-
-      // Refresh the page data
-      router.refresh()
     } catch (error) {
       console.error('Error updating progress:', error)
     } finally {
@@ -61,21 +62,21 @@ export default function CompleteButton({ lessonId, userId, initialCompleted }: C
     <button
       onClick={toggleComplete}
       disabled={loading}
-      className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`inline-flex items-center gap-2.5 px-8 py-3.5 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
         completed
-          ? 'bg-green-600 hover:bg-green-700 text-white'
-          : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+          ? 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-600'
+          : 'bg-slate-900 dark:bg-slate-700 hover:bg-slate-800 dark:hover:bg-slate-600 text-white'
       }`}
     >
       {completed ? (
         <>
-          <CheckCircle className="w-6 h-6" />
+          <CheckCircle className="w-5 h-5" />
           Mark as Incomplete
         </>
       ) : (
         <>
-          <Circle className="w-6 h-6" />
-          {loading ? 'Marking as Complete...' : 'Mark as Complete'}
+          <Circle className="w-5 h-5" />
+          {loading ? 'Saving...' : 'Mark as Complete'}
         </>
       )}
     </button>

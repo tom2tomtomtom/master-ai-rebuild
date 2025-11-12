@@ -105,13 +105,13 @@ export default function ChatbotPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <Link
             href="/dashboard"
-            className="text-blue-600 hover:text-blue-700 font-medium mb-4 inline-block"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium mb-4 inline-block"
           >
             ← Back to Dashboard
           </Link>
@@ -120,8 +120,8 @@ export default function ChatbotPage() {
               <Sparkles className="h-8 w-8 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">AI Learning Assistant</h1>
-              <p className="text-gray-600 mt-1">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">AI Learning Assistant</h1>
+              <p className="text-gray-600 dark:text-gray-400 mt-1">
                 Discover the perfect lessons for your learning goals
               </p>
             </div>
@@ -131,7 +131,7 @@ export default function ChatbotPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Chat Interface */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-[600px]">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg overflow-hidden flex flex-col h-[600px] border border-gray-200 dark:border-gray-800">
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {messages.map((message, index) => (
@@ -163,7 +163,7 @@ export default function ChatbotPage() {
                         className={`inline-block px-4 py-3 rounded-2xl ${
                           message.role === 'user'
                             ? 'bg-blue-600 text-white'
-                            : 'bg-gray-100 text-gray-900'
+                            : 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-gray-100'
                         }`}
                       >
                         <p className="whitespace-pre-wrap">{message.content}</p>
@@ -177,11 +177,11 @@ export default function ChatbotPage() {
                       <Bot className="h-5 w-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <div className="inline-block px-4 py-3 rounded-2xl bg-gray-100">
+                      <div className="inline-block px-4 py-3 rounded-2xl bg-gray-100 dark:bg-slate-800">
                         <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                          <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" />
+                          <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce delay-100" />
+                          <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce delay-200" />
                         </div>
                       </div>
                     </div>
@@ -191,14 +191,14 @@ export default function ChatbotPage() {
               </div>
 
               {/* Input */}
-              <div className="border-t border-gray-200 p-4 bg-gray-50">
+              <div className="border-t border-gray-200 dark:border-gray-800 p-4 bg-gray-50 dark:bg-slate-800">
                 <form onSubmit={handleSubmit} className="flex gap-2">
                   <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="What would you like to learn?"
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent placeholder:text-gray-400 dark:placeholder:text-gray-500"
                     disabled={isLoading}
                   />
                   <button
@@ -215,20 +215,20 @@ export default function ChatbotPage() {
 
           {/* Recommended Lessons Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-6 sticky top-8 border border-gray-200 dark:border-gray-800">
               <div className="flex items-center gap-2 mb-4">
-                <BookOpen className="h-5 w-5 text-blue-600" />
-                <h2 className="text-lg font-semibold text-gray-900">
+                <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   Recommended Lessons
                 </h2>
               </div>
 
               {recommendedLessons.length === 0 ? (
                 <div className="text-center py-8">
-                  <div className="bg-gray-100 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                    <Sparkles className="h-8 w-8 text-gray-400" />
+                  <div className="bg-gray-100 dark:bg-slate-800 rounded-full p-4 w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                    <Sparkles className="h-8 w-8 text-gray-400 dark:text-gray-500" />
                   </div>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
                     Tell me what you&apos;d like to learn, and I&apos;ll recommend the perfect lessons!
                   </p>
                 </div>
@@ -238,10 +238,10 @@ export default function ChatbotPage() {
                     <Link
                       key={lesson.id}
                       href={`/lesson/${lesson.id}`}
-                      className="block p-4 border border-gray-200 rounded-xl hover:border-blue-600 hover:shadow-md transition-all group"
+                      className="block p-4 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-600 dark:hover:border-blue-500 hover:shadow-md transition-all group bg-white dark:bg-slate-800"
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                        <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">
                           Lesson {lesson.lesson_number}
                         </span>
                         <span
@@ -252,10 +252,10 @@ export default function ChatbotPage() {
                           {lesson.difficulty}
                         </span>
                       </div>
-                      <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                         {lesson.title}
                       </h3>
-                      <div className="flex items-center gap-3 text-xs text-gray-500">
+                      <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
                         <div className="flex items-center gap-1">
                           <Clock className="h-3 w-3" />
                           <span>{lesson.duration_minutes} min</span>
@@ -276,8 +276,8 @@ export default function ChatbotPage() {
         </div>
 
         {/* Quick Prompts */}
-        <div className="mt-8 bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="mt-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-gray-800">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
             Not sure what to ask? Try these:
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -292,7 +292,7 @@ export default function ChatbotPage() {
               <button
                 key={index}
                 onClick={() => setInput(prompt)}
-                className="text-left px-4 py-3 border border-gray-200 rounded-xl hover:border-blue-600 hover:bg-blue-50 transition-all text-sm text-gray-700 hover:text-blue-700"
+                className="text-left px-4 py-3 border border-gray-200 dark:border-gray-800 rounded-xl hover:border-blue-600 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all text-sm text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
               >
                 &quot;{prompt}&quot;
               </button>

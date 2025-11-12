@@ -162,6 +162,10 @@ testim --record --app-url https://yourapp.com
 #### Exercise 1: Auto-Generate Unit Tests with AI
 **Objective**: Create comprehensive test suite automatically
 
+**Scenario:** You're a developer at a fast-growing startup. Your team ships code quickly, but bugs are slipping into production. You have zero dedicated QA staff. You need to write tests, but it's tedious and you keep missing edge cases. How can AI help you test comprehensively without hiring a QA team?
+
+**Your Mission:** Use GitHub Copilot to automatically generate a comprehensive test suite from minimal input. Then verify the coverage is solid.
+
 **Setup** (2 min):
 ```bash
 # Enable Copilot in your IDE (GitHub Copilot)
@@ -195,6 +199,8 @@ EOF
 - Do generated tests cover edge cases?
 - Is coverage 90%+?
 - Do all tests pass?
+
+**What you're learning:** Writing tests manually is slow and error-prone. AI can generate test cases at 10x speed, covering edge cases you'd never think of. This is how testing gets democratized—non-QA engineers can write production-quality test suites.
 
 #### Exercise 2: Set Up Continuous Testing Pipeline
 **Objective**: Auto-run tests on every commit

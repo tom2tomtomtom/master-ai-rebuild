@@ -30,8 +30,8 @@ export async function middleware(request: NextRequest) {
   // Refresh session if expired
   const { data: { user } } = await supabase.auth.getUser()
 
-  // Protected routes
-  const protectedPaths = ['/dashboard', '/lesson', '/onboarding']
+  // Protected routes (onboarding is NOT protected as it's part of the auth flow)
+  const protectedPaths = ['/dashboard', '/lesson']
   const isProtectedPath = protectedPaths.some(path =>
     request.nextUrl.pathname.startsWith(path)
   )
