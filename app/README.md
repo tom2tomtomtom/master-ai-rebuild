@@ -6,6 +6,7 @@ A B2B SaaS learning platform built with Next.js 15, TypeScript, Tailwind CSS, an
 
 - **73 Expert Lessons** - Comprehensive curriculum covering ChatGPT, Claude, Gemini, Perplexity, and more
 - **5 Learning Paths** - Business, Creative, Technical, Leadership, or Complete curriculum
+- **AI Learning Assistant** - Chatbot powered by Claude API that recommends lessons based on your interests
 - **Magic Link Authentication** - Passwordless sign-in via email
 - **Progress Tracking** - Mark lessons complete and track advancement
 - **Responsive Design** - Beautiful UI that works on all devices
@@ -62,7 +63,17 @@ NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Required for AI Chatbot Assistant
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
 ```
+
+**Note**: To get your Anthropic API key:
+1. Visit [console.anthropic.com](https://console.anthropic.com)
+2. Sign up or log in to your account
+3. Go to API Keys section
+4. Create a new API key
+5. Copy the key and add it to your `.env.local` file
 
 ### 4. Seed Lesson Data
 
@@ -95,8 +106,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 2. **Email** → Click magic link → Auto sign-in
 3. **Onboarding** → Select learning path (Business, Creative, etc.)
 4. **Dashboard** → View lesson list with progress
-5. **Lesson** → Read content → Mark complete
-6. **Dashboard** → See updated progress percentage
+5. **AI Assistant** → Chat about interests → Get personalized lesson recommendations
+6. **Lesson** → Read content → Mark complete
+7. **Dashboard** → See updated progress percentage
 
 ### Learning Paths
 
@@ -116,6 +128,9 @@ app/
 │   ├── page.tsx             # Landing page with auth
 │   ├── layout.tsx           # Root layout
 │   ├── globals.css          # Global styles
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.ts     # AI chatbot API endpoint
 │   ├── auth/
 │   │   ├── callback/        # Magic link callback
 │   │   └── signout/         # Sign out route
@@ -123,6 +138,8 @@ app/
 │   │   └── page.tsx         # Path selection
 │   ├── dashboard/
 │   │   └── page.tsx         # Lesson list + progress
+│   ├── chatbot/
+│   │   └── page.tsx         # AI lesson recommender
 │   └── lesson/
 │       └── [id]/
 │           └── page.tsx     # Lesson viewer
@@ -164,6 +181,7 @@ app/
    NEXT_PUBLIC_SUPABASE_ANON_KEY
    SUPABASE_SERVICE_ROLE_KEY
    NEXT_PUBLIC_SITE_URL
+   ANTHROPIC_API_KEY
    ```
 4. Deploy!
 
@@ -266,7 +284,7 @@ export const LEARNING_PATHS = {
 - [ ] Create admin dashboard
 - [ ] Add team/organization support
 - [ ] Integrate payment with Stripe
-- [ ] Add lesson recommendations
+- [x] Add lesson recommendations (AI Chatbot Assistant)
 - [ ] Build mobile app
 
 ## 📝 License
