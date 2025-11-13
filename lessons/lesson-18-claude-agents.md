@@ -1,6 +1,97 @@
 # Lesson 18: Claude Agents & Automation - Autonomous Multi-Step Problem Solving
 *Master agentic workflows where Claude autonomously completes complex multi-step tasks with reasoning and tool use*
 
+---
+
+## ⚡ BEFORE YOU START: Using Connectors with Agents
+
+**Connectors let agents read from and interact with your work tools. This section covers setup for agent integrations.**
+
+### What Are Connectors?
+
+Connectors are integrations that allow Claude to:
+- **Read** from Gmail, Slack, Google Docs, Google Sheets, GitHub
+- **Analyze** content in these tools directly
+- **Reference** this data in agent workflows
+- **Build workflows** that pull data from work tools
+
+**Real-world agent example:** An agent that monitors Gmail for customer issues, checks support docs in Sheets, pulls code from GitHub, and Slack-messages the team with recommendations—all automatically.
+
+### Available Connectors (Pro Only)
+
+These integrations are available with Claude Pro:
+
+| Connector | What It Does | Use Cases |
+|-----------|------------|-----------|
+| **Gmail** | Read emails, draft responses | Customer support agents, inbox triage, automatic replies |
+| **Slack** | Read channel messages, post updates | Team notifications, meeting summaries, workflow alerts |
+| **Google Docs** | Read and edit documents | Documentation updates, report generation, content editing |
+| **Google Sheets** | Read and modify spreadsheets | Data analysis, report generation, record updates |
+| **GitHub** | Browse repositories, read code | Code analysis, documentation, repository monitoring |
+
+### How Connectors Enable Agents
+
+**Without Connectors:** Agent needs data → You manually give it data → Agent analyzes → You implement changes
+
+**With Connectors:** Agent reads data → Agent analyzes → Agent implements changes (posts to Slack, updates Sheets)
+
+**Example Agent Workflow with Gmail + Sheets Connector:**
+1. Agent reads new support emails (Gmail)
+2. Agent categorizes issues
+3. Agent updates support metrics spreadsheet (Sheets)
+4. Agent posts summary to team (Slack)
+5. All without human involvement
+
+### How to Enable: Connect Gmail (Pro Only)
+
+**Step-by-step:**
+1. Open https://claude.ai
+2. Click Settings (⚙️ icon, top right)
+3. Find "Connected Apps" or "Integrations"
+4. Click "Connect" next to Gmail
+5. You'll be redirected to Google login
+6. Review permissions ("Claude wants access to read your emails")
+7. Click "Allow"
+8. Confirm in Claude
+
+**After connecting:** In conversations, you can say "Look at my latest emails" and Claude will read them directly.
+
+### How to Enable: Other Connectors
+
+**For Slack, Google Docs, Google Sheets, GitHub:** Same process
+1. Settings → Connected Apps
+2. Click "Connect" for desired tool
+3. Authorize permissions
+4. Confirm in Claude
+
+### When to Use Connectors with Agents
+
+**Great fit for agents:**
+- ✅ Agents that need real-time data from email/Slack/Docs
+- ✅ Workflows that update shared docs/sheets
+- ✅ Team notification agents (post to Slack)
+- ✅ Code analysis agents (access GitHub)
+
+**Not ideal for agents:**
+- ❌ One-off questions (just ask Claude directly)
+- ❌ Sensitive data (be careful what you authorize)
+- ❌ Tasks that don't need live tool access
+
+### 🔗 For Complete Connectors Setup
+
+This lesson covers agents. For detailed connector configuration:
+
+**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+- Step-by-step connector setup for each tool
+- Permission scopes explained
+- Privacy and data security
+- Troubleshooting connection issues
+- Best practices for team connectors
+
+**Subscription requirement:** Claude Pro ($20/month) required for connectors. Free tier doesn't have connector support.
+
+---
+
 ## 💰 The Business Reality
 
 Complex workflows require human oversight:

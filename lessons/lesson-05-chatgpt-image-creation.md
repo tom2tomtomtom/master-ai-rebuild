@@ -57,6 +57,19 @@ A professional-quality image matching your specifications, with proper text rend
 
 ---
 
+### ⚙️ Pro Tip: ChatGPT Settings for Image Generation
+
+**For image creation, use GPT-4o** (native image generation).
+
+- **Model:** GPT-4o (best for image generation)
+- **DALL-E 3 Integration:** Automatically included with GPT-4o
+- **Pro tier required:** This lesson needs ChatGPT Plus ($20/month)
+- **Unlimited images:** Generate as many variations as needed (no per-image cost)
+
+See Lesson 0.5 for full settings guide and image generation best practices.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

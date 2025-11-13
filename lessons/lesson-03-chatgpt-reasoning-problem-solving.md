@@ -17,6 +17,62 @@ GPT-5's November 2025 update brought automatic mode selection—including Advanc
 
 ---
 
+---
+
+## ⚡ BEFORE YOU START: Enable Advanced Mode
+
+**This lesson uses Advanced mode (o1-style reasoning). Ensure setup is complete before starting exercises.**
+
+### 🎯 Critical Features for This Lesson
+
+This lesson requires ChatGPT Plus. Exercises use these advanced features:
+
+- **Advanced Mode:** o1-style reasoning (step-by-step thinking)
+- **GPT-4 Turbo or o1 Model:** For superior reasoning capabilities
+- **Web Browsing:** For research-heavy problems (if needed)
+
+### How to Enable: Advanced Mode (Plus Only)
+
+Advanced Mode makes ChatGPT think step-by-step before responding.
+
+**Step-by-step:**
+1. Open https://chatgpt.com (ChatGPT Plus)
+2. Click model selector (top of chat)
+3. Look for "Advanced" toggle or select "o1" model
+4. Toggle ON or select model
+5. Start a new conversation (activates on new chats)
+
+**When Advanced Mode is active:**
+- Watch as ChatGPT displays "Thinking..." with progress
+- You see ChatGPT's reasoning process
+- Final answer is more accurate for complex problems
+- Included in ChatGPT Plus (no extra cost)
+
+**For this lesson:** Use Advanced Mode for Exercises 1-3 which require complex reasoning.
+
+### How to Select: Use GPT-4 Turbo or o1 Model
+
+**For best results with this lesson:**
+1. Open https://chatgpt.com
+2. Click model selector (top of chat)
+3. Select "GPT-4 Turbo" (balanced) or "o1" (best reasoning)
+4. Start new conversation
+
+### 🔗 For Complete Reasoning Setup
+
+This lesson focuses on problem-solving frameworks. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- Complete Advanced mode walkthrough
+- When to use o1 vs GPT-4 Turbo
+- Web Browsing for research
+- Custom GPTs for specialized reasoning
+- Pricing and cost implications
+
+**Subscription requirement:** ChatGPT Plus ($20/month) required. Free tier limited to mini models.
+
+---
+
 ## ⚡ Your First Complex Problem Solved in 60 Seconds
 
 Let's solve a real business problem using GPT-5's Advanced reasoning mode.
@@ -90,6 +146,62 @@ GPT-5's November 2025 update brought automatic mode selection—including Advanc
 - Time saved: 8-10 hours/week on strategic analysis and problem-solving
 - Money saved: $5,000+/month vs. hiring consultants or analysts
 - Capability gained: McKinsey-level frameworks and multi-step reasoning on demand
+
+---
+
+---
+
+## ⚡ BEFORE YOU START: Enable Advanced Mode
+
+**This lesson uses Advanced mode (o1-style reasoning). Ensure setup is complete before starting exercises.**
+
+### 🎯 Critical Features for This Lesson
+
+This lesson requires ChatGPT Plus. Exercises use these advanced features:
+
+- **Advanced Mode:** o1-style reasoning (step-by-step thinking)
+- **GPT-4 Turbo or o1 Model:** For superior reasoning capabilities
+- **Web Browsing:** For research-heavy problems (if needed)
+
+### How to Enable: Advanced Mode (Plus Only)
+
+Advanced Mode makes ChatGPT think step-by-step before responding.
+
+**Step-by-step:**
+1. Open https://chatgpt.com (ChatGPT Plus)
+2. Click model selector (top of chat)
+3. Look for "Advanced" toggle or select "o1" model
+4. Toggle ON or select model
+5. Start a new conversation (activates on new chats)
+
+**When Advanced Mode is active:**
+- Watch as ChatGPT displays "Thinking..." with progress
+- You see ChatGPT's reasoning process
+- Final answer is more accurate for complex problems
+- Included in ChatGPT Plus (no extra cost)
+
+**For this lesson:** Use Advanced Mode for Exercises 1-3 which require complex reasoning.
+
+### How to Select: Use GPT-4 Turbo or o1 Model
+
+**For best results with this lesson:**
+1. Open https://chatgpt.com
+2. Click model selector (top of chat)
+3. Select "GPT-4 Turbo" (balanced) or "o1" (best reasoning)
+4. Start new conversation
+
+### 🔗 For Complete Reasoning Setup
+
+This lesson focuses on problem-solving frameworks. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- Complete Advanced mode walkthrough
+- When to use o1 vs GPT-4 Turbo
+- Web Browsing for research
+- Custom GPTs for specialized reasoning
+- Pricing and cost implications
+
+**Subscription requirement:** ChatGPT Plus ($20/month) required. Free tier limited to mini models.
 
 ---
 

@@ -58,6 +58,18 @@ Compare this to GPT-5 output—you'll notice Claude's writing has:
 
 ---
 
+### ⚙️ Pro Tip: Claude Settings for Writing
+
+**For this lesson, use Claude 4.5 Sonnet** (not 3.5) for superior literary quality.
+
+- **Model:** Top of chat window → Select "Claude 4.5 Sonnet"
+- **Artifacts:** Claude may create documents in Artifacts panel—use them to see live preview
+- **Pro tier required:** This lesson needs Claude Pro ($20/month)
+
+See Lesson 9.5 for full settings guide.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

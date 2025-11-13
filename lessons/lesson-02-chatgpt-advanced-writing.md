@@ -65,6 +65,19 @@ A structured outline with:
 
 ---
 
+### ⚙️ Pro Tip: ChatGPT Settings for Writing
+
+**For advanced writing, use Canvas feature** (Pro feature).
+
+- **Model:** GPT-4 Turbo (best quality) or GPT-4o (faster)
+- **Canvas:** Enable in Settings → Look for Canvas feature
+- **Pro tier required:** This lesson needs ChatGPT Plus ($20/month)
+- **Browser:** Works best in desktop web interface for full Canvas experience
+
+See Lesson 0.5 for full settings guide and Canvas setup.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

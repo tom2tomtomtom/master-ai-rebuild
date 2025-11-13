@@ -1,6 +1,103 @@
 # Lesson 11: Claude Research & Analysis - Transform How You Process Information
 *Master Claude's 1M token context and analytical depth to analyze entire books, research papers, and complex datasets in single conversations*
 
+---
+
+## ⚡ BEFORE YOU START: Enable Advanced Research Features
+
+**This lesson uses Deep Research and Extended Thinking—both Pro-only features. Ensure setup is complete before starting exercises.**
+
+### 🎯 Critical Features for This Lesson
+
+This lesson requires Claude Pro. Exercises use these advanced features:
+
+- **Exercise 1 & 2:** Extended Thinking (for complex analytical reasoning)
+- **Exercise 3:** Deep Research (for accessing real-time information when needed)
+- **All Exercises:** Claude 4.5 Sonnet (for superior analytical capabilities)
+- **All Exercises:** Projects (for managing research and persistent context)
+
+### How to Enable: Deep Research Mode (Pro Only)
+
+Deep Research allows Claude to search the web in real-time and synthesize current information.
+
+**Step-by-step:**
+1. Open https://claude.ai
+2. Click Settings (⚙️ icon, top right)
+3. Look for "Deep Research" toggle
+4. Toggle ON
+5. You'll see a notice about per-query costs ($1-5 per search depending on complexity)
+
+**When Deep Research activates:**
+- A "Searching the web..." indicator appears during responses
+- Claude waits for search results before answering
+- Responses include source citations
+- Each search is billed separately to your Claude account
+
+**For this lesson:** Use Deep Research when exercises ask for "current market data" or "recent research."
+
+### How to Enable: Extended Thinking Mode (Pro Only)
+
+Extended Thinking makes Claude reason step-by-step through complex problems, showing its thinking process.
+
+**Step-by-step:**
+1. Open https://claude.ai
+2. Click Settings (⚙️ icon, top right)
+3. Look for "Extended Thinking" toggle
+4. Toggle ON
+5. Start a new conversation (feature activates on new chats)
+
+**When Extended Thinking is active:**
+- Before responding, Claude shows "Thinking..." with progress
+- You see Claude's reasoning process
+- Final answer is more accurate on complex problems
+- Included in Claude Pro (no extra cost)
+
+**For this lesson:** Extended Thinking helps with Exercises 1-2 which require complex analytical reasoning.
+
+### How to Set Up: Claude Projects (Persistent Research Context)
+
+Projects let you build persistent knowledge bases for ongoing research.
+
+**Quick setup:**
+1. https://claude.ai
+2. Left sidebar → Click "+" button
+3. Select "Create Project"
+4. Name it (e.g., "Market Research 2025")
+5. Click Create
+6. Add files: Click "Add Files" and upload documents
+7. Add custom instructions if needed
+
+**For this lesson:** Exercise 2 uses Projects. When you upload research documents, they persist across conversations.
+
+### Where to Find Artifacts (Auto-generated)
+
+Artifacts are Claude's live preview panels for interactive content (code, documents, diagrams).
+
+**You'll see them when:**
+- Claude creates code (React components, HTML pages)
+- Claude generates diagrams (Mermaid charts)
+- Claude creates structured documents
+
+**They appear:** Right side of chat window as an interactive preview panel
+
+**For this lesson:** Exercise 3 may create Artifacts. You can edit them live and iterate visually.
+
+### 🔗 For Complete Feature Setup
+
+This lesson focuses on research techniques. For detailed setup of all features:
+
+**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+- Complete Deep Research walkthrough
+- Extended Thinking configuration
+- How to create and use Projects
+- Understanding Artifacts
+- Pricing and cost implications
+- API keys for developers
+
+**Subscription requirement:** Claude Pro ($20/month) required for all features in this lesson. Free tier won't work.
+
+---
+
 ## 💰 The Business Reality
 
 Professional research and analysis is time-intensive and cognitively demanding:

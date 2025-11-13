@@ -48,6 +48,19 @@ Make it functional and styled nicely.
 
 ---
 
+### ⚙️ Pro Tip: Claude Settings for Artifacts
+
+**Artifacts are a Pro feature** that appear automatically when Claude creates code or documents.
+
+- **Access:** Right side of chat window (appears automatically)
+- **Pro tier required:** This lesson needs Claude Pro ($20/month)
+- **Model:** Works with both Claude 3.5 and 4.5 Sonnet (4.5 recommended)
+- **Export:** Copy to clipboard, download, or open in new window
+
+See Lesson 9.5 for full settings guide and best practices for Artifacts.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

@@ -54,15 +54,21 @@ async function seedLessons() {
     try {
       const content = readFileSync(join(lessonsDir, file), 'utf-8')
 
-      // Extract lesson ID - handle both numbered (lesson-00-*) and meta (lesson-meta-*) formats
+      // Extract lesson ID - handle both numbered (lesson-00-*), decimal (lesson-0.5), and meta (lesson-meta-*) formats
       let lessonId: string
       let lessonNumber: number
 
-      const numberMatch = file.match(/lesson-(\d+)/)
+      const numberMatch = file.match(/lesson-([\d.]+)/)
       if (numberMatch) {
-        // Standard numbered lesson (lesson-00, lesson-01, etc.)
-        lessonNumber = parseInt(numberMatch[1])
-        lessonId = `lesson-${lessonNumber.toString().padStart(2, '0')}`
+        // Standard numbered lesson (lesson-00, lesson-01, lesson-0.5, lesson-9.5, etc.)
+        lessonNumber = parseFloat(numberMatch[1])
+        // Format ID: integers as 2-digit (lesson-00), decimals as-is (lesson-0.5)
+        const numStr = numberMatch[1]
+        if (numStr.includes('.')) {
+          lessonId = `lesson-${numStr}`
+        } else {
+          lessonId = `lesson-${numStr.padStart(2, '0')}`
+        }
       } else if (file.startsWith('lesson-meta-')) {
         // Meta lesson (lesson-meta-guide-to-guide)
         lessonId = file.replace('.md', '')

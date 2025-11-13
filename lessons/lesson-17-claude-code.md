@@ -60,6 +60,20 @@ All in IDE-like environment. One window. No context switching.
 
 ---
 
+### ⚙️ Pro Tip: Claude Code Access
+
+**Claude Code is a dedicated product** with its own setup process.
+
+- **Access:** Visit https://claude.com/projects (or dedicated Claude Code interface)
+- **Model:** Uses Claude 4.5 Sonnet automatically
+- **Pro tier:** Included with Claude Pro ($20/month)
+- **Capabilities:** Full terminal access, git integration, deployment tools
+- **Environment:** Works with any programming language and framework
+
+See Lesson 9.5 for full settings guide and Claude Code project setup.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

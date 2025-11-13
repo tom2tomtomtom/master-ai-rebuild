@@ -17,6 +17,60 @@ GPT-5's Advanced Data Analysis (formerly Code Interpreter) enables non-technical
 
 ---
 
+## ⚡ BEFORE YOU START: Enable Code Interpreter
+
+**This lesson uses Code Interpreter (Data Analysis). Ensure setup is complete before starting exercises.**
+
+### 🎯 Critical Features for This Lesson
+
+This lesson requires ChatGPT Plus. Exercises use these advanced features:
+
+- **Code Interpreter:** Run Python code for data analysis
+- **GPT-4o or GPT-4 Turbo Model:** For data analysis and visualization
+- **File Uploads:** CSV, Excel, PDF, images, JSON files
+
+### How to Enable: Code Interpreter (Plus Only)
+
+Code Interpreter allows ChatGPT to analyze data files and create visualizations.
+
+**Step-by-step:**
+1. Open https://chatgpt.com (ChatGPT Plus)
+2. Click Settings (bottom left)
+3. Find "Code Interpreter" (or "Advanced Data Analysis")
+4. Toggle ON
+5. Start a new conversation
+
+**When Code Interpreter is active:**
+- Paperclip icon appears for file upload
+- Upload CSV, Excel, PDF, images, JSON
+- ChatGPT writes Python code to analyze
+- View charts and visualizations live
+- Download cleaned/processed data
+
+**For this lesson:** Code Interpreter is required for all exercises.
+
+### File Types Supported
+
+- **Data:** CSV, Excel (.xlsx), JSON, TSV
+- **Documents:** PDF, text files
+- **Images:** PNG, JPG, GIF (for analysis or OCR)
+- **Formats:** Can process and convert between formats
+
+### 🔗 For Complete Data Analysis Setup
+
+This lesson focuses on analysis techniques. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- Complete Code Interpreter walkthrough
+- File upload and processing
+- Python capabilities and limitations
+- Visualization libraries available
+- Pricing and cost implications
+
+**Subscription requirement:** ChatGPT Plus ($20/month) required. Free tier doesn't have Code Interpreter.
+
+---
+
 ## ⚡ Your First Data Insight in 60 Seconds
 
 Let's analyze a dataset and create a visualization right now using GPT-5.

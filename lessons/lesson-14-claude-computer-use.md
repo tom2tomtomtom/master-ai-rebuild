@@ -56,6 +56,19 @@ This happens autonomously—you're watching Claude control your computer.
 
 ---
 
+### ⚙️ Pro Tip: Claude Settings for Computer Use
+
+**Computer Use requires Claude Pro and Claude 4.5 Sonnet** (with special access).
+
+- **Model:** Top of chat window → Select "Claude 4.5 Sonnet"
+- **Computer Use:** Requires special API access (check Settings → Features)
+- **Pro tier required:** This lesson needs Claude Pro ($20/month)
+- **Browser & OS:** Works on Mac, Windows, Linux with any browser
+
+See Lesson 9.5 for full settings guide and Computer Use setup.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

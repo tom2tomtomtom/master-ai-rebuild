@@ -126,6 +126,19 @@ A system prompt that Claude will follow, resulting in:
 
 ---
 
+### ⚙️ Pro Tip: Claude Settings for Safety & Alignment
+
+**Safety implementation works with all Claude models** (3.5 and 4.5 Sonnet).
+
+- **Model:** Either Claude 3.5 or 4.5 Sonnet works (4.5 for complex compliance)
+- **Extended Thinking:** Enable in Settings for detailed reasoning on compliance decisions
+- **Projects:** Use Projects to maintain safety frameworks across conversations
+- **Pro tier recommended:** Features like Projects enhanced with Claude Pro ($20/month)
+
+See Lesson 9.5 for full settings guide and compliance implementation patterns.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

@@ -1,6 +1,80 @@
 # Lesson 15: Claude Projects - Persistent Context & Team Collaboration
 *Master Claude Projects for persistent knowledge bases, team workflows, and continuous context management*
 
+---
+
+## ⚡ BEFORE YOU START: Understanding Claude Projects
+
+**This lesson requires Claude Pro and hands-on experience with Projects. Complete basic setup first.**
+
+### What Are Claude Projects?
+
+Claude Projects are persistent, reusable workspaces where you can:
+
+1. **Upload & Organize Documents** - Build a knowledge base that persists across conversations
+2. **Add Custom Instructions** - Tell Claude how to behave specifically for this project
+3. **Reference Without Re-uploading** - All future conversations automatically have access to project documents
+4. **Share with Teams** - Invite team members to collaborate within the same project
+5. **Track Conversations** - Every conversation in a project stays in the project for reference
+
+**Real-world example:** Create a "Product Development" project, upload your product spec + technical docs + design guidelines, and every conversation with Claude in that project will have full context. New team members don't need the docs re-explained.
+
+### Quick Project Setup (5 minutes)
+
+**Create a new Project:**
+1. Visit https://claude.ai
+2. Left sidebar → Click "+" button
+3. Select "Create Project"
+4. Enter name (e.g., "Q4 Product Launch")
+5. Click Create
+
+**Add documents:**
+1. Inside project → Click "Add Files" or upload area
+2. Select PDFs, Word docs, images, code files
+3. Upload (files persist in project)
+4. Claude will reference them in all future conversations
+
+**Add custom instructions:**
+1. Project menu → Click "Settings" (⚙️)
+2. Find "Custom Instructions" section
+3. Write how Claude should behave (e.g., "You are a product manager. Focus on user impact and business metrics.")
+4. Save
+
+**Start conversation:**
+1. Type in the project chat
+2. Claude automatically includes project context
+3. Reference documents without uploading again
+
+### When to Use Projects
+
+**Personal Use:**
+- ✅ Ongoing client work (one Project = one client)
+- ✅ Long-term research (one Project = one research topic)
+- ✅ Personal projects (writing, side projects, learning)
+- ❌ One-off questions (use regular chat instead)
+
+**Team Use:**
+- ✅ Department/team workflows (sales, product, engineering)
+- ✅ Client delivery (entire project context shared)
+- ✅ Shared knowledge base (onboarding, processes)
+- ✅ Collaborative analysis (multiple team members contributing)
+
+### 🔗 For Complete Projects Reference
+
+This lesson covers project strategies. For setup and configuration details:
+
+**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+- How to create Projects step-by-step
+- How to add files and documents
+- Custom instructions examples
+- Sharing projects with teams
+- Best practices for project organization
+- Troubleshooting access issues
+
+**Subscription requirement:** Claude Pro ($20/month) required. Free tier doesn't include Projects.
+
+---
+
 ## 💰 The Business Reality
 
 Knowledge management without AI creates constant friction:

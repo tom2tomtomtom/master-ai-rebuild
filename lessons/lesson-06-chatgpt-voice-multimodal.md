@@ -17,6 +17,64 @@ GPT-5's Advanced Voice Mode (evolved from GPT-4o) delivers natural, conversation
 
 ---
 
+## ⚡ BEFORE YOU START: Enable Voice & Multimodal Features
+
+**This lesson uses Voice Mode and multimodal capabilities. Ensure setup is complete before starting exercises.**
+
+### 🎯 Critical Features for This Lesson
+
+This lesson requires ChatGPT Plus. Exercises use these advanced features:
+
+- **Voice Mode:** Real-time voice conversations
+- **Multimodal:** Upload images, screenshots, documents for analysis
+- **Mobile App:** Essential for voice on-the-go (iOS/Android)
+- **GPT-4o Model:** Best for voice and multimodal interactions
+
+### How to Enable: Voice Mode (Plus Only - Mobile App)
+
+Voice Mode requires the mobile app (ChatGPT for iOS or Android).
+
+**On Mobile:**
+1. Download ChatGPT app (iOS App Store or Android Google Play)
+2. Sign in with ChatGPT Plus account
+3. Tap the headphone icon (bottom right of chat)
+4. Allow microphone access
+5. Start speaking naturally
+
+**On Desktop Web:**
+1. Open https://chatgpt.com
+2. Look for microphone icon in input area
+3. Allow browser microphone access
+4. Speak your question
+
+### How to Use: Upload Images & Multimodal Content
+
+**Upload images for analysis:**
+1. In ChatGPT, click paperclip icon
+2. Select image/screenshot/PDF
+3. Ask ChatGPT to analyze
+4. "Describe this image" or "Extract the text from this screenshot"
+
+**Supported formats:**
+- Images: PNG, JPG, GIF, WebP
+- PDFs: Single and multi-page documents
+- Screenshots: Perfect for analyzing designs or interfaces
+
+### 🔗 For Complete Voice & Multimodal Setup
+
+This lesson focuses on voice-first workflows. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- Complete Voice Mode walkthrough
+- Multimodal capabilities and limitations
+- Mobile app setup and features
+- Privacy considerations for voice
+- Accessibility and use cases
+
+**Subscription requirement:** ChatGPT Plus ($20/month) required. Free tier doesn't have Voice Mode.
+
+---
+
 ## ⚡ Your First Voice Conversation in 60 Seconds
 
 Let's have a real-time voice conversation with ChatGPT right now.

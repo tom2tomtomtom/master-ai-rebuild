@@ -49,8 +49,8 @@ CREATE TRIGGER on_auth_user_created
 -- TABLE 2: LESSONS
 -- ================================================================
 CREATE TABLE lessons (
-  id TEXT PRIMARY KEY, -- lesson-00, lesson-01, etc.
-  lesson_number INTEGER UNIQUE NOT NULL,
+  id TEXT PRIMARY KEY, -- lesson-00, lesson-01, lesson-0.5, etc.
+  lesson_number NUMERIC(4,1) UNIQUE NOT NULL,
   title TEXT NOT NULL,
   description TEXT,
   content TEXT NOT NULL,

@@ -64,6 +64,20 @@ CONSTRAINTS:
 - Keep [SPECIFIC GUIDELINE]
 ```
 
+### ⚙️ Pro Tip: ChatGPT Settings for Custom GPTs
+
+**For creating Custom GPTs, you need ChatGPT Plus**.
+
+- **Access:** Profile → "My GPTs" → "Create a GPT"
+- **Builder:** No-code builder available (or use instructions)
+- **Pro tier required:** This lesson needs ChatGPT Plus ($20/month)
+- **Knowledge Files:** Upload PDFs, docs, and files as context for your GPT
+- **Plugins:** Add plugins to extend your Custom GPT's capabilities
+
+See Lesson 0.5 for full settings guide and Custom GPT best practices.
+
+---
+
 ### Example - Sales Email Writer GPT:
 
 ```

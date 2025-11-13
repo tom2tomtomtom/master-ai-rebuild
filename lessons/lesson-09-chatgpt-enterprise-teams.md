@@ -21,6 +21,19 @@ ChatGPT Enterprise (expanded November 2025) and Teams provide: SSO authenticatio
 
 Let's understand the key difference between ChatGPT Plus (individual) and Enterprise/Teams right now.
 
+### ⚙️ Pro Tip: ChatGPT Enterprise & Teams Setup
+
+**For organization-wide deployment, understand Teams vs. Enterprise**.
+
+- **Teams:** 3+ users, $25/user/month, team workspace, shared Custom GPTs
+- **Enterprise:** 150+ users, custom pricing, SSO/SAML, compliance (SOC 2, BAA, GDPR)
+- **Contact Sales:** Teams or Enterprise? Start at https://chat.openai.com/enterprise
+- **Admin Dashboard:** Manage usage, billing, team workspaces, security
+
+See Lesson 0.5 for full settings guide, security requirements, and deployment planning.
+
+---
+
 ### Quick Enterprise vs. Plus Comparison:
 
 **Copy This Evaluation Framework:**

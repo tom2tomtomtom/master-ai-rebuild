@@ -57,6 +57,19 @@ Compare to GPT-5: Claude's code will have fewer bugs, better structure, and more
 
 ---
 
+### ⚙️ Pro Tip: Claude Settings for Coding
+
+**For production code, use Claude 4.5 Sonnet** (best for complex coding tasks).
+
+- **Model:** Top of chat window → Select "Claude 4.5 Sonnet"
+- **Extended Thinking:** For complex debugging, enable in Settings for step-by-step reasoning
+- **Artifacts:** Claude creates code in Artifacts panel—see it syntax-highlighted with copy button
+- **Pro tier required:** This lesson needs Claude Pro ($20/month)
+
+See Lesson 9.5 for full settings guide.
+
+---
+
 ## 🎓 Progressive Mastery
 
 ### Foundation Level (5 minutes)

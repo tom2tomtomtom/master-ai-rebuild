@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- 2. LESSONS TABLE
 CREATE TABLE IF NOT EXISTS lessons (
   id TEXT PRIMARY KEY,
-  lesson_number INTEGER NOT NULL,
+  lesson_number NUMERIC(4,1) NOT NULL UNIQUE,
   title TEXT NOT NULL,
   description TEXT,
   content TEXT NOT NULL,
@@ -72,3 +72,21 @@ CREATE INDEX IF NOT EXISTS idx_user_progress_user_id ON user_progress(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_progress_lesson_id ON user_progress(lesson_id);
 CREATE INDEX IF NOT EXISTS idx_lessons_published ON lessons(is_published) WHERE is_published = true;
 CREATE INDEX IF NOT EXISTS idx_lessons_number ON lessons(lesson_number);
+
+-- MIGRATION: Update lesson_number to support decimals (0.5, 9.5)
+-- This runs after table creation to handle existing tables
+DO $$
+BEGIN
+  -- Check if column exists and is INTEGER type
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name='lessons' AND column_name='lesson_number' AND data_type='integer'
+  ) THEN
+    -- Drop the constraint if it exists to avoid issues during migration
+    ALTER TABLE lessons DROP CONSTRAINT IF EXISTS lessons_lesson_number_key;
+    -- Alter column type to support decimals
+    ALTER TABLE lessons ALTER COLUMN lesson_number TYPE NUMERIC(4,1);
+    -- Re-add unique constraint
+    ALTER TABLE lessons ADD CONSTRAINT lessons_lesson_number_key UNIQUE (lesson_number);
+  END IF;
+END $$;

@@ -1,6 +1,66 @@
 # Lesson 1: ChatGPT Communication Mastery - Transform Your Professional Communication
 *Master GPT-5's communication capabilities to save 10+ hours per week on emails, messages, and business correspondence*
 
+---
+
+## ⚡ BEFORE YOU START: Critical Setup
+
+**This lesson assumes you've completed these essential setup steps. If not, review Lesson 0.5 first.**
+
+### Quick Setup Checklist
+
+Before diving into ChatGPT communication:
+
+- [ ] **Access:** You can login to https://chatgpt.com
+- [ ] **Subscription:** You have ChatGPT Plus ($20/month) - Free tier is too limited
+- [ ] **Model Selection:** You can switch to GPT-4 Turbo or GPT-4o
+- [ ] **Web Browsing:** You understand when to enable it
+- [ ] **Memory Feature:** You know this feature exists and how to use it
+
+### 🎯 Critical Setting: Use GPT-4o or GPT-4 Turbo for This Lesson
+
+For this lesson's email and communication tasks, use **GPT-4o** (fastest) or **GPT-4 Turbo** (best quality).
+
+**How to select it:**
+1. Open https://chatgpt.com
+2. Look at top of chat window
+3. Click on model name (where it says "GPT-4o mini" or similar)
+4. Select "GPT-4o" or "GPT-4 Turbo" from dropdown
+5. Start a new conversation - model switches take effect on new chats
+
+**Why this matters for communication:**
+- Better at understanding tone and nuance
+- Superior at adapting to different communication styles
+- More natural language generation
+- Handles complex email scenarios
+
+### 📍 Where to Access ChatGPT: Quick UI Walkthrough
+
+**Main workspace:**
+1. Visit https://chatgpt.com
+2. You'll see: Chat area (center) + Sidebar (left, toggles conversations/custom GPTs)
+3. To start new chat: Click "+" button in top center or sidebar
+4. Model selector: Top of chat window (clickable dropdown)
+5. Settings: Bottom left (gear icon)
+
+**For Communication Tasks:**
+- Settings (⚙️ icon, bottom left) → Enable "Memory" (saves communication preferences)
+- Model selector (top) → Choose GPT-4o for balance of speed/quality
+- Attach files: Paperclip icon (can paste email chains, documents)
+
+### 🔗 For Full Settings Reference
+
+This lesson covers ChatGPT's communication capabilities. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- How to enable Memory for learning your communication style
+- How to enable Web Browsing for current information
+- How to access other models (o1 for reasoning, GPT-4 Turbo for advanced)
+- Subscription pricing and cost implications
+- API keys for developers
+
+---
+
 ## 💰 The Business Reality
 
 Professional communication dominates your workday, and most of it is repetitive:
@@ -63,6 +123,66 @@ A complete email with subject line, greeting, concise body covering your key poi
 
 # Lesson 1: ChatGPT Communication Mastery - Transform Your Professional Communication
 *Master GPT-5's communication capabilities to save 10+ hours per week on emails, messages, and business correspondence*
+
+---
+
+## ⚡ BEFORE YOU START: Critical Setup
+
+**This lesson assumes you've completed these essential setup steps. If not, review Lesson 0.5 first.**
+
+### Quick Setup Checklist
+
+Before diving into ChatGPT communication:
+
+- [ ] **Access:** You can login to https://chatgpt.com
+- [ ] **Subscription:** You have ChatGPT Plus ($20/month) - Free tier is too limited
+- [ ] **Model Selection:** You can switch to GPT-4 Turbo or GPT-4o
+- [ ] **Web Browsing:** You understand when to enable it
+- [ ] **Memory Feature:** You know this feature exists and how to use it
+
+### 🎯 Critical Setting: Use GPT-4o or GPT-4 Turbo for This Lesson
+
+For this lesson's email and communication tasks, use **GPT-4o** (fastest) or **GPT-4 Turbo** (best quality).
+
+**How to select it:**
+1. Open https://chatgpt.com
+2. Look at top of chat window
+3. Click on model name (where it says "GPT-4o mini" or similar)
+4. Select "GPT-4o" or "GPT-4 Turbo" from dropdown
+5. Start a new conversation - model switches take effect on new chats
+
+**Why this matters for communication:**
+- Better at understanding tone and nuance
+- Superior at adapting to different communication styles
+- More natural language generation
+- Handles complex email scenarios
+
+### 📍 Where to Access ChatGPT: Quick UI Walkthrough
+
+**Main workspace:**
+1. Visit https://chatgpt.com
+2. You'll see: Chat area (center) + Sidebar (left, toggles conversations/custom GPTs)
+3. To start new chat: Click "+" button in top center or sidebar
+4. Model selector: Top of chat window (clickable dropdown)
+5. Settings: Bottom left (gear icon)
+
+**For Communication Tasks:**
+- Settings (⚙️ icon, bottom left) → Enable "Memory" (saves communication preferences)
+- Model selector (top) → Choose GPT-4o for balance of speed/quality
+- Attach files: Paperclip icon (can paste email chains, documents)
+
+### 🔗 For Full Settings Reference
+
+This lesson covers ChatGPT's communication capabilities. For detailed setup of all features:
+
+**→ See Lesson 0.5: ChatGPT Complete Settings & Setup Guide**
+- How to enable Memory for learning your communication style
+- How to enable Web Browsing for current information
+- How to access other models (o1 for reasoning, GPT-4 Turbo for advanced)
+- Subscription pricing and cost implications
+- API keys for developers
+
+---
 
 ## 💰 The Business Reality
 

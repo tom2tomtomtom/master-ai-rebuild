@@ -1,6 +1,65 @@
 # Lesson 10: Claude Fundamentals - Master the World's Most Capable AI Assistant
 *Discover Claude 4.5 Sonnet's revolutionary capabilities and learn when to use Claude vs. GPT-5 vs. Gemini for maximum productivity*
 
+---
+
+## ⚡ BEFORE YOU START: Critical Setup
+
+**This lesson assumes you've completed these essential setup steps. If not, review Lesson 9.5 first.**
+
+### Quick Setup Checklist
+
+Before diving into Claude fundamentals:
+
+- [ ] **Access:** You can login to https://claude.ai
+- [ ] **Subscription:** You have Claude Pro ($20/month) - Free tier is too limited for serious work
+- [ ] **Model Selection:** You can switch to Claude 4.5 Sonnet (if Pro) or are using Claude 3.5 Sonnet
+- [ ] **Critical Features:** You understand where to enable Deep Research and Extended Thinking (Settings)
+
+### 🎯 Critical Setting: Use Claude 4.5 Sonnet for This Lesson
+
+For this lesson's exercises, you need **Claude 4.5 Sonnet** (not Claude 3.5).
+
+**How to select it:**
+1. Open https://claude.ai
+2. Look at the top of the chat window
+3. Click on the model name (where it says "Claude 3.5 Sonnet")
+4. Select "Claude 4.5 Sonnet" from dropdown
+5. Start a new conversation - model switches take effect on new chats
+
+**Why Claude 4.5 matters for this lesson:**
+- Better at complex reasoning required for multi-document analysis (Exercise 2)
+- Superior code generation for codebase review (Exercise 3)
+- More accurate context handling for 1M token exercises
+
+### 📍 Where to Access Claude: UI Walkthrough
+
+**Main workspace (where you'll spend 95% of your time):**
+1. Visit https://claude.ai
+2. You'll see: Conversation area (left/center) + Sidebar (right, toggles Projects)
+3. To start new chat: Click "+" button in sidebar
+4. To create Project: Click "+" → Select "Create Project"
+5. Model selector: Top of chat window (clickable dropdown on Pro)
+
+**For Advanced Features (Pro Only):**
+- Settings (⚙️ icon top right) → Enable "Deep Research" or "Extended Thinking"
+- Projects (left sidebar) → Create and manage persistent contexts
+- Artifacts (right panel when Claude creates code/docs) → Live preview and iteration
+
+### 🔗 For Full Settings Reference
+
+This lesson covers Claude's capabilities. For detailed setup of features mentioned in exercises:
+
+**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+- How to enable Deep Research mode
+- How to enable Extended Thinking
+- How to set up Projects (Exercise 2 uses this)
+- How to access Artifacts (Exercise 3 uses this)
+- API keys for developers
+- Subscription pricing and cost implications
+
+---
+
 ## 💰 The Business Reality
 
 Not all AI models are created equal—choosing the wrong tool costs time and quality:

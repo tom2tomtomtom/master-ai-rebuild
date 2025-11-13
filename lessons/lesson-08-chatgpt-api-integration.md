@@ -21,6 +21,20 @@ The OpenAI API (powered by GPT-5 as of August 2025) lets you programmatically ac
 
 Let's make an API call to GPT-5 and get a response programmatically.
 
+### ⚙️ Pro Tip: ChatGPT API Settings
+
+**For API integration, you need an API key** (different from ChatGPT Plus).
+
+- **Access:** Sign up at https://platform.openai.com
+- **API Key:** Generate at platform.openai.com/api-keys
+- **Billing:** Pay-as-you-go (no subscription required)
+- **Models Available:** GPT-5, GPT-4 Turbo, GPT-4o, Vision, Embeddings
+- **Rate Limits:** Vary by pricing tier
+
+See Lesson 0.5 for full settings guide and API key security best practices.
+
+---
+
 ### Prerequisites:
 - OpenAI account (sign up at platform.openai.com)
 - API key (generate at platform.openai.com/api-keys)
