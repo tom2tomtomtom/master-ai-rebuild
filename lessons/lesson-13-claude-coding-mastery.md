@@ -62,299 +62,93 @@ Compare to GPT-5: Claude's code will have fewer bugs, better structure, and more
 ### Foundation Level (5 minutes)
 *Master code generation, debugging, and refactoring workflows*
 
-**Exercise 1: The Complete Feature Implementation Workflow**
+## 🎓 Progressive Mastery
 
-**Scenario:** You need to build a complete feature—API endpoint, database schema, business logic, error handling, tests. Traditionally this takes 8-12 hours. With Claude, you'll have it done in 90-120 minutes with senior-developer quality.
+### Foundation Level (5 minutes)
+*Master code generation, debugging, and refactoring workflows*
 
-**Your Mission:** Learn systematic feature development with Claude.
+**Exercise 1: The Autonomous Feature Development Matrix**
 
-**Feature Development Workflow:**
+**Scenario:** You will master Claude's ability to autonomously develop, test, and deploy production-ready code across a spectrum of complexity, from simple utility scripts to full-stack feature implementation.
 
-**Step 1: Requirements to Technical Spec (10 minutes)**
-
-```
-Prompt to Claude:
-
-"I need to build a feature. Help me go from requirements to technical spec.
-
-FEATURE: User invitation system
-
-REQUIREMENTS:
-- Allow existing users to invite new users via email
-- Track invitation status (pending / accepted / expired)
-- Invitations expire after 7 days
-- Send invitation email with unique link
-- Track who invited whom
-- Prevent duplicate invitations to same email
-- Admin dashboard to view all invitations
-
-TECH STACK:
-- Backend: Python (FastAPI)
-- Database: PostgreSQL
-- Email: SendGrid
-- Frontend: React (TypeScript)
-
-QUESTIONS TO ANSWER:
-
-1. DATABASE SCHEMA:
-What tables do we need?
-What fields?
-What indexes?
-What foreign keys?
-
-2. API ENDPOINTS:
-What endpoints for this feature?
-Request/response formats?
-Authentication required?
-
-3. BUSINESS LOGIC:
-- How to generate unique invitation links?
-- How to handle expiration?
-- What happens on acceptance?
-- Email template structure?
-
-4. ERROR SCENARIOS:
-- What can go wrong?
-- How to handle each case?
-
-5. TESTING STRATEGY:
-- Unit tests needed?
-- Integration tests needed?
-- What edge cases to cover?
-
-OUTPUT: Complete technical spec I can hand to developer (or use myself)"
-```
-
-**Claude's Output:**
-- Database schema (DDL with all tables)
-- API endpoints (request/response specs)
-- Business logic pseudocode
-- Error handling plan
-- Test scenarios
-
-**Step 2: Database Implementation (15 minutes)**
-
-```
-"Implement database schema for invitation system.
-
-TECH: PostgreSQL with SQLAlchemy ORM (Python)
-
-REQUIREMENTS:
-- Tables: users, invitations
-- Track: who sent, recipient email, status, expiration, acceptance timestamp
-- Indexes for query performance
-- Foreign key constraints
-- Updated/created timestamps
-
-DELIVERABLES:
-1. SQLAlchemy models (Python classes)
-2. Alembic migration script
-3. Sample queries (common operations)
-4. Indexes explained (why each index exists)
-
-Make it production-ready with proper:
-- Type hints
-- Docstrings
-- Constraints
-- Indexes for performance
-"
-```
-
-**Claude generates:**
-```python
-# models.py
-from sqlalchemy import Column, String, DateTime, ForeignKey, Index
-from sqlalchemy.dialects.postgresql import UUID
-import uuid
-from datetime import datetime
-
-class Invitation(Base):
-    __tablename__ = 'invitations'
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    sender_id = Column(UUID(as_uuid=True), ForeignKey('users.id'), nullable=False)
-    recipient_email = Column(String, nullable=False)
-    token = Column(String, unique=True, nullable=False, index=True)
-    status = Column(String, default='pending')  # pending, accepted, expired
-    expires_at = Column(DateTime, nullable=False)
-    accepted_at = Column(DateTime)
-    created_at = Column(DateTime, default=datetime.utcnow)
-
-    __table_args__ = (
-        Index('idx_recipient_status', 'recipient_email', 'status'),
-        Index('idx_expires', 'expires_at'),
-    )
-```
-
-Plus migration scripts, sample queries, etc.
-
-**Step 3: API Endpoint Implementation (20 minutes)**
-
-```
-"Implement API endpoints for invitation system.
-
-FRAMEWORK: FastAPI
-
-ENDPOINTS NEEDED:
-1. POST /invitations - Send invitation
-2. GET /invitations - List my sent invitations
-3. POST /invitations/{token}/accept - Accept invitation
-4. DELETE /invitations/{id} - Cancel invitation
-5. GET /admin/invitations - Admin view all (paginated)
-
-For each endpoint provide:
-- Route definition
-- Request/response models (Pydantic)
-- Business logic implementation
-- Error handling
-- Authentication/authorization
-- Input validation
-- Database operations
-
-PRODUCTION REQUIREMENTS:
-- Proper HTTP status codes
-- Clear error messages
-- Input validation
-- Authentication checks
-- Database transaction handling
-- Logging
-- Rate limiting considerations
-
-Generate complete working endpoints I can deploy."
-```
-
-**Claude generates:**
-- Complete FastAPI routes
-- Pydantic models for request/response
-- Business logic with error handling
-- Auth middleware integration
-- Input validation
-- Proper HTTP status codes
-- Logging statements
-
-**Step 4: Business Logic & Email (15 minutes)**
-
-```
-"Implement invitation email sending logic.
-
-REQUIREMENTS:
-- Generate secure unique token (URL-safe)
-- Calculate expiration (7 days from now)
-- Send email via SendGrid
-- Handle email failures gracefully
-- Log invitation events
-
-DELIVERABLES:
-1. Token generation function (secure)
-2. Email service class (SendGrid integration)
-3. Invitation creation logic (orchestrates everything)
-4. Email template (HTML)
-5. Error handling for email failures
-
-Make it production-ready with:
-- Retry logic for email failures
-- Proper error logging
-- Configuration (SendGrid API key from env)
-- HTML and plain text email versions
-"
-```
-
-**Step 5: Testing Suite (20 minutes)**
-
-```
-"Write comprehensive test suite for invitation system.
-
-TEST FRAMEWORK: pytest
-
-TESTS NEEDED:
-
-1. Unit Tests:
-- Token generation (uniqueness, security)
-- Expiration calculation
-- Invitation creation
-- Acceptance logic
-- Email rendering
-
-2. Integration Tests:
-- End-to-end invitation flow
-- Duplicate prevention
-- Expiration handling
-- Admin queries
-
-3. Edge Cases:
-- Expired invitation acceptance attempt
-- Duplicate email prevention
-- Invalid token
-- Missing required fields
-- Database constraints
-
-REQUIREMENTS:
-- Fixtures for test data
-- Mocked external services (email)
-- Database transaction rollback per test
-- Clear test names
-- Assertion messages
-- Coverage: 90%+ target
-
-Generate complete test suite ready to run."
-```
-
-**Step 6: Integration & Deployment Checklist (10 minutes)**
-
-```
-"Create deployment checklist for invitation feature.
-
-DELIVERABLES:
-
-1. ENVIRONMENT VARIABLES:
-List all env vars needed (SendGrid key, etc.)
-
-2. DATABASE MIGRATIONS:
-Migration commands to run
-Rollback plan if needed
-
-3. DEPENDENCIES:
-New packages added to requirements.txt
-
-4. CONFIGURATION:
-Settings to update in production
-
-5. MONITORING:
-What to log/monitor
-Alert thresholds
-
-6. TESTING IN PRODUCTION:
-Smoke test checklist
-Rollback criteria
-
-7. DOCUMENTATION:
-API docs update
-README update
-Team onboarding notes
-
-Create comprehensive checklist for safe deployment."
-```
-
-**Total Time Breakdown:**
-- Spec: 10 min
-- Database: 15 min
-- API: 20 min
-- Business logic: 15 min
-- Tests: 20 min
-- Deployment prep: 10 min
-- **Total: 90 minutes**
-
-**vs. Manual Development:**
-- Requirements analysis: 1-2 hours
-- Database design: 1-2 hours
-- API implementation: 3-4 hours
-- Testing: 2-3 hours
-- Integration: 1-2 hours
-- **Total: 8-13 hours**
-
-**Time Savings: 6.5-11.5 hours (85-90% faster)**
+**Your Mission:** Select a template below and execute the full workflow, ensuring Claude delivers a complete, tested, and deployable solution.
 
 ---
+
+### What You're Learning (5 ✅ Principles)
+
+✅ **Principle 1: Specification-Driven Development (SDD)**: How to use Claude to transform high-level requirements into a complete, detailed technical specification (schema, API, logic, tests) *before* writing a single line of code.
+✅ **Principle 2: Zero-Error Autonomous Coding**: Leveraging Claude's 1M context window and superior reasoning to generate code, tests, and documentation that is structurally sound and passes all tests on the first run.
+✅ **Principle 3: Full-Stack Feature Orchestration**: Directing Claude to manage the entire feature lifecycle, including database models, API endpoints, business logic, and deployment preparation.
+✅ **Principle 4: Production-Ready Quality**: Insisting on and verifying non-functional requirements like type hints, docstrings, error handling, performance considerations, and comprehensive unit/integration tests.
+✅ **Principle 5: Iterative Refinement and Testing**: Using Claude to generate a complete, runnable test suite and then using the test results to drive subsequent code generation and debugging cycles.
+
+---
+
+### Template 1: Simple Utility Script (Low Complexity / Data Processing Use Case)
+
+| Element | Detail |
+| :--- | :--- |
+| **Name** | **CSV Data Cleansing Utility** |
+| **When to use** | <ul><li>When you need a single, robust function for data transformation.</li><li>To automate a repetitive data cleaning task.</li><li>For quick, test-driven development of a core business logic function.</li><li>When the output is a file or a simple data structure, not an API.</li><li>To practice demanding production-ready quality on a small scope.</li></ul> |
+| **Setup Prompt** | **[BRACKETS]** Write a production-ready Python script that takes a CSV file path as input, cleans the data, and outputs a new CSV file. The cleaning process must include: 1. Removing rows with any missing values in the 'price' or 'quantity' columns. 2. Converting the 'timestamp' column to a standardized ISO 8601 format. 3. Calculating a new 'total_value' column (price * quantity). 4. Removing duplicate rows based on a combination of 'timestamp' and 'product_id'. Include type hints, a docstring with usage examples, robust error handling for file I/O and data conversion, and a comprehensive `pytest` suite. |
+| **Practice Scenario** | **REAL NUMBERS:** Use a sample CSV file with **1,500 rows** of mock e-commerce data. Ensure the data includes **15%** missing values, **20** duplicate rows, and timestamps in **3 different formats** (e.g., 'MM/DD/YY', 'YYYY-MM-DD HH:MM:SS', Unix epoch). |
+| **Success Metrics (7-10 Checkboxes)** | ✅ The script executes without error on the sample data. <br> ✅ A new, clean CSV file is generated with exactly **1,275** rows (assuming 15% missing and 20 duplicates removed). <br> ✅ The 'timestamp' column is uniformly formatted as ISO 8601. <br> ✅ The 'total_value' column is correctly calculated for all rows. <br> ✅ The generated Python code includes full type hints and a detailed docstring. <br> ✅ A `pytest` suite is provided with at least **5** test cases covering all cleaning steps. <br> ✅ The code includes `try...except` blocks for file I/O and data parsing errors. <br> ✅ Claude explains the time complexity of the duplicate removal method used. |
+
+---
+
+### Template 2: Small API Endpoint (Medium Complexity / Web Service Use Case)
+
+| Element | Detail |
+| :--- | :--- |
+| **Name** | **Real-Time Inventory Check API** |
+| **When to use** | <ul><li>When building a microservice or a single, focused API endpoint.</li><li>To practice defining request/response schemas (Pydantic/dataclasses).</li><li>For scenarios requiring integration with a mock external service (e.g., a database or cache).</li><li>When the primary deliverable is a deployable, tested web service component.</li><li>To ensure proper HTTP status codes and error handling in a service context.</li></ul> |
+| **Setup Prompt** | **[BRACKETS]** Implement a production-ready FastAPI endpoint: `POST /inventory/check`. It accepts a JSON body with a list of `product_id` (string) and `quantity` (integer). The endpoint must: 1. Validate the input using Pydantic. 2. Mock a database lookup to check current stock (assume stock is **100** for all products). 3. Return a list of products that are **out of stock** (requested quantity > stock). 4. Return a `400 Bad Request` if input validation fails. 5. Return a `200 OK` with the list of out-of-stock items. Include Pydantic models, a router definition, and a comprehensive `pytest` suite that mocks the database dependency. |
+| **Practice Scenario** | **REAL NUMBERS:** Test the endpoint with a request containing **5** items. Two items should request a quantity of **120**, one requests **100**, and two request **50**. The input should also include one request with a negative quantity (**-5**) to test validation. |
+| **Success Metrics (7-10 Checkboxes)** | ✅ The FastAPI code is generated with Pydantic models for request and response. <br> ✅ The endpoint correctly returns a list of **2** out-of-stock items for the main test case. <br> ✅ A `400 Bad Request` is returned when the negative quantity is submitted. <br> ✅ The database dependency is successfully mocked in the test suite. <br> ✅ The test suite includes at least **3** integration tests for the API endpoint. <br> ✅ Claude provides a clear explanation of the dependency injection pattern used in FastAPI. <br> ✅ The code includes a custom exception handler for the validation error. <br> ✅ The final code is structured into separate files (e.g., `main.py`, `schemas.py`, `tests/`). |
+
+---
+
+### Template 3: Full-Stack Feature (High Complexity / Full-Stack Use Case)
+
+| Element | Detail |
+| :--- | :--- |
+| **Name** | **Real-Time User Notification System** |
+| **When to use** | <ul><li>When you need to coordinate multiple components: database, API, and background workers.</li><li>To practice a full-stack development workflow from spec to deployment.</li><li>For features that require asynchronous processing (e.g., sending emails, processing jobs).</li><li>When the complexity requires a multi-step, iterative prompting process.</li><li>To validate Claude's ability to maintain context across a large codebase.</li></ul> |
+| **Setup Prompt** | **[BRACKETS]** Implement a full-stack feature for a **User Notification System**. The system must: 1. Store notifications in a PostgreSQL database (SQLAlchemy). 2. Have a FastAPI endpoint `POST /notifications` to create a new notification. 3. Have a background worker (using a simple Python queue/list simulation) that processes the notification and marks it as `sent`. 4. The worker must simulate a **3-second delay** before marking as sent. 5. Include a `GET /users/{user_id}/notifications` endpoint to retrieve all notifications for a user. Generate the full technical spec, database models, API endpoints, and a comprehensive test suite. |
+| **Practice Scenario** | **REAL NUMBERS:** The test suite must simulate **10** concurrent notification creation requests for **3** different users. The test must assert that after **5 seconds**, all **10** notifications are marked as `sent` in the mock database. |
+| **Success Metrics (7-10 Checkboxes)** | ✅ Claude generates a complete technical specification (schema, API, logic, tests). <br> ✅ The SQLAlchemy model correctly defines the `status` (e.g., `pending`, `sent`) and `created_at` fields. <br> ✅ The `POST` endpoint correctly creates the notification in the mock database. <br> ✅ The background worker logic correctly simulates the **3-second** delay and updates the status. <br> ✅ The `GET` endpoint correctly retrieves all **10** notifications for the users. <br> ✅ The test suite successfully asserts that all notifications are `sent` after the simulated time. <br> ✅ Claude provides a basic deployment checklist including environment variables for the database. <br> ✅ The code uses asynchronous programming (`async/await`) for the API endpoints. |
+
+---
+
+### Template 4: Code Refactoring & Debugging (Any Complexity / Maintenance Use Case)
+
+| Element | Detail |
+| :--- | :--- |
+| **Name** | **Legacy Code Modernization & Bug Fix** |
+| **When to use** | <ul><li>When dealing with existing, poorly structured, or non-idiomatic code.</li><li>To practice using Claude for code comprehension and zero-error editing.</li><li>For scenarios where the primary goal is improving code quality and maintainability.</li><li>When the task involves fixing a subtle, non-obvious bug.</li><li>To validate Claude's ability to apply modern language features (e.g., Python 3.10+).</li></ul> |
+| **Setup Prompt** | **[BRACKETS]** Analyze the following legacy Python function. It is poorly documented, uses outdated syntax, and contains a subtle bug where it fails to handle floating-point precision when calculating the final discount. Your task is to: 1. Fix the floating-point precision bug. 2. Refactor the code to use modern Python features (e.g., `dataclasses` or `typing.TypedDict`). 3. Add a comprehensive docstring and type hints. 4. Provide a `pytest` suite that specifically includes a test case that fails with the original bug and passes with the fix. **Legacy Code:** [Provide a 20-line function that calculates a discounted price, using simple floats for currency and a complex nested if/else structure for discount tiers.] |
+| **Practice Scenario** | **REAL NUMBERS:** The test case for the bug fix must use an original price of **$19.99** and a discount of **15%**. The original function should incorrectly calculate the final price as **$16.9915** (due to float error), and the fixed function must correctly calculate it as **$16.99** (using `Decimal` or similar precision method). |
+| **Success Metrics (7-10 Checkboxes)** | ✅ The bug is correctly identified as a floating-point precision issue. <br> ✅ The fix uses a high-precision data type (e.g., Python's `decimal` module). <br> ✅ The refactored code uses modern Python syntax (e.g., `dataclasses` or `match/case`). <br> ✅ The provided `pytest` suite includes a test that asserts the original, incorrect output. <br> ✅ The test suite includes a test that asserts the correct, fixed output of **$16.99**. <br> ✅ The function now has a complete docstring and full type hints. <br> ✅ Claude provides a brief explanation of *why* floating-point numbers are unsuitable for currency. <br> ✅ The overall function length is reduced by at least **20%** due to refactoring. |
+
+---
+
+### Try It Now (7 Steps)
+
+1. **Select Your Challenge:** Choose one of the four templates above based on the complexity you want to master today.
+2. **Prepare the Prompt:** Copy the `Setup Prompt` and replace **[BRACKETS]** with the specific details from the `Practice Scenario` (including the **REAL NUMBERS**).
+3. **Initial Generation:** Submit the complete prompt to Claude and wait for the full response (code, tests, docs).
+4. **Run the Tests:** Copy the generated code and the `pytest` suite into your local environment and run the tests.
+5. **Verify Success Metrics:** Check the output against the `Success Metrics` for your chosen template. Note any failures.
+6. **Iterative Debugging:** If any tests fail or metrics are not met, provide the failing test output and the relevant code back to Claude with a prompt like: "The following test failed: [Paste failure]. Fix the code and re-run the test."
+7. **Final Review:** Once all tests pass and all success metrics are met, you have successfully completed the autonomous feature development workflow.
+
+---
+
+### Final Success Metric
+
+**✅ You can confidently take the code generated by Claude from your chosen template, drop it into a production-like environment, and it will pass all tests and meet the stated requirements without any manual bug fixes.**
+
 
 ### Intermediate Level (7 minutes)
 *Debugging, refactoring, and code review at scale*

@@ -65,71 +65,201 @@ All in IDE-like environment. One window. No context switching.
 ### Foundation Level (5 minutes)
 *Understand Claude Code environment and delegation workflows*
 
-**Exercise 1: Basic Task Delegation**
 
-**Scenario:** You have coding task. Instead of coding yourself, delegate to Claude Code and review the output.
+### What You're Learning (5 ✅ principles)
 
-**Delegation Pattern:**
+✅ **Autonomous Task Decomposition:** How Claude Code breaks down a high-level request into a sequence of executable, atomic development steps (e.g., project setup, file creation, dependency installation, coding, testing).
+✅ **Contextual Code Awareness:** The ability of the environment to maintain a full, real-time understanding of the entire codebase, allowing for accurate, context-aware modifications and feature additions.
+✅ **Iterative Feedback Loop:** Mastering the process of reviewing Claude Code's output, providing specific, targeted feedback, and observing the system's ability to autonomously implement and verify the changes.
+✅ **Production-Ready Standards:** How to delegate tasks with explicit requirements for quality, including error handling, input validation, test coverage (e.g., 80%+), and deployment readiness.
+✅ **Single-Window Workflow:** Eliminating context switching by performing all development activities—coding, testing, debugging, and deployment—within the dedicated Claude Code environment.
 
-```
-CLEAR REQUIREMENTS:
-"Create [FEATURE] with [TECH STACK]
+### Try It Now (7 steps)
 
-REQUIREMENTS:
-- [Specific requirement 1]
-- [Specific requirement 2]
-- [Specific requirement 3]
+1.  **Select a Template:** Choose one of the four templates below that best matches a current or hypothetical development need (e.g., a small utility, a new API endpoint, a bug fix).
+2.  **Define Parameters:** Fill in all the `[BRACKETS]` in the chosen template's `Setup Prompt` with specific, technical details (e.g., `[FastAPI]`, `[PostgreSQL]`, `[POST /api/v1/widgets]`).
+3.  **Set Real Numbers:** Ensure the `Practice Scenario` includes **REAL NUMBERS** (e.g., "process 15,000 records," "achieve 95% test coverage," "reduce latency by 20ms").
+4.  **Initiate the Session:** Paste the complete `Setup Prompt` into the Claude Code environment and initiate the autonomous development session.
+5.  **Monitor and Review:** Observe the initial output. Review the code structure, the proposed solution, and the test plan.
+6.  **Provide Iterative Feedback:** Request at least one specific change or refinement (e.g., "Change the database from SQLite to PostgreSQL and update the connection string").
+7.  **Verify and Deploy:** Once the feature is complete and all success metrics are met, instruct Claude Code to run the final tests and deploy the working code to a staging environment.
 
-TECH STACK:
-- Language: [Python/JavaScript/etc]
-- Framework: [FastAPI/Express/etc]
-- Database: [PostgreSQL/MongoDB/etc]
+### Final Success Metric
 
-Make it production-ready with:
-- Error handling
-- Input validation
-- Tests (80%+ coverage)
-- Documentation
-- Ready to deploy
-
-Start when ready."
-```
-
-**Claude Code will:**
-- Ask clarifying questions if needed
-- Write complete implementation
-- Create tests
-- Show you the code
-- Offer to run it
-
-**Review Process:**
-
-```
-After Claude finishes:
-
-1. REVIEW CODE:
-- Does it match requirements?
-- Is code quality good?
-- Any issues you see?
-
-2. REQUEST CHANGES:
-"Change [X] to [Y]"
-→ Claude updates code
-
-3. TEST:
-"Run the tests"
-→ Claude runs test suite, shows output
-
-4. DEPLOYMENT:
-"Deploy this to [environment]"
-→ Claude handles deployment
-
-5. VERIFY:
-"Test the endpoint with [sample request]"
-→ Claude makes request, shows response
-```
+**You have successfully delegated a complete, production-ready feature to Claude Code, and the final deployed code passes 100% of the specified success metrics with zero manual code writing on your part.**
 
 ---
+
+## Exercise 1: Autonomous Development Delegation Templates
+
+*Use these templates to delegate specific, high-value development tasks to Claude Code, focusing on different use cases and complexity levels.*
+
+### Template 1: **New Feature Implementation (High-Value API)**
+
+**When to use:**
+*   When you need to rapidly prototype a new, complex API endpoint.
+*   When the feature requires integration with multiple external services (e.g., database, email, payment gateway).
+*   When high test coverage (80%+) is non-negotiable.
+*   When you want to minimize manual boilerplate code for a new service.
+*   When the feature is a core business logic component.
+
+**Setup Prompt:**
+```
+Build a new, production-ready API endpoint for a [E-COMMERCE PLATFORM] using [PYTHON/FASTAPI].
+
+REQUIREMENTS:
+- Endpoint: [POST /api/v2/orders/process]
+- Input: [JSON payload with 'order_id' (int), 'user_id' (int), 'items' (list of dicts)]
+- Logic: Validate input, calculate total cost, save to [POSTGRESQL] database, and send a confirmation email via [SENDGRID].
+- Output: [JSON response with 'status' (string), 'transaction_id' (UUID), 'total_cost' (float)]
+
+Make it production-ready with:
+- Full input validation (Pydantic models)
+- Error handling for database connection and external API failures
+- Unit and integration tests
+- Documentation (OpenAPI spec)
+
+Start when ready.
+```
+
+**Practice Scenario (with REAL NUMBERS):**
+You need to implement a new order processing API. The system must handle **1,200 orders per minute** during peak hours. The total cost calculation involves a **7.5% sales tax** and a **$5.99 flat shipping fee**. The database must be updated within **50 milliseconds** of receiving the request. You must achieve **90% test coverage** on the core processing logic.
+
+**Success Metrics (7-10 checkboxes):**
+- [ ] The `/orders/process` endpoint is correctly implemented as a `POST` request.
+- [ ] Input validation correctly rejects malformed requests (e.g., missing `order_id`).
+- [ ] The total cost calculation correctly includes the **7.5% tax** and **$5.99 shipping fee**.
+- [ ] A new record is successfully created in the [POSTGRESQL] database.
+- [ ] A confirmation email is successfully simulated or sent via [SENDGRID].
+- [ ] The response JSON includes the `transaction_id` and calculated `total_cost`.
+- [ ] Unit tests for the calculation logic pass with **90%+ coverage**.
+- [ ] Error handling gracefully manages a simulated database connection failure.
+- [ ] The generated OpenAPI documentation is accurate for the new endpoint.
+
+### Template 2: **Legacy Code Refactoring & Optimization**
+
+**When to use:**
+*   When a specific module or function is identified as a performance bottleneck.
+*   When you need to modernize old code to a newer language standard or framework version.
+*   When code quality is low (e.g., no type hints, poor variable naming) and needs a cleanup.
+*   When you need to introduce comprehensive unit tests to an untested legacy component.
+*   When a component's memory or CPU usage is unacceptably high.
+
+**Setup Prompt:**
+```
+Refactor and optimize the legacy code in the file [src/utils/data_processor.py].
+
+GOAL: Improve performance and maintainability.
+
+REQUIREMENTS:
+- Refactor the main function [process_raw_data] to use modern [PYTHON 3.11] features.
+- Introduce type hinting across all functions and methods.
+- Reduce the function's execution time by at least [30%].
+- Add comprehensive unit tests to achieve [85%] line coverage.
+- The refactored code must pass all existing integration tests.
+
+Start by analyzing the current performance profile.
+```
+
+**Practice Scenario (with REAL NUMBERS):**
+The `process_raw_data` function currently takes an average of **1,800 milliseconds** to process a standard **10MB JSON file**. Your goal is to reduce this execution time to under **1,260 milliseconds** (a **30% reduction**). The function processes an average of **500,000 records** daily. The refactoring must not increase the current memory footprint of **150MB**.
+
+**Success Metrics (7-10 checkboxes):**
+- [ ] The execution time of `process_raw_data` is reduced by at least **30%** (under **1,260ms**).
+- [ ] All functions in the file now include correct and complete type hints.
+- [ ] Unit tests are added and achieve **85%+** line coverage for the file.
+- [ ] The refactored code passes all existing integration tests without error.
+- [ ] Variable and function names are updated to follow [PEP 8] standards.
+- [ ] The memory footprint remains below the **150MB** limit.
+- [ ] A brief summary of the performance improvement is provided.
+- [ ] Complex nested loops are replaced with more efficient list comprehensions or vectorized operations.
+
+### Template 3: **Full-Stack Application Prototype (MVP)**
+
+**When to use:**
+*   When you need a minimal viable product (MVP) for a new idea in a short timeframe (e.g., 24 hours).
+*   When the application involves both a backend API and a simple frontend UI.
+*   When you need a complete, end-to-end working example to show stakeholders.
+*   When the project requires a specific, modern tech stack to be set up correctly from scratch.
+*   When the focus is on functional completeness over complex styling.
+
+**Setup Prompt:**
+```
+Build a complete, full-stack application prototype for a [SIMPLE TASK MANAGER].
+
+TECH STACK:
+- Backend: [NODE.JS/EXPRESS]
+- Frontend: [REACT/VITE]
+- Database: [SQLITE]
+
+FEATURES (MVP):
+1. User can [CREATE] a new task (title, description).
+2. User can [VIEW] a list of all tasks.
+3. User can [MARK] a task as complete.
+
+DELIVERABLES:
+- Fully functional backend API with 3 endpoints.
+- Simple frontend UI to interact with the API.
+- Instructions on how to run the application locally.
+
+Start the project setup and database schema design immediately.
+```
+
+**Practice Scenario (with REAL NUMBERS):**
+The MVP must be fully functional and ready for demonstration within **4 hours**. The database schema should be designed to handle up to **5,000 tasks** without performance degradation. The frontend must display the task list with a maximum load time of **500 milliseconds** on the initial page load. The application must be runnable with a single command (e.g., `npm run dev`).
+
+**Success Metrics (7-10 checkboxes):**
+- [ ] The project structure is correctly initialized for a full-stack application.
+- [ ] The [NODE.JS/EXPRESS] backend API is functional and running on port [3000].
+- [ ] The [REACT/VITE] frontend successfully connects to the backend.
+- [ ] A user can successfully **CREATE** a new task via the UI.
+- [ ] The list of tasks is correctly **VIEWED** on the main page.
+- [ ] The **MARK as complete** functionality updates the task status in the [SQLITE] database.
+- [ ] The initial page load time is under **500 milliseconds**.
+- [ ] The application is runnable locally using the provided instructions.
+- [ ] The database schema includes fields for `title`, `description`, `status`, and `created_at`.
+
+### Template 4: **Autonomous Bug Fix & Regression Test**
+
+**When to use:**
+*   When a critical bug is reported in a production environment.
+*   When you need to ensure a fix is accompanied by a new regression test to prevent recurrence.
+*   When the bug is complex and requires deep analysis of the codebase (e.g., race condition, memory leak).
+*   When the fix needs to be deployed quickly to a staging environment for verification.
+*   When you need a detailed post-mortem of the root cause.
+
+**Setup Prompt:**
+```
+Investigate and fix a critical bug in the [USER AUTHENTICATION] module.
+
+BUG DESCRIPTION:
+- The system is throwing a [500 INTERNAL SERVER ERROR] when a user tries to log in with a valid, but [CASE-INSENSITIVE] email address.
+- Reproduction Steps: [1. Create account with 'User@Example.com'. 2. Try to log in with 'user@example.com'. 3. Observe 500 error.]
+
+REQUIREMENTS:
+1. Identify the root cause of the [CASE-INSENSITIVE] login failure.
+2. Implement a fix to ensure email comparison is case-insensitive.
+3. Write a new regression test to specifically cover this bug.
+4. Run all existing tests to ensure no new regressions are introduced.
+5. Deploy the fix to the [STAGING] environment for verification.
+
+Start the investigation by reviewing the login handler code in [src/auth/login_handler.js].
+```
+
+**Practice Scenario (with REAL NUMBERS):**
+The bug is currently affecting **15%** of daily login attempts, resulting in an estimated **$5,000** in lost revenue per day. The fix must be deployed to the staging environment within **30 minutes** of starting the session. The new regression test must be added to the existing test suite of **150 tests**.
+
+**Success Metrics (7-10 checkboxes):**
+- [ ] The root cause of the [CASE-INSENSITIVE] login failure is identified and documented.
+- [ ] The fix is implemented in [src/auth/login_handler.js] to ensure case-insensitive comparison.
+- [ ] A new regression test is added to the test suite.
+- [ ] The new regression test successfully passes.
+- [ ] All **150 existing tests** pass without introducing new failures.
+- [ ] The fix is successfully deployed to the [STAGING] environment.
+- [ ] A successful login is verified using the reproduction steps (`User@Example.com` and `user@example.com`).
+- [ ] The system's error log no longer shows the [500 INTERNAL SERVER ERROR] for this scenario.
+- [ ] The fix is confirmed to be ready for production deployment.
+
 
 ### Intermediate Level (7 minutes)
 *Multi-day sprints and complex feature development*

@@ -64,62 +64,83 @@ All autonomously. No waiting for your input between steps.
 ### Foundation Level (5 minutes)
 *Simple agents with clear decision trees*
 
-**Exercise 1: Basic Autonomous Workflow**
+## Exercise 1: Autonomous Agent Design Templates
 
-**Scenario:** Customer support ticket comes in. Instead of routing manually, agent automatically analyzes and routes to right team.
+This exercise provides four templates, each designed for a different level of complexity and use case, allowing you to master the core principles of agentic prompt engineering.
 
-**Agent Workflow:**
-
-```
-"You are a support ticket triage agent.
-
-YOUR ROLE:
-Analyze support tickets and route to appropriate team.
-
-ANALYSIS PROCESS:
-1. Read ticket (issue, customer, urgency)
-2. Categorize: Bug / Feature Request / Question / Urgent
-3. Assess complexity: Simple / Medium / Complex
-4. Route decision:
-   - Simple Question → Routing to: Knowledge base response
-   - Bug + Simple → Routing to: Level 1 support
-   - Bug + Complex → Routing to: Engineering
-   - Feature Request → Routing to: Product team
-   - Urgent → Routing to: On-call engineer
-
-5. Create routing action:
-   - Add to appropriate queue
-   - Set SLA timer
-   - Draft initial response (if needed)
-   - Notify receiving team
-
-YOUR DECISIONS:
-- You decide how to categorize each ticket
-- You decide routing based on analysis
-- You can ask for clarification if ticket ambiguous
-- You execute routing immediately
-
-PROCESS TICKET:
-[Paste support ticket]
-
-Analyze, decide routing, execute."
-```
-
-**Agent Reasoning Process:**
-
-```
-Agent will internally reason:
-- "This is a bug report. Customer says feature X is broken."
-- "Impact: Customer can't use core function. Urgent."
-- "Likely cause: Recent deployment issue. Complex investigation needed."
-- "Decision: Route to Engineering team on-call"
-- "Action: Create incident ticket, notify team, set 1-hour SLA"
-
-Then execute the routing.
-No waiting for your approval between steps.
-```
+### What You're Learning (5 Key Principles)
+✅ **The Autonomy Principle:** How to delegate decision-making authority to the model, moving from simple instruction-following to true autonomous problem-solving.
+✅ **The Workflow Decomposition:** The skill of breaking down a complex, multi-step business process into a clear, sequential, and logical workflow for the agent to follow.
+✅ **The Constraint-Based Guardrail:** Using explicit constraints (time, budget, authority) within the prompt to define the agent's boundaries and ensure safe, responsible operation.
+✅ **The Iterative Reasoning Loop:** How to structure a prompt that encourages the agent to evaluate its own output, adjust its approach, and self-correct until the goal is met.
+✅ **The Tool-Use Integration:** The fundamental concept of an agent reasoning about *when* and *how* to use external tools (like a database query or an API call) to complete its mission.
 
 ---
+
+### Template 1: The Simple Triage Agent (Low Complexity, High Volume)
+
+| Component | Detail |
+| :--- | :--- |
+| **Name** | **Simple Triage Agent** |
+| **When to use** | <ul><li>High-volume, repetitive categorization tasks.</li><li>Workflows with clear, binary decision points.</li><li>Initial filtering or routing of data (e.g., emails, tickets).</li><li>Tasks where speed and consistency are prioritized over deep analysis.</li><li>As a foundational agent before adding complex logic.</li></ul> |
+| **Setup Prompt** | ```You are a **Customer Support Triage Agent**. Your sole function is to analyze incoming support tickets and route them to the correct department based on the ticket's content and urgency. You have **30 seconds** per ticket. Your routing options are: [SALES_TEAM], [ENGINEERING_TEAM], [BILLING_TEAM], or [KNOWLEDGE_BASE]. Process the following ticket: [TICKET_CONTENT]``` |
+| **Practice Scenario** | A company receives **1,500** support tickets per day. You must design an agent to process a batch of **50** tickets with an average processing time of **25 seconds** per ticket, aiming for **98%** accuracy in routing. |
+| **Success Metrics** | <ul><li>Agent correctly identifies the core issue in the ticket.</li><li>Agent selects one of the four specified routing options.</li><li>The reasoning for the routing decision is logical and clear.</li><li>The agent completes the task without asking for human clarification.</li><li>The agent adheres to the **30-second** time constraint (simulated).</li><li>The agent's output is a clean, structured JSON object (simulated).</li><li>The agent's decision is consistent across similar ticket types.</li><li>The agent correctly identifies and flags a ticket that is **unroutable**.</li></ul> |
+
+---
+
+### Template 2: The Multi-Step Decision Agent (Medium Complexity, Medium Volume)
+
+| Component | Detail |
+| :--- | :--- |
+| **Name** | **Multi-Step Decision Agent** |
+| **When to use** | <ul><li>Lead scoring, risk assessment, or compliance checks.</li><li>Workflows requiring sequential analysis of multiple data points.</li><li>Tasks where the decision path changes based on intermediate results.</li><li>Automating a multi-stage human review process.</li><li>When integrating two or three different tools or data sources.</li></ul> |
+| **Setup Prompt** | ```You are an **Investment Due Diligence Agent**. Your mission is to analyze a potential startup investment based on three criteria: [TEAM_STRENGTH], [MARKET_SIZE], and [FINANCIAL_HEALTH]. You must assign a score (1-10) to each, calculate a weighted average, and provide a final recommendation: [INVEST], [HOLD], or [PASS]. The weighted average is: Team (40%), Market (35%), Financial (25%). Analyze the following company profile: [COMPANY_PROFILE_DATA]``` |
+| **Practice Scenario** | A venture capital firm needs to evaluate **12** potential investments this week. The agent must process each profile, which contains **15** pages of data, and deliver a final recommendation with a confidence score above **8.0** for any company recommended for investment. |
+| **Success Metrics** | <ul><li>Agent correctly calculates the weighted average score.</li><li>The final recommendation ([INVEST]/[HOLD]/[PASS]) aligns with the calculated score.</li><li>The agent's reasoning explicitly references all three criteria.</li><li>The agent identifies a critical weakness in one of the three areas.</li><li>The agent suggests a specific mitigation strategy for a weakness.</li><li>The agent's output includes a clear, step-by-step breakdown of its process.</li><li>The agent successfully handles a scenario where one data point is missing.</li><li>The agent's final recommendation is supported by a **500-word** summary.</li></ul> |
+
+---
+
+### Template 3: The Self-Optimizing Agent (High Complexity, Low Volume)
+
+| Component | Detail |
+| :--- | :--- |
+| **Name** | **Self-Optimizing Agent** |
+| **When to use** | <ul><li>Continuous process improvement and root cause analysis.</li><li>Automating weekly or monthly business performance reviews.</li><li>Identifying anomalies and proposing corrective actions.</li><li>Tasks that require learning from past results and adjusting future behavior.</li><li>When the agent needs to act as a strategic analyst, not just an executor.</li></ul> |
+| **Setup Prompt** | ```You are a **Business Operations Optimization Agent**. Your weekly task is to analyze the provided [WEEKLY_METRICS_REPORT], identify the single most critical underperforming metric, determine the root cause, and propose three distinct, actionable solutions. You must also predict the **30-day** impact of your top recommended solution. Analyze the following report: [WEEKLY_METRICS_REPORT_DATA]``` |
+| **Practice Scenario** | A SaaS company's churn rate unexpectedly jumped from **3.5%** to **6.2%** in the last month. The agent is given **4** weeks of historical data and must propose a solution that can reduce the churn rate by at least **2.0 percentage points** within the next **60 days**. |
+| **Success Metrics** | <ul><li>Agent correctly identifies the **6.2%** churn rate as the critical problem.</li><li>The root cause analysis is logical and data-driven.</li><li>The agent proposes three distinct, non-trivial solutions.</li><li>The top recommended solution is clearly prioritized and justified.</li><li>The predicted **30-day** impact is quantified (e.g., "reduce churn by 0.5%").</li><li>The agent's reasoning demonstrates an understanding of business trade-offs.</li><li>The agent suggests a method for tracking the solution's success.</li><li>The agent successfully integrates a learning loop for future weeks.</li><li>The agent's output is a professional, executive-ready memo.</li></ul> |
+
+---
+
+### Template 4: The Creative Synthesis Agent (High Complexity, Creative Output)
+
+| Component | Detail |
+| :--- | :--- |
+| **Name** | **Creative Synthesis Agent** |
+| **When to use** | <ul><li>Generating marketing copy, creative briefs, or content outlines.</li><li>Synthesizing disparate information into a cohesive narrative.</li><li>Brainstorming and ideation where novelty is a key requirement.</li><li>Tasks that require a blend of data analysis and creative output.</li><li>When the agent needs to adopt a specific, non-standard persona.</li></ul> |
+| **Setup Prompt** | ```You are a **Brand Story Architect** for a new sustainable coffee brand. Your mission is to synthesize the provided [PRODUCT_SPECIFICATIONS] and [TARGET_AUDIENCE_DATA] into a single, compelling **15-second** video script for social media. The script must use the brand's core value of [MINIMAL_WASTE] and target the **25-35** age demographic. Deliver three distinct script options. Analyze the following data: [PRODUCT_AND_AUDIENCE_DATA]``` |
+| **Practice Scenario** | A marketing team needs **3** unique video scripts for a product launch with a budget of **$15,000**. The agent must generate the scripts, each under **40 words**, and provide a rationale for why each script will resonate with the target audience (age **25-35**) based on the provided data. |
+| **Success Metrics** | <ul><li>Agent delivers exactly three distinct script options.</li><li>Each script adheres to the **15-second** (approx. **40-word**) limit.</li><li>Each script explicitly incorporates the core value of **minimal waste**.</li><li>The agent provides a clear rationale for each script's appeal to the target demographic.</li><li>The agent's output is formatted as a professional, ready-to-film script.</li><li>The agent successfully synthesizes data from both the product and audience inputs.</li><li>The agent avoids using generic or cliché marketing language.</li><li>The agent's output is judged as **highly original** by a human reviewer (simulated).</li></ul> |
+
+---
+
+### Try It Now (7 Steps to Agentic Mastery)
+
+1. **Select Your Template:** Choose one of the four templates above that best matches a real-world problem you want to solve (e.g., Triage Agent for email filtering).
+2. **Define Your Mission:** Clearly state the agent's role and the single, measurable goal it must achieve (e.g., "Route 10 emails with 90% accuracy").
+3. **Set the Constraints:** Define the agent's boundaries. What data can it use? What actions can it *not* take? (e.g., "Do not reply to the customer," "Only use data from the last 7 days").
+4. **Detail the Workflow:** Write out the **5-7 sequential steps** the agent must follow to move from input to final output. This is the core of the agent's logic.
+5. **Inject Real Numbers:** Replace the bracketed placeholders in the **Practice Scenario** with real data points (e.g., "Process 15 support tickets," "Score must be above 7.5").
+6. **Execute the Prompt:** Copy your fully customized prompt into Claude and initiate the task.
+7. **Evaluate and Refine:** Review the agent's output against the **Success Metrics**. If it fails, refine the **Workflow** or **Constraints** and try again.
+
+---
+
+### Final Success Metric
+
+**Did the agent complete a multi-step task autonomously, making a complex decision that would have previously required human intervention, and deliver a final, actionable result that met all defined constraints?**
+
 
 ### Intermediate Level (7 minutes)
 *Complex agents with conditional logic and optimization*

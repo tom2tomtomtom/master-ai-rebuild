@@ -64,76 +64,174 @@ OUTPUT: Analysis summary + chart + clear recommendation
 ### Foundation Level (5 minutes)
 *Master basic data exploration and visualization*
 
-**Exercise 1: Data Cleaning and Exploration**
+## Exercise 1: Foundational Data Analysis Templates
 
-**Scenario:** You received a messy CSV file from your CRM with customer data: names, emails, purchase dates, amounts, product categories. Some fields are blank, dates are in different formats, and you need to understand purchase patterns. In traditional tools, this would take an hour of cleaning before analysis even starts.
+The goal of the Foundation Level is to master the core capabilities of data analysis: cleaning, exploration, and simple visualization. Instead of one large prompt, use these focused templates to quickly solve common data problems.
 
-**Your Mission:** Use GPT-5 to clean and explore data automatically.
+### Template 1: Data Quality Check and Cleaning
 
-**Data Cleaning Prompt:**
+| Name | When to Use (5 Principles) |
+| :--- | :--- |
+| **Data Quality Check and Cleaning** | ✅ You have a new, unverified dataset (CSV, Excel, JSON). |
+| | ✅ You suspect missing values, inconsistent formats, or duplicates. |
+| | ✅ You need to document the "before and after" state of your data. |
+| | ✅ You want to standardize date, currency, or text fields. |
+| | ✅ You need to prepare data for a more complex analysis or visualization. |
 
-```
-I've uploaded a dataset that needs cleaning and analysis.
-
-STEP 1: DATA QUALITY CHECK
-- How many rows and columns?
-- Missing values: Which columns have blanks? How many?
-- Data types: Are dates formatted correctly? Numbers stored as text?
-- Duplicates: Any duplicate rows?
-- Outliers: Any suspicious values (negative amounts, future dates, etc.)?
-
-STEP 2: CLEANING RECOMMENDATIONS
-For each issue found:
-- Severity: Critical / Important / Minor
-- Suggested fix: What should we do?
-- Impact: How does this affect analysis?
-
-STEP 3: CLEAN THE DATA
-- Remove or fill missing values (explain your approach)
-- Standardize date formats
-- Fix data types
-- Remove duplicates
-- Flag outliers for review
-
-STEP 4: PROVIDE CLEAN DATASET
-Export cleaned version as CSV
-
-Show me before/after statistics.
-```
-
-**What GPT-5 Does:**
-- Automatically detects data quality issues
-- Explains the problems in plain language
-- Cleans data using best practices
-- Documents what changed (audit trail)
-- Gives you clean CSV ready for analysis
-
-**Common Data Operations GPT-5 Can Handle:**
+**Setup Prompt**
 
 ```
-CLEANING:
-- "Remove rows where [column] is blank"
-- "Fill missing values in [column] with [method: mean/median/mode/forward-fill]"
-- "Standardize all dates to YYYY-MM-DD format"
-- "Remove duplicate rows based on [unique identifier]"
+I have uploaded a raw dataset named [FILE_NAME] that requires a full data quality check and cleaning.
 
-TRANSFORMATION:
-- "Create new column: [calculated field]"
-- "Group by [column] and sum [column]"
-- "Pivot this data: rows = [X], columns = [Y], values = [Z]"
-- "Split [column] into separate columns at [delimiter]"
+DATA CONTEXT:
+- What this data represents: [e.g., 6 months of e-commerce sales transactions]
+- Key columns: [e.g., 'customer_id', 'purchase_date', 'amount', 'product_category']
+- Goal: [e.g., Prepare a clean dataset for calculating monthly revenue trends]
 
-FILTERING:
-- "Show only rows where [condition]"
-- "Keep last 90 days of data"
-- "Exclude outliers beyond 2 standard deviations"
-- "Sample 10% of rows randomly"
+ANALYSIS STEPS:
+1. **Data Quality Report:** Identify and report on missing values, data type inconsistencies, and duplicate rows.
+2. **Cleaning Plan:** Propose a step-by-step plan to fix the issues (e.g., fill missing 'amount' with median, standardize 'purchase_date' to YYYY-MM-DD).
+3. **Execute Cleaning:** Apply the plan and clean the data.
+4. **Validation:** Show the first 5 rows of the cleaned data and a summary of the changes made.
+5. **Export:** Provide the cleaned dataset as a downloadable CSV file.
 ```
 
-**Try It Now:**
-Upload any messy dataset. Ask GPT-5: "What data quality issues do you see? Clean this data and explain what you changed."
+**Practice Scenario (Real Numbers)**
 
----
+You are a marketing manager for a SaaS company. You've exported a list of 1,580 leads from your CRM, but the data is messy.
+
+*   **Data:** A CSV file with 1,580 rows and 8 columns.
+*   **Problem:** The `lead_score` column has 15% missing values, the `signup_date` column has mixed formats (MM/DD/YY and YYYY-MM-DD), and there are 12 duplicate entries based on the `email` column.
+*   **Action:** Use the template to clean the data. For the missing `lead_score`, ask GPT to fill it with the **median** score of the existing data.
+
+**Success Metrics (7-10 Checkboxes)**
+
+- [ ] The initial Data Quality Report is provided.
+- [ ] The proposed Cleaning Plan addresses all identified issues.
+- [ ] Missing values in the `lead_score` column are filled with the median (or a justified alternative).
+- [ ] All dates in the `signup_date` column are standardized to a single format (e.g., YYYY-MM-DD).
+- [ ] Duplicate rows are successfully removed.
+- [ ] The final output includes a summary of the changes made.
+- [ ] The first 5 rows of the cleaned data are displayed for validation.
+- [ ] A link to download the final cleaned CSV is provided.
+
+### Template 2: Data Exploration and Summary
+
+| Name | When to Use (5 Principles) |
+| :--- | :--- |
+| **Data Exploration and Summary** | ✅ You need a quick, high-level understanding of a new dataset. |
+| | ✅ You want to identify the range, distribution, and central tendency of key metrics. |
+| | ✅ You are looking for initial patterns, correlations, or outliers. |
+| | ✅ You need to generate a list of potential business questions based on the data. |
+| | ✅ You want to summarize the data for a non-technical audience. |
+
+**Setup Prompt**
+
+```
+I have uploaded a dataset named [FILE_NAME]. Please perform a comprehensive data exploration and summary.
+
+DATA CONTEXT:
+- What this data represents: [e.g., Customer survey responses on product satisfaction]
+- Key metrics: [e.g., 'satisfaction_score' (1-10), 'time_spent_on_app' (minutes), 'age_group']
+- Goal: [e.g., Understand the typical user profile and their satisfaction level]
+
+ANALYSIS STEPS:
+1. **Descriptive Statistics:** Provide mean, median, standard deviation, min, and max for all numerical columns.
+2. **Categorical Breakdown:** For categorical columns (like 'age_group'), show the count and percentage for each unique value.
+3. **Correlation:** Identify the top 3 strongest correlations between numerical columns.
+4. **Key Insight:** State the single most interesting or surprising finding from the exploration.
+5. **Question Generation:** Suggest 3 follow-up business questions that this data could answer.
+```
+
+**Practice Scenario (Real Numbers)**
+
+You are analyzing website traffic data.
+
+*   **Data:** A CSV file with 8,500 rows of website session data.
+*   **Problem:** You need to understand user behavior. The data includes `session_duration` (seconds), `pages_visited`, and `traffic_source` (Google, Social, Direct).
+*   **Action:** Use the template to explore the data. You find the average `session_duration` is 185 seconds, but the median is only 95 seconds, suggesting a few very long sessions are skewing the average.
+
+**Success Metrics (7-10 Checkboxes)**
+
+- [ ] Descriptive statistics are provided for all numerical columns.
+- [ ] The mean and median for `session_duration` are correctly identified.
+- [ ] A breakdown of the `traffic_source` column (counts/percentages) is included.
+- [ ] The top 3 correlations between numerical columns are listed.
+- [ ] A clear, single "Key Insight" is extracted from the data.
+- [ ] At least 3 relevant follow-up business questions are suggested.
+- [ ] The analysis mentions the skew in `session_duration` due to outliers.
+- [ ] The summary is formatted for easy reading.
+
+### Template 3: Simple Visualization and Trend
+
+| Name | When to Use (5 Principles) |
+| :--- | :--- |
+| **Simple Visualization and Trend** | ✅ You need to quickly visualize a single metric over time or across categories. |
+| | ✅ You want to communicate a trend or comparison to stakeholders. |
+| | ✅ You need to identify seasonality or growth/decline patterns. |
+| | ✅ You want to compare two key groups (e.g., before vs. after a change). |
+| | ✅ You need a professional-looking chart without using specialized BI software. |
+
+**Setup Prompt**
+
+```
+I have uploaded a time-series dataset named [FILE_NAME]. Please generate a clear visualization and trend analysis.
+
+DATA CONTEXT:
+- What this data represents: [e.g., Daily active users (DAU) for the last 90 days]
+- Key columns: [e.g., 'date', 'daily_active_users']
+- Goal: [e.g., Determine if the recent marketing campaign has increased DAU]
+
+ANALYSIS STEPS:
+1. **Visualization:** Create a line chart showing 'daily_active_users' over 'date'.
+2. **Formatting:** Title the chart "90-Day Daily Active Users Trend." Ensure the Y-axis is clearly labeled and the X-axis shows dates.
+3. **Trend Analysis:** Identify the overall trend (up, down, flat) and any significant spikes or drops.
+4. **Event Annotation:** Annotate the chart with the date of the marketing campaign launch: [DATE_OF_CAMPAIGN].
+5. **Conclusion:** State whether the data supports the goal (i.e., did the campaign increase DAU?).
+```
+
+**Practice Scenario (Real Numbers)**
+
+You are tracking the performance of a new product launch.
+
+*   **Data:** A CSV file with 30 rows, showing daily sales units for the first 30 days.
+*   **Problem:** You need to see if sales are accelerating. The data shows a peak of **450 units** on Day 10, followed by a dip, and then a steady increase from Day 15 onwards, reaching **380 units** on Day 30.
+*   **Action:** Use the template to generate a line chart. Annotate the chart on Day 10 with "Influencer Mention."
+
+**Success Metrics (7-10 Checkboxes)**
+
+- [ ] A line chart visualization is successfully generated.
+- [ ] The chart title is accurate: "90-Day Daily Active Users Trend" (or similar).
+- [ ] The X-axis represents the 'date' column correctly.
+- [ ] The Y-axis represents 'daily_active_users' (or similar) correctly.
+- [ ] The analysis identifies the peak on Day 10 and the subsequent steady increase.
+- [ ] The chart is annotated with the event "Influencer Mention" on Day 10.
+- [ ] The conclusion directly addresses the goal (campaign impact).
+- [ ] The chart is professional and easy to interpret.
+- [ ] The output is a downloadable image file (PNG or similar).
+
+### What You're Learning (5 Core Principles)
+
+✅ **Progressive Analysis:** The best data analysis starts with a systematic approach: first clean, then explore, then visualize.
+✅ **Natural Language Data Transformation:** How to use plain English to execute complex data cleaning, filtering, and manipulation tasks that previously required code or complex formulas.
+✅ **The Power of Descriptive Statistics:** Quickly identifying the central tendency (mean, median) and spread (standard deviation, range) to understand the shape of your data.
+✅ **Data Validation is Key:** Always requesting "before and after" summaries to ensure cleaning and transformation steps have the intended, correct effect.
+✅ **Visualization for Communication:** Using simple charts (line, bar) to communicate trends and comparisons instantly, turning raw numbers into actionable insights.
+
+### Try It Now (7 Steps)
+
+1.  **Find a Dataset:** Locate a messy or unfamiliar CSV file from your work (e.g., a list of contacts, a small sales report, or a survey export).
+2.  **Upload to GPT:** Open ChatGPT (with Advanced Data Analysis enabled) and upload your chosen file.
+3.  **Apply Template 1:** Use the **Data Quality Check and Cleaning** prompt to identify and fix issues.
+4.  **Download Clean Data:** Download the cleaned CSV file provided by GPT.
+5.  **Apply Template 2:** Upload the *cleaned* file and use the **Data Exploration and Summary** prompt to get descriptive statistics and key insights.
+6.  **Apply Template 3:** If your data has a date column, use the **Simple Visualization and Trend** prompt to generate a line chart of a key metric over time.
+7.  **Compare Time:** Note the total time spent on this entire process. Compare it to how long it would have taken you to perform the same steps manually in Excel or a BI tool.
+
+### Final Success Metric
+
+**✅ You have successfully cleaned, explored, and visualized a real-world dataset in under 10 minutes, demonstrating the speed and efficiency of AI-powered data analysis.**
+
 
 ### Intermediate Level (7 minutes)
 *Advanced analysis and business intelligence*

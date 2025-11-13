@@ -176,134 +176,69 @@ ai-modernizer analyze legacy-codebase/ \
 #### Exercise 1: Analyze Legacy Codebase
 **Objective**: Understand what needs modernization
 
-**Scenario:** You're inheriting a 10-year-old codebase at LegacyTech—it's written in ancient JavaScript (callbacks, var declarations, no types), runs on PHP 5.4, and nobody remembers why certain parts exist. The system works but it's fragile: adding features takes weeks, security patches are scary, and onboarding new developers is a nightmare. How can you modernize this without breaking everything?
+**Setup** (2 min):
+```bash
+# Create analysis tool
+cat > analyze-legacy.js << 'EOF'
+const fs = require('fs');
+const path = require('path');
 
-**Your Mission:** Analyze the legacy codebase to identify what patterns are outdated, where the biggest technical debt is, and create a plan for systematic modernization.
+const legacyPatterns = {
+  'callbacks': /\.then\(|callback\(|node-style callbacks/g,
+  'varDeclaration': /var\s+\w+\s*=/g,
+  'oldImports': /require\(/g,
+  'globalVariables': /window\.\w+\s*=/g,
+  'hardcodedValues': /['"][a-zA-Z0-9]+['"]/g,
+  'commentedCode': /\/\/.*=.*|\/\*.*=.*\*\//g
+};
 
----
+function analyzeFile(filepath) {
+  const content = fs.readFileSync(filepath, 'utf8');
+  const issues = {};
 
-### LEGACY MODERNIZATION TEMPLATE SYSTEM
+  Object.entries(legacyPatterns).forEach(([pattern, regex]) => {
+    const matches = content.match(regex);
+    if (matches) {
+      issues[pattern] = matches.length;
+    }
+  });
 
-Choose your template based on codebase size and complexity.
+  return issues;
+}
 
----
+// Analyze entire codebase
+function analyzeCodebase(dir) {
+  const results = {};
+  const walk = (dir) => {
+    fs.readdirSync(dir).forEach(file => {
+      const fullPath = path.join(dir, file);
+      if (fs.statSync(fullPath).isDirectory() && !file.startsWith('.')) {
+        walk(fullPath);
+      } else if (file.endsWith('.js') || file.endsWith('.ts')) {
+        results[fullPath] = analyzeFile(fullPath);
+      }
+    });
+  };
+  walk(dir);
+  return results;
+}
 
-**TEMPLATE 1: Small Legacy Codebase (<10K lines)**
+module.exports = { analyzeCodebase };
+EOF
 
-For small systems that can be rewritten quickly (4-8 weeks)
+node -e "const a = require('./analyze-legacy.js'); console.log(JSON.stringify(a.analyzeCodebase('./src'), null, 2));"
+```
 
-**Scope:**
-- Total lines: < 10K | Functions: < 50 | Dependencies: < 10
-- Team needed: 1-2 engineers | Timeline: 4-8 weeks
-- Approach: **Full Rewrite** (build new system completely)
+**Action** (2 min):
+1. Identify legacy patterns in codebase
+2. Count occurrences of each pattern
+3. Prioritize by frequency and impact
+4. Document findings
 
-**Key Decisions:**
-- Target technology: [New language/framework]
-- Parallel running period: [Duration]
-- Migration date: [When to switch 100%]
-- Rollback plan: [How to recover]
-
-**AI Workflow:**
-1. For each component: Paste legacy code + "Modernize to [target technology]"
-2. Claude generates: Modern version with same functionality
-3. Review: Business logic correctness, edge cases
-4. Test: Old and new side-by-side
-5. Switch: Delete old code, fully migrate
-
-**Success Metrics:** Code quality +200%, Performance +2-5x, Test coverage 0%→80%, Dev productivity +300%
-
----
-
-**TEMPLATE 2: Medium Legacy System (10-100K lines)**
-
-For medium systems requiring strategic approach (12-24 weeks)
-
-**Scope:**
-- Total lines: 10K-100K | Modules: 50-200 | Dependencies: 10-50
-- Team needed: 3-5 engineers | Timeline: 12-24 weeks
-- Approach: **Strangler Fig Pattern** (replace gradually)
-
-**Phasing:**
-- Phase 1 (Weeks 1-4): New system foundation + database migration tools
-- Phase 2 (Weeks 5-12): Migrate highest-value modules first. Route traffic: 10%→25%→50%→75%→100%
-- Phase 3 (Weeks 13-24): Final modules, complete cutover, decommission legacy
-
-**AI Workflow:**
-1. Analyze modules: "What does each module do?"
-2. Generate modern version for highest-value module
-3. Create shim/adapter layer (if needed)
-4. Route 10% traffic to new module, monitor
-5. Scale gradually: 25%→50%→100%
-6. Retire old module, move to next
-
-**Success Metrics:** Code quality +100-150%, Performance +50%, Test coverage 30%→70%, Zero-downtime migration
-
----
-
-**TEMPLATE 3: Large Enterprise System (100K+ lines)**
-
-For large systems requiring minimal business disruption (6-12 months)
-
-**Scope:**
-- Total lines: 100K-1M+ | Modules: 200+ | Dependencies: 50+
-- Team needed: 8-15+ engineers | Timeline: 6-12 months
-- Approach: **Strangler + Event Sourcing** (99.99% uptime always)
-
-**Phasing:**
-- Phase 1 (Months 1-2): Planning, map dependencies, design new architecture
-- Phase 2 (Months 3-6): Build new platform incrementally with event streaming sync
-- Phase 3 (Months 7-10): Phased cutover (1%→5%→25%→50%→100% with rollback at each stage)
-- Phase 4 (Months 11-12): Run systems in parallel 90 days, then retire legacy
-
-**AI Workflow:**
-1. Domain modeling: Map business logic
-2. Identify service boundaries: Which pieces become microservices?
-3. Generate migration scripts: Data transformation for each service
-4. Create compatibility layer: Adapters for old APIs
-5. Generate test scenarios: Integration testing across services
-6. Auto-generate docs: Technical documentation
-
-**Success Metrics:** 100% uptime maintained, Data consistency validated, Performance +30-50%, Test coverage 50%→85%
-
----
-
-**PRACTICE: Choose Strategy for Each**
-
-**Scenario A:** 8K lines Vue.js app, 1 developer, upgrade to React/TypeScript
-→ Use **Template 1** (Small, full rewrite OK in 4-6 weeks)
-
-**Scenario B:** 45K lines Python Django app, 3 developers, migrate to FastAPI
-→ Use **Template 2** (Medium, strangler pattern, 12-16 weeks)
-
-**Scenario C:** 800K lines enterprise monolith, 20 teams, 99.99% uptime required
-→ Use **Template 3** (Large, event sourcing + phased cutover, 12 months)
-
----
-
-**What You're Learning:**
-
-- ✅ **Size determines strategy:** Small rewrite, medium strangle, large phased+event sourcing
-- ✅ **Strangler pattern:** Parallel systems minimize risk during migration
-- ✅ **Event sourcing:** Enables safe, long-duration transitions for enterprise systems
-- ✅ **Phased cutover:** Canary deployments catch problems early
-- ✅ **AI excels at:** Component generation, adapter creation, test scenario design
-
----
-
-**Try It Now:**
-
-1. Measure: Your legacy codebase (lines of code, modules, complexity)
-2. Choose: Template 1, 2, or 3 based on size
-3. Adapt: Customize for your situation (timeline, team size, risk tolerance)
-4. Plan: 3-5 key phases
-5. Estimate: Engineering time and cost
-6. Calculate: ROI (faster features, fewer bugs, easier onboarding)
-
-**Success Metric:**
-- You have a clear modernization strategy (not just "rewrite everything")
-- Timeline is realistic for your scope
-- Risk is managed (parallel systems, phased cutover, rollback plan)
-- Team is confident about the approach
+**Verification** (1 min):
+- Can you identify all legacy patterns?
+- Are they prioritized correctly?
+- Do you have a roadmap?
 
 #### Exercise 2: Plan Modernization Strategy
 **Objective**: Choose right modernization approach

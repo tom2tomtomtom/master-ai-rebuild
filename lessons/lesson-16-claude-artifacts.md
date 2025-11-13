@@ -53,132 +53,78 @@ Make it functional and styled nicely.
 ### Foundation Level (5 minutes)
 *Create and iterate on basic Artifacts*
 
-**Exercise 1: Document Creation Workflow**
+### What You're Learning (5 ✅ Principles)
 
-**Scenario:** Writing professional document (proposal, report, article). Instead of copy-paste to Word, use Artifacts for real-time visual feedback while editing.
-
-**Workflow:**
-
-```
-STEP 1: INITIAL CREATION
-
-Prompt: "Create marketing proposal in Artifacts (HTML formatted, professional styling).
-
-INCLUDE:
-- Executive summary (2 paragraphs)
-- Problem statement
-- Proposed solution
-- Timeline
-- Budget
-- Success metrics
-- Call to action
-
-Make it professional, client-ready appearance."
-
-Claude generates formatted proposal in Artifacts.
-You see it immediately with styling applied.
-
-STEP 2: ITERATION
-
-You review and request changes:
-
-"Change the color scheme to blue/gray instead of the current colors"
-→ Instant update in Artifacts
-
-"Make the executive summary more compelling - emphasize ROI"
-→ Claude rewrites in Artifacts
-
-"Add customer testimonial section between problem and solution"
-→ New section appears immediately
-
-"Reduce font size on timeline - too much white space"
-→ Visual update right away
-
-STEP 3: VERIFICATION
-
-In Artifacts panel:
-- See full formatted document
-- Verify layout works
-- Check all sections present
-- Confirm styling professional
-
-STEP 4: EXPORT
-
-Click export button (Artifacts interface):
-- Download as HTML
-- Or copy to clipboard
-- Paste into Word/Google Docs
-- Or share Artifacts link directly
-
-Entire workflow in one window.
-Faster iteration than traditional approach.
-```
-
-**Document Types for Artifacts:**
-
-**Type 1: Formatted Reports**
-
-```
-"Create quarterly business review report (HTML, professional).
-
-INCLUDE:
-- Cover page (company logo, title, date)
-- Executive summary (1 page)
-- Key metrics (revenue, growth, customer acquisition)
-- Departmental summaries (Sales, Product, Operations)
-- Challenges and solutions
-- Outlook for next quarter
-- Appendix (supporting data)
-
-Style: Corporate professional
-Color scheme: [Company colors]
-Format: Page break between major sections
-
-Make it print-ready."
-```
-
-**Type 2: Proposals**
-
-```
-"Create service proposal for [CLIENT] in Artifacts.
-
-SECTIONS:
-- Cover (client name, proposal date)
-- Executive summary
-- Client situation and challenges
-- Proposed solution (with benefits)
-- Implementation timeline
-- Team and qualifications
-- Pricing
-- Next steps and timeline
-
-Style: Professional, emphasize ROI
-Highlight client benefits with icons
-Include placeholder for client logo
-
-Make it impressive and submission-ready."
-```
-
-**Type 3: Presentations**
-
-```
-"Create one-page HTML presentation on [TOPIC].
-
-DESIGN:
-- Title slide
-- 5-7 content slides (each tells story)
-- Conclusion slide
-
-STYLING:
-- Large readable text
-- Lots of white space
-- Professional design
-- Navigation buttons (previous/next slide)
-
-Make it polished and presentation-ready."
-```
+✅ **Real-Time Iteration:** The ability to see and modify code or content instantly within the same window, eliminating the need for constant copy-pasting and context switching.
+✅ **Interactive Prototyping:** Using Artifacts to quickly build and test functional HTML/CSS/JavaScript prototypes (e.g., dashboards, forms, simple apps) without a local development environment.
+✅ **Collaborative Design:** Facilitating live, shared viewing and editing of design assets (like SVGs or CSS frameworks) to streamline team feedback and approval cycles.
+✅ **Technical Documentation Generation:** Creating complex, formatted technical documents (like API specifications or system architecture diagrams) that are immediately rendered and editable.
+✅ **Stateful Workflow Management:** Maintaining the state of an interactive application or document across multiple conversational turns, allowing for complex, multi-step creation processes.
 
 ---
+
+### Exercise 1: Technical Artifact Templates (Complexity/Use Case Approach)
+
+The power of Claude Artifacts lies in their ability to handle both simple document generation and complex, interactive application development. We will explore four distinct use cases, ranging from simple data presentation to full-stack prototyping.
+
+#### Template 1: Data Visualization Dashboard (Low Complexity, High Impact)
+
+| Component | Description |
+| :--- | :--- |
+| **Name** | Data Visualization Dashboard |
+| **When to use** | <ul><li>Need to quickly visualize a small dataset (e.g., CSV, JSON).</li><li>Require a shareable, interactive report without a dedicated BI tool.</li><li>Want to test different chart types (bar, line, pie) on the fly.</li><li>Need to present key metrics in a clean, professional format.</li><li>Rapidly prototype a dashboard layout for a larger application.</li></ul> |
+| **Setup Prompt** | Create a fully functional, interactive data visualization dashboard using **HTML, CSS, and JavaScript**. The dashboard must display data from a sample **JSON** object representing **monthly sales figures** for a small e-commerce business. The data should cover **12 months** and include **[3] product categories**. The dashboard must feature a **[Line Chart]** for total sales trend and a **[Pie Chart]** for category breakdown. |
+| **Practice Scenario** | A small business, "Eco-Goods," has **$1,250,000** in annual sales. You have monthly sales data for their **3** product lines: **Home Decor, Apparel, and Consumables**. The prompt should generate a dashboard showing the sales trend over the last **12** months and the percentage contribution of each product line to the total. |
+| **Success Metrics** | <ul><li>✅ The Artifact loads and displays a fully rendered dashboard.</li><li>✅ The Line Chart correctly visualizes the 12-month sales trend.</li><li>✅ The Pie Chart accurately reflects the sales breakdown across the 3 categories.</li><li>✅ The dashboard includes a clear title and axis labels.</li><li>✅ The code is well-structured and uses modern JavaScript practices.</li><li>✅ You successfully request a change to the chart color scheme (e.g., "Change the line chart color to a deep blue").</li><li>✅ You successfully request a new metric display (e.g., "Add a card showing the total annual sales of $1,250,000").</li><li>✅ The dashboard is responsive and looks good on a simulated mobile view.</li></ul> |
+
+#### Template 2: Technical Documentation Generator (Medium Complexity, High Precision)
+
+| Component | Description |
+| :--- | :--- |
+| **Name** | Technical Documentation Generator |
+| **When to use** | <ul><li>Generating a clean, formatted API specification document.</li><li>Creating a system architecture overview with embedded diagrams (using SVG).</li><li>Drafting a detailed, multi-section whitepaper or technical report.</li><li>Need a document that can be easily exported to PDF or printed.</li><li>Ensuring consistent styling and formatting across a large document.</li></ul> |
+| **Setup Prompt** | Generate a comprehensive **API Specification Document** for a service called **[AuthService v2.1]**. The document must be formatted using **Markdown and rendered as HTML** in the Artifact. It must include sections for **[Authentication Methods]**, **[Endpoint Definitions]**, and **[Error Codes]**. Include a minimum of **[5]** endpoints and **[3]** example request/response pairs. |
+| **Practice Scenario** | You are documenting the new **AuthService v2.1** which has **5** endpoints: `/login`, `/logout`, `/register`, `/reset-password`, and `/verify-token`. The document must clearly define the **JWT** authentication method and list the **3** primary error codes: **400 (Bad Request), 401 (Unauthorized), and 403 (Forbidden)**. |
+| **Success Metrics** | <ul><li>✅ The Artifact displays a professional, multi-section document.</li><li>✅ The document includes a table of contents that links to the main sections.</li><li>✅ All 5 endpoints are clearly defined with their HTTP methods (e.g., POST /login).</li><li>✅ The 3 example request/response pairs are correctly formatted (e.g., using `<code>` blocks).</li><li>✅ The 3 error codes are listed in a dedicated, formatted table.</li><li>✅ You successfully request a new section on **Rate Limiting** to be added.</li><li>✅ You successfully request a change to the primary font size for better readability.</li><li>✅ The document is ready for direct copy-paste into a knowledge base.</li></ul> |
+
+#### Template 3: Interactive Code Sandbox (High Complexity, High Utility)
+
+| Component | Description |
+| :--- | :--- |
+| **Name** | Interactive Code Sandbox |
+| **When to use** | <ul><li>Need to quickly test a small piece of logic (e.g., a regex or a utility function).</li><li>Building a simple, single-page application that requires user input and output.</li><li>Creating a minimal reproducible example (MRE) for a bug report.</li><li>Teaching a concept that requires live code execution and immediate feedback.</li><li>Prototyping a user interface component (e.g., a custom button or form validation).</li></ul> |
+| **Setup Prompt** | Build an interactive **JavaScript Code Sandbox** in the Artifact. The sandbox must include a **[Textarea]** for user input, a **[Button]** labeled "Process Input," and a **[Div]** for output. The JavaScript function should take the input, **reverse the string**, and display the result in the output area. The entire application must be contained within the Artifact. |
+| **Practice Scenario** | The user inputs the string **"Manus AI is great"** into the textarea. When the "Process Input" button is clicked, the output area should display the reversed string: **"taerg si IA sunaM"**. The sandbox should also include a counter that tracks the number of times the button has been clicked, starting at **0**. |
+| **Success Metrics** | <ul><li>✅ The Artifact loads with the input area, button, and output area visible.</li><li>✅ Entering "Manus AI is great" and clicking the button correctly displays "taerg si IA sunaM".</li><li>✅ The button click counter is initialized at 0 and increments with each click.</li><li>✅ You successfully request the function to be modified to also **count the number of vowels** in the input string.</li><li>✅ The code is clean and uses an event listener for the button click.</li><li>✅ The sandbox is styled with a clear separation between input and output.</li><li>✅ You successfully request a new feature to **clear the input and output** with a second button.</li><li>✅ The sandbox remains functional after multiple iterations.</li></ul> |
+
+#### Template 4: Full-Stack Mockup (Extreme Complexity, Strategic Value)
+
+| Component | Description |
+| :--- | :--- |
+| **Name** | Full-Stack Mockup (Frontend + Simulated Backend) |
+| **When to use** | <ul><li>Prototyping a multi-view application (e.g., a login page and a dashboard view).</li><li>Simulating API calls and data fetching to demonstrate a user flow.</li><li>Creating a high-fidelity, interactive demo for stakeholders.</li><li>Testing complex client-side routing and state management.</li><li>Designing a complete user experience before involving a backend team.</li></ul> |
+| **Setup Prompt** | Create a **two-page application mockup** in the Artifact: a **[Login Page]** and a **[User Dashboard]**. The Login Page should have fields for **[Username]** and **[Password]** and a "Login" button. Upon clicking "Login," the application must simulate a successful authentication and **route the user** to the User Dashboard. The Dashboard must display a welcome message and a list of **[5]** recent activities. |
+| **Practice Scenario** | The Login Page accepts any input for Username and Password. Upon clicking "Login," the user is taken to the Dashboard. The Dashboard displays a welcome message, "Welcome, [Username]!" and a list of **5** simulated activities (e.g., "Updated profile," "Created new report," "Logged in"). The application must use **local storage** to persist the "logged in" state. |
+| **Success Metrics** | <ul><li>✅ The initial view is the Login Page with the correct fields.</li><li>✅ Clicking "Login" successfully transitions the view to the User Dashboard.</li><li>✅ The Dashboard displays the welcome message, correctly using the input Username.</li><li>✅ The list of 5 recent activities is clearly displayed.</li><li>✅ The application correctly uses JavaScript to manage the two views (simulated routing).</li><li>✅ You successfully request a **"Logout" button** on the Dashboard that returns the user to the Login Page.</li><li>✅ You successfully request a **form validation** to ensure both fields are not empty before login.</li><li>✅ The application maintains the "logged in" state if the Artifact is refreshed.</li><li>✅ The mockup is styled to look like a modern web application.</li></ul> |
+
+---
+
+### Try It Now (7 Steps to Mastery)
+
+1.  **Select a Template:** Choose one of the four templates above (e.g., Template 3: Interactive Code Sandbox).
+2.  **Copy the Setup Prompt:** Copy the `Setup Prompt` text, including the bracketed placeholders, into Claude.
+3.  **Fill the Placeholders:** Replace the `[BRACKETS]` with your specific, real-world details (e.g., `[Textarea]` becomes `Textarea`).
+4.  **Execute the Prompt:** Send the prompt to Claude and wait for the Artifact to render.
+5.  **Perform the Practice Scenario:** Execute the steps in the `Practice Scenario` (e.g., input "Manus AI is great" and click the button).
+6.  **Iterate and Refine:** Use the success metrics to guide your next prompt. For example, "Add a counter that tracks the number of times the button has been clicked."
+7.  **Final Verification:** Once all success metrics are met, export the final HTML/JS file and verify its functionality outside of Claude.
+
+---
+
+### Final Success Metric
+
+**You have successfully created an interactive, functional application or document that meets at least 7 of the 8 Success Metrics for your chosen template, requiring no more than 3 iterative prompts after the initial setup.**
+
 
 ### Intermediate Level (7 minutes)
 *Interactive tools and real-time dashboards*

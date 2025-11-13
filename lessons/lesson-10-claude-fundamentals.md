@@ -55,164 +55,123 @@ Claude will provide:
 ### Foundation Level (5 minutes)
 *Understand the Claude vs. GPT-5 vs. Gemini decision framework*
 
-**Exercise 1: The AI Tool Selection Matrix**
+## Exercise 1: The Context Window Mastery Framework
 
-**Scenario:** You have three world-class AI tools available (Claude 4.5, GPT-5, Gemini 2.5). Each excels at different things. Using the wrong one wastes time and reduces quality. You need a decision framework for choosing the right tool for each task.
+This exercise moves beyond simple tool selection to focus on **Claude's core differentiator**: its massive 1M token context window, which enables complex, multi-document analysis and large-scale code processing. We will use a **Complexity/Use Case** approach to structure the templates.
 
-**Your Mission:** Learn when to use Claude vs. competitors for maximum productivity.
+### What You're Learning (5 ✅ Principles)
 
-**The AI Selection Framework:**
+✅ **Context is King:** Understand that the size of the context window directly determines the complexity and scale of the problems you can solve in a single conversation.
+✅ **The 1M Advantage:** Master the ability to process entire codebases, 400+ page reports, or multiple documents simultaneously, eliminating the need for manual chunking and context switching.
+✅ **Cross-Document Synthesis:** Learn to prompt Claude to perform comparative analysis and synthesis across disparate, large-scale data sources, a task impossible for smaller models.
+✅ **Artifacts for Structure:** Recognize and utilize Claude's "Artifacts" feature to structure and visualize complex outputs (like code, diagrams, or tables) derived from the massive context.
+✅ **Complexity Scaling:** Apply a framework to match the complexity of your task (Simple, Moderate, Advanced, Expert) to the appropriate context management strategy.
 
-```
-TASK TYPE → BEST TOOL → WHY
+### Try It Now (7 Steps)
 
-CODING & TECHNICAL WORK:
-→ Claude 4.5 Sonnet
-Why: World's best coding model (SWE-bench leader), zero percent error rate on code edits,
-understands full codebases with 1M context, superior debugging and refactoring
-
-Alternative: Gemini 2.5 Pro (strong second choice for coding)
-Avoid: GPT-5 (good but not best for complex code)
-
-LONG DOCUMENT ANALYSIS:
-→ Claude 4.5 Sonnet
-Why: 1M token context = entire books, research papers, codebases in single conversation,
-better comprehension than competitors on complex multi-document analysis
-
-Alternative: Gemini 2.5 (1M context, but Claude analysis quality higher)
-Avoid: GPT-5 (128K context limit = must split large documents)
-
-RESEARCH & DEEP THINKING:
-→ Claude 4.5 Sonnet
-Why: Most thoughtful, nuanced analysis, catches edge cases others miss,
-excellent at multi-step reasoning and philosophical depth
-
-Alternative: GPT-5 o1 mode (strong reasoning, different style)
-Gemini 2.5 Flash Thinking (fast, but less depth)
-
-CREATIVE WRITING (LONG-FORM):
-→ Claude 4.5 Sonnet
-Why: Superior narrative quality, consistent voice over long documents,
-better at literary style and sophisticated prose
-
-Alternative: GPT-5 (creative but different style, some prefer it)
-Gemini: (functional but less literary)
-
-QUICK TASKS (< 100 WORDS):
-→ GPT-5 or Gemini 2.5 Flash
-Why: Faster response, good enough quality for short outputs
-Claude: (slower, overkill for quick tasks)
-
-IMAGE GENERATION:
-→ GPT-5 (GPT-4o native generation) or Midjourney
-Why: Claude doesn't generate images at all
-Alternative: Gemini 2.5 Flash Image (good quality), DALL-E deprecated
-
-VOICE CONVERSATIONS:
-→ GPT-5 Advanced Voice
-Why: Real-time voice, natural conversation flow
-Claude & Gemini: No voice mode (text only)
-
-REAL-TIME WEB SEARCH:
-→ GPT-5 or Gemini 2.5
-Why: Real-time search integration built-in
-Claude: Can browse but not as integrated
-
-MULTIMODAL (IMAGE ANALYSIS):
-→ Gemini 2.5 Flash Image or GPT-4o
-Why: Native multimodal processing, analyze images/video/audio
-Claude: Can analyze images but not as advanced
-
-GMAIL/WORKSPACE INTEGRATION:
-→ Gemini 2.5 (Google Workspace native) or GPT-5 (Gmail integration)
-Why: Direct integration with email, docs, calendar
-Claude: No native integration
-
-ENTERPRISE DEPLOYMENT:
-→ Claude (Teams/Enterprise) or GPT-5 (Enterprise)
-Why: Both have SOC 2, SSO, admin controls, zero data retention
-Gemini: Strong for Google Workspace organizations
-```
-
-**Decision Tree:**
-
-```
-START: What task do I need to do?
-
-Writing code or debugging?
-→ Claude 4.5 Sonnet (best accuracy)
-
-Analyzing 100+ page document or full codebase?
-→ Claude 4.5 Sonnet (1M context)
-
-Deep research requiring nuanced thinking?
-→ Claude 4.5 Sonnet (thoughtful analysis)
-
-Creating images or visual content?
-→ GPT-5 or Midjourney (Claude can't generate images)
-
-Quick question or short task?
-→ GPT-5 or Gemini Flash (faster)
-
-Need voice conversation?
-→ GPT-5 Advanced Voice (only option)
-
-Integrated with Google Workspace?
-→ Gemini 2.5 (native Gmail/Docs)
-
-Writing long-form content (articles, reports)?
-→ Claude 4.5 (narrative quality) or GPT-5 (creative style)
-
-Real-time web research needed?
-→ GPT-5 or Gemini (better web integration)
-```
-
-**Pro Pattern: "Multi-Model Workflow"**
-
-Don't pick ONE tool for everything. Use the best tool for each step:
-
-```
-EXAMPLE WORKFLOW: Writing a Technical Blog Post
-
-Step 1: Research (Gemini 2.5)
-- Real-time web search for latest info
-- Quick fact-gathering
-- 10-15 minutes
-
-Step 2: Deep Analysis (Claude 4.5)
-- Upload research docs + sources
-- Synthesize insights with nuance
-- Structure arguments
-- 20-30 minutes
-
-Step 3: First Draft (Claude 4.5)
-- Long-form writing with literary quality
-- Consistent voice throughout
-- 30-45 minutes
-
-Step 4: Visual Assets (GPT-5 or Midjourney)
-- Generate images for post
-- Create diagrams
-- 15-20 minutes
-
-Step 5: SEO & Final Polish (GPT-5 or Claude)
-- Optimize for search
-- Meta descriptions
-- Final edits
-- 15 minutes
-
-Total: 90-120 minutes with multi-model approach
-vs. 120-180 minutes using single tool (30-50% slower + lower quality)
-```
-
-**What You're Learning:**
-- Each AI has strengths—there's no "best" for everything
-- Claude dominates coding, long documents, deep analysis
-- GPT-5 wins on image generation, voice, quick tasks
-- Gemini excels at Google Workspace integration and multimodal
-- Strategic tool selection saves hours and improves quality
+1.  **Gather Data:** Collect 3-4 large documents (e.g., a 200-page PDF report, a 100-page whitepaper, and a 50-page internal memo) totaling over 300,000 words.
+2.  **Start a New Chat:** Open a new conversation in Claude and upload all 3-4 documents simultaneously.
+3.  **Execute Template 3:** Use the "Advanced: Cross-Document Synthesis" template below, filling in the bracketed sections with your specific document names and goals.
+4.  **Review Artifacts:** Observe how Claude uses the "Artifacts" panel to structure the comparative analysis, code output, or summary table.
+5.  **Test Context Limits:** Ask a follow-up question that requires Claude to recall a minute detail from the very first document you uploaded.
+6.  **Refine the Output:** Use a prompt like, "Now, rewrite the key findings into a 5-slide presentation outline, focusing on the three biggest risks identified."
+7.  **Verify Success:** Check the final output against the "Success Metrics" for the template you used.
 
 ---
+
+### Template 1: Simple: Single Document Deep Dive (Use Case: Report Summarization)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Single Document Deep Dive |
+| **When to use** (5 bullets) | - Analyzing a single, long (100+ page) document. |
+| | - Extracting key themes, executive summaries, or specific data points. |
+| | - When you need to maintain perfect context throughout a long Q&A session. |
+| | - Generating a table of contents or index for an unorganized document. |
+| | - Summarizing a book or technical manual for a non-expert audience. |
+| **Setup Prompt** | `I have uploaded the [DOCUMENT_TITLE], which is [PAGE_COUNT] pages long. Your task is to act as a [ROLE, e.g., Financial Analyst] and provide a comprehensive analysis.` |
+| **Practice Scenario** | You have a **185-page** market research report on the "Global AI Ethics Landscape 2025." Your goal is to extract the top **5** investment opportunities and the **3** most significant regulatory risks. |
+| **Success Metrics** (7-10 checkboxes) | ✅ The summary is under 500 words and captures the main thesis. |
+| | ✅ The **5** investment opportunities are clearly listed and justified with data from the report. |
+| | ✅ The **3** regulatory risks are identified, including the country/region of origin. |
+| | ✅ Claude cites the page numbers for at least **3** of the key findings. |
+| | ✅ A follow-up question about a detail on page **150** is answered accurately. |
+| | ✅ The tone and language are appropriate for a C-suite executive. |
+| | ✅ The response is delivered in less than **60** seconds. |
+
+---
+
+### Template 2: Moderate: Codebase Analysis & Refactoring (Use Case: Technical Debt Review)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Codebase Analysis & Refactoring |
+| **When to use** (5 bullets) | - Analyzing a small-to-medium sized codebase (up to 50,000 lines). |
+| | - Identifying technical debt, security vulnerabilities, or performance bottlenecks. |
+| | - Performing a large-scale refactoring of a specific function or module. |
+| | - Generating comprehensive documentation for an undocumented section of code. |
+| | - Migrating code from one framework version to another (e.g., Python 3.9 to 3.11). |
+| **Setup Prompt** | `I have uploaded a [LANGUAGE, e.g., Python] codebase consisting of [FILE_COUNT] files and approximately [LINE_COUNT] lines. Please act as a Senior Software Architect.` |
+| **Practice Scenario** | You upload a **25,000-line** JavaScript codebase across **45** files. Your goal is to identify all instances of deprecated `async` function usage and provide a refactored version of the **5** most complex files. |
+| **Success Metrics** (7-10 checkboxes) | ✅ Claude successfully processes all **45** files without a context error. |
+| | ✅ A list of all deprecated `async` function calls is provided, with file names and line numbers. |
+| | ✅ The **5** refactored files are provided as a downloadable "Artifact." |
+| | ✅ The refactored code passes a basic syntax check (e.g., no immediate errors). |
+| | ✅ Claude suggests at least **3** best practices for future code maintenance. |
+| | ✅ The response includes a summary of the total technical debt score (e.g., 1-10). |
+| | ✅ The refactored code reduces the line count of the **5** files by at least **10%**. |
+
+---
+
+### Template 3: Advanced: Cross-Document Synthesis (Use Case: Strategic Alignment)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Cross-Document Synthesis |
+| **When to use** (5 bullets) | - Comparing and contrasting information across 3+ large, distinct documents. |
+| | - Identifying strategic gaps or misalignments between internal and external data. |
+| | - Creating a single, unified executive summary from multiple source materials. |
+| | - Performing complex root-cause analysis by linking events across different reports. |
+| | - Building a comprehensive competitive intelligence profile from various sources. |
+| **Setup Prompt** | `I have uploaded three documents: [DOC_A_TITLE], [DOC_B_TITLE], and [DOC_C_TITLE]. Your task is to perform a cross-document synthesis to identify strategic misalignments.` |
+| **Practice Scenario** | You upload a **300-page** "Industry Trend Report," a **150-page** "Competitor Analysis," and a **80-page** "Internal Strategy Document." Your goal is to find **4** areas where the internal strategy directly contradicts the industry trends or competitor actions. |
+| **Success Metrics** (7-10 checkboxes) | ✅ The response clearly identifies the **4** areas of contradiction. |
+| | ✅ For each contradiction, Claude cites evidence from at least **2** of the uploaded documents. |
+| | ✅ A summary table is generated in the "Artifacts" panel showing: Contradiction, Doc A Evidence, Doc B Evidence, Doc C Relevance. |
+| | ✅ The analysis includes a recommendation for a strategic pivot in at least **2** of the areas. |
+| | ✅ The output is logically structured, moving from observation to conclusion. |
+| | ✅ The response is detailed, exceeding **750** words in total length. |
+| | ✅ The analysis correctly identifies the most critical misalignment (highest risk score). |
+
+---
+
+### Template 4: Expert: Context-Aware Creative Generation (Use Case: Long-Form Content)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Context-Aware Creative Generation |
+| **When to use** (5 bullets) | - Writing a long-form article, whitepaper, or chapter based on extensive source material. |
+| | - Maintaining a consistent voice, tone, and character profile across a large narrative. |
+| | - Generating a detailed, multi-part document that requires deep internal consistency. |
+| | - Creating a fictional narrative where world-building details must be strictly adhered to. |
+| | - Drafting a legal brief or policy document that must reference numerous prior rulings/documents. |
+| **Setup Prompt** | `I have uploaded [NUMBER] documents that serve as the complete source material and style guide for a new [CONTENT_TYPE, e.g., 5, Technical Whitepaper]. Your task is to write a [LENGTH, e.g., 5,000-word] draft of the [SECTION_NAME, e.g., Executive Summary and Chapter 1].` |
+| **Practice Scenario** | You upload **5** internal memos, style guides, and prior reports (totaling **120,000** words). Your goal is to write a **4,000-word** draft of the "Future Outlook" section of a new annual report, ensuring it adheres to the **3** key stylistic rules from the style guide. |
+| **Success Metrics** (7-10 checkboxes) | ✅ The generated draft is between **3,800** and **4,200** words. |
+| | ✅ The draft successfully incorporates at least **5** specific data points from the source memos. |
+| | ✅ The **3** key stylistic rules (e.g., passive voice avoidance, specific jargon) are followed perfectly. |
+| | ✅ The tone is consistent with the uploaded style guide throughout the entire draft. |
+| | ✅ The output is structured with at least **5** subheadings. |
+| | ✅ A plagiarism check (hypothetical) would show less than **5%** similarity to the source documents. |
+| | ✅ The draft is logically complete and requires less than **1** hour of human editing. |
+| | ✅ The final paragraph provides a clear, forward-looking statement. |
+
+---
+
+### Final Success Metric
+
+**🎯 Final Success Metric:** You can confidently select the correct Claude context template (Simple, Moderate, Advanced, or Expert) for any new task involving large documents or codebases, and your output quality is consistently rated **10/10** by a subject matter expert.
+
 
 ### Intermediate Level (7 minutes)
 *Master Claude's unique features: long context, Projects, and Artifacts*

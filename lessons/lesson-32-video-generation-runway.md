@@ -174,22 +174,137 @@ KEY ADVANTAGE:
 
 ### Foundation Level: Setup & First Video (5 minutes per exercise)
 
-**Exercise 1: Generate Your First Text-to-Video (5 min)**
+**Exercise 1: Master AI Video Generation Templates**
 
-Goal: Create your first AI-generated video using Runway.
+**Objective**: Learn to select and customize AI video generation templates to maximize cost-efficiency, speed, and impact in real-world business scenarios.
 
-Steps:
-1. Go to runwayml.com and create free account
-2. Create new project, select "Text to Video"
-3. Use this prompt: "A professional woman in business attire speaking in an office, smiling warmly, making eye contact with camera, well-lit, 4K quality"
-4. Set duration: "10 seconds"
-5. Click "Generate"
-6. Wait 1-3 minutes for rendering
-7. Download video and play in your media player
+**Scenario:** You’re a marketing manager at a fast-growing e-commerce company preparing for a major product launch. Your goal is to create personalized, scalable video content rapidly without breaking your budget. Meanwhile, your training department needs to update onboarding videos monthly, and the corporate communications team wants multiple video variants for an upcoming campaign.  
 
-Learning: Text-to-video is remarkably capable. The model understands context, lighting, camera angles, and subjects remarkably well.
+**Your Mission:** Choose and tailor the right AI video generation template for each use case to deliver high-quality videos at 1% of traditional costs and within minutes, not weeks.
 
 ---
+
+### Template 1: Cost-Effective Personalized Videos with Synthesia Avatars
+
+- **When to use:**
+  - Need to create thousands of personalized customer videos
+  - Budget under $500/month for video production
+  - Timeline under 1 hour for batch generation
+  - Low risk of brand inconsistency due to avatar control
+  - High ROI with scalable personalization
+
+- **Setup Prompt:**
+  ```
+  Generate a [DURATION]-second personalized video using [AVATAR_NAME] speaking in [LANGUAGE] with this script:
+  "[PERSONALIZED_SCRIPT]"
+  Include [BRAND_LOGO] and [CALL_TO_ACTION].
+  Output format: [VIDEO_FORMAT]
+  ```
+
+- **Practice Scenario:**  
+  E-Shop Inc. created 1,000 personalized product recommendation videos using Synthesia avatars. Each video was 60 seconds, cost $0.50 to produce, and was delivered within 30 minutes total. Customer engagement increased by 25%, and conversion rates rose 15% over email campaigns without videos.
+
+- **Success Metrics:**  
+  - ☐ Total cost under $500  
+  - ☐ Video delivery within 1 hour  
+  - ☐ Avatar lip-sync accuracy >95%  
+  - ☐ Personalized call-to-action included  
+  - ☐ Customer engagement uplift ≥20%  
+  - ☐ Conversion rate increase ≥10%  
+  - ☐ Brand guidelines adherence  
+  - ☐ Video format compatible with email platforms  
+  - ☐ Scalability to 2,000+ videos without extra cost  
+  - ☐ Positive customer feedback on video content  
+
+---
+
+### Template 2: Rapid Training Video Updates with Runway ML Text-to-Video
+
+- **When to use:**
+  - Training content requires frequent monthly updates
+  - Budget limited to $2,000/month for 20 videos
+  - Need turnaround within 1 day
+  - Low risk with scripted content and controlled visuals
+  - Desire high visual fidelity with cinematic quality
+
+- **Setup Prompt:**
+  ```
+  Generate a [DURATION]-second training video using Runway Gen-3 with the following description:
+  "[TRAINING_TOPIC_DESCRIPTION]"
+  Include [ONSCREEN_TEXT] and [BRANDED_INTRO_OUTRO].
+  Output: HD MP4, 30 FPS
+  ```
+
+- **Practice Scenario:**  
+  TechCorp updated 20 training videos monthly using Runway ML. Each video averaged 90 seconds, costing $80 per video, delivered within 6 hours. Training completion rates increased 30%, and time-to-competency shortened by 40%.
+
+- **Success Metrics:**  
+  - ☐ Monthly production cost ≤ $2,000  
+  - ☐ Video quality rated ≥4/5 by trainees  
+  - ☐ Turnaround time under 24 hours  
+  - ☐ Consistent branding elements included  
+  - ☐ Training completion rates improved ≥25%  
+  - ☐ Reduction in questions/support tickets post-training  
+  - ☐ Accurate representation of training content  
+  - ☐ Multi-device compatibility  
+  - ☐ Positive learner feedback  
+  - ☐ Easy update process for new content  
+
+---
+
+### Template 3: Multi-Variant Marketing Campaign Videos with HeyGen Avatars
+
+- **When to use:**
+  - Creating 50+ video variants for A/B testing or segmentation
+  - Budget $500–2,500 per campaign
+  - Deadline within 2 days
+  - Moderate risk tolerance for experimentation
+  - Need high avatar customization for brand alignment
+
+- **Setup Prompt:**
+  ```
+  Produce [NUMBER_OF_VARIANTS] video variants using HeyGen avatars:
+  Avatar: [AVATAR_STYLE], Skin tone: [SKIN_TONE], Background: [BACKGROUND_STYLE].
+  Script base: "[BASE_SCRIPT]"
+  Variants to include changes in [MESSAGE_TONE], [CALL_TO_ACTION], and [VISUAL_ELEMENTS].
+  Output: MP4, 1080p
+  ```
+
+- **Practice Scenario:**  
+  BrightBrands launched a campaign with 50 HeyGen avatar video variants targeted by region and demographic. Each 45-second video cost $20 to produce. Campaign ROI improved 3x versus previous efforts, with a 35% lift in click-through rates.
+
+- **Success Metrics:**  
+  - ☐ Total campaign budget ≤ $2,500  
+  - ☐ Video variants delivered within 48 hours  
+  - ☐ Avatar customization matches brand guidelines  
+  - ☐ Clear differentiation among variants  
+  - ☐ At least 30% CTR increase  
+  - ☐ Positive audience feedback on messaging  
+  - ☐ Seamless integration with campaign platforms  
+  - ☐ Error-free lip sync and timing  
+  - ☐ Scalability for future campaigns  
+  - ☐ Campaign ROI ≥ 3x previous benchmarks  
+
+---
+
+**What You're Learning:**
+- ✅ **COST-EFFICIENCY IN VIDEO PRODUCTION**: Leveraging AI platforms reduces costs by 98-99% compared to traditional methods.  
+- ✅ **SPEED AND SCALABILITY**: AI video generation compresses timelines from weeks to minutes, enabling rapid iteration and mass personalization.  
+- ✅ **TEMPLATE CUSTOMIZATION**: Tailoring prompts and avatars ensures brand consistency and audience relevance.  
+- ✅ **USE CASE ALIGNMENT**: Matching platform strengths to business needs maximizes ROI and effectiveness.  
+- ✅ **MEASURABLE IMPACT**: Defining success metrics helps quantify improvements in engagement, conversion, and training outcomes.
+
+**Try It Now:**
+1. Identify a business video need (marketing, training, personalization).  
+2. Choose the AI video platform that fits this need (Runway, Synthesia, HeyGen).  
+3. Customize the setup prompt with your company’s key variables.  
+4. Generate a sample 60-second video variant.  
+5. Measure cost and turnaround time against traditional production.  
+6. Collect feedback from your target audience or internal stakeholders.  
+7. Iterate the prompt to improve video quality and engagement.
+
+**Success Metric:**
+- Deliver a fully customized AI-generated video within your budget that achieves at least a 20% improvement in engagement or training effectiveness over traditional videos.
 
 **Exercise 2: Create Your First AI Avatar Video (5 min)**
 

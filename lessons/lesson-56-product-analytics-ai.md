@@ -70,12 +70,166 @@ SAVINGS: $875K (71%) + 2× feature delivery speed
 
 ### Foundation Level
 
-**Exercise 1: User Cohort Analysis (5 min)**
-- Export: User behavior data (signup date, features used, churn)
-- Prompt: "Segment users into natural cohorts based on behavior"
-- Claude identifies: High-value users, at-risk users, growth users
-- Apply: Target each cohort with different strategies
-- Learn: Segmentation drives personalization
+**Exercise 1: Master AI-Powered Product Analytics Templates**
+
+**Objective**: Learn to apply AI to product data for instant, high-impact insights across different organizational maturity levels.
+
+**Scenario:** Product analytics is the lifeblood of product development, but the data volume and complexity quickly overwhelm manual analysis. A small startup needs to find its first product-market fit signal, a mid-market company needs to scale its feature velocity and reduce churn, and an enterprise needs to optimize a complex product portfolio. Different stages require different AI-driven analytical approaches.
+
+**Your Mission:** Learn 3 core AI-driven product analytics templates covering different maturity levels (Startup, Scaleup, Enterprise). Choose the template matching your current situation, then implement it to drive a key product decision.
+
+---
+
+**TEMPLATE 1: Feature-to-Retention Signal Finder (Startup/Early Stage)**
+
+For **Early-stage products (0-$1M ARR)** focused on achieving product-market fit and identifying core value.
+
+**When to use:**
+- You have a small but growing user base (100-10,000 users).
+- You are unsure which features are truly driving long-term retention.
+- You need to quickly cut features that confuse users or add no value.
+- **Cost/Timeline note**: Low cost, fast implementation (1-2 days).
+- **Risk level note**: Low risk; focuses on existing data, not new feature development.
+
+**Setup Prompt:**
+```
+Analyze the provided product usage data to identify the top 3 features that have the highest correlation with 30-day user retention.
+
+CONTEXT: We are a [TYPE_OF_COMPANY, e.g., B2B SaaS for small businesses] with [NUMBER] active users. Our primary goal is to increase 30-day retention from [CURRENT_RETENTION_PERCENTAGE, e.g., 15%] to [TARGET_RETENTION_PERCENTAGE, e.g., 25%] within the next quarter.
+SPECIFIC DATA: User ID, Signup Date, Feature Usage Logs (Feature A, B, C, D, E usage counts), 30-Day Retention Status (True/False).
+GOALS: Identify the 'Aha!' moment features and the 'Churn Signal' features.
+ANALYZE: Calculate the correlation coefficient between the usage frequency of each feature and the 30-day retention status. Segment users into 'Retained' and 'Churned' groups and compare their average usage of each feature.
+GENERATE: A ranked list of features by retention correlation, a brief explanation of why each feature is a retention driver or detractor, and a clear recommendation on which feature to invest in next.
+```
+
+**Practice Scenario:**
+A new **B2B SaaS startup** called "TaskFlow" (5,000 active users, $50k MRR) is struggling with a 30-day retention rate of **18%**. They have 5 core features: Task Creation, Team Collaboration, Calendar Sync, Reporting, and a new AI Summary feature. They suspect the AI Summary feature is the key, but need data.
+- **Starting state**: 5,000 users, 18% 30-day retention.
+- **Goal**: Increase 30-day retention to 25%.
+- **Step-by-step implementation**: The PM exports a CSV of 5,000 users' feature usage and retention status. They input the data and the prompt into an LLM. The AI returns that **Team Collaboration** has the highest correlation (0.65), while the **AI Summary** feature has a low correlation (0.10) and is only used by 5% of retained users.
+- **Expected results with ACTUAL NUMBERS**: The AI recommends focusing all development on Team Collaboration features. After 3 months, 30-day retention increases to **26%**, and the percentage of users using Team Collaboration within the first week jumps from **40% to 75%**.
+- **Impact/outcome**: The team avoids wasting resources on the low-impact AI Summary feature and instead doubles down on the core social/collaboration loop, which is the true driver of stickiness.
+
+**Success Metrics:**
+- [ ] Correlation coefficient for top feature is > 0.5.
+- [ ] The 'Aha!' moment feature is clearly identified.
+- [ ] A 'Churn Signal' feature (low usage by retained users) is identified.
+- [ ] A clear, data-backed feature investment recommendation is generated.
+- [ ] The recommended feature is used by at least 60% of retained users.
+- [ ] The analysis is completed in under 1 hour.
+- [ ] The output includes a comparison of average usage between retained and churned cohorts.
+- [ ] The analysis is reproducible with a new data set.
+- [ ] The recommendation is immediately actionable by the engineering team.
+
+---
+
+**TEMPLATE 2: Predictive Churn Intervention System (Scaleup/Mid-Market)**
+
+For **Scaleup companies ($1M-$50M ARR)** focused on maximizing customer lifetime value (LTV) and reducing revenue leakage.
+
+**When to use:**
+- You have a significant user base (50,000+ users) and a noticeable churn rate (5-10% monthly).
+- You need to move from reactive to **predictive** churn management.
+- You have multiple data points (product usage, support tickets, billing).
+- **Cost/Timeline note**: Moderate cost, 1-2 week implementation for initial model.
+- **Risk level note**: Moderate risk; requires data integration and a clear intervention strategy.
+
+**Setup Prompt:**
+```
+Build a predictive model to score the churn risk of all active users over the next 30 days. Identify the top 100 at-risk users and suggest personalized intervention strategies.
+
+CONTEXT: We are a [TYPE_OF_COMPANY, e.g., Enterprise HR Platform] with [NUMBER] active accounts and a monthly churn rate of [CURRENT_CHURN_PERCENTAGE, e.g., 7%]. Our goal is to reduce this to [TARGET_CHURN_PERCENTAGE, e.g., 4%] by intervening with high-risk accounts.
+SPECIFIC DATA: User ID, DAU/WAU trend (last 90 days), Support Ticket Count (last 30 days), Billing Status (on-time/late), Feature X usage (key retention feature).
+GOALS: Generate a churn risk score (0-100) for every user and identify the primary driver of their risk.
+ANALYZE: Use a classification model (e.g., logistic regression or decision tree) to predict churn based on the provided features. Identify the feature with the highest weight/importance for the top 100 at-risk users.
+GENERATE: A list of the top 100 at-risk users, their risk score, their primary risk driver (e.g., "Low Feature X Usage"), and a suggested intervention (e.g., "Send personalized email with Feature X use case").
+```
+
+**Practice Scenario:**
+"DataStream," a **Mid-Market data visualization platform** ($15M ARR, 60,000 users), has a monthly churn rate of **6.5%**, costing them $97,500 in lost MRR each month. They know that users who stop using the "Automated Report Scheduling" feature (Feature X) are 4x more likely to churn.
+- **Starting state**: 60,000 users, 6.5% monthly churn.
+- **Goal**: Reduce monthly churn to 4.0% (saving $37,500 MRR).
+- **Step-by-step implementation**: The PM feeds 6 months of historical data into the AI model. The AI identifies 1,500 users with a risk score > 80. For 450 of these users, the primary risk driver is "Zero usage of Automated Report Scheduling in the last 14 days." The AI suggests an automated email campaign for these 450 users, offering a 15-minute 1:1 setup session.
+- **Expected results with ACTUAL NUMBERS**: After one month of intervention, the churn rate for the at-risk group drops from the predicted 30% to **12%**. Overall monthly churn is reduced to **4.2%**, saving the company approximately **$34,500** in MRR.
+- **Impact/outcome**: The company shifts from reacting to cancellations to proactively saving customers, significantly boosting LTV and stabilizing recurring revenue.
+
+**Success Metrics:**
+- [ ] The model generates a risk score (0-100) for all users.
+- [ ] The primary risk driver is identified for at least 80% of the top 100 at-risk users.
+- [ ] The suggested intervention is personalized based on the risk driver.
+- [ ] The model's predicted churn rate for the at-risk cohort is within 5% of the actual churn rate.
+- [ ] The analysis identifies a key feature whose usage is a strong negative predictor of churn.
+- [ ] The output is integrated into a CRM/marketing automation tool.
+- [ ] The intervention strategy is executed within 24 hours of the score generation.
+- [ ] The analysis includes a confidence interval for the risk score.
+- [ ] The reduction in churn for the intervened group is quantifiable.
+
+---
+
+**TEMPLATE 3: Portfolio Optimization & Cannibalization Detector (Enterprise)**
+
+For **Large Enterprises ($50M+ ARR)** managing a complex portfolio of products, focused on maximizing overall portfolio ROI and minimizing internal competition.
+
+**When to use:**
+- You have multiple product lines or features that serve overlapping user needs.
+- You need to understand if a new feature is simply stealing usage from an existing one (cannibalization).
+- You need to allocate R&D budget across a portfolio based on predicted ROI.
+- **Cost/Timeline note**: High cost, 1-3 month implementation for data consolidation.
+- **Risk level note**: High risk; decisions impact large budgets and multiple product teams.
+
+**Setup Prompt:**
+```
+Analyze the provided usage data across Product A and Product B to detect feature cannibalization and recommend a portfolio strategy (merge, divest, or differentiate).
+
+CONTEXT: We are a [TYPE_OF_COMPANY, e.g., Global Financial Services Platform] managing two overlapping products, Product A (Legacy) and Product B (New). Product A has [A_USERS] users and Product B has [B_USERS] users. We need to determine if Product B's growth is coming from new users or from Product A's users.
+SPECIFIC DATA: User ID, Product A Feature Usage (last 90 days), Product B Feature Usage (last 90 days), User Migration Date (if applicable), Total Revenue per User.
+GOALS: Quantify the degree of cannibalization and provide a clear recommendation for the portfolio's future.
+ANALYZE: Segment users into four groups: A-only, B-only, A&B, and Migrated (A to B). Calculate the percentage of Product B's growth that came from Migrated users. Determine the difference in LTV between A-only and B-only users.
+GENERATE: A detailed report on cannibalization percentage, a comparison of LTVs, and a strategic recommendation (e.g., "Merge Product A's best features into B and sunset A").
+```
+
+**Practice Scenario:**
+"FinCorp," a **Global Financial Services Platform** ($500M ARR), has two reporting tools: "Legacy Reports" (Product A, 150,000 users) and "AI-Powered Dashboards" (Product B, 50,000 users). Product B is growing fast, but the VP of Product is concerned it's just cannibalizing Product A's revenue.
+- **Starting state**: Product A (150k users, $100 LTV), Product B (50k users, $150 LTV).
+- **Goal**: Maximize total portfolio LTV and eliminate redundant R&D spend.
+- **Step-by-step implementation**: The PM uses the AI prompt with consolidated usage data. The AI reveals that **70%** of Product B's new users over the last quarter were migrated from Product A. Furthermore, the LTV of a user who uses *both* products is **$250**, significantly higher than either single-product user.
+- **Expected results with ACTUAL NUMBERS**: The AI recommends a **differentiation strategy** where Product A is positioned for compliance reporting and Product B for predictive analytics. By clarifying the value proposition, the percentage of users using both products increases from 5% to **20%** in 6 months, leading to a **$10M** increase in annual recurring revenue (ARR) from the combined LTV boost.
+- **Impact/outcome**: The company avoids a costly sunsetting decision and instead uses AI to find a synergistic relationship between the two products, maximizing the value of the entire portfolio.
+
+**Success Metrics:**
+- [ ] The percentage of cannibalization is quantified (e.g., 70%).
+- [ ] Users are accurately segmented into A-only, B-only, A&B, and Migrated.
+- [ ] The LTV for each segment is calculated and compared.
+- [ ] A clear strategic recommendation (Merge/Divest/Differentiate) is provided.
+- [ ] The analysis identifies a synergistic feature (A&B usage) that boosts LTV.
+- [ ] The output includes a projected ROI for the recommended strategy.
+- [ ] The analysis accounts for the cost of maintaining both products.
+- [ ] The report is suitable for presentation to executive leadership.
+- [ ] The recommendation addresses the allocation of R&D resources.
+
+---
+
+**What You're Learning:**
+
+- ✅ **MATURITY-BASED ANALYTICS**: Different business stages (Startup, Scaleup, Enterprise) require fundamentally different analytical questions and AI models, moving from signal-finding to prediction to portfolio optimization.
+- ✅ **THE POWER OF THE PROMPT CONTEXT**: The `CONTEXT`, `SPECIFIC DATA`, `GOALS`, `ANALYZE`, and `GENERATE` structure transforms a vague request into a precise, executable data science task for the LLM.
+- ✅ **QUANTIFYING THE UNKNOWN**: AI can move product decisions from "I think" to "The data shows a 0.65 correlation," providing the quantitative evidence needed to align teams and secure budget.
+- ✅ **MOVING FROM REACTIVE TO PREDICTIVE**: The highest value of AI in product analytics is shifting from analyzing what *happened* (reactive) to predicting what *will happen* (churn, feature success) and intervening proactively.
+- ✅ **THE LTV MULTIPLIER**: By using AI to identify high-value user behaviors and intervene to prevent churn, you directly increase Customer Lifetime Value (LTV), the most critical metric for sustainable growth.
+
+**Try It Now:**
+
+1. **Assess**: Choose the template (1, 2, or 3) that best matches your current product's maturity level and biggest challenge.
+2. **Gather**: Define the `SPECIFIC DATA` you have access to and export a sample dataset (even a small, anonymized one) to test the prompt.
+3. **Create**: Customize the `CONTEXT` and `GOALS` sections of the chosen template prompt to reflect your actual business situation and target metrics.
+4. **Analyze**: Run the customized prompt through your preferred LLM (e.g., Claude, GPT-4, Gemini) and review the `ANALYZE` and `GENERATE` sections of the output.
+5. **Measure**: Compare the AI's recommendation against your current product roadmap or intuition. Does the AI's **REAL NUMBERS** output change your decision?
+6. **Implement**: Use the AI's recommendation to inform a key product decision (e.g., kill a feature, launch an experiment, contact an at-risk customer).
+7. **Document**: Record the outcome of the decision and use the success metrics to validate the AI's initial analysis.
+
+**Success Metric:**
+- A key product decision (e.g., feature prioritization, churn intervention, portfolio strategy) is changed or validated by the AI's quantitative output, leading to a measurable improvement in a core product metric (e.g., +5% retention, -2% churn, +$10 LTV).
+
 
 **Exercise 2: Feature Impact Analysis (5 min)**
 - Data: Feature launch date + user engagement before/after

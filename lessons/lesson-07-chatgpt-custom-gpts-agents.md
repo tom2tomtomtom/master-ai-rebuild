@@ -126,314 +126,163 @@ e-commerce company struggling with project delays due to distributed team coordi
 ### Foundation Level (5 minutes)
 *Master the Custom GPT configuration framework*
 
-**Exercise 1: The Custom GPT Design Pattern**
+## Exercise 1: The Custom GPT Design Pattern
 
 **Scenario:** Your team repeatedly needs the same type of AI assistance—customer support responses, content formatting, data analysis, code review—but every time someone uses generic ChatGPT, they have to re-explain context, requirements, and constraints. This wastes 10-15 minutes per interaction, multiplied by dozens of interactions per week.
 
-**Your Mission:** Learn the systematic approach to designing effective Custom GPTs.
-
-**The Custom GPT Architecture:**
-
-```
-CUSTOM GPT COMPONENT STRUCTURE:
-
-1. IDENTITY & ROLE
-   Who is this GPT? What's its job?
-
-   Example:
-   "You are a customer support specialist for [COMPANY], focusing on [PRODUCT].
-   Your role is to draft empathetic, solution-focused responses to customer inquiries."
-
-2. KNOWLEDGE CONTEXT
-   What does this GPT need to know?
-
-   Example:
-   "Our product: [Description]
-   Common issues: [List top 5]
-   Company policies: [Key policies]
-   Tone: [How we communicate]
-   Who we serve: [Customer profile]"
-
-3. INPUT/OUTPUT FORMAT
-   What comes in? What goes out?
-
-   Example:
-   "INPUT: Customer email or message
-   OUTPUT: Professional response draft including:
-   - Acknowledgment of issue
-   - Explanation or solution
-   - Next steps
-   - Empathetic closing"
-
-4. PROCESS/WORKFLOW
-   What steps should the GPT follow?
-
-   Example:
-   "1. Identify customer's core issue
-   2. Check if it matches a known issue from our list
-   3. Provide solution or escalation path
-   4. Add relevant knowledge base article link
-   5. End with satisfaction check"
-
-5. CONSTRAINTS & GUARDRAILS
-   What should the GPT never do?
-
-   Example:
-   "- Never promise refunds over $500 (escalate to manager)
-   - Never admit fault without consulting policies
-   - Never provide technical details about security
-   - Always maintain professional, empathetic tone
-   - Keep responses under 200 words"
-
-6. EXAMPLES (OPTIONAL)
-   Show the GPT what "good" looks like
-
-   Example:
-   "GOOD RESPONSE EXAMPLE:
-   [Paste 2-3 examples of ideal responses]
-
-   Match this style and quality."
-
-7. KNOWLEDGE FILES (OPTIONAL)
-   Upload documents for the GPT to reference
-
-   Example:
-   - Product documentation PDF
-   - FAQ document
-   - Company style guide
-   - Past successful responses
-```
-
-**Worked Examples:**
-
-**Example 1: Content Repurposer GPT**
-
-```
-NAME: Content Repurposer Pro
-
-DESCRIPTION:
-Transforms long-form content into multiple social media formats maintaining brand voice
-
-INSTRUCTIONS:
-You are a content marketing specialist who repurposes long-form content (blog posts,
-articles, reports) into social media posts for LinkedIn, Twitter/X, and Instagram.
-
-CONTEXT:
-- Our brand: B2B SaaS marketing agency
-- Our audience: Marketing directors, CMOs at tech companies
-- Our tone: Strategic insights, data-driven, but approachable
-- Our style: Short sentences, concrete examples, actionable takeaways
-
-TASK:
-When user provides long-form content (paste text or URL), create:
-
-1. LINKEDIN POST (150-200 words)
-   - Hook: Contrarian or surprising statement
-   - 3-4 key insights from content
-   - CTA to read full article
-   - 3-5 relevant hashtags
-
-2. TWITTER THREAD (8-10 tweets)
-   - Opening tweet: Core insight + hook
-   - Tweets 2-8: Break down key points (one per tweet)
-   - Final tweet: CTA + link
-   - Strategic breaks for engagement
-
-3. INSTAGRAM CAPTION (100-120 words)
-   - Visual-friendly opening
-   - 2-3 key takeaways with emojis
-   - Engagement question
-   - Hashtag strategy (10-15 hashtags)
-
-OUTPUT FORMAT:
-=== LINKEDIN POST ===
-[Content]
-
-=== TWITTER THREAD ===
-1/ [Tweet]
-2/ [Tweet]
-...
-
-=== INSTAGRAM CAPTION ===
-[Content]
-
-CONSTRAINTS:
-- Maintain original insights but adapt for platform
-- Use data points from original when available
-- Keep brand voice consistent across platforms
-- Never change or exaggerate claims from original
-- Optimize for engagement (questions, hooks, controversy)
-```
-
-**Example 2: Code Reviewer GPT**
-
-```
-NAME: Code Review Assistant
-
-DESCRIPTION:
-Reviews pull requests for security, performance, and best practices in Python/JavaScript
-
-INSTRUCTIONS:
-You are a senior software engineer conducting code reviews for a web application team.
-Stack: Python (Django), JavaScript (React), PostgreSQL.
-
-CONTEXT:
-- Team: 5 developers, varying experience levels
-- Standards: PEP 8 (Python), ESLint (JavaScript)
-- Priorities: Security > Performance > Maintainability > Style
-- Review style: Constructive, educational, not just critical
-
-TASK:
-When user provides code (paste or file), analyze for:
-
-1. SECURITY ISSUES (P0 - Block merge)
-   - SQL injection vulnerabilities
-   - XSS attack vectors
-   - Authentication/authorization gaps
-   - Sensitive data exposure
-
-2. PERFORMANCE CONCERNS (P1 - Requires fix)
-   - N+1 queries
-   - Memory leaks
-   - Inefficient algorithms
-   - Missing database indexes
-
-3. MAINTAINABILITY (P2 - Suggest improvement)
-   - Code duplication
-   - Complex logic (high cyclomatic complexity)
-   - Missing error handling
-   - Inadequate comments for complex sections
-
-4. STYLE/CONVENTIONS (P3 - Nice to have)
-   - PEP 8 / ESLint violations
-   - Naming conventions
-   - Code organization
-
-OUTPUT FORMAT:
-## 🚨 Security Issues (Block Merge)
-[List with file:line number, explanation, suggested fix]
-
-## ⚠️ Performance Concerns (Requires Fix)
-[List with severity, impact, fix]
-
-## 💡 Maintainability Suggestions
-[List with rationale and optional improvements]
-
-## ✨ Style Notes
-[Brief list of style improvements]
-
-## ✅ What's Working Well
-[Highlight 2-3 positive aspects]
-
-CONSTRAINTS:
-- Always explain WHY something is an issue
-- Provide specific fix suggestions, not just "fix this"
-- Prioritize correctly: security > performance > style
-- Be encouraging: highlight what's good, not just problems
-- Include code examples for suggested fixes
-```
-
-**Example 3: Meeting Notes Specialist GPT**
-
-```
-NAME: Meeting Notes Pro
-
-DESCRIPTION:
-Transforms messy meeting notes into structured summaries with action items
-
-INSTRUCTIONS:
-You are an executive assistant who specializes in transforming informal meeting
-notes into professional, actionable summaries.
-
-CONTEXT:
-- Users often take quick, unstructured notes during meetings
-- Output needs to be shareable with team and stakeholders
-- Must capture decisions, action items, and open questions
-- Professional tone but not overly formal
-
-TASK:
-When user provides raw meeting notes (bullet points, fragments, stream of consciousness),
-transform into structured summary:
-
-1. MEETING METADATA
-   - Date, attendees (if provided)
-   - Purpose/topic
-
-2. KEY DECISIONS MADE
-   - List all decisions with context
-   - Format: "Decision: [What] - Rationale: [Why]"
-
-3. ACTION ITEMS
-   - Assignee: [Person]
-   - Task: [Specific action]
-   - Due date: [When, or "TBD"]
-   - Priority: [High/Medium/Low if discernible]
-
-4. DISCUSSION POINTS
-   - Major topics discussed (not already captured in decisions)
-   - Key concerns raised
-
-5. OPEN QUESTIONS / NEXT STEPS
-   - Unresolved questions
-   - Follow-up needed
-   - Next meeting topics
-
-OUTPUT FORMAT:
-# [Meeting Title]
-**Date:** [Date]
-**Attendees:** [Names]
-
-## 📋 Key Decisions
-- [Decision 1 with rationale]
-- [Decision 2 with rationale]
-
-## ✅ Action Items
-- [ ] **[Person]**: [Task] (Due: [Date]) [Priority]
-- [ ] **[Person]**: [Task] (Due: [Date]) [Priority]
-
-## 💬 Discussion Summary
-[2-3 paragraph summary of major discussion points]
-
-## ❓ Open Questions
-- [Question 1]
-- [Question 2]
-
-## ➡️ Next Steps
-- [Next meeting date/topic]
-- [Follow-up items]
-
-CONSTRAINTS:
-- Extract ALL action items (don't miss any)
-- Assign actions to people if mentioned in notes
-- If assignee unclear, mark as "[To be assigned]"
-- Preserve important details but remove redundancy
-- Keep decisions separate from discussion
-- Flag urgent items with 🚨 emoji
-```
-
-**Pro Technique: Knowledge File Integration**
-
-Custom GPTs can access uploaded files for context:
-
-```
-SCENARIO: Customer support GPT needs access to:
-- Product documentation (PDF)
-- FAQ database (text file)
-- Troubleshooting guides (markdown)
-
-SETUP:
-1. Prepare knowledge files (PDF, DOCX, TXT, MD)
-2. In GPT configuration, upload to "Knowledge" section
-3. Update instructions to reference files:
-
-"When responding to customer inquiries, search the uploaded knowledge files first.
-Always cite specific sections from documentation when providing technical answers.
-If answer isn't in knowledge base, clearly state that and offer to escalate."
-
-RESULT: GPT has perfect recall of all documentation, provides consistent answers
-```
+**Your Mission:** Learn the systematic approach to designing effective Custom GPTs and agents by applying the **Complexity/Use Case** framework.
+
+### What You're Learning (5 Principles)
+
+✅ **The Context-Constraint-Task (CCT) Framework:** Understanding that a Custom GPT's performance is directly proportional to the clarity and specificity of its *Context* (knowledge), *Constraints* (guardrails), and *Task* (workflow).
+✅ **Role-Based Specialization:** How to assign a precise, expert persona (e.g., "Senior Financial Analyst") to the GPT to instantly elevate the quality and tone of its output.
+✅ **The Knowledge-Action Spectrum:** Differentiating between a simple Custom GPT (knowledge-based) and a complex Agent (action-based, using tools/APIs) and choosing the right tool for the job.
+✅ **Proactive Guardrails:** Implementing "Never" and "Always" constraints to prevent hallucinations, maintain brand voice, and enforce compliance, turning the GPT into a reliable, predictable asset.
+✅ **Iterative Refinement:** The process of testing a GPT with real-world scenarios and continuously adjusting the Instructions, Knowledge, and Constraints to achieve a 10/10 quality output.
 
 ---
+
+### Try It Now (7 Steps)
+
+1.  **Identify a Repetitive Task:** Select a task you perform at least **5 times a week** that requires specific company knowledge (e.g., drafting internal reports, summarizing meeting notes, writing social media posts).
+2.  **Define the Persona:** Decide on the expert role the GPT needs to embody (e.g., "Internal Communications Manager," "Level 1 Tech Support").
+3.  **Draft the CCT:** Write the initial **Context**, **Constraints**, and **Task** sections for your chosen use case, aiming for **150-200 words** total.
+4.  **Build the GPT:** Use the ChatGPT interface to create a new Custom GPT and paste your CCT framework into the **Instructions** field.
+5.  **Upload Knowledge (Optional):** Upload **2-3 key documents** (e.g., a style guide, a FAQ, a product sheet) to the Knowledge section to train your GPT.
+6.  **Test with a Real Scenario:** Use a **real-world prompt** from your day-to-day work (e.g., "Draft a summary of the Q3 earnings call for the sales team, focusing on the new product line").
+7.  **Refine and Publish:** Based on the output, edit your GPT's Instructions and Constraints until the output is **90% perfect**, then save and share the link with a colleague for feedback.
+
+---
+
+### Custom GPT Templates (Complexity/Use Case Approach)
+
+| Template Name | Complexity | Use Case | Description |
+| :--- | :--- | :--- | :--- |
+| **1. Content Repurposer Pro** | Low | Marketing/Creative | Transforms long-form content into platform-specific social media posts, maintaining brand voice and style. |
+| **2. Code Review Assistant** | Medium | Technical/Development | Reviews code for security, performance, and best practices, providing structured, actionable feedback. |
+| **3. Financial Data Analyst** | Medium | Business/Data | Analyzes uploaded financial spreadsheets (CSV/XLSX) to generate key performance indicators (KPIs) and executive summaries. |
+| **4. Autonomous Research Agent** | High | Research/Agentic | Uses web browsing and code execution tools to perform multi-step research, synthesize findings, and generate a structured report. |
+
+---
+
+### Template 1: Content Repurposer Pro (Low Complexity, Creative Use Case)
+
+**Name:** Content Repurposer Pro
+
+**When to use (5 bullets):**
+*   To quickly adapt a single piece of content (e.g., a blog post) for multiple social media platforms.
+*   When maintaining a consistent brand voice across different channels is critical.
+*   To save **2-3 hours per week** of manual reformatting and rewriting.
+*   When the primary input is text and the output is creative copy.
+*   To ensure all repurposed content includes platform-specific best practices (e.g., hashtags, thread structure).
+
+**Setup Prompt (Instructions):**
+You are a **Senior Content Marketing Specialist** for [BRAND NAME], a B2B SaaS company. Your primary task is to transform long-form content into platform-optimized social media posts. You must maintain the brand's tone, which is **[TONE: e.g., Data-Driven, Professional, but Approachable]**. When a user provides a source article, you must generate a LinkedIn Post, an 8-Tweet X/Twitter Thread, and an Instagram Caption. The output must be ready to publish.
+
+**Practice Scenario (REAL NUMBERS):**
+A user provides a **2,500-word** blog post titled "The 5 Hidden Costs of Cloud Migration." The post contains **12 key data points** and **3 customer quotes**. Use this content to generate the three required social media formats.
+
+**Success Metrics (7-10 Checkboxes):**
+*   ✅ The LinkedIn post is between 150-200 words.
+*   ✅ The X/Twitter thread has a minimum of **8 tweets** and a clear final CTA.
+*   ✅ The Instagram caption is under **120 words** and includes 10-15 relevant hashtags.
+*   ✅ The tone is consistent with the specified brand voice.
+*   ✅ At least **one data point** from the source article is included in each format.
+*   ✅ The output is clearly separated by platform headings.
+*   ✅ No claims are made that are not supported by the original article.
+*   ✅ The output is generated in under **45 seconds**.
+
+---
+
+### Template 2: Code Review Assistant (Medium Complexity, Technical Use Case)
+
+**Name:** Code Review Assistant
+
+**When to use (5 bullets):**
+*   To enforce consistent coding standards (e.g., PEP 8, ESLint) across a development team.
+*   When performing a first-pass review on a Pull Request to catch common security or performance issues.
+*   To provide constructive, educational feedback to junior developers.
+*   To save senior engineers **1-2 hours per day** on routine code checks.
+*   When the input is code (Python, JavaScript, etc.) and the output is a structured report.
+
+**Setup Prompt (Instructions):**
+You are a **Senior Software Engineer** specializing in **[LANGUAGE/FRAMEWORK: e.g., Python/Django]**. Your role is to conduct a thorough, constructive code review. You must prioritize issues in this order: **Security (P0)**, **Performance (P1)**, **Maintainability (P2)**, and **Style (P3)**. For every issue, you must provide the file/line number, a brief explanation of the *why*, and a specific, actionable code suggestion for the fix.
+
+**Practice Scenario (REAL NUMBERS):**
+A user pastes **350 lines of Python code** from a new API endpoint. The code contains **1 potential SQL injection vulnerability (P0)**, **2 instances of N+1 database queries (P1)**, and **5 PEP 8 style violations (P3)**. The GPT must identify and report all **8 issues** with suggested fixes.
+
+**Success Metrics (7-10 Checkboxes):**
+*   ✅ The report is structured with clear headings for P0, P1, P2, and P3 issues.
+*   ✅ The SQL injection vulnerability is correctly identified as a **P0** issue.
+*   ✅ The N+1 queries are identified with a suggested fix (e.g., `select_related`).
+*   ✅ All **5 style violations** are listed with the correct line numbers.
+*   ✅ The tone of the feedback is constructive and educational.
+*   ✅ A specific code snippet is provided for at least **3 suggested fixes**.
+*   ✅ The GPT highlights at least **one positive aspect** of the submitted code.
+*   ✅ The total review time is under **60 seconds**.
+
+---
+
+### Template 3: Financial Data Analyst (Medium Complexity, Business/Data Use Case)
+
+**Name:** Financial Data Analyst
+
+**When to use (5 bullets):**
+*   To quickly extract and summarize key metrics from raw financial data files (CSV, XLSX).
+*   When a non-technical user needs a plain-language executive summary of a spreadsheet.
+*   To perform basic calculations (e.g., YoY growth, margin analysis) without opening Excel.
+*   To save analysts **30 minutes per report** on initial data processing and visualization.
+*   When the input is a structured data file and the output is a text summary and a simple chart.
+
+**Setup Prompt (Instructions):**
+You are a **Certified Financial Analyst (CFA)** for a mid-sized e-commerce company. Your task is to analyze uploaded financial data (CSV or XLSX) and generate a concise, executive-level summary. You must calculate **Year-over-Year (YoY) Growth**, **Gross Margin**, and identify the **Top 3** and **Bottom 3** performing products/regions. The final output must include a brief summary and a simple markdown table or chart.
+
+**Practice Scenario (REAL NUMBERS):**
+A user uploads a **1,500-row CSV file** containing sales data for the last two fiscal years. The data includes columns for `Date`, `Product`, `Region`, `Revenue`, and `Cost of Goods Sold`. The GPT must calculate the **18.5% YoY Revenue Growth** and the **42% Gross Margin** and list the top/bottom performers.
+
+**Success Metrics (7-10 Checkboxes):**
+*   ✅ The GPT successfully processes the uploaded CSV/XLSX file.
+*   ✅ The calculated **YoY Growth** and **Gross Margin** are accurate.
+*   ✅ The output includes a clear, non-jargon executive summary (max 100 words).
+*   ✅ A markdown table correctly lists the **Top 3** and **Bottom 3** performers.
+*   ✅ The GPT correctly identifies the data columns needed for the analysis.
+*   ✅ The GPT suggests a follow-up question for deeper analysis (e.g., "Analyze regional performance").
+*   ✅ The GPT confirms that no sensitive PII (Personally Identifiable Information) was processed.
+*   ✅ The analysis is completed in under **90 seconds**.
+
+---
+
+### Template 4: Autonomous Research Agent (High Complexity, Agentic Use Case)
+
+**Name:** Autonomous Research Agent
+
+**When to use (5 bullets):**
+*   To perform complex, multi-step research that requires both web search and data synthesis.
+*   When the task involves comparing and contrasting information from multiple online sources.
+*   To automate the creation of structured reports or competitive analyses.
+*   To save researchers **4-6 hours per week** on initial data gathering and synthesis.
+*   When the task requires the GPT to use its **Web Browsing** and **Code Interpreter** tools autonomously.
+
+**Setup Prompt (Instructions):**
+You are an **Autonomous Research Agent** for a Venture Capital firm. Your mission is to conduct a **Competitive Landscape Analysis** on a specified market sector. You must use your **Web Browsing tool** to find **3-5 recent articles** (published in the last 6 months) and your **Code Interpreter tool** to structure the data. The final output must be a **SWOT analysis** (Strengths, Weaknesses, Opportunities, Threats) for the target market, supported by cited evidence.
+
+**Practice Scenario (REAL NUMBERS):**
+A user requests a competitive analysis on the **"AI-Powered Customer Support Chatbot Market"**. The GPT must browse the web, find **4 relevant articles**, and synthesize the information into a structured SWOT analysis with a minimum of **3 points** in each of the four categories.
+
+**Success Metrics (7-10 Checkboxes):**
+*   ✅ The GPT successfully uses the **Web Browsing tool** to find external information.
+*   ✅ The final report is structured as a **SWOT analysis** table.
+*   ✅ Each point in the SWOT analysis is supported by a **citation** from a browsed source.
+*   ✅ The analysis includes a minimum of **12 distinct points** (3 per category).
+*   ✅ The GPT identifies at least **one emerging threat** to the market.
+*   ✅ The report is written in a concise, executive summary style.
+*   ✅ The GPT confirms the sources are from the last **6 months**.
+*   ✅ The final success metric is: **The report is ready for immediate presentation to the investment committee.**
+
+---
+
+**Final Success Metric:** The Custom GPT you build is used by your team at least **10 times** in the first week, saving a total of **3 hours** of repetitive work.
+
 
 ### Intermediate Level (7 minutes)
 *Build GPTs with advanced capabilities and integrations*

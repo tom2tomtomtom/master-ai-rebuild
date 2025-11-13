@@ -54,22 +54,32 @@ async function seedLessons() {
     try {
       const content = readFileSync(join(lessonsDir, file), 'utf-8')
 
-      // Extract lesson number from filename (lesson-00-*.md)
-      const match = file.match(/lesson-(\d+)/)
-      if (!match) {
+      // Extract lesson ID - handle both numbered (lesson-00-*) and meta (lesson-meta-*) formats
+      let lessonId: string
+      let lessonNumber: number
+
+      const numberMatch = file.match(/lesson-(\d+)/)
+      if (numberMatch) {
+        // Standard numbered lesson (lesson-00, lesson-01, etc.)
+        lessonNumber = parseInt(numberMatch[1])
+        lessonId = `lesson-${lessonNumber.toString().padStart(2, '0')}`
+      } else if (file.startsWith('lesson-meta-')) {
+        // Meta lesson (lesson-meta-guide-to-guide)
+        lessonId = file.replace('.md', '')
+        lessonNumber = 999 // Use 999 for meta lessons to keep them separate
+      } else {
         console.warn(`⚠️  Skipping ${file} - invalid format`)
         continue
       }
-
-      const lessonNumber = parseInt(match[1])
-      const lessonId = `lesson-${lessonNumber.toString().padStart(2, '0')}`
 
       // Extract title from markdown (first # heading)
       const titleMatch = content.match(/^#\s+(.+)$/m)
       const rawTitle = titleMatch ? titleMatch[1] : `Lesson ${lessonNumber}`
 
-      // Clean up title (remove "Lesson N:" prefix if present)
-      const title = rawTitle.replace(/^Lesson \d+:\s*/i, '').trim()
+      // Clean up title (remove "Lesson N:" prefix if present, but keep meta titles as-is)
+      const title = lessonNumber === 999
+        ? rawTitle
+        : rawTitle.replace(/^Lesson \d+:\s*/i, '').trim()
 
       // Extract description (first paragraph after title or subtitle)
       const descMatch = content.match(/^[#\s]+.+\n+(.+?)$/m)

@@ -101,169 +101,135 @@ Special cases:
 ### Foundation Level (5 minutes)
 *Plan your enterprise ChatGPT deployment*
 
-**Exercise 1: The 4-Phase Enterprise Rollout Plan**
 
-**Scenario:** You're the IT Director or Chief of Staff at a 200-person company. Leadership approved budget for ChatGPT Enterprise. You need a deployment plan that drives adoption without overwhelming the organization or creating security risks.
+**Exercise 1: Enterprise AI Deployment Templates**
 
-**Your Mission:** Design a phased rollout that maximizes value while managing risk.
-
-**Phase 1: Pilot (Weeks 1-4) - Prove Value**
-
-```
-PILOT SCOPE:
-- Users: 15-20 people across 3-4 departments
-- Selection criteria:
-  • Early adopters (enthusiastic about AI)
-  • Diverse roles (sales, marketing, product, support)
-  • High-impact potential (can demonstrate clear ROI)
-  • Influential (can evangelize to peers)
-
-PILOT GOALS:
-1. Validate use cases (which workflows save the most time)
-2. Identify best practices (what works, what doesn't)
-3. Surface concerns (security questions, workflow integration)
-4. Build champions (users who will train others)
-5. Measure ROI (hours saved, quality improvements)
-
-PILOT ACTIVITIES:
-Week 1: Setup + onboarding
-- Deploy ChatGPT Enterprise
-- Configure SSO, security policies
-- Onboarding session: "ChatGPT 101 for [COMPANY]"
-- Share use case library (start with 10 proven workflows)
-
-Week 2-3: Active usage + support
-- Daily: Monitor usage analytics (who's using, how much, for what)
-- Office hours: 2x/week for questions and troubleshooting
-- Check-ins: 1-on-1 with each pilot user to understand blockers
-- Document: Save examples of high-value use cases
-
-Week 4: Measure + refine
-- Survey pilot users: Time saved, quality improvement, challenges
-- Calculate ROI: [HOURS SAVED] × [AVG HOURLY RATE] = $[VALUE]
-- Refine rollout plan based on learnings
-- Prepare executive summary for leadership
-
-SUCCESS METRICS:
-- 80%+ of pilot users active weekly
-- 3-5 documented high-ROI use cases
-- 5-10 hours/week saved per user (average)
-- Clear plan for company-wide rollout
-```
-
-**Phase 2: Department Rollout (Weeks 5-12)**
-
-```
-EXPANSION STRATEGY:
-- Add 2-3 departments per month (start with highest-ROI departments)
-- Priority order based on:
-  1. ROI potential (time savings × team size)
-  2. Ease of adoption (digital-first teams adopt faster)
-  3. Pilot learnings (where did it work best?)
-
-ROLLOUT SEQUENCE (Example):
-Month 1: Sales + Customer Success (high-volume communication = big wins)
-Month 2: Marketing + Product (content creation, research)
-Month 3: Engineering + Operations (code, documentation, analysis)
-
-PER-DEPARTMENT ROLLOUT:
-1. Kickoff session (60 min):
-   - Why ChatGPT Enterprise + what's possible
-   - Department-specific use cases (sales email templates, support macros, etc.)
-   - Live demos by pilot users from similar roles
-   - Q&A
-
-2. Use case library:
-   - Share 10-15 templates specific to this department
-   - Examples from pilot phase
-   - "Quick wins" they can try day one
-
-3. Support infrastructure:
-   - Slack channel: #chatgpt-help
-   - Office hours: 2x/week
-   - Champions: 2-3 pilot users per department to peer-support
-
-4. Track adoption:
-   - Usage analytics: Who's active, who's not
-   - Proactive outreach to non-users: "Need help getting started?"
-   - Celebrate wins: Share success stories in all-hands
-
-SUCCESS METRICS (per department):
-- 70%+ adoption rate within 30 days
-- 3-5 documented department-specific use cases
-- Positive feedback from department lead
-```
-
-**Phase 3: Company-Wide (Weeks 13-24)**
-
-```
-FULL DEPLOYMENT:
-- All employees have access
-- Training becomes self-serve + on-demand
-- Use cases documented in knowledge base
-- Champions network established (1-2 per department)
-
-INFRASTRUCTURE:
-1. Self-serve onboarding:
-   - Automated welcome email with getting-started guide
-   - Video tutorials (5-10 min each)
-   - Use case library (50+ templates organized by role/function)
-
-2. Ongoing enablement:
-   - Monthly "ChatGPT Office Hours" (open Q&A)
-   - Quarterly "What's New" sessions (new features)
-   - Internal newsletter: "AI Win of the Week"
-
-3. Support model:
-   - Primary: Peer-to-peer (Champions network)
-   - Secondary: Slack channel
-   - Tertiary: IT help desk for tech issues
-
-4. Measurement:
-   - Monthly usage reports to leadership
-   - Quarterly ROI analysis
-   - Annual user survey
-
-SUCCESS METRICS:
-- 80-90% company-wide adoption
-- 5-10 hours/week saved per user (average)
-- $500K-1M+ annual productivity value
-- High user satisfaction (8+/10)
-```
-
-**Phase 4: Optimization (Month 7+)**
-
-```
-CONTINUOUS IMPROVEMENT:
-1. Advanced use cases:
-   - Custom GPTs for company-specific needs
-   - API integration for internal tools
-   - Workflow automation with ChatGPT
-
-2. Governance refinement:
-   - Review data policies based on usage patterns
-   - Update security controls as needed
-   - Optimize seat allocations (who needs it most)
-
-3. Scaling what works:
-   - Identify highest-ROI use cases → formalize as company standards
-   - Productize workflows (turn ad-hoc usage into repeatable processes)
-   - Expand to vendors/partners if valuable
-
-LONG-TERM SUCCESS:
-- AI fluency becomes core competency
-- Usage deeply embedded in daily workflows
-- Measurable competitive advantage
-- Platform for future AI capabilities
-```
-
-**What You're Learning:**
-- Enterprise adoption is a change management challenge, not just a tech deployment
-- Start small (pilot), prove value, then scale
-- Training and support infrastructure matter as much as the product
-- Measurement drives buy-in and continuous improvement
+The challenge of deploying enterprise AI is not a single problem, but a set of interconnected challenges spanning strategy, security, adoption, and customization. Use the templates below to practice the core skills required for a successful enterprise rollout, focusing on different roles and complexity levels.
 
 ---
+
+### Template 1: Phased Rollout Strategy (Low Complexity / High Visibility)
+
+**Name:** The 6-Month Enterprise AI Rollout Plan
+
+**When to use:**
+*   When you need executive buy-in for a large-scale AI deployment.
+*   When transitioning from individual user accounts (Plus) to a centralized platform (Enterprise).
+*   When managing organizational change and adoption risk.
+*   When establishing a clear timeline and measurable milestones.
+*   When communicating the deployment plan to the entire company.
+
+**Setup Prompt:**
+You are a **Chief of Staff** presenting to the executive team. Create a 6-month, 4-phase rollout plan for ChatGPT Enterprise for our **[NUMBER]**-person company. The plan must include: Phase name, duration, key activities, and success metrics for each phase. Focus on building internal champions and proving early ROI.
+
+**Practice Scenario:**
+Your company, a **250**-person B2B SaaS provider, has just approved the budget for ChatGPT Enterprise. The goal is to achieve **85%** adoption within **6** months and save an estimated **15,000** labor hours in the first year. The average fully-loaded cost per employee is **$75/hour**.
+
+**Success Metrics (Checklist):**
+*   Phases clearly defined (Pilot, Departmental, Company-Wide, Optimization).
+*   Pilot group size and duration are realistic (e.g., 15 users, 4 weeks).
+*   Key activities for each phase are specific (e.g., SSO configuration, Champion training).
+*   A clear ROI calculation is included (e.g., **15,000** hours * **$75/hour** = **$1,125,000** value).
+*   Adoption targets are set for each phase (e.g., 10% in Month 1, 50% in Month 3).
+*   The plan addresses both technical setup and change management.
+*   The tone is professional and focused on business value.
+*   The plan identifies the highest-value departments for early rollout (e.g., Sales, Marketing).
+*   A risk mitigation strategy for data security is mentioned.
+*   The final success metric aligns with the scenario's goal (**85%** adoption, **15,000** hours saved).
+
+---
+
+### Template 2: Compliance Configuration Audit (Medium Complexity / High Risk)
+
+**Name:** Enterprise Security and Governance Policy Draft
+
+**When to use:**
+*   When operating in a regulated industry (e.g., finance, healthcare, legal).
+*   When drafting the initial security policy for the IT and Legal teams.
+*   When configuring the administrative settings for data retention and access.
+*   When defining which data tiers are allowed/prohibited in the platform.
+*   When preparing for a compliance audit (e.g., SOC 2, HIPAA, GDPR).
+
+**Setup Prompt:**
+You are the **CISO** for a mid-sized **[INDUSTRY]** firm. Draft a mandatory security and governance policy for ChatGPT Enterprise. The policy must cover: SSO requirements, data retention settings, acceptable use policy for **[DATA TIER]** data, and a clear process for reporting misuse.
+
+**Practice Scenario:**
+You are the CISO for a **Financial Services** firm with **500** employees. You must comply with **FINRA** and **SOC 2** regulations. The policy must strictly prohibit the use of **Material Non-Public Information (MNPI)**. You have identified **15** instances of employees using personal ChatGPT accounts in the last **3** months.
+
+**Success Metrics (Checklist):**
+*   SSO and MFA are mandated for all users.
+*   Data retention is set to **Zero Retention** (no data used for training).
+*   The policy explicitly prohibits **MNPI** and other sensitive data.
+*   A clear consequence for policy violation is outlined (e.g., immediate account suspension).
+*   The policy defines a **Tier 3/Confidential** data category.
+*   The need for a Business Associate Agreement (BAA) is addressed (if applicable to the industry).
+*   A process for compliance monitoring (e.g., audit log review) is included.
+*   The policy is written in clear, unambiguous legal/technical language.
+*   It addresses the risk of personal account usage and how to migrate/block it.
+*   It specifies the required compliance standard (**FINRA** and **SOC 2**).
+
+---
+
+### Template 3: Custom GPT Blueprint (Medium-High Complexity / High Value)
+
+**Name:** High-Value Custom GPT Design Specification
+
+**When to use:**
+*   When moving beyond general-purpose AI to encode specific institutional knowledge.
+*   When automating a high-volume, repetitive, and knowledge-intensive task.
+*   When integrating AI with internal systems via Actions/APIs.
+*   When creating a proprietary tool that provides a competitive advantage.
+*   When training a specific department on advanced AI usage.
+
+**Setup Prompt:**
+You are a **Product Manager** designing a Custom GPT for the **[DEPARTMENT]** team. Create a detailed blueprint for a GPT named **"[GPT NAME]"**. Include: Purpose, 5 core instructions (persona, tone, rules), 3 required knowledge files, 4 conversation starters, and a clear ROI calculation based on time saved.
+
+**Practice Scenario:**
+Design a Custom GPT for the **Customer Support** team. Name it **"First-Line Triage Agent"**. Its purpose is to resolve **70%** of Tier 1 support tickets instantly. The team handles **400** tickets per day, and the average resolution time for Tier 1 is **12** minutes.
+
+**Success Metrics (Checklist):**
+*   The GPT's name and purpose are clear and aligned with the department.
+*   Instructions define a specific persona (e.g., "Empathetic, technical expert").
+*   Instructions include a critical rule (e.g., "Only use information from the knowledge base").
+*   Knowledge files are relevant (e.g., "Product FAQ," "Troubleshooting Guide").
+*   Conversation starters are practical for the support team (e.g., "Customer error: [CODE]").
+*   The ROI calculation is accurate: **400** tickets/day * **70%** resolved * **12** min saved = **3360** min/day.
+*   The blueprint addresses the need for regular knowledge base updates.
+*   It specifies the required access control (Support Team only).
+*   It suggests a potential API Action (e.g., "Search Zendesk for ticket history").
+*   The design focuses on a measurable outcome (**70%** Tier 1 resolution).
+
+---
+
+### Template 4: API Integration & Workflow Automation (High Complexity / High Value)
+
+**Name:** Enterprise API Integration for Workflow Automation
+
+**When to use:**
+*   When the goal is to automate multi-step business processes, not just generate text.
+*   When integrating ChatGPT's capabilities directly into a custom internal application.
+*   When bypassing the chat interface for high-volume, programmatic use.
+*   When optimizing for cost and speed over the full chat experience.
+*   When the user is an advanced developer or solution architect.
+
+**Setup Prompt:**
+You are a **Solution Architect**. Design an automated workflow using the OpenAI API (not the chat interface) to solve a critical business problem for the **[DEPARTMENT]** team. Detail the **3**-step workflow, the specific API model used, the input data source, and the final output destination.
+
+**Practice Scenario:**
+Design an automated workflow for the **Legal** department to process **150** new vendor contracts per month. The goal is to extract **5** key clauses (e.g., Indemnification, Termination, Liability Cap) and summarize the risk level (High, Medium, Low) into a **JSON** object for the internal database.
+
+**Success Metrics (Checklist):**
+*   The workflow uses the **API** (e.g., `gpt-4o` via API call), not the chat interface.
+*   The workflow is clearly broken down into **3** or more steps (e.g., Upload, Extract, Validate, Store).
+*   The input data source is specified (e.g., **PDF** files from a shared drive).
+*   The output format is structured (e.g., **JSON** schema).
+*   The model selection is appropriate for the task (e.g., `gpt-4o` for complex legal reasoning).
+*   The scenario's real numbers are used (e.g., **150** contracts/month, **5** clauses).
+*   The solution addresses the need for data privacy/security in the API call.
+*   The final output destination is an internal system (e.g., **SQL** database).
+*   The prompt considers error handling (e.g., what if a clause is missing?).
+*   The value proposition is clear (e.g., reducing **150** manual reviews from **2** hours to **5** minutes).
+
 
 ### Intermediate Level (7 minutes)
 *Enterprise security, governance, and compliance*

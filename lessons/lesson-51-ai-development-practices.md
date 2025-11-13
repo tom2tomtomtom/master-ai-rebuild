@@ -72,36 +72,13 @@ SAVINGS: $330K (51%) + 4× velocity increase
 
 ### Foundation Level
 
-#### Exercise 1: AI-Assisted Code Completion
-**Objective**: Learn to work with AI as a coding partner
-
-**Scenario:** You're a developer at FastCode, a 15-person startup shipping fast. You're tired of writing repetitive functions—price calculations, data transformations, API handlers. Every function takes 15 minutes to write, test, and get right. Your manager needs 8 features this week. How can AI help you ship faster without sacrificing quality?
-
-**Your Mission:** Use AI code completion to write a complex function (with multiple parameters, error handling, edge cases) in half the normal time.
-
-**Setup** (2 min):
-- Open your IDE (VS Code with Copilot)
-- Create a new file with a function stub:
-```javascript
-// Calculate total price with tax and discount applied
-function calculatePrice(basePrice, taxRate, discountPercent) {
-  // AI will complete this
-}
-```
-
-**Action** (2 min):
-- Type the comment shown above
-- Copilot suggests completion
-- Press Tab to accept
-- Observe: variable names, error handling, return value
-- Test the generated function with sample data
-
-**Verification** (1 min):
-- Did Copilot generate reasonable code?
-- Does it handle edge cases (negative prices, invalid tax)?
-- Is the code readable?
-
-**What you're learning:** AI code completion is like pair programming with an expert who never gets tired. It doesn't replace your thinking—it frees you from writing boilerplate. Your job becomes reviewing suggestions, saying "yes" or "give me another option," and focusing on business logic rather than syntax. This shift—from writing code to designing systems—is where your value moves.
+**Exercise 1: AI-Assisted Code Completion (5 min)**
+- Open file with function you're writing
+- Type comment: `// Calculate total price with tax and discount`
+- Let Copilot complete (Tab to accept)
+- Observe: Variable names, parameter handling, error cases
+- Test the generated function
+- Note: What was good, what needed adjustment
 
 **Exercise 2: Documenting Existing Code (5 min)**
 - Copy existing complex function into Claude

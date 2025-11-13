@@ -61,155 +61,265 @@ This happens autonomously—you're watching Claude control your computer.
 ### Foundation Level (5 minutes)
 *Master basic computer control workflows and task delegation*
 
-**Exercise 1: Simple Multi-Step Automation**
+## Exercise 1: Autonomous Workflow Templates - From Repetitive Task to Production System
 
-**Scenario:** You have a weekly task: Download sales report from web portal, open in Excel, add summary row, save to specific folder, email to team. Takes 15 minutes manually, done 52 times/year = 13 hours annually. Let Claude automate it.
-
-**Your Mission:** Learn to delegate repetitive computer tasks to Claude.
-
-**Task Delegation Framework:**
-
-**Step 1: Task Description (Clear Instructions)**
-
-```
-Prompt to Claude (Computer Use mode):
-
-"I need you to complete this weekly task for me.
-
-TASK: Download and process sales report
-
-STEPS:
-1. Navigate to: https://[company-portal].com/reports
-2. Login with credentials (I'll provide)
-3. Click 'Weekly Sales Report'
-4. Download as Excel file
-5. Open downloaded file
-6. Add row at bottom with SUM formulas for columns C, D, E
-7. Save file to: /Users/[name]/Documents/Sales Reports/
-8. Filename format: 'Sales_Report_[DATE].xlsx'
-
-VERIFICATION:
-- File exists in correct location
-- SUM row is accurate
-- Filename matches format
-
-Start when ready. Ask me for login credentials when you need them."
-```
-
-**What Claude Does:**
-- Takes screenshot to see desktop
-- Opens browser
-- Navigates to URL
-- Waits for login prompt (asks you for credentials)
-- Completes login
-- Navigates report interface
-- Downloads file
-- Opens Excel application
-- Edits spreadsheet
-- Saves to specified location
-- Confirms completion
-
-**Step 2: Error Handling & Verification**
-
-```
-"Before you finish, verify:
-- Screenshot the final saved file location
-- Open the file and screenshot the SUM row
-- Confirm the formulas are correct
-- Show me the file timestamp
-
-If anything fails, tell me what went wrong and what you tried."
-```
-
-**Common First Tasks to Automate:**
-
-**Task 1: Data Entry Across Applications**
-
-```
-"Copy customer data from Excel to CRM.
-
-SOURCE: /Users/[name]/Desktop/new_customers.xlsx
-DESTINATION: [CRM URL] → Contacts section
-
-PROCESS:
-1. Open Excel file
-2. Read each row (Name, Email, Company, Phone)
-3. For each customer:
-   - Open CRM in browser
-   - Navigate to 'Add Contact'
-   - Fill in fields
-   - Click 'Save'
-   - Move to next row
-4. Log any errors (duplicates, missing data)
-
-Start with first 5 customers as test, then continue if successful."
-```
-
-**Task 2: Report Generation**
-
-```
-"Generate weekly summary report from multiple sources.
-
-SOURCES:
-- Google Analytics: [URL] → Download traffic data
-- Stripe Dashboard: [URL] → Export revenue data
-- Mailchimp: [URL] → Get campaign stats
-
-DESTINATION:
-- Create new Google Doc
-- Title: 'Weekly Summary [DATE]'
-- Format:
-  ## Traffic (from GA)
-  - Visitors: [X]
-  - Page views: [Y]
-
-  ## Revenue (from Stripe)
-  - Total: $[X]
-  - Transactions: [Y]
-
-  ## Email (from Mailchimp)
-  - Open rate: [X]%
-  - Click rate: [Y]%
-
-Share link with me when done."
-```
-
-**Task 3: File Organization**
-
-```
-"Organize my Downloads folder.
-
-TASK: Sort files into folders by type
-
-RULES:
-- PDFs → Documents/PDFs/
-- Images (jpg, png) → Pictures/
-- Spreadsheets (xlsx, csv) → Documents/Spreadsheets/
-- Videos (mp4, mov) → Videos/
-- Archives (zip, tar) → Archives/
-- Everything else → Documents/Other/
-
-After moving files:
-- Delete files older than 90 days from Downloads
-- Screenshot organized folders
-- Report: X files moved, Y deleted"
-```
-
-**What You're Learning:**
-- Claude can control any application visible on screen
-- Works across web browsers, desktop apps, file systems
-- Can handle multi-step workflows spanning multiple applications
-- Asks clarifying questions when instructions unclear
-- Verifies completion with screenshots
-
-**Pro Tips for First Automations:**
-- Start with low-risk tasks (not mission-critical)
-- Provide clear step-by-step instructions
-- Test with small batch first (5 items vs. 500)
-- Review results before full automation
-- Keep credentials secure (don't paste in plain text)
+**Goal:** Master the core patterns of Claude's Computer Use capability by applying structured prompts to common business use cases, transforming manual, repetitive tasks into reliable, autonomous workflows.
 
 ---
+
+### Template 1: Cross-Application Data Migration & Entry
+
+**Name:** **Bulk Data Entry and Validation**
+
+**When to use:**
+*   Transferring a large list of contacts from a spreadsheet into a CRM or marketing platform.
+*   Migrating product inventory data from an old system's export file into a new e-commerce backend.
+*   Processing a batch of expense reports by entering line items into an accounting software interface.
+*   Updating user profiles across multiple internal tools (e.g., HR system, project management, communication platform).
+*   Any task involving reading structured data from one source and accurately inputting it into a graphical user interface.
+
+**Setup Prompt:**
+
+```markdown
+I need you to perform a bulk data entry task from a local spreadsheet into a web-based CRM.
+
+**TASK:** Migrate the first [15] new leads from the 'Q4_Leads.xlsx' file into the 'Salesforce' CRM.
+
+**SOURCE FILE:** /Users/[USER_NAME]/Documents/Data/Q4_Leads.xlsx
+**DESTINATION URL:** [https://salesforce.com/leads/new]
+
+**PROCESS STEPS:**
+1. Open the Excel file at the specified path.
+2. For the first [15] rows of data (excluding the header row):
+    a. Open the DESTINATION URL in the browser.
+    b. Input the data from columns 'Name', 'Email', 'Company', and 'Phone' into the corresponding fields on the 'New Lead' form.
+    c. Set the 'Lead Source' field to 'Website Inquiry'.
+    d. Click the 'Save' button.
+    e. Wait for the success confirmation message.
+    f. Repeat for the next row.
+3. Log the status (Success/Failure) for each of the [15] records in a new column in the Excel file.
+4. Close the Excel file and the browser.
+
+**VERIFICATION:**
+- Take a screenshot of the final [15th] successfully created lead record in the CRM.
+- Report the total number of successful and failed entries.
+
+Start the process now.
+```
+
+**Practice Scenario:**
+
+A sales development representative (SDR) receives a list of **150** qualified leads from a recent webinar in an Excel file. The SDR needs to manually enter the first **15** leads into the company's CRM, which takes approximately **3 minutes** per lead. The goal is to automate this **45-minute** task to free up the SDR for follow-up calls.
+
+**Success Metrics (Checkboxes):**
+- [ ] Claude successfully opened the local Excel file.
+- [ ] Claude navigated to the specified CRM 'New Lead' URL.
+- [ ] Data from the first **15** rows was accurately read and transferred.
+- [ ] The 'Lead Source' field was correctly set to 'Website Inquiry' for all entries.
+- [ ] The 'Save' button was clicked for each record, and the process completed without error.
+- [ ] A new column was added to the Excel file with the status of each entry.
+- [ ] Claude provided a final count of successful and failed entries (**15** successful, **0** failed).
+- [ ] A screenshot of the final, saved lead record was provided.
+- [ ] The total time taken by Claude was less than **5 minutes**.
+
+---
+
+### Template 2: Automated Reporting & Data Synthesis
+
+**Name:** **Multi-Source Performance Dashboard Generation**
+
+**When to use:**
+*   Compiling a weekly business performance report from multiple SaaS dashboards (e.g., marketing, sales, finance).
+*   Creating a competitive analysis report by scraping data from several competitor websites and synthesizing it into a single document.
+*   Generating a personalized monthly client report by combining data from an internal database and a third-party analytics tool.
+*   Any task requiring the aggregation, analysis, and structured presentation of data from disparate web-based sources.
+*   Automating the creation of a standardized document or presentation that relies on fresh, real-time data.
+
+**Setup Prompt:**
+
+```markdown
+Generate a 'Weekly Marketing Performance' report by synthesizing data from three different platforms into a Google Doc.
+
+**TASK:** Create a report for the week of [10/28/2024] to [11/03/2024].
+
+**SOURCES:**
+1. **Google Analytics:** [https://analytics.google.com/view/traffic] (Extract: Total Users, Bounce Rate)
+2. **Mailchimp:** [https://mailchimp.com/reports/campaigns] (Extract: Email Open Rate, Click-Through Rate)
+3. **Stripe:** [https://dashboard.stripe.com/reports/revenue] (Extract: Total Revenue, New Subscriptions)
+
+**PROCESS STEPS:**
+1. Log into each of the three platforms and navigate to the specified report sections.
+2. Set the date range filter to [10/28/2024] to [11/03/2024] on all platforms.
+3. Extract the required metrics for each source.
+4. Create a new Google Doc titled 'Weekly Marketing Report - [11/04/2024]'.
+5. Format the extracted data into a clear table and write a 150-word summary analyzing the key trends (e.g., 'Revenue is up 12% week-over-week, but the email CTR dropped 5%').
+6. Share the link to the completed Google Doc.
+
+**VERIFICATION:**
+- Provide a screenshot of the date range filter applied in Google Analytics.
+- Confirm the total revenue figure extracted from Stripe.
+
+Start the process now.
+```
+
+**Practice Scenario:**
+
+A marketing manager needs a weekly report that takes **90 minutes** to compile manually. The report must cover the last **7 days** of data. The manager wants to automate this to save **6 hours** per month. The target metrics for the week of **10/28/2024** to **11/03/2024** are: Total Users (**12,500**), Email Open Rate (**22.5%**), and Total Revenue (**$45,200**).
+
+**Success Metrics (Checkboxes):**
+- [ ] Claude successfully logged into and navigated all three specified platforms.
+- [ ] The correct date range (**10/28/2024** to **11/03/2024**) was applied to all data sources.
+- [ ] The six required metrics were accurately extracted (Users, Bounce Rate, Open Rate, CTR, Revenue, Subscriptions).
+- [ ] A new Google Doc was created with the correct title format.
+- [ ] The extracted data was presented in a clear, structured table within the document.
+- [ ] A summary of at least **150** words was generated, analyzing the data.
+- [ ] The final Google Doc link was provided.
+- [ ] The reported Total Users was close to the expected **12,500** (within 5%).
+- [ ] The reported Total Revenue was close to the expected **$45,200** (within 5%).
+- [ ] The entire report generation process took less than **10 minutes**.
+
+---
+
+### Template 3: Conditional Workflow & Triage
+
+**Name:** **Intelligent Support Ticket Triage and Escalation**
+
+**When to use:**
+*   Automating the initial screening and routing of customer support tickets based on keywords, customer tier, and urgency.
+*   Processing incoming job applications by filtering candidates based on required skills and experience levels before assigning them to a recruiter.
+*   Triage of system alerts, where different alert types (e.g., 'High CPU', 'Disk Full', 'Network Down') require distinct, automated responses (e.g., restart service, notify engineer, log to incident system).
+*   Any workflow that requires complex **IF/THEN/ELSE** logic and conditional actions across multiple systems.
+*   Implementing a rule-based system for content moderation or compliance review.
+
+**Setup Prompt:**
+
+```markdown
+Automate the triage and routing of new support tickets based on a defined set of conditional rules.
+
+**TASK:** Process the last [25] support tickets in the 'New' queue.
+
+**SOURCE PLATFORM:** [https://supportdesk.com/tickets/new]
+**ESCALATION SYSTEM:** [https://slack.com/channel/incidents]
+
+**CONDITIONAL RULES:**
+1. **IF** Ticket Subject contains 'Payment Failure' **AND** Customer Tier is 'Enterprise':
+    → **ACTION:** Assign to 'Finance Escalation' queue. Send a Slack alert to [#finance-critical].
+2. **ELSE IF** Ticket Category is 'Bug' **AND** Priority is 'High':
+    → **ACTION:** Create a new ticket in Jira with the summary. Assign to 'Engineering Triage'.
+3. **ELSE IF** Ticket Category is 'Question' **AND** Customer Tier is 'Free':
+    → **ACTION:** Search the Knowledge Base for an answer. Draft a response with the top result. Assign to 'General Support'.
+4. **ELSE** (Default):
+    → **ACTION:** Assign to 'Tier 1 Support'. Set status to 'Pending Review'.
+
+**PROCESS STEPS:**
+1. Log into the support platform and access the 'New' queue.
+2. For each of the last [25] tickets:
+    a. Read the Subject, Category, Priority, and Customer Tier.
+    b. Apply the conditional rules to determine the required action.
+    c. Execute the action (re-assign, create Jira ticket, draft response, send Slack alert).
+    d. Log the Ticket ID and the final action taken in a separate log file: /home/ubuntu/triage_log_[DATE].txt
+3. Report the total number of tickets processed and the count for each action taken.
+
+Start the process now.
+```
+
+**Practice Scenario:**
+
+A support team receives an average of **100** tickets per day. Manually triaging the first **25** tickets takes a senior agent about **60 minutes**. The goal is to automate this initial triage. In a test batch of **25** tickets, **3** should trigger the Finance Escalation rule, **5** should trigger the Engineering Triage rule, **12** should trigger the General Support rule, and **5** should fall to the Default rule.
+
+**Success Metrics (Checkboxes):**
+- [ ] Claude successfully processed the last **25** tickets in the 'New' queue.
+- [ ] The conditional logic was correctly applied to all tickets.
+- [ ] **3** tickets were correctly assigned to 'Finance Escalation' and triggered a Slack alert.
+- [ ] **5** tickets resulted in a new ticket being created in the simulated Jira system.
+- [ ] **12** tickets had a draft response generated from the simulated Knowledge Base search.
+- [ ] **5** tickets were correctly assigned to 'Tier 1 Support'.
+- [ ] A log file (`triage_log_[DATE].txt`) was created with the final action for all **25** tickets.
+- [ ] Claude reported the final count of actions taken (3, 5, 12, 5).
+- [ ] The process demonstrated the ability to interact with at least **3** different simulated applications (Support Desk, Jira, Slack).
+
+---
+
+### Template 4: System Monitoring & Error Handling
+
+**Name:** **Autonomous Daily Health Check with Resilience**
+
+**When to use:**
+*   Running a daily or hourly check on critical business systems (e.g., website uptime, database connection, API health).
+*   Automating a nightly batch process that must be retried or logged if it fails (e.g., data backup, ETL job).
+*   Monitoring a production environment for specific error messages in log files and automatically escalating or attempting a fix.
+*   Any task that requires unattended, scheduled execution with robust **error detection, logging, and recovery** mechanisms.
+*   Implementing a continuous integration/continuous deployment (CI/CD) pipeline step that needs to handle transient failures.
+
+**Setup Prompt:**
+
+```markdown
+Execute a daily health check on our primary web application, including robust error handling and logging.
+
+**TASK:** Perform a 3-step health check on the 'Product Dashboard' at [https://app.company.com/dashboard].
+
+**CHECK STEPS:**
+1. **Login Check:** Navigate to the URL and successfully log in with credentials [USER] and [PASS].
+2. **Data Load Check:** Navigate to the 'Analytics' tab and verify that the 'Total Users' metric loads a number greater than [1000].
+3. **API Health Check:** Click the 'Settings' icon and verify that the 'API Status' indicator is green.
+
+**ERROR HANDLING:**
+- **IF** Login fails: Take a screenshot of the error message. **RETRY** the login once after a [30] second delay. If the second attempt fails, log 'CRITICAL FAILURE: Login' and **STOP** the entire check.
+- **IF** Data Load fails (e.g., metric is missing or < [1000]): Log 'WARNING: Data Load Issue'. Continue to the next step.
+- **IF** API Health Check fails (indicator is red): Take a screenshot. Log 'CRITICAL FAILURE: API Down'.
+
+**PROCESS STEPS:**
+1. Execute the three checks sequentially.
+2. Log all actions and errors to a master log file: /home/ubuntu/health_check_log_[DATE].txt
+3. At the end, send a summary email to [ops@company.com] with the overall status (GREEN/YELLOW/RED).
+
+Start the process now.
+```
+
+**Practice Scenario:**
+
+An operations team runs a daily health check that takes **15 minutes** manually. The check is critical for system stability. The goal is to automate this check, including the ability to handle a common transient login failure. The expected 'Total Users' metric is **15,500**. The system should be tested with a simulated transient failure on the first login attempt.
+
+**Success Metrics (Checkboxes):**
+- [ ] Claude attempted the first login and simulated a failure.
+- [ ] Claude correctly waited for the specified **30** second delay.
+- [ ] Claude successfully performed the second login attempt.
+- [ ] The 'Data Load Check' was performed, and the 'Total Users' metric was verified against the expected **15,500** (or > **1000**).
+- [ ] The 'API Health Check' was performed, and the status was verified.
+- [ ] The entire process was logged to the `health_check_log_[DATE].txt` file, including the retry attempt.
+- [ ] The final summary email was simulated to be sent to `ops@company.com`.
+- [ ] The final status reported was **GREEN** (assuming the retry succeeded and no other errors occurred).
+- [ ] The process demonstrated the ability to detect and recover from a transient failure.
+- [ ] The total time taken, including the delay, was less than **5 minutes**.
+
+---
+
+### What You're Learning
+
+✅ **The Principle of Explicit Instruction:** Claude's computer use is only as good as the prompt. You learn to break down complex, multi-application tasks into explicit, sequential steps that leave no room for ambiguity.
+✅ **State-Aware Automation:** You understand that Claude operates by observing the screen state (screenshots) and making decisions. This requires prompts to include clear verification steps and expected outcomes at each stage.
+✅ **Conditional Logic for Business Rules:** You master the use of `IF/THEN/ELSE` structures within prompts to handle real-world business complexity, such as triaging support tickets or validating data before processing.
+✅ **Resilience and Error Handling:** You learn to design workflows that anticipate failure (e.g., login errors, slow loading) and include explicit instructions for retries, logging, and graceful skipping to ensure the overall process is robust.
+✅ **The Power of Abstraction:** You move beyond simple single-step commands to orchestrate a series of actions across disparate systems (web, desktop, file system) using a single, high-level natural language instruction.
+
+---
+
+### Try It Now: Build Your First Production-Grade Workflow
+
+Follow these steps to build and test a robust, multi-step automation using one of the templates above.
+
+1.  **Select a Template:** Choose the **Template 4: Autonomous Daily Health Check** as your starting point.
+2.  **Identify a Target:** Select a simple, non-critical web application or website (e.g., a personal dashboard, a public status page) to use as your target system.
+3.  **Define the Checks:** Modify the `CHECK STEPS` in the template to include three specific, verifiable actions on your chosen target (e.g., "Verify logo is present," "Check the number of items in the cart," "Confirm the last updated date is today").
+4.  **Set the Failure Point:** Introduce a deliberate, temporary failure into your prompt's `ERROR HANDLING` section (e.g., instruct Claude to use an incorrect password once, or look for a metric that is temporarily hidden).
+5.  **Refine the Prompt:** Write the final `Setup Prompt` with real, non-sensitive data and clear instructions for logging and reporting. Use the `[BRACKETS]` for any variable data.
+6.  **Execute and Observe:** Run the prompt in Claude and observe its behavior, specifically watching how it handles the deliberate failure and the subsequent recovery/logging steps.
+7.  **Review the Log:** Check the generated log file (`health_check_log_[DATE].txt`) to ensure the failure, the retry, and the final status were all correctly recorded.
+
+### Final Success Metric
+
+✅ **Your first production-grade workflow is complete:** You have successfully executed a multi-step, cross-application automation that included explicit conditional logic, demonstrated recovery from a transient failure, and produced a structured log file and final status report.
+
 
 ### Intermediate Level (7 minutes)
 *Complex workflows, decision-making, and conditional logic*

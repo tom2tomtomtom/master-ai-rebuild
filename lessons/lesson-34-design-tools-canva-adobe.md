@@ -196,24 +196,121 @@ COST: Free (limited) or included in Office 365
 
 ### Foundation Level: Creating Your First AI Design (5 minutes per exercise)
 
-**Exercise 1: Create Your First Social Media Post (5 min)**
+**Exercise 1: Master AI Design Tool Templates**
 
-Goal: Create professional Instagram post without design experience.
+**Objective:**  
+Learn to create and apply tailored AI design tool prompts that maximize efficiency, reduce costs, and scale design output in real-world business contexts.
 
-Steps:
-1. Go to canva.com, create free account
-2. Click "Create a design" → "Instagram Post"
-3. Browse templates, select one matching your brand
-4. Click "Customize"
-5. Edit text with your message (double-click to edit)
-6. Upload your photo (drag and drop)
-7. Adjust colors to match your brand
-8. Click "Download"
-9. Save to computer or share directly to Instagram
+**Scenario:**  
+Imagine you are a marketing manager at a mid-sized company facing a growing backlog of design requests. Your small design team is overwhelmed, deadlines are slipping, and costs are ballooning. Leveraging AI design tools like Canva AI and Adobe Firefly can transform your workflow by enabling non-designers to produce quality designs quickly.
 
-Learning: Professional design is now accessible to non-designers. Quality rivals designer-created content.
+**Your Mission:**  
+Develop and practice using 3 AI design prompt templates that address common business needs—social media content, marketing materials, and product mockups—optimizing for speed, cost, and quality.
 
 ---
+
+### Template 1: Rapid Social Media Post Creator
+
+- **When to use:**  
+  - Need to produce 20-50 social media posts monthly  
+  - Tight deadlines under 1 hour per post  
+  - Low risk tolerance for off-brand designs  
+  - Budget constraints limiting external agency use  
+  - Want to empower non-designers for self-service content  
+
+- **Setup Prompt:**  
+```  
+Create a [PLATFORM] social media post for [CAMPAIGN NAME] featuring [KEY MESSAGE] and [BRAND COLORS]. Include [CALL TO ACTION] and optimize for [ENGAGEMENT GOAL]. Use a [STYLE: e.g., minimalist, vibrant] design that aligns with our brand guidelines.
+```  
+
+- **Practice Scenario:**  
+At GreenLeaf Organics, the marketing team needed 30 Instagram posts for a new product launch campaign within two weeks. Using this template, non-designers generated posts averaging 8 minutes each, reducing design time from 15 hours to 4 hours. The campaign saw a 25% increase in engagement compared to previous launches.
+
+- **Success Metrics:**  
+  - [ ] Posts created in under 10 minutes each  
+  - [ ] Consistent brand colors and messaging  
+  - [ ] Engagement increase of 20%+  
+  - [ ] Zero design backlog by campaign end  
+  - [ ] Cost per post under $3  
+  - [ ] Non-designer adoption rate above 80%  
+  - [ ] Post designs required fewer than 2 revisions  
+
+---
+
+### Template 2: Efficient Marketing Material Generator
+
+- **When to use:**  
+  - Producing 10-20 marketing brochures or flyers monthly  
+  - Need designs in under 1 hour each  
+  - Moderate budget allowing some designer review  
+  - Projects with medium risk for brand consistency  
+  - Scaling output without hiring additional designers  
+
+- **Setup Prompt:**  
+```  
+Design a [TYPE: brochure/flyer] for [PRODUCT/SERVICE] highlighting [FEATURES]. Use [IMAGES/ICONS] aligned with [BRAND ASSETS]. The tone should be [TONE: professional, friendly, bold], targeting [AUDIENCE DEMOGRAPHIC]. Include contact info: [CONTACT DETAILS].
+```  
+
+- **Practice Scenario:**  
+BrightTech Solutions used this template to create 15 product flyers for a trade show. Flyers were completed within 45 minutes each, cutting production time by 70%. The marketing team saved $3,000 compared to outsourcing. Leads generated from the trade show increased by 18%.
+
+- **Success Metrics:**  
+  - [ ] Marketing materials completed under 1 hour  
+  - [ ] Accurate use of brand assets  
+  - [ ] Positive feedback from sales team  
+  - [ ] Cost savings of 60%+ vs agency  
+  - [ ] Increased lead generation by 15%+  
+  - [ ] Materials required fewer than 3 revisions  
+  - [ ] Consistent tone and messaging  
+
+---
+
+### Template 3: Quick Product Mockup Designer
+
+- **When to use:**  
+  - Creating 20-50 product mockups monthly  
+  - Tight project timelines under 30 minutes per mockup  
+  - Low to moderate risk on visual accuracy  
+  - Need to test multiple variations rapidly  
+  - Budget limits prohibit frequent designer involvement  
+
+- **Setup Prompt:**  
+```  
+Create a product mockup for [PRODUCT NAME] featuring [SPECIFIC FEATURE]. Use [BACKGROUND TYPE] and apply [COLOR SCHEME]. The mockup should be optimized for [USE CASE: e.g., website, presentation] and maintain [BRAND STYLE].
+```  
+
+- **Practice Scenario:**  
+HomeStyle Furnishings’ product team needed 40 mockups for seasonal catalog updates. Using this prompt, each mockup took 20 minutes on average, compared to 2 hours previously. The team accelerated product launches by 25%, and internal review cycles dropped from 5 to 2 rounds.
+
+- **Success Metrics:**  
+  - [ ] Mockups delivered in under 30 minutes each  
+  - [ ] Visual alignment with brand style  
+  - [ ] Reduced internal review rounds by 50%  
+  - [ ] Accelerated time-to-market by 20%+  
+  - [ ] Cost per mockup under $5  
+  - [ ] Increased iteration speed for A/B testing  
+  - [ ] High stakeholder satisfaction  
+
+---
+
+**What You're Learning:**  
+- ✅ **EFFICIENCY THROUGH AI DESIGN AUTOMATION**: Use AI to drastically reduce design time and costs.  
+- ✅ **SCALABILITY OF DESIGN OUTPUT**: Enable non-designers to produce professional designs reliably at scale.  
+- ✅ **BRAND CONSISTENCY MAINTENANCE**: Incorporate brand guidelines into AI prompts to protect brand identity.  
+- ✅ **COST-EFFECTIVE DESIGN OPERATIONS**: Replace expensive traditional workflows with affordable AI tools.  
+- ✅ **ITERATIVE RAPID PROTOTYPING**: Quickly generate and refine multiple design variations for testing.  
+
+**Try It Now:**  
+1. Choose a common design need in your organization (e.g., social post, flyer, mockup).  
+2. Customize one of the above templates with your brand and campaign details.  
+3. Use an AI design tool to generate your first design.  
+4. Review and refine the output for brand consistency.  
+5. Track time and cost savings compared to traditional methods.  
+6. Collect feedback from stakeholders on design quality.  
+7. Iterate the prompt to improve results further.  
+
+**Success Metric:**  
+- Reduce average design creation time by at least 70% while maintaining brand quality and increasing output volume.
 
 **Exercise 2: Generate Image Variations with Firefly (5 min)**
 

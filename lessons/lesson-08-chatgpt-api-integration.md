@@ -103,181 +103,67 @@ curl https://api.openai.com/v1/chat/completions \
 ### Foundation Level (5 minutes)
 *Master the API request structure and core parameters*
 
-**Exercise 1: Understanding the API Request Anatomy**
+### Exercise 1: Advanced Parameter Tuning - The 3 Pillars of API Success
 
-**Scenario:** You're a product manager at a SaaS company. Your engineers need to integrate AI into your app, but you need to understand what's possible, how it works, and how to communicate requirements. You don't need to be a developer, but you need to speak the language.
+The core of successful API integration lies in mastering the parameters that control the AI's behavior. We will explore three distinct use cases, each representing a pillar of business application: **Consistency (Customer Service), Creativity (Marketing), and Accuracy (Data Analysis)**. Your mission is to understand how to tune the `model`, `temperature`, and `max_tokens` for each specific business goal.
 
-**Your Mission:** Understand the core components of an API request and how each affects the output.
-
-**API Request Structure:**
-
-```python
-response = openai.chat.completions.create(
-    model="gpt-5",                    # Which AI model to use
-    messages=[                         # Conversation history
-        {"role": "system", "content": "System instructions"},
-        {"role": "user", "content": "User request"}
-    ],
-    temperature=0.7,                   # Creativity level (0-2)
-    max_tokens=500,                    # Response length limit
-    top_p=1.0,                         # Diversity of word choice
-    frequency_penalty=0.0,             # Penalize repetition
-    presence_penalty=0.0               # Encourage new topics
-)
-```
-
-**Parameter Deep Dive:**
-
-**1. MODEL (Which AI to use)**
-```python
-model="gpt-5"           # Most capable (August 2025) - $0.06/1K tokens
-model="gpt-5-mini"      # Faster, cheaper - $0.002/1K tokens
-model="gpt-4o"          # Previous generation - $0.03/1K tokens
-model="o1"              # Reasoning specialist - $0.15/1K tokens
-```
-
-**When to use each:**
-- GPT-5: Complex reasoning, creative writing, nuanced understanding
-- GPT-5-mini: Simple tasks, high volume, cost-sensitive (80% cheaper)
-- GPT-4o: Multimodal (images), balance of cost/performance
-- o1: Math, logic, code debugging, complex problem-solving
-
-**2. MESSAGES (Conversation structure)**
-```python
-messages=[
-    # System message: Sets behavior, tone, constraints
-    {"role": "system", "content": "You are a customer support agent for Acme Corp. Be empathetic and solution-focused."},
-
-    # User message: The actual request
-    {"role": "user", "content": "Customer says: Product arrived damaged. How do I respond?"},
-
-    # Assistant message (optional): Previous AI response for context
-    {"role": "assistant", "content": "Previous response if continuing conversation"}
-]
-```
-
-**System message best practices:**
-- Define role and expertise
-- Set tone and personality
-- Specify output format
-- Include constraints ("never promise refunds over $100")
-- Add domain knowledge
-
-**3. TEMPERATURE (Creativity vs. Consistency)**
-```python
-temperature=0.0    # Deterministic, consistent (customer support)
-temperature=0.3    # Mostly consistent with slight variation (data analysis)
-temperature=0.7    # Balanced (default, general tasks)
-temperature=1.0    # Creative (marketing copy, brainstorming)
-temperature=1.5+   # Very creative, unpredictable (experimental writing)
-```
-
-**Business use cases:**
-- 0.0-0.3: Customer support, legal docs, financial analysis (consistency critical)
-- 0.5-0.8: Marketing content, sales emails (creative but on-message)
-- 1.0-1.5: Product names, ad headlines, unconventional ideas
-
-**4. MAX_TOKENS (Response length control)**
-```python
-max_tokens=50      # Short: Subject lines, headlines, tags
-max_tokens=200     # Medium: Emails, social posts, summaries
-max_tokens=1000    # Long: Articles, reports, detailed responses
-```
-
-**Cost optimization:**
-- Tokens = words × ~1.3 (including prompt + response)
-- "max_tokens=200" caps response at ~150 words max
-- Shorter responses = lower cost per request
-
-**5. TOP_P (Diversity control)**
-```python
-top_p=0.1          # Very focused, predictable word choices
-top_p=0.5          # Moderate diversity
-top_p=1.0          # Full diversity (default)
-```
-
-**Use with temperature:**
-- Low temp + low top_p = Maximum consistency
-- High temp + high top_p = Maximum creativity
-
-**6. PENALTIES (Repetition control)**
-```python
-frequency_penalty=0.5    # Reduce word repetition
-presence_penalty=0.5     # Encourage new topics
-```
-
-**When to use:**
-- Long content with repetition issues
-- Want varied vocabulary
-- Usually keep at 0 for business tasks
-
-**Worked Examples:**
-
-**Example 1: Customer Support (Consistency Priority)**
-```python
-response = openai.chat.completions.create(
-    model="gpt-5-mini",              # Cost-effective for high volume
-    messages=[
-        {"role": "system", "content": """
-You are a Tier 1 customer support agent for TechFlow, a project management SaaS.
-Tone: Professional, empathetic, solution-focused.
-Always: Acknowledge issue, provide solution or next steps, reference help docs.
-Never: Promise refunds over $100, admit liability without checking policy.
-        """},
-        {"role": "user", "content": "Customer email: My account was charged twice this month. Need refund ASAP."}
-    ],
-    temperature=0.2,                 # Low creativity, high consistency
-    max_tokens=300                   # Email length
-)
-```
-
-**Why these settings:**
-- GPT-5-mini: Thousands of support tickets/day, cost matters
-- Temp 0.2: Need consistent, on-brand responses (not creative)
-- Max 300 tokens: Keeps responses concise, controls cost
-
-**Example 2: Marketing Content (Creativity Priority)**
-```python
-response = openai.chat.completions.create(
-    model="gpt-5",                   # Need high quality, creativity
-    messages=[
-        {"role": "system", "content": """
-You are a creative copywriter for a B2B SaaS company.
-Brand voice: Bold, data-driven, slightly provocative.
-Task: Write compelling ad headlines that challenge status quo.
-        """},
-        {"role": "user", "content": "Product: AI-powered sales automation. Target: Sales managers at 50-500 person companies. Pain point: Too much manual data entry."}
-    ],
-    temperature=1.2,                 # High creativity
-    max_tokens=100,                  # Short-form copy
-    top_p=0.9                        # Diverse word choice
-)
-```
-
-**Why these settings:**
-- GPT-5: Quality matters for customer-facing content
-- Temp 1.2: Want creative, attention-grabbing headlines
-- Max 100: Headlines are short-form
-
-**Example 3: Data Analysis (Accuracy Priority)**
-```python
-response = openai.chat.completions.create(
-    model="o1",                      # Reasoning specialist
-    messages=[
-        {"role": "system", "content": "You are a data analyst. Analyze data methodically and show your work."},
-        {"role": "user", "content": "Dataset: [paste CSV data]. Question: What's the correlation between customer lifetime value and support ticket frequency?"}
-    ],
-    temperature=0.0,                 # Zero creativity—accuracy only
-    max_tokens=1500                  # Detailed analysis with reasoning
-)
-```
-
-**Why these settings:**
-- o1 model: Best for analytical reasoning
-- Temp 0.0: No creativity—consistent, logical analysis
-- Max 1500: Need space for detailed explanation and reasoning
+#### What You're Learning (5 ✅ principles)
+✅ **The Cost-Quality Trade-off:** Understanding how model choice (`gpt-5` vs. `gpt-5-mini`) directly impacts both output quality and operational cost.
+✅ **The Consistency-Creativity Spectrum:** Mastering the `temperature` parameter to ensure outputs are either reliably consistent (low temp) or highly creative (high temp).
+✅ **The System Message as a Constraint:** Using the `system` role to define the AI's persona, rules, and output format, which is critical for automation.
+✅ **Token Management for Efficiency:** Controlling response length with `max_tokens` to manage latency and optimize per-request cost.
+✅ **The Use Case-Parameter Mapping:** Developing an intuition for which parameters are most critical for different business functions (e.g., low temperature for finance, high temperature for advertising).
 
 ---
+
+#### Template 1: High-Volume, High-Consistency Automation (The Customer Service Bot)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Customer Support Ticket Triage and Response |
+| **When to use** | <ul><li>Processing thousands of daily requests.</li><li>When cost-efficiency is the top priority.</li><li>When responses must be strictly on-brand and policy-compliant.</li><li>For tasks requiring deterministic, repeatable output (e.g., summarization).</li><li>When the task is simple and does not require complex reasoning.</li></ul> |
+| **Setup Prompt** | **System:** You are a Tier 1 customer support agent for [SAAS_COMPANY_NAME], a project management software. Your tone must be professional, empathetic, and solution-focused. Always acknowledge the issue, provide a solution or next steps, and reference the help documentation. Never promise refunds over $100 or admit liability without checking policy. **User:** Customer email: My account was charged twice this month. Need refund ASAP. |
+| **Practice Scenario** | A mid-sized e-commerce company receives **1,500** customer support tickets per day. They aim to automate **80%** of initial responses with an AI bot. The average cost per manual response is **$2.50**. Using the `gpt-5-mini` model (costing **$0.002** per 1K tokens), calculate the potential daily savings and set the parameters for maximum consistency. |
+| **Success Metrics** | <ul><li>✅ Model is set to `gpt-5-mini` for cost optimization.</li><li>✅ `temperature` is set to **0.2** or lower for maximum consistency.</li><li>✅ `max_tokens` is capped at **300** to control response length and cost.</li><li>✅ The system message clearly defines the AI's role, tone, and constraints.</li><li>✅ The output is a professional, empathetic response to the customer's billing issue.</li><li>✅ The response avoids promising a refund over $100.</li><li>✅ The response suggests the next step (e.g., "I've escalated this to our billing team").</li><li>✅ The estimated daily savings are calculated correctly (Manual cost: $3,750; Automated cost: ~$10; Savings: ~$3,740).</li></ul> |
+
+---
+
+#### Template 2: High-Quality, High-Creativity Generation (The Marketing Copywriter)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Ad Headline and Campaign Ideation |
+| **When to use** | <ul><li>Generating multiple, diverse creative options.</li><li>When the goal is to capture attention and provoke thought.</li><li>For tasks where originality and novelty are highly valued.</li><li>When testing different messaging angles for A/B testing.</li><li>For brainstorming product names, slogans, or taglines.</li></ul> |
+| **Setup Prompt** | **System:** You are a creative copywriter for a B2B SaaS company. Your brand voice is bold, data-driven, and slightly provocative. Your task is to write compelling ad headlines that challenge the status quo. **User:** Product: AI-powered sales automation. Target: Sales managers at 50-500 person companies. Pain point: Too much manual data entry. Generate 5 unique headlines. |
+| **Practice Scenario** | A marketing team needs to generate **50** unique ad headlines for a new product launch. They plan to A/B test the top **5** performers. They have a budget of **$500** for content generation. Using the `gpt-5` model (costing **$0.06** per 1K tokens), set the parameters to maximize creative diversity and ensure the headlines are short and punchy. |
+| **Success Metrics** | <ul><li>✅ Model is set to `gpt-5` for highest quality and creative capacity.</li><li>✅ `temperature` is set to **1.0** or higher for maximum creativity.</li><li>✅ `max_tokens` is capped at **100** to ensure short-form headline output.</li><li>✅ The system message clearly defines the creative persona and brand voice.</li><li>✅ The output contains at least 5 distinct and provocative headlines.</li><li>✅ The headlines are relevant to the target audience (Sales Managers).</li><li>✅ The headlines address the pain point (manual data entry).</li><li>✅ The `top_p` parameter is set to a high value (e.g., **0.9**) to encourage diverse word choice.</li><li>✅ The estimated cost for 50 headlines is well within the $500 budget (e.g., 50 requests * 100 tokens/request * $0.06/1K tokens = $0.30).</li></ul> |
+
+---
+
+#### Template 3: Zero-Creativity, High-Accuracy Reasoning (The Data Analyst)
+
+| Field | Content |
+| :--- | :--- |
+| **Name** | Financial Data Analysis and Reporting |
+| **When to use** | <ul><li>Analyzing structured data (CSV, JSON, tables).</li><li>For tasks requiring mathematical precision and logical deduction.</li><li>When the output must be factual and non-hallucinatory.</li><li>For code generation, debugging, or complex problem-solving.</li><li>When the reasoning process is more important than the final answer.</li></ul> |
+| **Setup Prompt** | **System:** You are a senior financial data analyst. Analyze the provided data methodically, show your work, and present the final conclusion in a JSON object. **User:** Dataset: [paste 10 rows of financial data]. Question: Calculate the Q3 2025 Net Profit Margin and identify the top 3 expense categories. |
+| **Practice Scenario** | A finance team needs to analyze a quarterly expense report containing **5,000** data points. The analysis must be **100%** accurate and include a detailed breakdown of the calculation steps. They expect the final report to be approximately **1,500** tokens long. Using the `o1` model (costing **$0.15** per 1K tokens), set the parameters to eliminate creativity and ensure a comprehensive, structured output. |
+| **Success Metrics** | <ul><li>✅ Model is set to `o1` (Reasoning Specialist) for analytical tasks.</li><li>✅ `temperature` is set to **0.0** for zero creativity and maximum accuracy.</li><li>✅ `max_tokens` is set to **1500** or higher to accommodate the detailed report.</li><li>✅ The system message mandates a methodical analysis and a structured output format (JSON).</li><li>✅ The output includes the calculated Net Profit Margin.</li><li>✅ The output correctly identifies the top 3 expense categories.</li><li>✅ The output shows the step-by-step reasoning for the calculations.</li><li>✅ The response is entirely factual and contains no speculative or creative language.</li><li>✅ The estimated cost for the single report is calculated correctly (e.g., 1,500 tokens * $0.15/1K tokens = $0.225).</li></ul> |
+
+---
+
+#### Try It Now (7 steps)
+1. **Select a Template:** Choose one of the three templates above (Customer Service, Marketing, or Data Analysis).
+2. **Set Up Your Environment:** Ensure you have your OpenAI API key and the necessary Python or Node.js environment set up from the previous section.
+3. **Copy the Code:** Use the base Python code structure provided in the lesson.
+4. **Tune the Parameters:** Adjust the `model`, `temperature`, and `max_tokens` in your code to match the specific settings recommended in your chosen template.
+5. **Refine the System Prompt:** Copy the **System** and **User** content from the template's **Setup Prompt** into the `messages` array in your code.
+6. **Execute the Code:** Run the script and observe the output.
+7. **Verify the Metrics:** Check the output against the **Success Metrics** list for your chosen template.
+
+#### Final Success Metric
+**You have successfully tuned the API parameters to achieve a specific business outcome (Consistency, Creativity, or Accuracy), demonstrating mastery over the core controls of the ChatGPT API.**
+
 
 ### Intermediate Level (7 minutes)
 *Build production-ready integrations with error handling and optimization*

@@ -2,10 +2,10 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import LessonContent from '@/components/lesson-content'
 import CompleteButton from '@/components/complete-button'
 import { DashboardHeader } from '@/app/components/dashboard-header'
 import { AIPathNavigator } from '@/app/components/ai-path-navigator'
+import { LessonWithChat } from '@/components/lesson-with-chat'
 
 interface LessonPageProps {
   params: Promise<{ id: string }>
@@ -86,10 +86,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </div>
           </div>
 
-          {/* Markdown Content */}
-          <div className="bg-white dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-800 p-10 md:p-12 mb-8">
-            <LessonContent content={lesson.content} />
-          </div>
+          {/* Content with Chat Sidebar */}
+          <LessonWithChat content={lesson.content} lessonId={id} />
 
           {/* Complete Button */}
           <div className="flex justify-center mb-12">
