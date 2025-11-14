@@ -1,60 +1,33 @@
-import { createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
-  const requestUrl = new URL(request.url)
-  const code = requestUrl.searchParams.get('code')
-  const origin = requestUrl.origin
+  const { searchParams } = new URL(request.url)
+  const code = searchParams.get('code')
+  const next = searchParams.get('next') ?? '/chatbot'
 
   if (code) {
-    const cookieStore = await cookies()
+    const supabase = await createClient()
 
-    // Create server client with response management for route handlers
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          getAll() {
-            return cookieStore.getAll()
-          },
-          setAll(cookiesToSet) {
-            cookiesToSet.forEach(({ name, value, options }) => {
-              cookieStore.set(name, value, options)
-            })
-          },
-        },
+    try {
+      const { error } = await supabase.auth.exchangeCodeForSession(code)
+
+      if (error) {
+        console.error('❌ [Auth Callback] Exchange failed:', error.message)
+        return NextResponse.redirect(new URL('/?error=auth_failed', request.url))
       }
-    )
 
-    const { error, data } = await supabase.auth.exchangeCodeForSession(code)
-
-    if (!error && data.session) {
-      // Create response and set cookies explicitly
-      const response = NextResponse.redirect(`${origin}/chatbot`, {
-        status: 302,
-      })
-
-      // Copy cookies from cookieStore to response
-      cookieStore.getAll().forEach(({ name, value }) => {
-        response.cookies.set(name, value, {
-          httpOnly: true,
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: 'lax',
-          path: '/',
-          maxAge: 60 * 60 * 24 * 365, // 1 year for session
-        })
-      })
-
-      return response
-    } else {
-      console.error('[Auth Callback] Session exchange failed:', error?.message)
+      console.log('✅ [Auth Callback] Session exchanged successfully')
+      // The session cookies are automatically set by exchangeCodeForSession
+      // Redirect to chatbot or next parameter
+      return NextResponse.redirect(new URL(next, request.url))
+    } catch (err) {
+      console.error('❌ [Auth Callback] Error:', err)
+      return NextResponse.redirect(new URL('/?error=server_error', request.url))
     }
-  } else {
-    console.error('[Auth Callback] No code parameter provided')
   }
 
-  // Return the user to an error page with instructions
-  return NextResponse.redirect(`${origin}/`)
+  // No code provided - redirect home
+  console.warn('⚠️  [Auth Callback] No code parameter')
+  return NextResponse.redirect(new URL('/', request.url))
 }
