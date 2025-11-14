@@ -65,7 +65,7 @@ This happens autonomously—you're watching Claude control your computer.
 - **Pro tier required:** This lesson needs Claude Pro ($20/month)
 - **Browser & OS:** Works on Mac, Windows, Linux with any browser
 
-See Lesson 9.5 for full settings guide and Computer Use setup.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide and Computer Use setup.
 
 ---
 

@@ -81,7 +81,7 @@ These integrations are available with Claude Pro:
 
 This lesson covers agents. For detailed connector configuration:
 
-**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+**→ See [Lesson 9.5](/lesson/lesson-09.5): Claude Complete Settings & Setup Guide**
 - Step-by-step connector setup for each tool
 - Permission scopes explained
 - Privacy and data security

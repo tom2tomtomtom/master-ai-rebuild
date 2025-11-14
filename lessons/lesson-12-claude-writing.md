@@ -66,7 +66,7 @@ Compare this to GPT-5 output—you'll notice Claude's writing has:
 - **Artifacts:** Claude may create documents in Artifacts panel—use them to see live preview
 - **Pro tier required:** This lesson needs Claude Pro ($20/month)
 
-See Lesson 9.5 for full settings guide.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide.
 
 ---
 

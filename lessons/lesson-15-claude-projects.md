@@ -63,7 +63,7 @@ Claude Projects are persistent, reusable workspaces where you can:
 
 This lesson covers project strategies. For setup and configuration details:
 
-**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+**→ See [Lesson 9.5](/lesson/lesson-09.5): Claude Complete Settings & Setup Guide**
 - How to create Projects step-by-step
 - How to add files and documents
 - Custom instructions examples

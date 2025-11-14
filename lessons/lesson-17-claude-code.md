@@ -70,7 +70,7 @@ All in IDE-like environment. One window. No context switching.
 - **Capabilities:** Full terminal access, git integration, deployment tools
 - **Environment:** Works with any programming language and framework
 
-See Lesson 9.5 for full settings guide and Claude Code project setup.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide and Claude Code project setup.
 
 ---
 

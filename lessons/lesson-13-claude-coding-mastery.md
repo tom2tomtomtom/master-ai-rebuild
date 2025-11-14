@@ -66,7 +66,7 @@ Compare to GPT-5: Claude's code will have fewer bugs, better structure, and more
 - **Artifacts:** Claude creates code in Artifacts panel—see it syntax-highlighted with copy button
 - **Pro tier required:** This lesson needs Claude Pro ($20/month)
 
-See Lesson 9.5 for full settings guide.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide.
 
 ---
 

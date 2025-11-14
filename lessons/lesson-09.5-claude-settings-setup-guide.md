@@ -1,4 +1,4 @@
-# Lesson 9.5: Claude Complete Setup & Settings Guide
+# [[Lesson 9.5](/lesson/lesson-09.5)](/lesson/lesson-09.5): Claude Complete Setup & Settings Guide
 
 *Master Claude's essential configuration: accessing the platform, selecting the right model, enabling advanced features, and setting up projects and connectors for maximum productivity*
 

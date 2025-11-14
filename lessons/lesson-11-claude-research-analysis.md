@@ -86,7 +86,7 @@ Artifacts are Claude's live preview panels for interactive content (code, docume
 
 This lesson focuses on research techniques. For detailed setup of all features:
 
-**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+**→ See [Lesson 9.5](/lesson/lesson-09.5): Claude Complete Settings & Setup Guide**
 - Complete Deep Research walkthrough
 - Extended Thinking configuration
 - How to create and use Projects

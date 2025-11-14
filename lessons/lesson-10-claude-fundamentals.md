@@ -5,7 +5,7 @@
 
 ## ⚡ BEFORE YOU START: Critical Setup
 
-**This lesson assumes you've completed these essential setup steps. If not, review Lesson 9.5 first.**
+**This lesson assumes you've completed these essential setup steps. If not, review [Lesson 9.5](/lesson/lesson-09.5) first.**
 
 ### Quick Setup Checklist
 
@@ -50,7 +50,7 @@ For this lesson's exercises, you need **Claude 4.5 Sonnet** (not Claude 3.5).
 
 This lesson covers Claude's capabilities. For detailed setup of features mentioned in exercises:
 
-**→ See Lesson 9.5: Claude Complete Settings & Setup Guide**
+**→ See [Lesson 9.5](/lesson/lesson-09.5): Claude Complete Settings & Setup Guide**
 - How to enable Deep Research mode
 - How to enable Extended Thinking
 - How to set up Projects (Exercise 2 uses this)

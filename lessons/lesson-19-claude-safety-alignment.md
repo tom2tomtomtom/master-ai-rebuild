@@ -135,7 +135,7 @@ A system prompt that Claude will follow, resulting in:
 - **Projects:** Use Projects to maintain safety frameworks across conversations
 - **Pro tier recommended:** Features like Projects enhanced with Claude Pro ($20/month)
 
-See Lesson 9.5 for full settings guide and compliance implementation patterns.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide and compliance implementation patterns.
 
 ---
 

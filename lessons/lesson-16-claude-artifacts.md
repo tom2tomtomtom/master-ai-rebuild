@@ -57,7 +57,7 @@ Make it functional and styled nicely.
 - **Model:** Works with both Claude 3.5 and 4.5 Sonnet (4.5 recommended)
 - **Export:** Copy to clipboard, download, or open in new window
 
-See Lesson 9.5 for full settings guide and best practices for Artifacts.
+See [Lesson 9.5](/lesson/lesson-09.5) for full settings guide and best practices for Artifacts.
 
 ---
 
