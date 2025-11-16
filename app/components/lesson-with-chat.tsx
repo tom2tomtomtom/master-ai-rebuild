@@ -48,6 +48,7 @@ export function LessonWithChat({ content, lessonId }: LessonWithChatProps) {
             lessonId={lessonId}
             selectedText={selectedText}
             onSelectText={setSelectedText}
+            lessonContent={content}
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-# [[Lesson 9.5](/lesson/lesson-09.5)](/lesson/lesson-09.5): Claude Complete Setup & Settings Guide
+# Lesson 9.5: Claude Complete Setup & Settings Guide
 
 *Master Claude's essential configuration: accessing the platform, selecting the right model, enabling advanced features, and setting up projects and connectors for maximum productivity*
 
@@ -145,6 +145,31 @@ Every other Claude lesson (10-19) assumes you've completed this setup. This less
 
 ---
 
+#### Claude Opus 4.1 (Maximum Reasoning Power)
+**When to use:** Most complex reasoning tasks, specialized analysis, advanced problem-solving
+
+**Strengths:**
+- Exceptional reasoning and analysis capabilities
+- Best for highly complex tasks requiring deep thinking
+- Excellent for specialized reasoning and research
+- Superior on tasks requiring maximum intelligence
+- Advanced multi-step problem solving
+
+**Limitations:**
+- Most expensive model ($15 input / $75 output per million tokens)
+- Slower than Sonnet 4.5
+- Overkill for simple or routine tasks
+
+**Access:** Pro tier and API only (most capable tier required)
+
+**When Sonnet 4.5 isn't enough:**
+- Use Opus when Sonnet 4.5 struggles with complex reasoning
+- For tasks requiring absolute best possible results
+- Legal/contract analysis, strategic decision-making, deep research
+- Complex math, coding architecture, specialized domains
+
+---
+
 #### Claude Haiku 4.5 (Fast & Efficient)
 **When to use:** Speed-critical tasks, high volume, routine work
 
@@ -181,11 +206,15 @@ Every other Claude lesson (10-19) assumes you've completed this setup. This less
 1. Look at top of chat window
 2. Click on model name (where it says "Claude Sonnet 4.5")
 3. Select from dropdown:
-   - Claude Sonnet 4.5 (recommended - best quality and most capable)
-   - Claude Haiku 4.5 (when you need speed - fastest option)
+   - **Claude Sonnet 4.5** (recommended default - best balance of quality, speed, and cost)
+   - **Claude Opus 4.1** (when you need maximum reasoning power for complex tasks)
+   - **Claude Haiku 4.5** (when you need speed - fastest option for routine work)
 4. Start new conversation - model doesn't change mid-conversation
 
-**Pro tip:** Start with Claude Sonnet 4.5 for best quality. Use Haiku 4.5 for routine or high-volume tasks when speed matters.
+**Pro tip:**
+- **Default:** Start with Claude Sonnet 4.5 for 95% of work
+- **Power users:** Use Opus 4.1 when Sonnet struggles with complex reasoning
+- **Speed:** Use Haiku 4.5 for routine tasks or high-volume work when speed matters
 
 ---
 

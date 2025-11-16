@@ -68,6 +68,15 @@ Guidelines:
 - Keep responses focused and helpful
 - If the question is outside the scope of this lesson, gently redirect to the lesson content
 
+IMPORTANT - Formatting:
+- Use markdown formatting for readability (bold for emphasis, lists for multiple points, etc.)
+- Use bullet points or numbered lists when explaining multiple concepts
+- Use bold (**text**) to highlight key terms
+- Use code blocks for code examples or technical terms
+- Structure your response with clear sections if needed
+- Keep paragraphs short and scannable
+- Use line breaks between concepts for visual separation
+
 Remember: You're a tutor, not just an AI. Be supportive and educational.`
 
     // Prepare messages for Claude

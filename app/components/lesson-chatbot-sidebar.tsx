@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Send, Lightbulb, X } from 'lucide-react'
+import { Send, Lightbulb, Zap } from 'lucide-react'
+import { ChatMessage } from '@/components/chat-message'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -12,16 +13,19 @@ interface LessonChatbotSidebarProps {
   lessonId: string
   selectedText?: string
   onSelectText?: (text: string) => void
+  lessonContent?: string
 }
 
 export function LessonChatbotSidebar({
   lessonId,
   selectedText,
-  onSelectText
+  onSelectText,
+  lessonContent = ''
 }: LessonChatbotSidebarProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [isTLDRLoading, setIsTLDRLoading] = useState(false)
   const [suggestedQuestions, setSuggestedQuestions] = useState<string[]>([])
   const [isSuggestionsLoading, setIsSuggestionsLoading] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -112,16 +116,63 @@ export function LessonChatbotSidebar({
     handleSendMessage(question)
   }
 
+  const handleTLDR = async () => {
+    setIsTLDRLoading(true)
+    try {
+      const response = await fetch('/api/lesson-summary', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lessonId, lessonContent })
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        const assistantMessage: Message = {
+          role: 'assistant',
+          content: data.summary
+        }
+        setMessages(prev => [...prev, assistantMessage])
+        scrollToBottom()
+      } else {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: 'Sorry, I could not generate a TL;DR for this lesson. Please try again.'
+        }])
+      }
+    } catch (error) {
+      console.error('Error generating TL;DR:', error)
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: 'Sorry, I encountered an error generating the TL;DR. Please try again.'
+      }])
+    } finally {
+      setIsTLDRLoading(false)
+    }
+  }
+
   return (
-    <div className="flex flex-col bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg h-96">
+    <div className="flex flex-col bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden shadow-lg h-full">
       {/* Header */}
       <div className="flex-shrink-0 px-5 py-4 border-b border-gray-200 dark:border-gray-800 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900">
-        <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base">
-          Lesson Assistant
-        </h3>
-        <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">
-          Ask questions about this lesson
-        </p>
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex-1">
+            <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base">
+              Lesson Assistant
+            </h3>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">
+              Ask questions about this lesson
+            </p>
+          </div>
+          <button
+            onClick={handleTLDR}
+            disabled={isTLDRLoading || isLoading}
+            title="Generate a quick TL;DR summary of the lesson"
+            className="flex-shrink-0 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1 whitespace-nowrap text-sm font-medium"
+          >
+            <Zap className="w-4 h-4" />
+            TL;DR
+          </button>
+        </div>
       </div>
 
       {/* Messages Area - Fixed height with internal scroll */}
@@ -157,20 +208,11 @@ export function LessonChatbotSidebar({
         )}
 
         {messages.map((message, idx) => (
-          <div
+          <ChatMessage
             key={idx}
-            className={`flex gap-3 ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-          >
-            <div
-              className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
-                message.role === 'user'
-                  ? 'bg-blue-600 text-white rounded-br-none'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-bl-none'
-              }`}
-            >
-              {message.content}
-            </div>
-          </div>
+            role={message.role}
+            content={message.content}
+          />
         ))}
 
         {isLoading && (
