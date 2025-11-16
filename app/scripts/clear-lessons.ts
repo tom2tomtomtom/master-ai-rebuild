@@ -35,7 +35,9 @@ async function clearLessons() {
     if (progressError) {
       console.error('⚠️  Note: Could not clear user_progress:', progressError.message)
     } else {
-      console.log(`✅ Cleared ${progressData?.length || 0} user progress records`)
+      // @ts-ignore - Supabase delete returns null
+      const count = progressData?.length || 0
+      console.log(`✅ Cleared ${count} user progress records`)
     }
 
     // Delete all lessons
@@ -49,6 +51,7 @@ async function clearLessons() {
       process.exit(1)
     }
 
+    // @ts-ignore - Supabase delete returns null
     console.log(`✅ Cleared ${lessonData?.length || 0} lesson records`)
     console.log('\n✅ Database is now empty - ready for fresh seed!\n')
   } catch (err) {

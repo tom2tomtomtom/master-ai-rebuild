@@ -6,6 +6,7 @@ import CompleteButton from '@/components/complete-button'
 import { DashboardHeader } from '@/app/components/dashboard-header'
 import { AIPathNavigator } from '@/app/components/ai-path-navigator'
 import { LessonWithChat } from '@/components/lesson-with-chat'
+import { StageList } from '@/components/lesson/StageList'
 
 interface LessonPageProps {
   params: Promise<{ id: string }>
@@ -14,6 +15,9 @@ interface LessonPageProps {
 export default async function LessonPage({ params }: LessonPageProps) {
   const { id } = await params
   const supabase = await createClient()
+
+  // DEBUG: Log the ID we're working with
+  console.log('🔍 [LessonPage] URL param id:', id)
 
   // Get current user
   const { data: { user }, error: userError } = await supabase.auth.getUser()
@@ -29,8 +33,35 @@ export default async function LessonPage({ params }: LessonPageProps) {
     .eq('id', id)
     .single()
 
+  console.log('🔍 [LessonPage] Found lesson:', lesson?.id, lesson?.title?.substring(0, 50))
+
   if (lessonError || !lesson) {
+    console.log('❌ [LessonPage] Lesson error or not found:', lessonError?.message)
     redirect('/dashboard')
+  }
+
+  // Check if this lesson has stages
+  const { data: stages, error: stagesError } = await supabase
+    .from('lesson_stages')
+    .select('id, stage_number, title, slug, content_type, estimated_minutes, difficulty, display_order, is_required, is_published')
+    .eq('lesson_id', id)
+    .eq('is_published', true)
+    .order('display_order')
+
+  console.log('🔍 [LessonPage] Stages query for lesson_id:', id)
+  console.log('🔍 [LessonPage] Found stages:', stages?.length || 0)
+  if (stagesError) console.log('❌ [LessonPage] Stages error:', stagesError.message)
+
+  // Get user stage progress if stages exist
+  let stageProgress: any[] = []
+  if (stages && stages.length > 0) {
+    const { data: progressData } = await supabase
+      .from('user_stage_progress')
+      .select('stage_id, completed, completed_at')
+      .eq('user_id', user.id)
+      .in('stage_id', stages.map(s => s.id))
+
+    stageProgress = progressData || []
   }
 
   // Get user progress for this lesson
@@ -42,6 +73,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
     .single()
 
   const isCompleted = progress?.completed || false
+  const hasStages = stages && stages.length > 0
 
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950">
@@ -69,6 +101,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
               <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
                 Lesson {lesson.lesson_number}
               </span>
+              {hasStages && (
+                <span className="text-xs font-medium text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded-full">
+                  {stages.length} Stages
+                </span>
+              )}
               {isCompleted && (
                 <span className="text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
                   Completed
@@ -86,17 +123,28 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </div>
           </div>
 
-          {/* Content with Chat Sidebar */}
-          <LessonWithChat content={lesson.content} lessonId={id} />
-
-          {/* Complete Button */}
-          <div className="flex justify-center mb-12">
-            <CompleteButton
+          {/* Conditional Rendering: Stages or Traditional Content */}
+          {hasStages ? (
+            <StageList
               lessonId={id}
-              userId={user.id}
-              initialCompleted={isCompleted}
+              stages={stages}
+              userProgress={stageProgress}
             />
-          </div>
+          ) : (
+            <>
+              {/* Content with Chat Sidebar */}
+              <LessonWithChat content={lesson.content} lessonId={id} />
+
+              {/* Complete Button */}
+              <div className="flex justify-center mb-12">
+                <CompleteButton
+                  lessonId={id}
+                  userId={user.id}
+                  initialCompleted={isCompleted}
+                />
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>

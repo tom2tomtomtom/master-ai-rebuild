@@ -50,7 +50,7 @@ export const LEARNING_PATHS = {
 export type PathId = keyof typeof LEARNING_PATHS
 
 export function getLessonsForPath(pathId: PathId): string[] {
-  return LEARNING_PATHS[pathId].lessons
+  return [...LEARNING_PATHS[pathId].lessons]
 }
 
 export function getPathInfo(pathId: PathId) {
