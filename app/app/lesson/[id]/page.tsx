@@ -16,15 +16,22 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const { id } = await params
   const supabase = await createClient()
 
-  // DEBUG: Log the ID we're working with
-  console.log('🔍 [LessonPage] URL param id:', id)
+  console.log('\n========================================')
+  console.log('🚀 LESSON PAGE RENDER START')
+  console.log('========================================')
 
   // Get current user
   const { data: { user }, error: userError } = await supabase.auth.getUser()
+  
+  console.log('🔍 USER:', user?.id?.substring(0, 20) + '...')
+  console.log('🔍 USER ERROR:', userError)
 
   if (userError || !user) {
+    console.log('❌ NO USER - REDIRECTING TO LOGIN')
     redirect('/')
   }
+
+  console.log('🔍 URL PARAMS ID:', id)
 
   // Get lesson data
   const { data: lesson, error: lessonError } = await supabase
@@ -33,24 +40,34 @@ export default async function LessonPage({ params }: LessonPageProps) {
     .eq('id', id)
     .single()
 
-  console.log('🔍 [LessonPage] Found lesson:', lesson?.id, lesson?.title?.substring(0, 50))
+  console.log('🔍 LESSON QUERY RESULT:')
+  console.log('   - lesson.id:', lesson?.id)
+  console.log('   - lesson.title:', lesson?.title?.substring(0, 50))
+  console.log('   - lessonError:', lessonError)
 
   if (lessonError || !lesson) {
-    console.log('❌ [LessonPage] Lesson error or not found:', lessonError?.message)
+    console.log('❌ LESSON NOT FOUND - REDIRECTING')
     redirect('/dashboard')
   }
 
   // Check if this lesson has stages
+  console.log('\n🔍 QUERYING STAGES FOR lesson_id:', lesson.id)
+  
   const { data: stages, error: stagesError } = await supabase
     .from('lesson_stages')
     .select('id, stage_number, title, slug, content_type, estimated_minutes, difficulty, display_order, is_required, is_published')
-    .eq('lesson_id', id)
+    .eq('lesson_id', lesson.id)
     .eq('is_published', true)
     .order('display_order')
 
-  console.log('🔍 [LessonPage] Stages query for lesson_id:', id)
-  console.log('🔍 [LessonPage] Found stages:', stages?.length || 0)
-  if (stagesError) console.log('❌ [LessonPage] Stages error:', stagesError.message)
+  console.log('🔍 STAGES QUERY RESULT:')
+  console.log('   - stagesError:', stagesError)
+  console.log('   - stages.length:', stages?.length || 0)
+  if (stages && stages.length > 0) {
+    console.log('   - First stage:', stages[0])
+    console.log('   - Stage IDs:', stages.map(s => s.id))
+    console.log('   - Stage numbers:', stages.map(s => s.stage_number))
+  }
 
   // Get user stage progress if stages exist
   let stageProgress: any[] = []
@@ -74,6 +91,20 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   const isCompleted = progress?.completed || false
   const hasStages = stages && stages.length > 0
+
+  console.log('\n🎯 RENDERING DECISION:')
+  console.log('   - hasStages:', hasStages)
+  console.log('   - stages.length:', stages?.length || 0)
+  
+  if (hasStages) {
+    console.log('✅ RENDERING STAGED VIEW')
+    console.log('   - StageList will render with', stages.length, 'stages')
+    console.log('   - User progress records:', stageProgress.length)
+  } else {
+    console.log('⚠️ RENDERING TRADITIONAL VIEW (no stages found)')
+    console.log('   - Will show monolithic content')
+  }
+  console.log('========================================\n')
 
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-slate-950">
