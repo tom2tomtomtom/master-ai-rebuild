@@ -62,6 +62,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   console.log('🔍 STAGES QUERY RESULT:')
   console.log('   - stagesError:', stagesError)
+  if (stagesError) {
+    console.log('   - ERROR MESSAGE:', stagesError.message)
+    console.log('   - ERROR CODE:', stagesError.code)
+    console.log('   - ERROR DETAILS:', stagesError.details)
+    console.log('   - ERROR HINT:', stagesError.hint)
+  }
   console.log('   - stages.length:', stages?.length || 0)
   if (stages && stages.length > 0) {
     console.log('   - First stage:', stages[0])

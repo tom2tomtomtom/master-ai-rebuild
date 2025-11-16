@@ -96,20 +96,50 @@ export function StageContent({
     setIsLoading(true)
     
     try {
-      const { error } = await supabase
+      // First, check if record exists
+      const { data: existing } = await supabase
         .from('user_stage_progress')
-        .upsert({
-          user_id: userId,
-          lesson_id: lesson.id,
-          stage_id: stage.id,
-          completed: true,
-          completed_at: new Date().toISOString(),
-          last_viewed_at: new Date().toISOString()
-        }, {
-          onConflict: 'user_id,stage_id'
-        })
+        .select('id')
+        .eq('user_id', userId)
+        .eq('stage_id', stage.id)
+        .single()
       
-      if (error) throw error
+      let error
+      
+      if (existing) {
+        // Update existing record
+        const result = await supabase
+          .from('user_stage_progress')
+          .update({
+            completed: true,
+            completed_at: new Date().toISOString(),
+            last_viewed_at: new Date().toISOString()
+          })
+          .eq('user_id', userId)
+          .eq('stage_id', stage.id)
+        error = result.error
+      } else {
+        // Insert new record
+        const result = await supabase
+          .from('user_stage_progress')
+          .insert({
+            user_id: userId,
+            lesson_id: lesson.id,
+            stage_id: stage.id,
+            completed: true,
+            completed_at: new Date().toISOString(),
+            last_viewed_at: new Date().toISOString()
+          })
+        error = result.error
+      }
+      
+      if (error) {
+        console.error('Database error:', error)
+        console.error('Error message:', error.message)
+        console.error('Error code:', error.code)
+        console.error('Error details:', error.details)
+        throw error
+      }
       
       setIsCompleted(true)
       
@@ -122,8 +152,12 @@ export function StageContent({
         }
       }, 1000)
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error marking complete:', error)
+      console.error('Error message:', error?.message)
+      console.error('Error code:', error?.code)
+      console.error('Error details:', error?.details)
+      console.error('Full error object:', JSON.stringify(error))
     } finally {
       setIsLoading(false)
     }
